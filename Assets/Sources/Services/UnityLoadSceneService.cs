@@ -65,6 +65,8 @@ class UnityLoadSceneService : ILoadSceneService
         {
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneToLoad));
             isAlreadyLoading = false;
+            isDoneLoading = false;
+            isDoneUnloading = false;
 
             _input.CreateEntity().isLoadSceneComplete = true;
         }

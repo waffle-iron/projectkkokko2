@@ -29,5 +29,7 @@ public class LoadingScreenViewController : View, IGameLoadSceneListener, IGameLo
     public void OnLoadSceneRemoved (GameEntity entity)
     {
         Hide();
+        this.Unlink();
+        UnityViewService.Unload(this);
     }
 }
