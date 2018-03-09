@@ -8,15 +8,36 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
+    public const int ID = 0;
+    public const int InputLoadSceneListener = 1;
+    public const int InputLoadSceneRemovedListener = 2;
+    public const int InputToDestroyListener = 3;
+    public const int InputToDestroyRemovedListener = 4;
+    public const int LoadSceneComplete = 5;
+    public const int LoadScene = 6;
+    public const int ToDestroy = 7;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
-
+        "ID",
+        "InputLoadSceneListener",
+        "InputLoadSceneRemovedListener",
+        "InputToDestroyListener",
+        "InputToDestroyRemovedListener",
+        "LoadSceneComplete",
+        "LoadScene",
+        "ToDestroy"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(IDComponent),
+        typeof(InputLoadSceneListenerComponent),
+        typeof(InputLoadSceneRemovedListenerComponent),
+        typeof(InputToDestroyListenerComponent),
+        typeof(InputToDestroyRemovedListenerComponent),
+        typeof(LoadSceneCompleteComponent),
+        typeof(LoadSceneComponent),
+        typeof(ToDestroyComponent)
     };
 }

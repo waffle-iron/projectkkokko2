@@ -8,15 +8,36 @@
 //------------------------------------------------------------------------------
 public static class CommandComponentsLookup {
 
+    public const int CommandLoadSceneListener = 0;
+    public const int CommandLoadSceneRemovedListener = 1;
+    public const int CommandToDestroyListener = 2;
+    public const int CommandToDestroyRemovedListener = 3;
+    public const int ID = 4;
+    public const int LoadSceneComplete = 5;
+    public const int LoadScene = 6;
+    public const int ToDestroy = 7;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
-
+        "CommandLoadSceneListener",
+        "CommandLoadSceneRemovedListener",
+        "CommandToDestroyListener",
+        "CommandToDestroyRemovedListener",
+        "ID",
+        "LoadSceneComplete",
+        "LoadScene",
+        "ToDestroy"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(CommandLoadSceneListenerComponent),
+        typeof(CommandLoadSceneRemovedListenerComponent),
+        typeof(CommandToDestroyListenerComponent),
+        typeof(CommandToDestroyRemovedListenerComponent),
+        typeof(IDComponent),
+        typeof(LoadSceneCompleteComponent),
+        typeof(LoadSceneComponent),
+        typeof(ToDestroyComponent)
     };
 }

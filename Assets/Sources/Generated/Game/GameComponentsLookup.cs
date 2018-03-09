@@ -8,15 +8,42 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
+    public const int CurrentID = 0;
+    public const int DoNotDestroyOnSceneChange = 1;
+    public const int GameLoadSceneListener = 2;
+    public const int GameLoadSceneRemovedListener = 3;
+    public const int GameToDestroyListener = 4;
+    public const int GameToDestroyRemovedListener = 5;
+    public const int ID = 6;
+    public const int LoadScene = 7;
+    public const int ToDestroy = 8;
+    public const int View = 9;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
-
+        "CurrentID",
+        "DoNotDestroyOnSceneChange",
+        "GameLoadSceneListener",
+        "GameLoadSceneRemovedListener",
+        "GameToDestroyListener",
+        "GameToDestroyRemovedListener",
+        "ID",
+        "LoadScene",
+        "ToDestroy",
+        "View"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(CurrentIDComponent),
+        typeof(DoNotDestroyOnSceneChangeComponent),
+        typeof(GameLoadSceneListenerComponent),
+        typeof(GameLoadSceneRemovedListenerComponent),
+        typeof(GameToDestroyListenerComponent),
+        typeof(GameToDestroyRemovedListenerComponent),
+        typeof(IDComponent),
+        typeof(LoadSceneComponent),
+        typeof(ToDestroyComponent),
+        typeof(ViewComponent)
     };
 }
