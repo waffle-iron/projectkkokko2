@@ -15,13 +15,20 @@ public static class GameComponentsLookup {
     public const int GameToDestroyListener = 4;
     public const int GameToDestroyRemovedListener = 5;
     public const int ID = 6;
-    public const int LoadScene = 7;
-    public const int ToDestroy = 8;
-    public const int View = 9;
-    public const int ViewListener = 10;
-    public const int ViewRemovedListener = 11;
+    public const int Loading = 7;
+    public const int LoadingListener = 8;
+    public const int LoadingRemovedListener = 9;
+    public const int LoadScene = 10;
+    public const int Saving = 11;
+    public const int SavingListener = 12;
+    public const int SavingRemovedListener = 13;
+    public const int TargetEntityID = 14;
+    public const int ToDestroy = 15;
+    public const int View = 16;
+    public const int ViewListener = 17;
+    public const int ViewRemovedListener = 18;
 
-    public const int TotalComponents = 12;
+    public const int TotalComponents = 19;
 
     public static readonly string[] componentNames = {
         "CurrentID",
@@ -31,7 +38,14 @@ public static class GameComponentsLookup {
         "GameToDestroyListener",
         "GameToDestroyRemovedListener",
         "ID",
+        "Loading",
+        "LoadingListener",
+        "LoadingRemovedListener",
         "LoadScene",
+        "Saving",
+        "SavingListener",
+        "SavingRemovedListener",
+        "TargetEntityID",
         "ToDestroy",
         "View",
         "ViewListener",
@@ -46,7 +60,14 @@ public static class GameComponentsLookup {
         typeof(GameToDestroyListenerComponent),
         typeof(GameToDestroyRemovedListenerComponent),
         typeof(IDComponent),
+        typeof(LoadingComponent),
+        typeof(LoadingListenerComponent),
+        typeof(LoadingRemovedListenerComponent),
         typeof(LoadSceneComponent),
+        typeof(SavingComponent),
+        typeof(SavingListenerComponent),
+        typeof(SavingRemovedListenerComponent),
+        typeof(TargetEntityIDComponent),
         typeof(ToDestroyComponent),
         typeof(ViewComponent),
         typeof(ViewListenerComponent),

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 class UnityLoadSceneService : ILoadSceneService
 {
-    private const string ROOT_SCENE = "Start_Scene";
+    private readonly string ROOT_SCENE;
 
     private InputContext _input;
 
@@ -16,9 +16,10 @@ class UnityLoadSceneService : ILoadSceneService
 
     private string sceneToLoad;
 
-    public UnityLoadSceneService (Contexts contexts)
+    public UnityLoadSceneService (Contexts contexts, string rootScene)
     {
         _input = contexts.input;
+        this.ROOT_SCENE = rootScene;
     }
 
     public void LoadScene (string name)

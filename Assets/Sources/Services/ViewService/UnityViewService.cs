@@ -33,7 +33,7 @@ public class UnityViewService : IViewService
                 newObj = objs[0];
                 objs.RemoveAt(0);
             }
-
+            newObj.name = name;
             newObj.hideFlags = HideFlags.None;
             views = newObj.GetComponentsInChildren<IView>();
         }
@@ -46,6 +46,7 @@ public class UnityViewService : IViewService
                 AddToPool(new GameObject[] { obj });
                 newObj = GameObject.Instantiate(obj, obj.transform.position, obj.transform.rotation, obj.transform.parent);
                 newObj.hideFlags = HideFlags.None;
+                newObj.name = name;
                 views = newObj.GetComponentsInChildren<IView>();
             }
             else

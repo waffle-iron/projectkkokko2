@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 public sealed class CommandLoadSceneEventSystem : Entitas.ReactiveSystem<CommandEntity> {
 
+    readonly Entitas.IGroup<CommandEntity> _listeners;
+
     public CommandLoadSceneEventSystem(Contexts contexts) : base(contexts.command) {
+        _listeners = contexts.command.GetGroup(CommandMatcher.CommandLoadSceneListener);
     }
 
     protected override Entitas.ICollector<CommandEntity> GetTrigger(Entitas.IContext<CommandEntity> context) {
@@ -18,14 +21,16 @@ public sealed class CommandLoadSceneEventSystem : Entitas.ReactiveSystem<Command
     }
 
     protected override bool Filter(CommandEntity entity) {
-        return entity.hasLoadScene && entity.hasCommandLoadSceneListener;
+        return entity.hasLoadScene;
     }
 
     protected override void Execute(System.Collections.Generic.List<CommandEntity> entities) {
         foreach (var e in entities) {
             var component = e.loadScene;
-            foreach (var listener in e.commandLoadSceneListener.value) {
-                listener.OnLoadScene(e, component.name);
+            foreach (var listenerEntity in _listeners) {
+                foreach (var listener in listenerEntity.commandLoadSceneListener.value) {
+                    listener.OnLoadScene(e, component.name);
+                }
             }
         }
     }

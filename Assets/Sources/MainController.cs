@@ -5,6 +5,9 @@ using Entitas;
 
 public class MainController : MonoBehaviour
 {
+    [SerializeField]
+    private string _rootScene;
+
     private Contexts _contexts;
     private Systems _systems;
 
@@ -51,8 +54,9 @@ public class MainController : MonoBehaviour
     {
         return new Services
             (
-            new UnityLoadSceneService(contexts),
-            new UnityViewService()
+            new UnityLoadSceneService(contexts, _rootScene),
+            new UnityViewService(),
+            new JSONSaveLoadService()
             );
     }
 }

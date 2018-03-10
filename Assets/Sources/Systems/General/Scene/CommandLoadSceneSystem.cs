@@ -3,11 +3,13 @@ using System.Collections;
 using UnityEngine;
 using Entitas;
 
-public class CommandLoadSceneSystem : ReactiveSystem<CommandEntity>
+public class CommandLoadSceneSystem : ReactiveSystem<CommandEntity>, IInitializeSystem
 {
     private readonly GameContext _game;
     private readonly MetaContext _meta;
     private readonly IGroup<GameEntity> _toDestroy;
+
+    private const string LOAD_SCENE_VIEW = "LoadSceneView";
 
     public CommandLoadSceneSystem (Contexts contexts) : base(contexts.command)
     {
@@ -34,7 +36,6 @@ public class CommandLoadSceneSystem : ReactiveSystem<CommandEntity>
         {
             _meta.loadSceneService.instance.LoadScene(e.loadScene.name);
             var entity = _game.CreateEntity();
-            entity.AddView("LoadSceneView");
             entity.AddLoadScene(e.loadScene.name);
             entity.isDoNotDestroyOnSceneChange = true;
         }
@@ -43,5 +44,11 @@ public class CommandLoadSceneSystem : ReactiveSystem<CommandEntity>
         {
             e.isToDestroy = true;
         }
+    }
+
+    public void Initialize ()
+    {
+        var entity = _game.CreateEntity();
+        entity.AddView(LOAD_SCENE_VIEW);
     }
 }

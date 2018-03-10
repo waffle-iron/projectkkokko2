@@ -11,6 +11,7 @@ public class GeneralSystems : Feature
         Add(new GenerateIDSystem(contexts));
         Add(new AddViewReactiveSystem(contexts));
         Add(new SceneSystems(contexts));
+        Add(new SaveSystems(contexts));
 
         //Cleanup
         Add(new DestroySystem(contexts));

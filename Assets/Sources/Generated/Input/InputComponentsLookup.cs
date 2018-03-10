@@ -13,11 +13,14 @@ public static class InputComponentsLookup {
     public const int InputLoadSceneRemovedListener = 2;
     public const int InputToDestroyListener = 3;
     public const int InputToDestroyRemovedListener = 4;
-    public const int LoadSceneComplete = 5;
-    public const int LoadScene = 6;
-    public const int ToDestroy = 7;
+    public const int Load = 5;
+    public const int LoadSceneComplete = 6;
+    public const int LoadScene = 7;
+    public const int Save = 8;
+    public const int TargetEntityID = 9;
+    public const int ToDestroy = 10;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 11;
 
     public static readonly string[] componentNames = {
         "ID",
@@ -25,8 +28,11 @@ public static class InputComponentsLookup {
         "InputLoadSceneRemovedListener",
         "InputToDestroyListener",
         "InputToDestroyRemovedListener",
+        "Load",
         "LoadSceneComplete",
         "LoadScene",
+        "Save",
+        "TargetEntityID",
         "ToDestroy"
     };
 
@@ -36,8 +42,11 @@ public static class InputComponentsLookup {
         typeof(InputLoadSceneRemovedListenerComponent),
         typeof(InputToDestroyListenerComponent),
         typeof(InputToDestroyRemovedListenerComponent),
+        typeof(LoadComponent),
         typeof(LoadSceneCompleteComponent),
         typeof(LoadSceneComponent),
+        typeof(SaveComponent),
+        typeof(TargetEntityIDComponent),
         typeof(ToDestroyComponent)
     };
 }

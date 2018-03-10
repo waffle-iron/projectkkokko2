@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 public sealed class GameLoadSceneEventSystem : Entitas.ReactiveSystem<GameEntity> {
 
+    readonly Entitas.IGroup<GameEntity> _listeners;
+
     public GameLoadSceneEventSystem(Contexts contexts) : base(contexts.game) {
+        _listeners = contexts.game.GetGroup(GameMatcher.GameLoadSceneListener);
     }
 
     protected override Entitas.ICollector<GameEntity> GetTrigger(Entitas.IContext<GameEntity> context) {
@@ -18,14 +21,16 @@ public sealed class GameLoadSceneEventSystem : Entitas.ReactiveSystem<GameEntity
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.hasLoadScene && entity.hasGameLoadSceneListener;
+        return entity.hasLoadScene;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
             var component = e.loadScene;
-            foreach (var listener in e.gameLoadSceneListener.value) {
-                listener.OnLoadScene(e, component.name);
+            foreach (var listenerEntity in _listeners) {
+                foreach (var listener in listenerEntity.gameLoadSceneListener.value) {
+                    listener.OnLoadScene(e, component.name);
+                }
             }
         }
     }

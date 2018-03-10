@@ -10,5 +10,6 @@ public class ServiceSystems : Feature
         //Add(system here);
         Add(new RegisterSceneServiceSystem(contexts, services.scene));
         Add(new RegisterViewServiceSystem(contexts, services.view));
+        Add(new RegisterSaveServiceSystem(contexts, services.save));
     }
 }

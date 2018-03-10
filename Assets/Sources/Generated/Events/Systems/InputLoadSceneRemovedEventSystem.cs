@@ -8,7 +8,10 @@
 //------------------------------------------------------------------------------
 public sealed class InputLoadSceneRemovedEventSystem : Entitas.ReactiveSystem<InputEntity> {
 
+    readonly Entitas.IGroup<InputEntity> _listeners;
+
     public InputLoadSceneRemovedEventSystem(Contexts contexts) : base(contexts.input) {
+        _listeners = contexts.input.GetGroup(InputMatcher.InputLoadSceneRemovedListener);
     }
 
     protected override Entitas.ICollector<InputEntity> GetTrigger(Entitas.IContext<InputEntity> context) {
@@ -18,14 +21,16 @@ public sealed class InputLoadSceneRemovedEventSystem : Entitas.ReactiveSystem<In
     }
 
     protected override bool Filter(InputEntity entity) {
-        return !entity.hasLoadScene && entity.hasInputLoadSceneRemovedListener;
+        return !entity.hasLoadScene;
     }
 
     protected override void Execute(System.Collections.Generic.List<InputEntity> entities) {
         foreach (var e in entities) {
             
-            foreach (var listener in e.inputLoadSceneRemovedListener.value) {
-                listener.OnLoadSceneRemoved(e);
+            foreach (var listenerEntity in _listeners) {
+                foreach (var listener in listenerEntity.inputLoadSceneRemovedListener.value) {
+                    listener.OnLoadSceneRemoved(e);
+                }
             }
         }
     }
