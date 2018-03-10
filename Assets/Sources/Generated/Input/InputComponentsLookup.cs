@@ -11,26 +11,32 @@ public static class InputComponentsLookup {
     public const int ID = 0;
     public const int InputLoadSceneListener = 1;
     public const int InputLoadSceneRemovedListener = 2;
-    public const int InputToDestroyListener = 3;
-    public const int InputToDestroyRemovedListener = 4;
-    public const int Load = 5;
-    public const int LoadSceneComplete = 6;
-    public const int LoadScene = 7;
-    public const int Save = 8;
-    public const int TargetEntityID = 9;
-    public const int ToDestroy = 10;
+    public const int InputPauseListener = 3;
+    public const int InputPauseRemovedListener = 4;
+    public const int InputToDestroyListener = 5;
+    public const int InputToDestroyRemovedListener = 6;
+    public const int Load = 7;
+    public const int LoadSceneComplete = 8;
+    public const int LoadScene = 9;
+    public const int Pause = 10;
+    public const int Save = 11;
+    public const int TargetEntityID = 12;
+    public const int ToDestroy = 13;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 14;
 
     public static readonly string[] componentNames = {
         "ID",
         "InputLoadSceneListener",
         "InputLoadSceneRemovedListener",
+        "InputPauseListener",
+        "InputPauseRemovedListener",
         "InputToDestroyListener",
         "InputToDestroyRemovedListener",
         "Load",
         "LoadSceneComplete",
         "LoadScene",
+        "Pause",
         "Save",
         "TargetEntityID",
         "ToDestroy"
@@ -40,11 +46,14 @@ public static class InputComponentsLookup {
         typeof(IDComponent),
         typeof(InputLoadSceneListenerComponent),
         typeof(InputLoadSceneRemovedListenerComponent),
+        typeof(InputPauseListenerComponent),
+        typeof(InputPauseRemovedListenerComponent),
         typeof(InputToDestroyListenerComponent),
         typeof(InputToDestroyRemovedListenerComponent),
         typeof(LoadComponent),
         typeof(LoadSceneCompleteComponent),
         typeof(LoadSceneComponent),
+        typeof(PauseComponent),
         typeof(SaveComponent),
         typeof(TargetEntityIDComponent),
         typeof(ToDestroyComponent)

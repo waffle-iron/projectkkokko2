@@ -10,27 +10,33 @@ public static class CommandComponentsLookup {
 
     public const int CommandLoadSceneListener = 0;
     public const int CommandLoadSceneRemovedListener = 1;
-    public const int CommandToDestroyListener = 2;
-    public const int CommandToDestroyRemovedListener = 3;
-    public const int ID = 4;
-    public const int Load = 5;
-    public const int LoadSceneComplete = 6;
-    public const int LoadScene = 7;
-    public const int Save = 8;
-    public const int TargetEntityID = 9;
-    public const int ToDestroy = 10;
+    public const int CommandPauseListener = 2;
+    public const int CommandPauseRemovedListener = 3;
+    public const int CommandToDestroyListener = 4;
+    public const int CommandToDestroyRemovedListener = 5;
+    public const int ID = 6;
+    public const int Load = 7;
+    public const int LoadSceneComplete = 8;
+    public const int LoadScene = 9;
+    public const int Pause = 10;
+    public const int Save = 11;
+    public const int TargetEntityID = 12;
+    public const int ToDestroy = 13;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 14;
 
     public static readonly string[] componentNames = {
         "CommandLoadSceneListener",
         "CommandLoadSceneRemovedListener",
+        "CommandPauseListener",
+        "CommandPauseRemovedListener",
         "CommandToDestroyListener",
         "CommandToDestroyRemovedListener",
         "ID",
         "Load",
         "LoadSceneComplete",
         "LoadScene",
+        "Pause",
         "Save",
         "TargetEntityID",
         "ToDestroy"
@@ -39,12 +45,15 @@ public static class CommandComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(CommandLoadSceneListenerComponent),
         typeof(CommandLoadSceneRemovedListenerComponent),
+        typeof(CommandPauseListenerComponent),
+        typeof(CommandPauseRemovedListenerComponent),
         typeof(CommandToDestroyListenerComponent),
         typeof(CommandToDestroyRemovedListenerComponent),
         typeof(IDComponent),
         typeof(LoadComponent),
         typeof(LoadSceneCompleteComponent),
         typeof(LoadSceneComponent),
+        typeof(PauseComponent),
         typeof(SaveComponent),
         typeof(TargetEntityIDComponent),
         typeof(ToDestroyComponent)

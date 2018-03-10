@@ -12,6 +12,7 @@ public class GeneralSystems : Feature
         Add(new AddViewReactiveSystem(contexts));
         Add(new SceneSystems(contexts));
         Add(new SaveSystems(contexts));
+        Add(new PauseSystems(contexts));
 
         //Cleanup
         Add(new DestroySystem(contexts));

@@ -11,5 +11,7 @@ public class ServiceSystems : Feature
         Add(new RegisterSceneServiceSystem(contexts, services.scene));
         Add(new RegisterViewServiceSystem(contexts, services.view));
         Add(new RegisterSaveServiceSystem(contexts, services.save));
+        Add(new RegisterTimeServiceSystem(contexts, services.time));
+        Add(new RegisterEntityServiceSystem(contexts, services.entity));
     }
 }
