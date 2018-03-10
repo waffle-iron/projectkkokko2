@@ -5,7 +5,7 @@ using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game, Input, Command, Meta, Event(true), Event(true, Entitas.CodeGeneration.Attributes.EventType.Removed)]
+[Game, Input, Command, Meta, Event(true), Event(true, Entitas.CodeGeneration.Attributes.EventType.Removed), IgnoreSave]
 public sealed class ToDestroyComponent : IComponent
 {
 }
