@@ -7,29 +7,26 @@ using UnityEngine;
 
 public class UnityViewService : IViewService
 {
-    private readonly Contexts _contexts;
     private static Dictionary<string, List<GameObject>> _pool;
 
-    public UnityViewService (Contexts contexts)
+    public UnityViewService ()
     {
-        _contexts = contexts;
-        //create game object pool
         _pool = new Dictionary<string, List<GameObject>>();
     }
 
-    public void Load (IEntity entity, string name)
+    public void Load (IContext context, IEntity entity, string name)
     {
         List<GameObject> objs = null;
-        IView view = null;
+        IView[] views = null;
         GameObject newObj = null;
 
         if (_pool.TryGetValue(name, out objs))
         {
+            //this is in the pool
             if (objs.Count == 1)
             {
                 var objTransform = objs[0].transform;
                 newObj = GameObject.Instantiate(objTransform.gameObject, objTransform.position, objTransform.rotation, objTransform.parent);
-                newObj.name = name;
             }
             else
             {
@@ -37,17 +34,19 @@ public class UnityViewService : IViewService
                 objs.RemoveAt(0);
             }
 
-            view = newObj.GetComponentInChildren<IView>();
+            newObj.hideFlags = HideFlags.None;
+            views = newObj.GetComponentsInChildren<IView>();
         }
         else
         {
+            //get from resources folder if not yet loaded
             var obj = Resources.Load<GameObject>(name);
             if (obj != null)
             {
                 AddToPool(new GameObject[] { obj });
                 newObj = GameObject.Instantiate(obj, obj.transform.position, obj.transform.rotation, obj.transform.parent);
-                newObj.name = name;
-                view = newObj.GetComponentInChildren<IView>();
+                newObj.hideFlags = HideFlags.None;
+                views = newObj.GetComponentsInChildren<IView>();
             }
             else
             {
@@ -55,29 +54,42 @@ public class UnityViewService : IViewService
             }
         }
 
-        if (newObj!= null && view != null)
+        if (newObj != null && views != null)
         {
-            view.Link(entity, _contexts.game);
-            view.Show();
+            foreach (var view in views)
+            {
+                view.Link(entity, context);
+                view.instance.SetActive(true);
+            }
         }
     }
 
-    public static void Unload (IView view)
+    public static void Unload (IView views)
     {
-        if (view != null)
+        if (views != null)
         {
-            view.Hide();
-            view.instance.SetActive(false);
-            _pool[view.instance.name].Add(view.instance);
+            views.instance.SetActive(false);
+            AddToPool(new GameObject[] { views.instance });
         }
     }
 
+    /// <summary>
+    /// refresh the objects in the pool.
+    /// </summary>
+    /// <param name="path"></param>
+    /// <param name="includeSceneObjects"></param>
     public void Refresh (string path, bool includeSceneObjects)
     {
-        //refresh object pool
         foreach (var objs in _pool)
         {
+            //remove all null objects
             objs.Value.RemoveAll(obj => obj == null);
+        }
+
+        //remove pool with 0 objects
+        foreach (var entry in _pool.Where(pool => pool.Value.Count == 0))
+        {
+            _pool.Remove(entry.Key);
         }
 
         if (path.Equals("") == false)
@@ -93,7 +105,7 @@ public class UnityViewService : IViewService
         }
     }
 
-    void AddToPool (GameObject[] objs)
+    static void AddToPool (GameObject[] objs)
     {
         objs = objs.Where(obj => obj.GetComponent<IView>() != null).ToArray();
         foreach (var obj in objs)
@@ -105,6 +117,12 @@ public class UnityViewService : IViewService
                 list.Add(obj);
                 _pool.Add(obj.name, list);
             }
+            else
+            {
+                _pool[obj.name].Add(obj);
+            }
+
+            obj.hideFlags = HideFlags.HideInHierarchy;
         }
     }
 

@@ -6,6 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public interface IToDestroyEntity {
+public partial interface IToDestroyEntity {
     bool isToDestroy { get; set; }
 }

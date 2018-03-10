@@ -40,11 +40,11 @@ public class MainController : MonoBehaviour
 
     private Systems CreateSystems (Contexts contexts, Services services)
     {
-        return new Feature("Systems")
+        return new Feature("Overall Systems")
             .Add(new ServiceSystems(contexts, services))
             .Add(new GeneralSystems(contexts))
             .Add(new EventSystems(contexts));
-        //Just do .Add(feature/system here);
+
     }
 
     private Services CreateServices (Contexts contexts)
@@ -52,7 +52,7 @@ public class MainController : MonoBehaviour
         return new Services
             (
             new UnityLoadSceneService(contexts),
-            new UnityViewService(contexts)
+            new UnityViewService()
             );
     }
 }

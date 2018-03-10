@@ -6,7 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public interface IIDEntity {
+public partial interface IIDEntity {
 
     IDComponent iD { get; }
     bool hasID { get; }

@@ -6,7 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public interface ILoadSceneEntity {
+public partial interface ILoadSceneEntity {
 
     LoadSceneComponent loadScene { get; }
     bool hasLoadScene { get; }

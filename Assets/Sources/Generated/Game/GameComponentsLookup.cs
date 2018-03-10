@@ -18,8 +18,10 @@ public static class GameComponentsLookup {
     public const int LoadScene = 7;
     public const int ToDestroy = 8;
     public const int View = 9;
+    public const int ViewListener = 10;
+    public const int ViewRemovedListener = 11;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
         "CurrentID",
@@ -31,7 +33,9 @@ public static class GameComponentsLookup {
         "ID",
         "LoadScene",
         "ToDestroy",
-        "View"
+        "View",
+        "ViewListener",
+        "ViewRemovedListener"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -44,6 +48,8 @@ public static class GameComponentsLookup {
         typeof(IDComponent),
         typeof(LoadSceneComponent),
         typeof(ToDestroyComponent),
-        typeof(ViewComponent)
+        typeof(ViewComponent),
+        typeof(ViewListenerComponent),
+        typeof(ViewRemovedListenerComponent)
     };
 }

@@ -23,5 +23,7 @@ public sealed class EventSystems : Feature {
         Add(new InputToDestroyRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandToDestroyRemovedEventSystem(contexts)); // priority: 0
         Add(new MetaToDestroyRemovedEventSystem(contexts)); // priority: 0
+        Add(new ViewEventSystem(contexts)); // priority: 0
+        Add(new ViewRemovedEventSystem(contexts)); // priority: 0
     }
 }

@@ -6,6 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public interface ILoadSceneCompleteEntity {
+public partial interface ILoadSceneCompleteEntity {
     bool isLoadSceneComplete { get; set; }
 }

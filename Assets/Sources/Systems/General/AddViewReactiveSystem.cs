@@ -3,13 +3,15 @@ using System.Collections;
 using UnityEngine;
 using Entitas;
 
-public class ViewReactiveSystem : ReactiveSystem<GameEntity>
+public class AddViewReactiveSystem : ReactiveSystem<GameEntity>
 {
     private readonly MetaContext _meta;
+    private readonly GameContext _game;
 
-    public ViewReactiveSystem (Contexts contexts) : base(contexts.game)
+    public AddViewReactiveSystem (Contexts contexts) : base(contexts.game)
     {
         _meta = contexts.meta;
+        _game = contexts.game;
     }
 
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)
@@ -29,7 +31,7 @@ public class ViewReactiveSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             // do stuff to the matched entities
-            _meta.viewService.instance.Load(e, e.view.name);
+            _meta.viewService.instance.Load(_game, e, e.view.name);
         }
     }
 }
