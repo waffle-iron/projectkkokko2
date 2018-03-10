@@ -16,14 +16,14 @@ MonoBehaviour:
   EnableAppInviteAPI: 1
   EnableDriveAPI: 0
   LoadProfileIcons: 1
-  LoadProfileImages: 1
+  LoadProfileImages: 0
   LoadQuestsImages: 1
   LoadQuestsIcons: 1
   LoadEventsIcons: 1
   ShowConnectingPopup: 1
   AutoLoadLocalPlayerScore: 0
   GoogleFitEnabled: 0
-  EnableATCSupport: 0
+  EnableATCSupport: 1
   OneSignalEnabled: 0
   OneSignalAppID: YOUR_ONESIGNAL_APP_ID
   OneSignalDownloadLink: https://goo.gl/Vc6tfK
@@ -51,7 +51,7 @@ MonoBehaviour:
   PushService: 0
   SaveCameraImageToGallery: 0
   UseProductNameAsFolderName: 1
-  GalleryFolderName: 
+  GalleryFolderName: Project_KkoKko_2
   MaxImageLoadSize: 512
   CameraCaptureMode: 0
   ImageFormat: 0
@@ -93,9 +93,14 @@ MonoBehaviour:
   GalleryAPI: 1
   CameraAPI: 1
   KeepManifestClean: 1
-  GooglePlayServiceAppID: 0
+  GooglePlayServiceAppID: 216817929098
   ToolbarSelectedIndex: 0
-  base64EncodedPublicKey: REPLACE_WITH_YOUR_PUBLIC_KEY
+  base64EncodedPublicKey:
+    currentCryptoKey: 4441
+    hiddenValue: 6600710064007d007500770071006e0063007d00600079006b006d007b00640066006b0064006400760078007d0072006b007f0071006800
+    inited: 1
+    fakeValue: 
+    fakeValueActive: 0
   ShowStoreProducts: 1
   InAppProducts: []
   ShowLeaderboards: 1

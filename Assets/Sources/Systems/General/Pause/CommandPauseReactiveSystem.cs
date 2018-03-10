@@ -3,11 +3,10 @@ using System.Collections;
 using UnityEngine;
 using Entitas;
 
-public class CommandPauseReactiveSystem : ReactiveSystem<CommandEntity>, IInitializeSystem
+public class CommandPauseReactiveSystem : ReactiveSystem<CommandEntity>
 {
     private readonly GameContext _game;
     private readonly MetaContext _meta;
-    private const string PAUSE_ENTITY = "pause";
 
     public CommandPauseReactiveSystem (Contexts contexts) : base(contexts.command)
     {
@@ -35,12 +34,5 @@ public class CommandPauseReactiveSystem : ReactiveSystem<CommandEntity>, IInitia
         }
     }
 
-    public void Initialize ()
-    {
-        IEntity entity;
-        if (_meta.entityService.instance.Get(PAUSE_ENTITY, out entity))
-        {
-            //do something when not found
-        }
-    }
+    
 }

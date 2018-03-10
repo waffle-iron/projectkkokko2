@@ -7,7 +7,7 @@ public class PauseSystems : Feature
 {
     public PauseSystems (Contexts contexts) : base("Pause Systems")
     {
-        Add(new InputPauseReactiveSystem(contexts));
+        Add(new InputPauseSystem(contexts));
         Add(new CommandPauseReactiveSystem(contexts));
     }
 }

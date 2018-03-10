@@ -17,10 +17,7 @@ public class MainController : MonoBehaviour
     {
         _contexts = Contexts.sharedInstance;
         _systems = CreateSystems(_contexts, CreateServices(_contexts));
-    }
 
-    private void Start ()
-    {
         _systems.Initialize();
     }
 
@@ -60,7 +57,8 @@ public class MainController : MonoBehaviour
             new UnityViewService(),
             new JSONSaveLoadService(),
             new UnityTimeService(),
-            new UnityEntityService(_configPath)
+            new UnityEntityService(_configPath),
+            GetComponentInChildren<UnityPauseService>()
             );
     }
 }
