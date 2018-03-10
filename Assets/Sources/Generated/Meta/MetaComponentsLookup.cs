@@ -12,16 +12,18 @@ public static class MetaComponentsLookup {
     public const int MetaToDestroyListener = 1;
     public const int MetaToDestroyRemovedListener = 2;
     public const int SaveService = 3;
-    public const int ToDestroy = 4;
-    public const int ViewService = 5;
+    public const int TimeService = 4;
+    public const int ToDestroy = 5;
+    public const int ViewService = 6;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
         "LoadSceneService",
         "MetaToDestroyListener",
         "MetaToDestroyRemovedListener",
         "SaveService",
+        "TimeService",
         "ToDestroy",
         "ViewService"
     };
@@ -31,6 +33,7 @@ public static class MetaComponentsLookup {
         typeof(MetaToDestroyListenerComponent),
         typeof(MetaToDestroyRemovedListenerComponent),
         typeof(SaveServiceComponent),
+        typeof(TimeServiceComponent),
         typeof(ToDestroyComponent),
         typeof(ViewServiceComponent)
     };

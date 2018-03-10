@@ -56,7 +56,8 @@ public class MainController : MonoBehaviour
             (
             new UnityLoadSceneService(contexts, _rootScene),
             new UnityViewService(),
-            new JSONSaveLoadService()
+            new JSONSaveLoadService(),
+            new UnityTimeService()
             );
     }
 }
