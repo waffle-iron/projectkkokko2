@@ -6,7 +6,7 @@ using System.Linq;
 
 public interface IEntityConfig
 {
-    string Name { get; }
-    IEntity Create ();
+    EntityCfgID Name { get; }
+    IEntity Create (Contexts contexts);
 }
 

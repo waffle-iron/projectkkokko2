@@ -51,7 +51,7 @@ public class UnityViewService : IViewService
             }
             else
             {
-                Debug.LogWarning($"object {name} does not exist.");
+                Debug.LogWarning($"view: {name} does not exist.");
             }
         }
 

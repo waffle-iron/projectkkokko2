@@ -6,21 +6,21 @@ using Entitas;
 public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
 {
     [SerializeField]
-    private string _name;
+    private EntityCfgID _name;
 
     [SerializeField]
     private string _viewName;
 
-    public string Name
+    public EntityCfgID Name
     {
         get {
             return _name;
         }
     }
 
-    public IEntity Create ()
+    public IEntity Create (Contexts contexts)
     {
-        var entity = CustomCreate();
+        var entity = CustomCreate(contexts);
         if (_viewName.Equals("") == false)
         {
             ((GameEntity)entity).AddView(_viewName);
@@ -28,5 +28,5 @@ public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
         return entity;
     }
 
-    protected abstract IEntity CustomCreate();
+    protected abstract IEntity CustomCreate(Contexts contexts);
 }

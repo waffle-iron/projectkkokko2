@@ -3,13 +3,11 @@ using System.Collections;
 using UnityEngine;
 using Entitas;
 
-public class InputPauseSystem : IExecuteSystem, IInitializeSystem
+public class InputPauseSystem : IExecuteSystem
 {
     private readonly CommandContext _command;
     private readonly GameContext _game;
     private readonly MetaContext _meta;
-
-    private const string PAUSE_ENTITY = "pause";
 
     public InputPauseSystem (Contexts contexts)
     {
@@ -23,15 +21,6 @@ public class InputPauseSystem : IExecuteSystem, IInitializeSystem
         if (_game.pause.state != _meta.pauseService.instance.state)
         {
             _command.CreateEntity().AddPause(_meta.pauseService.instance.state);
-        }
-    }
-
-    public void Initialize ()
-    {
-        IEntity entity;
-        if (_meta.entityService.instance.Get(PAUSE_ENTITY, out entity))
-        {
-            //do something when not found
         }
     }
 }

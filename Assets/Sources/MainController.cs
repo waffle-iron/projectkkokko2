@@ -57,8 +57,9 @@ public class MainController : MonoBehaviour
             new UnityViewService(),
             new JSONSaveLoadService(),
             new UnityTimeService(),
-            new UnityEntityService(_configPath),
-            GetComponentInChildren<UnityPauseService>()
+            new UnityEntityService(_configPath, contexts),
+            GetComponentInChildren<UnityPauseService>(),
+            new UltimateMobileNotificationService()
             );
     }
 }

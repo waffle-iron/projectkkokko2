@@ -6,16 +6,19 @@ using UnityEngine;
 
 public partial class UnityEntityService : IEntityService
 {
-    private readonly Dictionary<string, IEntityConfig> _configs;
+    private readonly Dictionary<EntityCfgID, IEntityConfig> _configs;
+    private readonly Contexts _contexts;
 
-    public UnityEntityService (string configPath)
+    public UnityEntityService (string configPath, Contexts contexts)
     {
+        _contexts = contexts;
+
         var loadedConfigs = Resources.LoadAll<ScriptableObject>(configPath)
             .Where(obj => obj is IEntityConfig)
             .Select(obj => obj as IEntityConfig)
             .ToArray();
 
-        _configs = new Dictionary<string, IEntityConfig>();
+        _configs = new Dictionary<EntityCfgID, IEntityConfig>();
 
         foreach (var cfg in loadedConfigs)
         {
@@ -23,15 +26,16 @@ public partial class UnityEntityService : IEntityService
         }
     }
 
-    public bool Get (string name, out IEntity entity)
+    public bool Get (EntityCfgID name, out IEntity entity)
     {
         IEntityConfig result = null;
         entity = null;
         if (_configs.TryGetValue(name, out result))
         {
-            entity = result.Create();
+            entity = result.Create(_contexts);
             return true;
         }
+        Debug.LogWarning($"entity config: {name.ToString()} not found.");
         return false;
     }
 }

@@ -3,14 +3,11 @@ using System.Collections;
 using UnityEngine;
 using Entitas;
 
-public class CommandSaveLoadReactiveSystem : ReactiveSystem<CommandEntity>, IInitializeSystem
+public class CommandSaveLoadReactiveSystem : ReactiveSystem<CommandEntity>
 {
     private readonly GameContext _game;
     private readonly MetaContext _meta;
     private readonly Contexts _contexts;
-
-    private const string SAVE_VIEW = "SaveView";
-    private const string LOAD_VIEW = "LoadView";
 
     public CommandSaveLoadReactiveSystem (Contexts contexts) : base(contexts.command)
     {
@@ -60,11 +57,5 @@ public class CommandSaveLoadReactiveSystem : ReactiveSystem<CommandEntity>, IIni
                 }
             }
         }
-    }
-
-    public void Initialize ()
-    {
-        _game.CreateEntity().AddView(SAVE_VIEW);
-        _game.CreateEntity().AddView(LOAD_VIEW);
     }
 }
