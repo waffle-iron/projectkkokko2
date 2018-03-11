@@ -21,17 +21,19 @@ public static class GameComponentsLookup {
     public const int LoadingListener = 10;
     public const int LoadingRemovedListener = 11;
     public const int LoadScene = 12;
-    public const int Pause = 13;
-    public const int Saving = 14;
-    public const int SavingListener = 15;
-    public const int SavingRemovedListener = 16;
-    public const int TargetEntityID = 17;
-    public const int ToDestroy = 18;
-    public const int View = 19;
-    public const int ViewListener = 20;
-    public const int ViewRemovedListener = 21;
+    public const int MaxAmount = 13;
+    public const int Need = 14;
+    public const int Pause = 15;
+    public const int Saving = 16;
+    public const int SavingListener = 17;
+    public const int SavingRemovedListener = 18;
+    public const int TargetEntityID = 19;
+    public const int ToDestroy = 20;
+    public const int View = 21;
+    public const int ViewListener = 22;
+    public const int ViewRemovedListener = 23;
 
-    public const int TotalComponents = 22;
+    public const int TotalComponents = 24;
 
     public static readonly string[] componentNames = {
         "CurrentID",
@@ -47,6 +49,8 @@ public static class GameComponentsLookup {
         "LoadingListener",
         "LoadingRemovedListener",
         "LoadScene",
+        "MaxAmount",
+        "Need",
         "Pause",
         "Saving",
         "SavingListener",
@@ -72,6 +76,8 @@ public static class GameComponentsLookup {
         typeof(LoadingListenerComponent),
         typeof(LoadingRemovedListenerComponent),
         typeof(LoadSceneComponent),
+        typeof(MaxAmountComponent),
+        typeof(NeedComponent),
         typeof(PauseComponent),
         typeof(SavingComponent),
         typeof(SavingListenerComponent),

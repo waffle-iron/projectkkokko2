@@ -63,6 +63,7 @@ public partial class Contexts : Entitas.IContexts {
 public partial class Contexts {
 
     public const string ID = "ID";
+    public const string Need = "Need";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
@@ -78,6 +79,19 @@ public partial class Contexts {
             ID,
             command.GetGroup(CommandMatcher.ID),
             (e, c) => ((IDComponent)c).value));
+
+        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, NeedType>(
+            Need,
+            game.GetGroup(GameMatcher.Need),
+            (e, c) => ((NeedComponent)c).type));
+        input.AddEntityIndex(new Entitas.PrimaryEntityIndex<InputEntity, NeedType>(
+            Need,
+            input.GetGroup(InputMatcher.Need),
+            (e, c) => ((NeedComponent)c).type));
+        command.AddEntityIndex(new Entitas.PrimaryEntityIndex<CommandEntity, NeedType>(
+            Need,
+            command.GetGroup(CommandMatcher.Need),
+            (e, c) => ((NeedComponent)c).type));
     }
 }
 
@@ -93,6 +107,18 @@ public static class ContextsExtensions {
 
     public static CommandEntity GetEntityWithID(this CommandContext context, uint value) {
         return ((Entitas.PrimaryEntityIndex<CommandEntity, uint>)context.GetEntityIndex(Contexts.ID)).GetEntity(value);
+    }
+
+    public static GameEntity GetEntityWithNeed(this GameContext context, NeedType type) {
+        return ((Entitas.PrimaryEntityIndex<GameEntity, NeedType>)context.GetEntityIndex(Contexts.Need)).GetEntity(type);
+    }
+
+    public static InputEntity GetEntityWithNeed(this InputContext context, NeedType type) {
+        return ((Entitas.PrimaryEntityIndex<InputEntity, NeedType>)context.GetEntityIndex(Contexts.Need)).GetEntity(type);
+    }
+
+    public static CommandEntity GetEntityWithNeed(this CommandContext context, NeedType type) {
+        return ((Entitas.PrimaryEntityIndex<CommandEntity, NeedType>)context.GetEntityIndex(Contexts.Need)).GetEntity(type);
     }
 }
 //------------------------------------------------------------------------------

@@ -8,7 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67fd420d2d05daf4f80785c304ce9a11, type: 3}
+  m_Script: {fileID: 11500000, guid: 35cb6057bd1f5514cb6cb19034628cd8, type: 3}
   m_Name: SceneConfig
   m_EditorClassIdentifier: 
   _name: 4

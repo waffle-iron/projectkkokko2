@@ -18,12 +18,14 @@ public static class CommandComponentsLookup {
     public const int Load = 7;
     public const int LoadSceneComplete = 8;
     public const int LoadScene = 9;
-    public const int Pause = 10;
-    public const int Save = 11;
-    public const int TargetEntityID = 12;
-    public const int ToDestroy = 13;
+    public const int MaxAmount = 10;
+    public const int Need = 11;
+    public const int Pause = 12;
+    public const int Save = 13;
+    public const int TargetEntityID = 14;
+    public const int ToDestroy = 15;
 
-    public const int TotalComponents = 14;
+    public const int TotalComponents = 16;
 
     public static readonly string[] componentNames = {
         "CommandLoadSceneListener",
@@ -36,6 +38,8 @@ public static class CommandComponentsLookup {
         "Load",
         "LoadSceneComplete",
         "LoadScene",
+        "MaxAmount",
+        "Need",
         "Pause",
         "Save",
         "TargetEntityID",
@@ -53,6 +57,8 @@ public static class CommandComponentsLookup {
         typeof(LoadComponent),
         typeof(LoadSceneCompleteComponent),
         typeof(LoadSceneComponent),
+        typeof(MaxAmountComponent),
+        typeof(NeedComponent),
         typeof(PauseComponent),
         typeof(SaveComponent),
         typeof(TargetEntityIDComponent),

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Entitas;
-using Entitas;
 
 public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
 {

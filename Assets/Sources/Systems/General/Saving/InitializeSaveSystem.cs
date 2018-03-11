@@ -5,12 +5,10 @@ using Entitas;
 
 public class InitializeSaveSystem : IInitializeSystem
 {
-    private readonly GameContext _game;
     private readonly MetaContext _meta;
 
     public InitializeSaveSystem (Contexts contexts)
     {
-        _game = contexts.game;
         _meta = contexts.meta;
     }
 
