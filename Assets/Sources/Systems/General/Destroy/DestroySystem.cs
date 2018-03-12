@@ -10,6 +10,9 @@ public class DestroySystem : ICleanupSystem
     private readonly IGroup<GameEntity> _game;
     private readonly IGroup<MetaEntity> _meta;
 
+    private List<GameEntity> _gameBuffer = new List<GameEntity>();
+    private List<MetaEntity> _metaBuffer = new List<MetaEntity>();
+
     public DestroySystem (Contexts contexts)
     {
         _input = contexts.input;
@@ -30,12 +33,12 @@ public class DestroySystem : ICleanupSystem
             e.Destroy();
         }
 
-        foreach (var e in _game.GetEntities())
+        foreach (var e in _game.GetEntities(_gameBuffer))
         {
             e.Destroy();
         }
 
-        foreach (var e in _meta.GetEntities())
+        foreach (var e in _meta.GetEntities(_metaBuffer))
         {
             e.Destroy();
         }

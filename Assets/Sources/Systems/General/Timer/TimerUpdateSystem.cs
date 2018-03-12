@@ -22,7 +22,7 @@ public class TimerUpdateSystem : IExecuteSystem
     {
         foreach (var e in _timers.GetEntities(_buffer))
         {
-            if (e.timerState.isRunning && _game.pause.state == false)
+            if (e.timerState.isRunning && _game?.pause?.state == false)
             {
                 e.ReplaceTimer(e.timer.current + _meta.timeService.instance.delta);
             }

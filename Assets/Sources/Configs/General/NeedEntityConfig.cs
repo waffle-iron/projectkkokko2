@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CodeStage.AntiCheat.ObscuredTypes;
 using Entitas;
 using UnityEngine;
 
@@ -18,6 +19,10 @@ public class NeedEntityConfig : UnityEntityConfig
     private DurationType _trigger;
     [SerializeField]
     private bool _runOnStart = false;
+    [SerializeField]
+    private bool _loadOnStart = false;
+    [SerializeField]
+    private ObscuredString _saveID;
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
@@ -30,6 +35,13 @@ public class NeedEntityConfig : UnityEntityConfig
         entity.AddTrigger(_trigger, false);
         entity.AddTimer(0f);
         entity.AddTimerState(_runOnStart);
+        
+        if (_loadOnStart && _saveID.Equals("") == false)
+        {
+            var load = contexts.input.CreateEntity();
+            load.AddTargetEntityID(entity.iD.value);
+            load.AddLoad(_saveID, false);
+        }
 
         return entity;
     }

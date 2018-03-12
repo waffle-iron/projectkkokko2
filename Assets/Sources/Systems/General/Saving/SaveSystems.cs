@@ -10,5 +10,6 @@ public class SaveSystems : Feature
         Add(new InitializeSaveSystem(contexts));
         Add(new InputSaveLoadEntityReactiveSystem(contexts));
         Add(new CommandSaveLoadReactiveSystem(contexts));
+        Add(new SaveLoadCleanupSystem(contexts));
     }
 }
