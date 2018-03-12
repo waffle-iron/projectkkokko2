@@ -13,6 +13,7 @@ public class GeneralSystems : Feature
         Add(new SceneSystems(contexts));
         Add(new SaveSystems(contexts));
         Add(new PauseSystems(contexts));
+        Add(new DebugSystems(contexts));
 
         //Cleanup
         Add(new DestroySystem(contexts));

@@ -31,7 +31,6 @@ public class CommandDebugReactiveSystem : ReactiveSystem<CommandEntity>
         foreach (var e in entities)
         {
             _meta.debugService.instance.Log(e.debug.value);
-            _game.CreateEntity().AddDebug(e.debug.value);
         }
     }
 }

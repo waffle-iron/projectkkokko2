@@ -45,7 +45,6 @@ public class MainController : MonoBehaviour
         return new Feature("Overall Systems")
             .Add(new ServiceSystems(contexts, services))
             .Add(new GeneralSystems(contexts))
-            .Add(new DebugFeature(contexts))
             .Add(new EventSystems(contexts));
 
     }

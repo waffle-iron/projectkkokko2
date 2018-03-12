@@ -3,9 +3,9 @@ using System.Collections;
 using UnityEngine;
 using Entitas;
 
-public class DebugFeature : Feature
+public class DebugSystems : Feature
 {
-    public DebugFeature(Contexts contexts) : base("Debug Systems")
+    public DebugSystems(Contexts contexts) : base("Debug Systems")
     {
         //Add(system here);
         Add(new InitializeDebugSystem(contexts));
