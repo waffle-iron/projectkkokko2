@@ -9,5 +9,7 @@ public class NeedSystems : Feature
     {
         //Add(system here);
         Add(new NeedInitializeSystem(contexts));
+
+        Add(new NeedTriggerReactiveSystem(contexts));
     }
 }
