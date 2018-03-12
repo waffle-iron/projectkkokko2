@@ -8,15 +8,84 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
+    public const int CurrentID = 0;
+    public const int DoNotDestroyOnSceneChange = 1;
+    public const int GameLoadSceneListener = 2;
+    public const int GameLoadSceneRemovedListener = 3;
+    public const int GamePauseListener = 4;
+    public const int GamePauseRemovedListener = 5;
+    public const int GameToDestroyListener = 6;
+    public const int GameToDestroyRemovedListener = 7;
+    public const int ID = 8;
+    public const int Loading = 9;
+    public const int LoadingListener = 10;
+    public const int LoadingRemovedListener = 11;
+    public const int LoadScene = 12;
+    public const int MaxAmount = 13;
+    public const int Need = 14;
+    public const int Pause = 15;
+    public const int Saving = 16;
+    public const int SavingListener = 17;
+    public const int SavingRemovedListener = 18;
+    public const int TargetEntityID = 19;
+    public const int ToDestroy = 20;
+    public const int View = 21;
+    public const int ViewListener = 22;
+    public const int ViewRemovedListener = 23;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 24;
 
     public static readonly string[] componentNames = {
-
+        "CurrentID",
+        "DoNotDestroyOnSceneChange",
+        "GameLoadSceneListener",
+        "GameLoadSceneRemovedListener",
+        "GamePauseListener",
+        "GamePauseRemovedListener",
+        "GameToDestroyListener",
+        "GameToDestroyRemovedListener",
+        "ID",
+        "Loading",
+        "LoadingListener",
+        "LoadingRemovedListener",
+        "LoadScene",
+        "MaxAmount",
+        "Need",
+        "Pause",
+        "Saving",
+        "SavingListener",
+        "SavingRemovedListener",
+        "TargetEntityID",
+        "ToDestroy",
+        "View",
+        "ViewListener",
+        "ViewRemovedListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(CurrentIDComponent),
+        typeof(DoNotDestroyOnSceneChangeComponent),
+        typeof(GameLoadSceneListenerComponent),
+        typeof(GameLoadSceneRemovedListenerComponent),
+        typeof(GamePauseListenerComponent),
+        typeof(GamePauseRemovedListenerComponent),
+        typeof(GameToDestroyListenerComponent),
+        typeof(GameToDestroyRemovedListenerComponent),
+        typeof(IDComponent),
+        typeof(LoadingComponent),
+        typeof(LoadingListenerComponent),
+        typeof(LoadingRemovedListenerComponent),
+        typeof(LoadSceneComponent),
+        typeof(MaxAmountComponent),
+        typeof(NeedComponent),
+        typeof(PauseComponent),
+        typeof(SavingComponent),
+        typeof(SavingListenerComponent),
+        typeof(SavingRemovedListenerComponent),
+        typeof(TargetEntityIDComponent),
+        typeof(ToDestroyComponent),
+        typeof(ViewComponent),
+        typeof(ViewListenerComponent),
+        typeof(ViewRemovedListenerComponent)
     };
 }

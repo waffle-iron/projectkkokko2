@@ -9,6 +9,31 @@
 public sealed class EventSystems : Feature {
 
     public EventSystems(Contexts contexts) {
-
+        Add(new LoadingEventSystem(contexts)); // priority: 0
+        Add(new LoadingRemovedEventSystem(contexts)); // priority: 0
+        Add(new InputLoadSceneEventSystem(contexts)); // priority: 0
+        Add(new CommandLoadSceneEventSystem(contexts)); // priority: 0
+        Add(new GameLoadSceneEventSystem(contexts)); // priority: 0
+        Add(new InputLoadSceneRemovedEventSystem(contexts)); // priority: 0
+        Add(new CommandLoadSceneRemovedEventSystem(contexts)); // priority: 0
+        Add(new GameLoadSceneRemovedEventSystem(contexts)); // priority: 0
+        Add(new GamePauseEventSystem(contexts)); // priority: 0
+        Add(new InputPauseEventSystem(contexts)); // priority: 0
+        Add(new CommandPauseEventSystem(contexts)); // priority: 0
+        Add(new GamePauseRemovedEventSystem(contexts)); // priority: 0
+        Add(new InputPauseRemovedEventSystem(contexts)); // priority: 0
+        Add(new CommandPauseRemovedEventSystem(contexts)); // priority: 0
+        Add(new SavingEventSystem(contexts)); // priority: 0
+        Add(new SavingRemovedEventSystem(contexts)); // priority: 0
+        Add(new GameToDestroyEventSystem(contexts)); // priority: 0
+        Add(new InputToDestroyEventSystem(contexts)); // priority: 0
+        Add(new CommandToDestroyEventSystem(contexts)); // priority: 0
+        Add(new MetaToDestroyEventSystem(contexts)); // priority: 0
+        Add(new GameToDestroyRemovedEventSystem(contexts)); // priority: 0
+        Add(new InputToDestroyRemovedEventSystem(contexts)); // priority: 0
+        Add(new CommandToDestroyRemovedEventSystem(contexts)); // priority: 0
+        Add(new MetaToDestroyRemovedEventSystem(contexts)); // priority: 0
+        Add(new ViewEventSystem(contexts)); // priority: 0
+        Add(new ViewRemovedEventSystem(contexts)); // priority: 0
     }
 }
