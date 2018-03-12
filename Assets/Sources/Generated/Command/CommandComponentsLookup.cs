@@ -8,32 +8,36 @@
 //------------------------------------------------------------------------------
 public static class CommandComponentsLookup {
 
-    public const int CommandLoadSceneListener = 0;
-    public const int CommandLoadSceneRemovedListener = 1;
-    public const int CommandPauseListener = 2;
-    public const int CommandPauseRemovedListener = 3;
-    public const int CommandToDestroyListener = 4;
-    public const int CommandToDestroyRemovedListener = 5;
-    public const int ID = 6;
-    public const int Load = 7;
-    public const int LoadSceneComplete = 8;
-    public const int LoadScene = 9;
-    public const int MaxAmount = 10;
-    public const int Need = 11;
-    public const int Pause = 12;
-    public const int Save = 13;
-    public const int TargetEntityID = 14;
-    public const int ToDestroy = 15;
+    public const int CommandDebugListener = 0;
+    public const int CommandLoadSceneListener = 1;
+    public const int CommandLoadSceneRemovedListener = 2;
+    public const int CommandPauseListener = 3;
+    public const int CommandPauseRemovedListener = 4;
+    public const int CommandToDestroyListener = 5;
+    public const int CommandToDestroyRemovedListener = 6;
+    public const int Debug = 7;
+    public const int ID = 8;
+    public const int Load = 9;
+    public const int LoadSceneComplete = 10;
+    public const int LoadScene = 11;
+    public const int MaxAmount = 12;
+    public const int Need = 13;
+    public const int Pause = 14;
+    public const int Save = 15;
+    public const int TargetEntityID = 16;
+    public const int ToDestroy = 17;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
+        "CommandDebugListener",
         "CommandLoadSceneListener",
         "CommandLoadSceneRemovedListener",
         "CommandPauseListener",
         "CommandPauseRemovedListener",
         "CommandToDestroyListener",
         "CommandToDestroyRemovedListener",
+        "Debug",
         "ID",
         "Load",
         "LoadSceneComplete",
@@ -47,12 +51,14 @@ public static class CommandComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(CommandDebugListenerComponent),
         typeof(CommandLoadSceneListenerComponent),
         typeof(CommandLoadSceneRemovedListenerComponent),
         typeof(CommandPauseListenerComponent),
         typeof(CommandPauseRemovedListenerComponent),
         typeof(CommandToDestroyListenerComponent),
         typeof(CommandToDestroyRemovedListenerComponent),
+        typeof(DebugComponent),
         typeof(IDComponent),
         typeof(LoadComponent),
         typeof(LoadSceneCompleteComponent),

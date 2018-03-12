@@ -5,13 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-public enum EntityCfgID
+public interface IDebugService
 {
-    NONE,
-    PAUSE,
-    SAVE,
-    LOAD,
-    SCENE,
-    DEBUG
+    void Log(object message);
 }
 

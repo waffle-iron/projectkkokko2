@@ -11,6 +11,7 @@ public class Services
     public readonly IEntityService entity;
     public readonly IPauseService pause;
     public readonly INotificationService notif;
+    public readonly IDebugService debug;
 
     public Services 
         (
@@ -20,7 +21,8 @@ public class Services
             ITimeService time,
             IEntityService entity,
             IPauseService pause,
-            INotificationService notif
+            INotificationService notif,
+            IDebugService debug
         )
     {
         this.scene = scene;
@@ -30,5 +32,6 @@ public class Services
         this.entity = entity;
         this.pause = pause;
         this.notif = notif;
+        this.debug = debug;
     }
 }

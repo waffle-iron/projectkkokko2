@@ -9,35 +9,39 @@
 public static class GameComponentsLookup {
 
     public const int CurrentID = 0;
-    public const int DoNotDestroyOnSceneChange = 1;
-    public const int GameLoadSceneListener = 2;
-    public const int GameLoadSceneRemovedListener = 3;
-    public const int GamePauseListener = 4;
-    public const int GamePauseRemovedListener = 5;
-    public const int GameToDestroyListener = 6;
-    public const int GameToDestroyRemovedListener = 7;
-    public const int ID = 8;
-    public const int Loading = 9;
-    public const int LoadingListener = 10;
-    public const int LoadingRemovedListener = 11;
-    public const int LoadScene = 12;
-    public const int MaxAmount = 13;
-    public const int Need = 14;
-    public const int Pause = 15;
-    public const int Saving = 16;
-    public const int SavingListener = 17;
-    public const int SavingRemovedListener = 18;
-    public const int TargetEntityID = 19;
-    public const int ToDestroy = 20;
-    public const int View = 21;
-    public const int ViewListener = 22;
-    public const int ViewRemovedListener = 23;
+    public const int Debug = 1;
+    public const int DoNotDestroyOnSceneChange = 2;
+    public const int GameDebugListener = 3;
+    public const int GameLoadSceneListener = 4;
+    public const int GameLoadSceneRemovedListener = 5;
+    public const int GamePauseListener = 6;
+    public const int GamePauseRemovedListener = 7;
+    public const int GameToDestroyListener = 8;
+    public const int GameToDestroyRemovedListener = 9;
+    public const int ID = 10;
+    public const int Loading = 11;
+    public const int LoadingListener = 12;
+    public const int LoadingRemovedListener = 13;
+    public const int LoadScene = 14;
+    public const int MaxAmount = 15;
+    public const int Need = 16;
+    public const int Pause = 17;
+    public const int Saving = 18;
+    public const int SavingListener = 19;
+    public const int SavingRemovedListener = 20;
+    public const int TargetEntityID = 21;
+    public const int ToDestroy = 22;
+    public const int View = 23;
+    public const int ViewListener = 24;
+    public const int ViewRemovedListener = 25;
 
-    public const int TotalComponents = 24;
+    public const int TotalComponents = 26;
 
     public static readonly string[] componentNames = {
         "CurrentID",
+        "Debug",
         "DoNotDestroyOnSceneChange",
+        "GameDebugListener",
         "GameLoadSceneListener",
         "GameLoadSceneRemovedListener",
         "GamePauseListener",
@@ -64,7 +68,9 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(CurrentIDComponent),
+        typeof(DebugComponent),
         typeof(DoNotDestroyOnSceneChangeComponent),
+        typeof(GameDebugListenerComponent),
         typeof(GameLoadSceneListenerComponent),
         typeof(GameLoadSceneRemovedListenerComponent),
         typeof(GamePauseListenerComponent),

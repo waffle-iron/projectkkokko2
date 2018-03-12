@@ -8,20 +8,22 @@
 //------------------------------------------------------------------------------
 public static class MetaComponentsLookup {
 
-    public const int EntityService = 0;
-    public const int LoadSceneService = 1;
-    public const int MetaToDestroyListener = 2;
-    public const int MetaToDestroyRemovedListener = 3;
-    public const int NotificationService = 4;
-    public const int PauseService = 5;
-    public const int SaveService = 6;
-    public const int TimeService = 7;
-    public const int ToDestroy = 8;
-    public const int ViewService = 9;
+    public const int DebugService = 0;
+    public const int EntityService = 1;
+    public const int LoadSceneService = 2;
+    public const int MetaToDestroyListener = 3;
+    public const int MetaToDestroyRemovedListener = 4;
+    public const int NotificationService = 5;
+    public const int PauseService = 6;
+    public const int SaveService = 7;
+    public const int TimeService = 8;
+    public const int ToDestroy = 9;
+    public const int ViewService = 10;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 11;
 
     public static readonly string[] componentNames = {
+        "DebugService",
         "EntityService",
         "LoadSceneService",
         "MetaToDestroyListener",
@@ -35,6 +37,7 @@ public static class MetaComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(DebugServiceComponent),
         typeof(EntityServiceComponent),
         typeof(LoadSceneServiceComponent),
         typeof(MetaToDestroyListenerComponent),

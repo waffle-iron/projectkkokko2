@@ -12,6 +12,7 @@ public class PauseEntityConfig : UnityEntityConfig
         var entity = contexts.game.CreateEntity();
         entity.AddPause(false);
         entity.isDoNotDestroyOnSceneChange = true;
+        //compnent pause stauts
 
         return entity;
     }

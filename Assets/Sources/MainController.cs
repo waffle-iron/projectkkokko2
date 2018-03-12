@@ -45,6 +45,7 @@ public class MainController : MonoBehaviour
         return new Feature("Overall Systems")
             .Add(new ServiceSystems(contexts, services))
             .Add(new GeneralSystems(contexts))
+            .Add(new DebugFeature(contexts))
             .Add(new EventSystems(contexts));
 
     }
@@ -59,7 +60,8 @@ public class MainController : MonoBehaviour
             new UnityTimeService(),
             new UnityEntityService(_configPath, contexts),
             GetComponentInChildren<UnityPauseService>(),
-            new UltimateMobileNotificationService()
+            new UltimateMobileNotificationService(),
+            new UnityDebugService()
             );
     }
 }

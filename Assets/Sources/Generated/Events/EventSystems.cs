@@ -9,6 +9,9 @@
 public sealed class EventSystems : Feature {
 
     public EventSystems(Contexts contexts) {
+        Add(new GameDebugEventSystem(contexts)); // priority: 0
+        Add(new InputDebugEventSystem(contexts)); // priority: 0
+        Add(new CommandDebugEventSystem(contexts)); // priority: 0
         Add(new LoadingEventSystem(contexts)); // priority: 0
         Add(new LoadingRemovedEventSystem(contexts)); // priority: 0
         Add(new InputLoadSceneEventSystem(contexts)); // priority: 0
