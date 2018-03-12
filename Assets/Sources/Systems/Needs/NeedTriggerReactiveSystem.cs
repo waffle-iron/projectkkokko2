@@ -15,23 +15,22 @@ public class NeedTriggerReactiveSystem : ReactiveSystem<GameEntity>
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)
     {
         //return collector
-        return context.CreateCollector(GameMatcher.Timer);
+        return context.CreateCollector(GameMatcher.AllOf(GameMatcher.Need, GameMatcher.Timer));
     }
 
     protected override bool Filter (GameEntity entity)
     {
         // check for required components
-        return 
+        return
             entity.hasTrigger && 
-            entity.timer.current >= entity.trigger.duration.GetInSeconds() &&
-            entity.trigger.state == false;
+            entity.trigger.state == false &&
+            entity.timer.current >= entity.trigger.duration.GetInSeconds();
     }
 
     protected override void Execute (List<GameEntity> entities)
     {
         foreach (var e in entities)
         {
-            // do stuff to the matched entities
             e.ReplaceTrigger(e.trigger.duration, true);
 
             var inputEntity = _input.CreateEntity();

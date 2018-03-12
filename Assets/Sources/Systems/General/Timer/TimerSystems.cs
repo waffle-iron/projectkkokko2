@@ -9,9 +9,7 @@ public class TimerSystems : Feature
     {
         //Add(system here);
         Add(new InputTimerReactiveSystem(contexts));
-
         Add(new CommandTimerReactiveSystem(contexts));
-
         Add(new TimerUpdateSystem(contexts));
     }
 }

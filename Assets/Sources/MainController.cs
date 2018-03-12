@@ -44,8 +44,11 @@ public class MainController : MonoBehaviour
     {
         return new Feature("Overall Systems")
             .Add(new ServiceSystems(contexts, services))
-            .Add(new GeneralSystems(contexts))
+            .Add(new InitializeGeneralSystems(contexts)) //all initialization sa general diri para walay null reference if accessed by custom systems
+
             .Add(new NeedSystems(contexts))
+
+            .Add(new GeneralSystems(contexts)) //executed after all custom systems para ma pick up before cleanup sa destroy systems
             .Add(new EventSystems(contexts));
 
     }
