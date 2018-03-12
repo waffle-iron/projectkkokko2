@@ -16,18 +16,21 @@ public static class CommandComponentsLookup {
     public const int CommandToDestroyListener = 5;
     public const int CommandToDestroyRemovedListener = 6;
     public const int Debug = 7;
-    public const int ID = 8;
-    public const int Load = 9;
-    public const int LoadSceneComplete = 10;
-    public const int LoadScene = 11;
-    public const int MaxAmount = 12;
-    public const int Need = 13;
-    public const int Pause = 14;
-    public const int Save = 15;
-    public const int TargetEntityID = 16;
-    public const int ToDestroy = 17;
+    public const int Deplete = 8;
+    public const int ID = 9;
+    public const int Interval = 10;
+    public const int Load = 11;
+    public const int LoadSceneComplete = 12;
+    public const int LoadScene = 13;
+    public const int Max = 14;
+    public const int Need = 15;
+    public const int Pause = 16;
+    public const int Save = 17;
+    public const int TargetEntityID = 18;
+    public const int ToDestroy = 19;
+    public const int Trigger = 20;
 
-    public const int TotalComponents = 18;
+    public const int TotalComponents = 21;
 
     public static readonly string[] componentNames = {
         "CommandDebugListener",
@@ -38,16 +41,19 @@ public static class CommandComponentsLookup {
         "CommandToDestroyListener",
         "CommandToDestroyRemovedListener",
         "Debug",
+        "Deplete",
         "ID",
+        "Interval",
         "Load",
         "LoadSceneComplete",
         "LoadScene",
-        "MaxAmount",
+        "Max",
         "Need",
         "Pause",
         "Save",
         "TargetEntityID",
-        "ToDestroy"
+        "ToDestroy",
+        "Trigger"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -59,15 +65,18 @@ public static class CommandComponentsLookup {
         typeof(CommandToDestroyListenerComponent),
         typeof(CommandToDestroyRemovedListenerComponent),
         typeof(DebugComponent),
+        typeof(DepleteComponent),
         typeof(IDComponent),
+        typeof(IntervalComponent),
         typeof(LoadComponent),
         typeof(LoadSceneCompleteComponent),
         typeof(LoadSceneComponent),
-        typeof(MaxAmountComponent),
+        typeof(MaxComponent),
         typeof(NeedComponent),
         typeof(PauseComponent),
         typeof(SaveComponent),
         typeof(TargetEntityIDComponent),
-        typeof(ToDestroyComponent)
+        typeof(ToDestroyComponent),
+        typeof(TriggerComponent)
     };
 }

@@ -9,28 +9,32 @@
 public static class InputComponentsLookup {
 
     public const int Debug = 0;
-    public const int ID = 1;
-    public const int InputDebugListener = 2;
-    public const int InputLoadSceneListener = 3;
-    public const int InputLoadSceneRemovedListener = 4;
-    public const int InputPauseListener = 5;
-    public const int InputPauseRemovedListener = 6;
-    public const int InputToDestroyListener = 7;
-    public const int InputToDestroyRemovedListener = 8;
-    public const int Load = 9;
-    public const int LoadSceneComplete = 10;
-    public const int LoadScene = 11;
-    public const int MaxAmount = 12;
-    public const int Need = 13;
-    public const int Pause = 14;
-    public const int Save = 15;
-    public const int TargetEntityID = 16;
-    public const int ToDestroy = 17;
+    public const int Deplete = 1;
+    public const int ID = 2;
+    public const int InputDebugListener = 3;
+    public const int InputLoadSceneListener = 4;
+    public const int InputLoadSceneRemovedListener = 5;
+    public const int InputPauseListener = 6;
+    public const int InputPauseRemovedListener = 7;
+    public const int InputToDestroyListener = 8;
+    public const int InputToDestroyRemovedListener = 9;
+    public const int Interval = 10;
+    public const int Load = 11;
+    public const int LoadSceneComplete = 12;
+    public const int LoadScene = 13;
+    public const int Max = 14;
+    public const int Need = 15;
+    public const int Pause = 16;
+    public const int Save = 17;
+    public const int TargetEntityID = 18;
+    public const int ToDestroy = 19;
+    public const int Trigger = 20;
 
-    public const int TotalComponents = 18;
+    public const int TotalComponents = 21;
 
     public static readonly string[] componentNames = {
         "Debug",
+        "Deplete",
         "ID",
         "InputDebugListener",
         "InputLoadSceneListener",
@@ -39,19 +43,22 @@ public static class InputComponentsLookup {
         "InputPauseRemovedListener",
         "InputToDestroyListener",
         "InputToDestroyRemovedListener",
+        "Interval",
         "Load",
         "LoadSceneComplete",
         "LoadScene",
-        "MaxAmount",
+        "Max",
         "Need",
         "Pause",
         "Save",
         "TargetEntityID",
-        "ToDestroy"
+        "ToDestroy",
+        "Trigger"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(DebugComponent),
+        typeof(DepleteComponent),
         typeof(IDComponent),
         typeof(InputDebugListenerComponent),
         typeof(InputLoadSceneListenerComponent),
@@ -60,14 +67,16 @@ public static class InputComponentsLookup {
         typeof(InputPauseRemovedListenerComponent),
         typeof(InputToDestroyListenerComponent),
         typeof(InputToDestroyRemovedListenerComponent),
+        typeof(IntervalComponent),
         typeof(LoadComponent),
         typeof(LoadSceneCompleteComponent),
         typeof(LoadSceneComponent),
-        typeof(MaxAmountComponent),
+        typeof(MaxComponent),
         typeof(NeedComponent),
         typeof(PauseComponent),
         typeof(SaveComponent),
         typeof(TargetEntityIDComponent),
-        typeof(ToDestroyComponent)
+        typeof(ToDestroyComponent),
+        typeof(TriggerComponent)
     };
 }

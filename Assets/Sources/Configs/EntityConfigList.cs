@@ -12,6 +12,7 @@ public enum EntityCfgID
     SAVE,
     LOAD,
     SCENE,
-    DEBUG
+    DEBUG,
+    HUNGER
 }
 

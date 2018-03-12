@@ -6,12 +6,12 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IMaxAmountEntity {
+public partial interface IIntervalEntity {
 
-    MaxAmountComponent maxAmount { get; }
-    bool hasMaxAmount { get; }
+    IntervalComponent interval { get; }
+    bool hasInterval { get; }
 
-    void AddMaxAmount(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue);
-    void ReplaceMaxAmount(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue);
-    void RemoveMaxAmount();
+    void AddInterval(DurationType newDuration);
+    void ReplaceInterval(DurationType newDuration);
+    void RemoveInterval();
 }

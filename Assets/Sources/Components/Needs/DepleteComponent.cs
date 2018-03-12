@@ -6,7 +6,7 @@ using CodeStage.AntiCheat.ObscuredTypes;
 
 //[Entitas.CodeGenerator.SingleEntity]
 [Game, Input, Command]
-public sealed class MaxAmountComponent : IComponent
+public sealed class DepleteComponent : IComponent
 {
-    public ObscuredInt value;
+    public ObscuredInt amount;
 }
