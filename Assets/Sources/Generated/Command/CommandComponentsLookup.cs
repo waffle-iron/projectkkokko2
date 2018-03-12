@@ -27,10 +27,12 @@ public static class CommandComponentsLookup {
     public const int Pause = 16;
     public const int Save = 17;
     public const int TargetEntityID = 18;
-    public const int ToDestroy = 19;
-    public const int Trigger = 20;
+    public const int TimerReset = 19;
+    public const int TimerState = 20;
+    public const int ToDestroy = 21;
+    public const int Trigger = 22;
 
-    public const int TotalComponents = 21;
+    public const int TotalComponents = 23;
 
     public static readonly string[] componentNames = {
         "CommandDebugListener",
@@ -52,6 +54,8 @@ public static class CommandComponentsLookup {
         "Pause",
         "Save",
         "TargetEntityID",
+        "TimerReset",
+        "TimerState",
         "ToDestroy",
         "Trigger"
     };
@@ -76,6 +80,8 @@ public static class CommandComponentsLookup {
         typeof(PauseComponent),
         typeof(SaveComponent),
         typeof(TargetEntityIDComponent),
+        typeof(TimerResetComponent),
+        typeof(TimerStateComponent),
         typeof(ToDestroyComponent),
         typeof(TriggerComponent)
     };

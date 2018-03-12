@@ -32,13 +32,16 @@ public static class GameComponentsLookup {
     public const int SavingListener = 21;
     public const int SavingRemovedListener = 22;
     public const int TargetEntityID = 23;
-    public const int ToDestroy = 24;
-    public const int Trigger = 25;
-    public const int View = 26;
-    public const int ViewListener = 27;
-    public const int ViewRemovedListener = 28;
+    public const int Timer = 24;
+    public const int TimerReset = 25;
+    public const int TimerState = 26;
+    public const int ToDestroy = 27;
+    public const int Trigger = 28;
+    public const int View = 29;
+    public const int ViewListener = 30;
+    public const int ViewRemovedListener = 31;
 
-    public const int TotalComponents = 29;
+    public const int TotalComponents = 32;
 
     public static readonly string[] componentNames = {
         "CurrentID",
@@ -65,6 +68,9 @@ public static class GameComponentsLookup {
         "SavingListener",
         "SavingRemovedListener",
         "TargetEntityID",
+        "Timer",
+        "TimerReset",
+        "TimerState",
         "ToDestroy",
         "Trigger",
         "View",
@@ -97,6 +103,9 @@ public static class GameComponentsLookup {
         typeof(SavingListenerComponent),
         typeof(SavingRemovedListenerComponent),
         typeof(TargetEntityIDComponent),
+        typeof(TimerComponent),
+        typeof(TimerResetComponent),
+        typeof(TimerStateComponent),
         typeof(ToDestroyComponent),
         typeof(TriggerComponent),
         typeof(ViewComponent),

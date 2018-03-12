@@ -26,6 +26,8 @@ public class NeedEntityConfig : UnityEntityConfig
         entity.AddDeplete(_depletion);
         entity.AddInterval(_interval);
         entity.AddTrigger(_trigger, false);
+        entity.AddTimer(0f);
+        entity.AddTimerState(false);
 
         return entity;
     }
