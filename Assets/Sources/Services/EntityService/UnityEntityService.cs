@@ -9,14 +9,19 @@ public partial class UnityEntityService : IEntityService
     private readonly Dictionary<EntityCfgID, IEntityConfig> _configs;
     private readonly Contexts _contexts;
 
-    public UnityEntityService (string configPath, Contexts contexts)
+    public UnityEntityService (string[] configPath, Contexts contexts)
     {
         _contexts = contexts;
 
-        var loadedConfigs = Resources.LoadAll<ScriptableObject>(configPath)
+        List<IEntityConfig> loadedConfigs = new List<IEntityConfig>();
+
+        foreach (var path in configPath)
+        {
+            loadedConfigs.AddRange(Resources.LoadAll<ScriptableObject>(path)
             .Where(obj => obj is IEntityConfig)
             .Select(obj => obj as IEntityConfig)
-            .ToArray();
+            .ToArray());
+        }
 
         _configs = new Dictionary<EntityCfgID, IEntityConfig>();
 

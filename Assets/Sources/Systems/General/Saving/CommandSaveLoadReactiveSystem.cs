@@ -19,7 +19,7 @@ public class CommandSaveLoadReactiveSystem : ReactiveSystem<CommandEntity>
     protected override ICollector<CommandEntity> GetTrigger (IContext<CommandEntity> context)
     {
         //return collector
-        return context.CreateCollector(CommandMatcher.AnyOf(CommandMatcher.Save, CommandMatcher.Load));
+        return context.CreateCollector(CommandMatcher.AllOf(CommandMatcher.TargetEntityID).AnyOf(CommandMatcher.Save, CommandMatcher.Load));
     }
 
     protected override bool Filter (CommandEntity entity)
@@ -40,15 +40,14 @@ public class CommandSaveLoadReactiveSystem : ReactiveSystem<CommandEntity>
             if (e.hasSave)
             {
                 entity.isSaving = true;
-                entity.isToDestroy = true;
                 saveService.Save(e.save.id, entity);
             }
             if (e.hasLoad)
             {
                 entity.isLoading = true;
-                entity.isToDestroy = true;
                 if (e.load.createNew)
                 {
+                    entity.isToDestroy = true;
                     saveService.LoadNew(e.load.id, _contexts);
                 }
                 else

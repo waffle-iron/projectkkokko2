@@ -17,7 +17,7 @@ public class InputSaveLoadEntityReactiveSystem : ReactiveSystem<InputEntity>
     protected override ICollector<InputEntity> GetTrigger (IContext<InputEntity> context)
     {
         //return collector
-        return context.CreateCollector(InputMatcher.AnyOf(InputMatcher.Save, InputMatcher.Load));
+        return context.CreateCollector(InputMatcher.AllOf(InputMatcher.TargetEntityID).AnyOf(InputMatcher.Save, InputMatcher.Load));
     }
 
     protected override bool Filter (InputEntity entity)

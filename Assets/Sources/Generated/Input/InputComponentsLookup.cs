@@ -8,66 +8,96 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
-    public const int Debug = 0;
-    public const int ID = 1;
-    public const int InputDebugListener = 2;
-    public const int InputLoadSceneListener = 3;
-    public const int InputLoadSceneRemovedListener = 4;
-    public const int InputPauseListener = 5;
-    public const int InputPauseRemovedListener = 6;
-    public const int InputToDestroyListener = 7;
-    public const int InputToDestroyRemovedListener = 8;
-    public const int Load = 9;
-    public const int LoadSceneComplete = 10;
-    public const int LoadScene = 11;
-    public const int MaxAmount = 12;
-    public const int Need = 13;
-    public const int Pause = 14;
-    public const int Save = 15;
-    public const int TargetEntityID = 16;
-    public const int ToDestroy = 17;
+    public const int Current = 0;
+    public const int Debug = 1;
+    public const int Deplete = 2;
+    public const int ID = 3;
+    public const int InputCurrentListener = 4;
+    public const int InputDebugListener = 5;
+    public const int InputLoadSceneListener = 6;
+    public const int InputLoadSceneRemovedListener = 7;
+    public const int InputNeedListener = 8;
+    public const int InputPauseListener = 9;
+    public const int InputPauseRemovedListener = 10;
+    public const int InputToDestroyListener = 11;
+    public const int InputToDestroyRemovedListener = 12;
+    public const int InputTriggerListener = 13;
+    public const int Interval = 14;
+    public const int Load = 15;
+    public const int LoadSceneComplete = 16;
+    public const int LoadScene = 17;
+    public const int Max = 18;
+    public const int Need = 19;
+    public const int Pause = 20;
+    public const int Save = 21;
+    public const int TargetEntityID = 22;
+    public const int TargetNeed = 23;
+    public const int TimerReset = 24;
+    public const int TimerState = 25;
+    public const int ToDestroy = 26;
+    public const int Trigger = 27;
 
-    public const int TotalComponents = 18;
+    public const int TotalComponents = 28;
 
     public static readonly string[] componentNames = {
+        "Current",
         "Debug",
+        "Deplete",
         "ID",
+        "InputCurrentListener",
         "InputDebugListener",
         "InputLoadSceneListener",
         "InputLoadSceneRemovedListener",
+        "InputNeedListener",
         "InputPauseListener",
         "InputPauseRemovedListener",
         "InputToDestroyListener",
         "InputToDestroyRemovedListener",
+        "InputTriggerListener",
+        "Interval",
         "Load",
         "LoadSceneComplete",
         "LoadScene",
-        "MaxAmount",
+        "Max",
         "Need",
         "Pause",
         "Save",
         "TargetEntityID",
-        "ToDestroy"
+        "TargetNeed",
+        "TimerReset",
+        "TimerState",
+        "ToDestroy",
+        "Trigger"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(CurrentComponent),
         typeof(DebugComponent),
+        typeof(DepleteComponent),
         typeof(IDComponent),
+        typeof(InputCurrentListenerComponent),
         typeof(InputDebugListenerComponent),
         typeof(InputLoadSceneListenerComponent),
         typeof(InputLoadSceneRemovedListenerComponent),
+        typeof(InputNeedListenerComponent),
         typeof(InputPauseListenerComponent),
         typeof(InputPauseRemovedListenerComponent),
         typeof(InputToDestroyListenerComponent),
         typeof(InputToDestroyRemovedListenerComponent),
+        typeof(InputTriggerListenerComponent),
+        typeof(IntervalComponent),
         typeof(LoadComponent),
         typeof(LoadSceneCompleteComponent),
         typeof(LoadSceneComponent),
-        typeof(MaxAmountComponent),
+        typeof(MaxComponent),
         typeof(NeedComponent),
         typeof(PauseComponent),
         typeof(SaveComponent),
         typeof(TargetEntityIDComponent),
-        typeof(ToDestroyComponent)
+        typeof(TargetNeedComponent),
+        typeof(TimerResetComponent),
+        typeof(TimerStateComponent),
+        typeof(ToDestroyComponent),
+        typeof(TriggerComponent)
     };
 }

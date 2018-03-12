@@ -5,7 +5,7 @@ using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game, Input, Command]
+[Game, Input, Command, Event(true)]
 public sealed class NeedComponent : IComponent
 {
     [PrimaryEntityIndex]
