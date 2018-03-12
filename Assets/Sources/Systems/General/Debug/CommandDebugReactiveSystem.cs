@@ -6,12 +6,10 @@ using Entitas;
 public class CommandDebugReactiveSystem : ReactiveSystem<CommandEntity>
 {
     private readonly MetaContext _meta;
-    private readonly GameContext _game;
 
     public CommandDebugReactiveSystem(Contexts contexts) : base(contexts.command)
     {
         _meta = contexts.meta;
-        _game = contexts.game;
     }
 
     protected override ICollector<CommandEntity> GetTrigger(IContext<CommandEntity> context)

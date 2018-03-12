@@ -13,16 +13,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: 6
   _viewName: 
-  _type: 2
-  _max: 10
+  _type: 3
+  _max: 0
   _depletion: 1
+  _target: 1
   _interval:
     length: 5
     unit: 1
   _trigger:
     length: 10
     unit: 1
-  _runOnStart: 0
+  _runOnStart: 1
   _loadOnStart: 1
   _saveID:
     currentCryptoKey: 4441

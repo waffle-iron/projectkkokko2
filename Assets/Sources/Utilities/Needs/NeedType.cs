@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 public enum NeedType
 {
+    NONE,
     HEALTH,
     MOOD,
     HUNGER,

@@ -16,9 +16,11 @@ public class NeedInitializeSystem : IInitializeSystem
     {
         // Initialization code here
         var service = _meta.entityService.instance;
-
-        IEntity hungerEntity;
-
-        service.Get(EntityCfgID.HUNGER, out hungerEntity);
+        //add other needs here
+        IEntity hunger;
+        IEntity health;
+        
+        service.Get(EntityCfgID.HUNGER, out hunger);
+        service.Get(EntityCfgID.HEALTH, out health);
     }
 }

@@ -23,6 +23,7 @@ public class NeedTriggerReactiveSystem : ReactiveSystem<GameEntity>
         // check for required components
         return
             entity.hasTrigger && 
+            entity.hasTimerState &&
             entity.trigger.state == false &&
             entity.timer.current >= entity.trigger.duration.GetInSeconds();
     }
@@ -32,10 +33,12 @@ public class NeedTriggerReactiveSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             e.ReplaceTrigger(e.trigger.duration, true);
+            e.ReplaceTimerState(false); //stop para di mu deduct dayon
 
             var inputEntity = _input.CreateEntity();
             inputEntity.AddTargetEntityID(e.iD.value);
             inputEntity.isTimerReset = true;
+            inputEntity.AddTimerState(true);
         }
     }
 }

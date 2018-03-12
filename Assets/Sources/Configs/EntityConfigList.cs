@@ -13,6 +13,7 @@ public enum EntityCfgID
     LOAD,
     SCENE,
     DEBUG,
-    HUNGER
+    HUNGER,
+    HEALTH
 }
 
