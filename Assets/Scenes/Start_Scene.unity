@@ -544,7 +544,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rootScene: Start_Scene
-  _configPath: Configs
+  _configPath:
+  - Configs/General
+  - Configs/Needs
 --- !u!4 &1004094933
 Transform:
   m_ObjectHideFlags: 0

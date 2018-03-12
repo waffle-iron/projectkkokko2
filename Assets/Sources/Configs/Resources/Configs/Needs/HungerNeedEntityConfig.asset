@@ -22,4 +22,11 @@ MonoBehaviour:
   _trigger:
     length: 10
     unit: 1
-  _runOnStart: 1
+  _runOnStart: 0
+  _loadOnStart: 1
+  _saveID:
+    currentCryptoKey: 4441
+    hiddenValue: 5c0041005a00560051004600
+    inited: 1
+    fakeValue: hunger
+    fakeValueActive: 1

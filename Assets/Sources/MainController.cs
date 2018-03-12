@@ -8,7 +8,7 @@ public class MainController : MonoBehaviour
     [SceneName, SerializeField]
     private string _rootScene;
     [SerializeField]
-    private string _configPath;
+    private string[] _configPath;
 
     private Contexts _contexts;
     private Systems _systems;
