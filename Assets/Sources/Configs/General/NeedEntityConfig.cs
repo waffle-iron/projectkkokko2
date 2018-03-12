@@ -16,6 +16,8 @@ public class NeedEntityConfig : UnityEntityConfig
     private DurationType _interval;
     [SerializeField]
     private DurationType _trigger;
+    [SerializeField]
+    private bool _runOnStart = false;
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
@@ -27,7 +29,7 @@ public class NeedEntityConfig : UnityEntityConfig
         entity.AddInterval(_interval);
         entity.AddTrigger(_trigger, false);
         entity.AddTimer(0f);
-        entity.AddTimerState(false);
+        entity.AddTimerState(_runOnStart);
 
         return entity;
     }
