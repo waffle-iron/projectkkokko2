@@ -31,7 +31,7 @@ public class NeedInputReactiveSystem : ReactiveSystem<InputEntity>
         foreach (var e in entities)
         {
             var target = _game.GetEntityWithNeed(e.targetNeed.type);
-            if (target != null && target.hasTargetNeed && target.hasTrigger && target.trigger.state == true)
+            if (target != null && target.isAnimating == false && target.hasTargetNeed && target.hasTrigger && target.trigger.state == true)
             {
                 //check the need our triggered needs deducts
                 var targetOftarget = _game.GetEntityWithNeed(target.targetNeed.type);
