@@ -10,6 +10,8 @@ public class NeedEntityConfig : UnityEntityConfig
     [Header("Need ID")]
     [SerializeField]
     private NeedType _type;
+    [SerializeField]
+    private ActionType _matchingAction;
 
     [Header("Depletion stuff")]
     [SerializeField, Range(0, 10)]
@@ -37,7 +39,7 @@ public class NeedEntityConfig : UnityEntityConfig
     {
         var entity = contexts.game.CreateEntity();
 
-        entity.AddNeed(_type);
+        entity.AddNeed(_type, _matchingAction);
 
         if (_max > 0)
         {

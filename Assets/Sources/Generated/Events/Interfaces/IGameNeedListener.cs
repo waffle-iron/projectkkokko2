@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IGameNeedListener {
-    void OnNeed(GameEntity entity, NeedType type);
+    void OnNeed(GameEntity entity, NeedType type, ActionType action);
 }

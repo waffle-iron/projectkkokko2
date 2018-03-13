@@ -11,17 +11,19 @@ public partial class GameEntity {
     public NeedComponent need { get { return (NeedComponent)GetComponent(GameComponentsLookup.Need); } }
     public bool hasNeed { get { return HasComponent(GameComponentsLookup.Need); } }
 
-    public void AddNeed(NeedType newType) {
+    public void AddNeed(NeedType newType, ActionType newAction) {
         var index = GameComponentsLookup.Need;
         var component = CreateComponent<NeedComponent>(index);
         component.type = newType;
+        component.action = newAction;
         AddComponent(index, component);
     }
 
-    public void ReplaceNeed(NeedType newType) {
+    public void ReplaceNeed(NeedType newType, ActionType newAction) {
         var index = GameComponentsLookup.Need;
         var component = CreateComponent<NeedComponent>(index);
         component.type = newType;
+        component.action = newAction;
         ReplaceComponent(index, component);
     }
 

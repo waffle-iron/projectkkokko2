@@ -25,7 +25,7 @@ public sealed class CommandNeedEventSystem : Entitas.ReactiveSystem<CommandEntit
         foreach (var e in entities) {
             var component = e.need;
             foreach (var listener in e.commandNeedListener.value) {
-                listener.OnNeed(e, component.type);
+                listener.OnNeed(e, component.type, component.action);
             }
         }
     }

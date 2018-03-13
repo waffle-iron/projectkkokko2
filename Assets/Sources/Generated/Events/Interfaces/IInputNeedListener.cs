@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IInputNeedListener {
-    void OnNeed(InputEntity entity, NeedType type);
+    void OnNeed(InputEntity entity, NeedType type, ActionType action);
 }

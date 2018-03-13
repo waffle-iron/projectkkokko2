@@ -11,7 +11,7 @@ public partial interface INeedEntity {
     NeedComponent need { get; }
     bool hasNeed { get; }
 
-    void AddNeed(NeedType newType);
-    void ReplaceNeed(NeedType newType);
+    void AddNeed(NeedType newType, ActionType newAction);
+    void ReplaceNeed(NeedType newType, ActionType newAction);
     void RemoveNeed();
 }

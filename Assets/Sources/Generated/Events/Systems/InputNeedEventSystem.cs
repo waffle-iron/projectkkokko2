@@ -25,7 +25,7 @@ public sealed class InputNeedEventSystem : Entitas.ReactiveSystem<InputEntity> {
         foreach (var e in entities) {
             var component = e.need;
             foreach (var listener in e.inputNeedListener.value) {
-                listener.OnNeed(e, component.type);
+                listener.OnNeed(e, component.type, component.action);
             }
         }
     }

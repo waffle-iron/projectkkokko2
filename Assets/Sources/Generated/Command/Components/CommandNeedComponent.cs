@@ -11,17 +11,19 @@ public partial class CommandEntity {
     public NeedComponent need { get { return (NeedComponent)GetComponent(CommandComponentsLookup.Need); } }
     public bool hasNeed { get { return HasComponent(CommandComponentsLookup.Need); } }
 
-    public void AddNeed(NeedType newType) {
+    public void AddNeed(NeedType newType, ActionType newAction) {
         var index = CommandComponentsLookup.Need;
         var component = CreateComponent<NeedComponent>(index);
         component.type = newType;
+        component.action = newAction;
         AddComponent(index, component);
     }
 
-    public void ReplaceNeed(NeedType newType) {
+    public void ReplaceNeed(NeedType newType, ActionType newAction) {
         var index = CommandComponentsLookup.Need;
         var component = CreateComponent<NeedComponent>(index);
         component.type = newType;
+        component.action = newAction;
         ReplaceComponent(index, component);
     }
 

@@ -10,4 +10,5 @@ public sealed class NeedComponent : IComponent
 {
     [PrimaryEntityIndex]
     public NeedType type;
+    public ActionType action;
 }

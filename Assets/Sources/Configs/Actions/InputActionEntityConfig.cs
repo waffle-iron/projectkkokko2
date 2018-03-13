@@ -4,7 +4,7 @@ using System.Linq;
 using Entitas;
 using UnityEngine;
 
-public class ActionEntityConfig : UnityEntityConfig
+public class InputActionEntityConfig : UnityEntityConfig
 {
     [Header("Action")]
     [SerializeField]
@@ -14,15 +14,22 @@ public class ActionEntityConfig : UnityEntityConfig
     [SerializeField]
     private NeedType _targetNeed;
 
+    [SerializeField]
+    private int restoreAmount = 0;
+
     protected override IEntity CustomCreate (Contexts contexts)
     {
-        var gameEntity = contexts.game.CreateEntity();
+        var inputEntity = contexts.input.CreateEntity();
+
+        inputEntity.AddAction(_type);
+
         if (_targetNeed != NeedType.NONE)
         {
-            gameEntity.AddTargetNeed(_targetNeed);
+            inputEntity.AddTargetNeed(_targetNeed);
+            inputEntity.AddReset(restoreAmount);
         }
 
-        return gameEntity;
+        return inputEntity;
     }
 }
 

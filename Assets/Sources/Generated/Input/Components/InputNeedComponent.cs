@@ -11,17 +11,19 @@ public partial class InputEntity {
     public NeedComponent need { get { return (NeedComponent)GetComponent(InputComponentsLookup.Need); } }
     public bool hasNeed { get { return HasComponent(InputComponentsLookup.Need); } }
 
-    public void AddNeed(NeedType newType) {
+    public void AddNeed(NeedType newType, ActionType newAction) {
         var index = InputComponentsLookup.Need;
         var component = CreateComponent<NeedComponent>(index);
         component.type = newType;
+        component.action = newAction;
         AddComponent(index, component);
     }
 
-    public void ReplaceNeed(NeedType newType) {
+    public void ReplaceNeed(NeedType newType, ActionType newAction) {
         var index = InputComponentsLookup.Need;
         var component = CreateComponent<NeedComponent>(index);
         component.type = newType;
+        component.action = newAction;
         ReplaceComponent(index, component);
     }
 

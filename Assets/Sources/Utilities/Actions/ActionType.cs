@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 public enum ActionType
 {
+    NONE,
     EAT,
     POOP,
     EXERCISE,

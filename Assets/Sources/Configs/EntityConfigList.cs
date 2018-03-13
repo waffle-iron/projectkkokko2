@@ -25,12 +25,19 @@ public enum EntityCfgID
     SLEEP,
 
     //ACTIONS
-    EAT,
-    POOP,
-    EXERCISE,
-    BATH,
-    LIGHTS,
-    JOB,
-    SHOP
+    INPUT_EAT,
+    INPUT_POOP,
+    INPUT_EXERCISE,
+    INPUT_BATH,
+    INPUT_LIGHTS,
+    INPUT_JOB,
+    INPUT_SHOP,
+    GAME_EAT,
+    GAME_POOP,
+    GAME_EXERCISE,
+    GAME_BATH,
+    GAME_LIGHTS,
+    GAME_JOB,
+    GAME_SHOP
 }
 

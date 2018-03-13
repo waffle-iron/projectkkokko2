@@ -25,7 +25,7 @@ public sealed class GameNeedEventSystem : Entitas.ReactiveSystem<GameEntity> {
         foreach (var e in entities) {
             var component = e.need;
             foreach (var listener in e.gameNeedListener.value) {
-                listener.OnNeed(e, component.type);
+                listener.OnNeed(e, component.type, component.action);
             }
         }
     }

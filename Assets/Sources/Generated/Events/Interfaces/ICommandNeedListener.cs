@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ICommandNeedListener {
-    void OnNeed(CommandEntity entity, NeedType type);
+    void OnNeed(CommandEntity entity, NeedType type, ActionType action);
 }
