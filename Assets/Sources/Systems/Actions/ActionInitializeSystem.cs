@@ -17,9 +17,9 @@ public class ActionInitializeSystem : IInitializeSystem
     public void Initialize ()
     {
         // Initialization code here
-        var service = _meta.entityService.instance;
-        IEntity eat, poop, exercise, bath, lights, job, shop;
+        //var service = _meta.entityService.instance;
+        //IEntity eat, poop, exercise, bath, lights, job, shop;
 
-        service.Get(EntityCfgID.GAME_EAT, out eat);
+        //service.Get(EntityCfgID.GAME_EAT, out eat);
     }
 }

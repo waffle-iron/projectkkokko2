@@ -12,6 +12,6 @@ public enum NeedType
     BLADDER,
     HYGIENE,
     FITNESS,
-    SLEEP
+    ENERGY
 }
 

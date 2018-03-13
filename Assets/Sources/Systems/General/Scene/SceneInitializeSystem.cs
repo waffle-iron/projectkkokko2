@@ -16,6 +16,6 @@ public class SceneInitializeSystem : IInitializeSystem
     {
         // Initialization code here
         IEntity entity;
-        _meta.entityService.instance.Get(EntityCfgID.SCENE, out entity);
+        _meta.entityService.instance.Get(EntityCfgID.SCENE_GAME, out entity);
     }
 }

@@ -27,7 +27,14 @@ public partial class UnityEntityService : IEntityService
 
         foreach (var cfg in loadedConfigs)
         {
-            _configs.Add(cfg.Name, cfg);
+            try
+            {
+                _configs.Add(cfg.Name, cfg);
+            }
+            catch(ArgumentException e)
+            {
+                Debug.LogError($"duplicateID: {cfg.Name}");
+            }
         }
     }
 

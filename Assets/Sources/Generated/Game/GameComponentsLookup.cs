@@ -15,40 +15,41 @@ public static class GameComponentsLookup {
     public const int Debug = 4;
     public const int Deplete = 5;
     public const int DoNotDestroyOnSceneChange = 6;
-    public const int GameCurrentListener = 7;
-    public const int GameDebugListener = 8;
-    public const int GameLoadSceneListener = 9;
-    public const int GameLoadSceneRemovedListener = 10;
-    public const int GameNeedListener = 11;
-    public const int GamePauseListener = 12;
-    public const int GamePauseRemovedListener = 13;
-    public const int GameToDestroyListener = 14;
-    public const int GameToDestroyRemovedListener = 15;
-    public const int GameTriggerListener = 16;
-    public const int ID = 17;
-    public const int Interval = 18;
-    public const int Loading = 19;
-    public const int LoadingListener = 20;
-    public const int LoadingRemovedListener = 21;
-    public const int LoadScene = 22;
-    public const int Max = 23;
-    public const int Need = 24;
-    public const int Pause = 25;
-    public const int Saving = 26;
-    public const int SavingListener = 27;
-    public const int SavingRemovedListener = 28;
-    public const int TargetEntityID = 29;
-    public const int TargetNeed = 30;
-    public const int Timer = 31;
-    public const int TimerReset = 32;
-    public const int TimerState = 33;
-    public const int ToDestroy = 34;
-    public const int Trigger = 35;
-    public const int View = 36;
-    public const int ViewListener = 37;
-    public const int ViewRemovedListener = 38;
+    public const int GameActionListener = 7;
+    public const int GameCurrentListener = 8;
+    public const int GameDebugListener = 9;
+    public const int GameLoadSceneListener = 10;
+    public const int GameLoadSceneRemovedListener = 11;
+    public const int GameNeedListener = 12;
+    public const int GamePauseListener = 13;
+    public const int GamePauseRemovedListener = 14;
+    public const int GameToDestroyListener = 15;
+    public const int GameToDestroyRemovedListener = 16;
+    public const int GameTriggerListener = 17;
+    public const int ID = 18;
+    public const int Interval = 19;
+    public const int Loading = 20;
+    public const int LoadingListener = 21;
+    public const int LoadingRemovedListener = 22;
+    public const int LoadScene = 23;
+    public const int Max = 24;
+    public const int Need = 25;
+    public const int Pause = 26;
+    public const int Saving = 27;
+    public const int SavingListener = 28;
+    public const int SavingRemovedListener = 29;
+    public const int TargetEntityID = 30;
+    public const int TargetNeed = 31;
+    public const int Timer = 32;
+    public const int TimerReset = 33;
+    public const int TimerState = 34;
+    public const int ToDestroy = 35;
+    public const int Trigger = 36;
+    public const int View = 37;
+    public const int ViewListener = 38;
+    public const int ViewRemovedListener = 39;
 
-    public const int TotalComponents = 39;
+    public const int TotalComponents = 40;
 
     public static readonly string[] componentNames = {
         "Action",
@@ -58,6 +59,7 @@ public static class GameComponentsLookup {
         "Debug",
         "Deplete",
         "DoNotDestroyOnSceneChange",
+        "GameActionListener",
         "GameCurrentListener",
         "GameDebugListener",
         "GameLoadSceneListener",
@@ -100,6 +102,7 @@ public static class GameComponentsLookup {
         typeof(DebugComponent),
         typeof(DepleteComponent),
         typeof(DoNotDestroyOnSceneChangeComponent),
+        typeof(GameActionListenerComponent),
         typeof(GameCurrentListenerComponent),
         typeof(GameDebugListenerComponent),
         typeof(GameLoadSceneListenerComponent),

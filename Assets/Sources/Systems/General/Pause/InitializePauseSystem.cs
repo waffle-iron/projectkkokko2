@@ -15,7 +15,7 @@ public class InitializePauseSystem : IInitializeSystem
     public void Initialize ()
     {
         IEntity entity;
-        if (_meta.entityService.instance.Get(EntityCfgID.PAUSE, out entity))
+        if (_meta.entityService.instance.Get(EntityCfgID.PAUSE_GAME, out entity))
         {
             //do something when not found
         }

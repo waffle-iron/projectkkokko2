@@ -17,7 +17,7 @@ public class InitializeSaveSystem : IInitializeSystem
         // Initialization code here
         IEntity save;
         IEntity load;
-        _meta.entityService.instance.Get(EntityCfgID.SAVE, out save);
-        _meta.entityService.instance.Get(EntityCfgID.LOAD, out load);
+        _meta.entityService.instance.Get(EntityCfgID.SAVE_GAME, out save);
+        _meta.entityService.instance.Get(EntityCfgID.LOAD_GAME, out load);
     }
 }
