@@ -14,6 +14,7 @@ public class GeneralSystems : Feature
         Add(new PauseSystems(contexts));
         Add(new DebugSystems(contexts));
         Add(new TimerSystems(contexts));
+        Add(new AnimationSystems(contexts));
 
         //Cleanup
         Add(new DestroySystem(contexts));

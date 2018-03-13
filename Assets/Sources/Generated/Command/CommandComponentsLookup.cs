@@ -8,39 +8,41 @@
 //------------------------------------------------------------------------------
 public static class CommandComponentsLookup {
 
-    public const int CommandCurrentListener = 0;
-    public const int CommandDebugListener = 1;
-    public const int CommandLoadSceneListener = 2;
-    public const int CommandLoadSceneRemovedListener = 3;
-    public const int CommandNeedListener = 4;
-    public const int CommandPauseListener = 5;
-    public const int CommandPauseRemovedListener = 6;
-    public const int CommandToDestroyListener = 7;
-    public const int CommandToDestroyRemovedListener = 8;
-    public const int CommandTriggerListener = 9;
-    public const int Current = 10;
-    public const int Debug = 11;
-    public const int Deplete = 12;
-    public const int ID = 13;
-    public const int Interval = 14;
-    public const int Load = 15;
-    public const int LoadSceneComplete = 16;
-    public const int LoadScene = 17;
-    public const int Max = 18;
-    public const int Need = 19;
-    public const int Pause = 20;
-    public const int Reset = 21;
-    public const int Save = 22;
-    public const int TargetEntityID = 23;
-    public const int TargetNeed = 24;
-    public const int TimerReset = 25;
-    public const int TimerState = 26;
-    public const int ToDestroy = 27;
-    public const int Trigger = 28;
+    public const int Animating = 0;
+    public const int CommandCurrentListener = 1;
+    public const int CommandDebugListener = 2;
+    public const int CommandLoadSceneListener = 3;
+    public const int CommandLoadSceneRemovedListener = 4;
+    public const int CommandNeedListener = 5;
+    public const int CommandPauseListener = 6;
+    public const int CommandPauseRemovedListener = 7;
+    public const int CommandToDestroyListener = 8;
+    public const int CommandToDestroyRemovedListener = 9;
+    public const int CommandTriggerListener = 10;
+    public const int Current = 11;
+    public const int Debug = 12;
+    public const int Deplete = 13;
+    public const int ID = 14;
+    public const int Interval = 15;
+    public const int Load = 16;
+    public const int LoadSceneComplete = 17;
+    public const int LoadScene = 18;
+    public const int Max = 19;
+    public const int Need = 20;
+    public const int Pause = 21;
+    public const int Reset = 22;
+    public const int Save = 23;
+    public const int TargetEntityID = 24;
+    public const int TargetNeed = 25;
+    public const int TimerReset = 26;
+    public const int TimerState = 27;
+    public const int ToDestroy = 28;
+    public const int Trigger = 29;
 
-    public const int TotalComponents = 29;
+    public const int TotalComponents = 30;
 
     public static readonly string[] componentNames = {
+        "Animating",
         "CommandCurrentListener",
         "CommandDebugListener",
         "CommandLoadSceneListener",
@@ -73,6 +75,7 @@ public static class CommandComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AnimatingComponent),
         typeof(CommandCurrentListenerComponent),
         typeof(CommandDebugListenerComponent),
         typeof(CommandLoadSceneListenerComponent),
