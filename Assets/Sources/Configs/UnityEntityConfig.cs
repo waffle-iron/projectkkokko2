@@ -4,6 +4,7 @@ using Entitas;
 
 public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
 {
+    [Header("ENTITY AND VIEW IDS")]
     [SerializeField]
     private EntityCfgID _name;
 
