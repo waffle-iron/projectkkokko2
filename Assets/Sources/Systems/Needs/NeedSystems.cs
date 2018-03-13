@@ -10,6 +10,9 @@ public class NeedSystems : Feature
         //Add(system here);
         Add(new NeedInitializeSystem(contexts));
 
+        Add(new NeedInputReactiveSystem(contexts));
+        Add(new NeedCommandReactiveSystem(contexts));
+
         Add(new NeedTriggerReactiveSystem(contexts));
         Add(new NeedDeductReactiveSystem(contexts));
     }

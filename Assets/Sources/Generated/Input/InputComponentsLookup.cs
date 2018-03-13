@@ -29,15 +29,16 @@ public static class InputComponentsLookup {
     public const int Max = 18;
     public const int Need = 19;
     public const int Pause = 20;
-    public const int Save = 21;
-    public const int TargetEntityID = 22;
-    public const int TargetNeed = 23;
-    public const int TimerReset = 24;
-    public const int TimerState = 25;
-    public const int ToDestroy = 26;
-    public const int Trigger = 27;
+    public const int Reset = 21;
+    public const int Save = 22;
+    public const int TargetEntityID = 23;
+    public const int TargetNeed = 24;
+    public const int TimerReset = 25;
+    public const int TimerState = 26;
+    public const int ToDestroy = 27;
+    public const int Trigger = 28;
 
-    public const int TotalComponents = 28;
+    public const int TotalComponents = 29;
 
     public static readonly string[] componentNames = {
         "Current",
@@ -61,6 +62,7 @@ public static class InputComponentsLookup {
         "Max",
         "Need",
         "Pause",
+        "Reset",
         "Save",
         "TargetEntityID",
         "TargetNeed",
@@ -92,6 +94,7 @@ public static class InputComponentsLookup {
         typeof(MaxComponent),
         typeof(NeedComponent),
         typeof(PauseComponent),
+        typeof(ResetComponent),
         typeof(SaveComponent),
         typeof(TargetEntityIDComponent),
         typeof(TargetNeedComponent),
