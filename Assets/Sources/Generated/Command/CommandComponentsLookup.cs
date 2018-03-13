@@ -20,27 +20,28 @@ public static class CommandComponentsLookup {
     public const int CommandToDestroyListener = 9;
     public const int CommandToDestroyRemovedListener = 10;
     public const int CommandTriggerListener = 11;
-    public const int Current = 12;
-    public const int Debug = 13;
-    public const int Deplete = 14;
-    public const int ID = 15;
-    public const int Interval = 16;
-    public const int Load = 17;
-    public const int LoadSceneComplete = 18;
-    public const int LoadScene = 19;
-    public const int Max = 20;
-    public const int Need = 21;
-    public const int Pause = 22;
-    public const int Reset = 23;
-    public const int Save = 24;
-    public const int TargetEntityID = 25;
-    public const int TargetNeed = 26;
-    public const int TimerReset = 27;
-    public const int TimerState = 28;
-    public const int ToDestroy = 29;
-    public const int Trigger = 30;
+    public const int CreateEntity = 12;
+    public const int Current = 13;
+    public const int Debug = 14;
+    public const int Deplete = 15;
+    public const int ID = 16;
+    public const int Interval = 17;
+    public const int Load = 18;
+    public const int LoadSceneComplete = 19;
+    public const int LoadScene = 20;
+    public const int Max = 21;
+    public const int Need = 22;
+    public const int Pause = 23;
+    public const int Reset = 24;
+    public const int Save = 25;
+    public const int TargetEntityID = 26;
+    public const int TargetNeed = 27;
+    public const int TimerReset = 28;
+    public const int TimerState = 29;
+    public const int ToDestroy = 30;
+    public const int Trigger = 31;
 
-    public const int TotalComponents = 31;
+    public const int TotalComponents = 32;
 
     public static readonly string[] componentNames = {
         "Action",
@@ -55,6 +56,7 @@ public static class CommandComponentsLookup {
         "CommandToDestroyListener",
         "CommandToDestroyRemovedListener",
         "CommandTriggerListener",
+        "CreateEntity",
         "Current",
         "Debug",
         "Deplete",
@@ -89,6 +91,7 @@ public static class CommandComponentsLookup {
         typeof(CommandToDestroyListenerComponent),
         typeof(CommandToDestroyRemovedListenerComponent),
         typeof(CommandTriggerListenerComponent),
+        typeof(CreateEntityComponent),
         typeof(CurrentComponent),
         typeof(DebugComponent),
         typeof(DepleteComponent),

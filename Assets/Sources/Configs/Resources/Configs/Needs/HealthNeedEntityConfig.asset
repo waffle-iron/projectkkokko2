@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43626b46a868d5a47a7c16271c084a57, type: 3}
   m_Name: HealthNeedEntityConfig
   m_EditorClassIdentifier: 
-  _name: 7
-  _viewName: 
+  _name: 6
+  _viewName: HealthView
   _type: 1
+  _matchingAction: 0
   _max: 10
   _depletion: 1
   _target: 0

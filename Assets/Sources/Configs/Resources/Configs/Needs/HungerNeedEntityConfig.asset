@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43626b46a868d5a47a7c16271c084a57, type: 3}
   m_Name: HungerNeedEntityConfig
   m_EditorClassIdentifier: 
-  _name: 6
+  _name: 8
   _viewName: 
   _type: 3
+  _matchingAction: 1
   _max: 0
   _depletion: 1
   _target: 1

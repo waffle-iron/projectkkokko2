@@ -10,41 +10,43 @@ public static class InputComponentsLookup {
 
     public const int Action = 0;
     public const int Animating = 1;
-    public const int Current = 2;
-    public const int Debug = 3;
-    public const int Deplete = 4;
-    public const int ID = 5;
-    public const int InputCurrentListener = 6;
-    public const int InputDebugListener = 7;
-    public const int InputLoadSceneListener = 8;
-    public const int InputLoadSceneRemovedListener = 9;
-    public const int InputNeedListener = 10;
-    public const int InputPauseListener = 11;
-    public const int InputPauseRemovedListener = 12;
-    public const int InputToDestroyListener = 13;
-    public const int InputToDestroyRemovedListener = 14;
-    public const int InputTriggerListener = 15;
-    public const int Interval = 16;
-    public const int Load = 17;
-    public const int LoadSceneComplete = 18;
-    public const int LoadScene = 19;
-    public const int Max = 20;
-    public const int Need = 21;
-    public const int Pause = 22;
-    public const int Reset = 23;
-    public const int Save = 24;
-    public const int TargetEntityID = 25;
-    public const int TargetNeed = 26;
-    public const int TimerReset = 27;
-    public const int TimerState = 28;
-    public const int ToDestroy = 29;
-    public const int Trigger = 30;
+    public const int CreateEntity = 2;
+    public const int Current = 3;
+    public const int Debug = 4;
+    public const int Deplete = 5;
+    public const int ID = 6;
+    public const int InputCurrentListener = 7;
+    public const int InputDebugListener = 8;
+    public const int InputLoadSceneListener = 9;
+    public const int InputLoadSceneRemovedListener = 10;
+    public const int InputNeedListener = 11;
+    public const int InputPauseListener = 12;
+    public const int InputPauseRemovedListener = 13;
+    public const int InputToDestroyListener = 14;
+    public const int InputToDestroyRemovedListener = 15;
+    public const int InputTriggerListener = 16;
+    public const int Interval = 17;
+    public const int Load = 18;
+    public const int LoadSceneComplete = 19;
+    public const int LoadScene = 20;
+    public const int Max = 21;
+    public const int Need = 22;
+    public const int Pause = 23;
+    public const int Reset = 24;
+    public const int Save = 25;
+    public const int TargetEntityID = 26;
+    public const int TargetNeed = 27;
+    public const int TimerReset = 28;
+    public const int TimerState = 29;
+    public const int ToDestroy = 30;
+    public const int Trigger = 31;
 
-    public const int TotalComponents = 31;
+    public const int TotalComponents = 32;
 
     public static readonly string[] componentNames = {
         "Action",
         "Animating",
+        "CreateEntity",
         "Current",
         "Debug",
         "Deplete",
@@ -79,6 +81,7 @@ public static class InputComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(ActionComponent),
         typeof(AnimatingComponent),
+        typeof(CreateEntityComponent),
         typeof(CurrentComponent),
         typeof(DebugComponent),
         typeof(DepleteComponent),

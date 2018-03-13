@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d25d9fea779ac4281ce343ebfa0919, type: 3}
   m_Name: Game_ActionEntityConfig
   m_EditorClassIdentifier: 
-  _name: 0
-  _viewName: 
+  _name: 20
+  _viewName: HungerView
