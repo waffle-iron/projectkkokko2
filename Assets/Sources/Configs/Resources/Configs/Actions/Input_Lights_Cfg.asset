@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: 17
   _viewName: 
-  _type: 6
+  _type: 4
   _targetNeed: 7
   restoreAmount: 1
