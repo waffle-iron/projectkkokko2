@@ -21,6 +21,8 @@ public class ItemSystems : Feature
         Add(new EquipInputReactiveSystem(contexts));
         Add(new EquipCommandReactiveSystem(contexts));
 
+        Add(new EquippedListReactiveSystem(contexts));
+
 
     }
 }

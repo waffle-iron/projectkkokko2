@@ -9,5 +9,5 @@ using Entitas.CodeGeneration.Attributes;
 [Game, Input, Command, Unique]
 public sealed class WalletComponent : IComponent
 {
-    public ObscuredInt amount;
+    public int amount;
 }

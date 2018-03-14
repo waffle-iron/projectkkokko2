@@ -11,7 +11,7 @@ public partial interface IWalletEntity {
     WalletComponent wallet { get; }
     bool hasWallet { get; }
 
-    void AddWallet(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newAmount);
-    void ReplaceWallet(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newAmount);
+    void AddWallet(int newAmount);
+    void ReplaceWallet(int newAmount);
     void RemoveWallet();
 }

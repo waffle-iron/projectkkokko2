@@ -12,7 +12,7 @@ public partial class GameContext {
     public WalletComponent wallet { get { return walletEntity.wallet; } }
     public bool hasWallet { get { return walletEntity != null; } }
 
-    public GameEntity SetWallet(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newAmount) {
+    public GameEntity SetWallet(int newAmount) {
         if (hasWallet) {
             throw new Entitas.EntitasException("Could not set Wallet!\n" + this + " already has an entity with WalletComponent!",
                 "You should check if the context already has a walletEntity before setting it or use context.ReplaceWallet().");
@@ -22,7 +22,7 @@ public partial class GameContext {
         return entity;
     }
 
-    public void ReplaceWallet(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newAmount) {
+    public void ReplaceWallet(int newAmount) {
         var entity = walletEntity;
         if (entity == null) {
             entity = SetWallet(newAmount);
@@ -49,14 +49,14 @@ public partial class GameEntity {
     public WalletComponent wallet { get { return (WalletComponent)GetComponent(GameComponentsLookup.Wallet); } }
     public bool hasWallet { get { return HasComponent(GameComponentsLookup.Wallet); } }
 
-    public void AddWallet(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newAmount) {
+    public void AddWallet(int newAmount) {
         var index = GameComponentsLookup.Wallet;
         var component = CreateComponent<WalletComponent>(index);
         component.amount = newAmount;
         AddComponent(index, component);
     }
 
-    public void ReplaceWallet(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newAmount) {
+    public void ReplaceWallet(int newAmount) {
         var index = GameComponentsLookup.Wallet;
         var component = CreateComponent<WalletComponent>(index);
         component.amount = newAmount;

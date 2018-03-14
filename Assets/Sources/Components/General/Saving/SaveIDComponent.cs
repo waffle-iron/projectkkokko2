@@ -5,7 +5,7 @@ using Entitas;
 using CodeStage.AntiCheat.ObscuredTypes;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game]
+[Game, IgnoreSave]
 public sealed class SaveIDComponent : IComponent
 {
     public ObscuredString value;
