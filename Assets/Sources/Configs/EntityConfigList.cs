@@ -40,6 +40,11 @@ public enum EntityCfgID
     JOB_GAME,
     SHOP_GAME,
     SHOP_SWITCH_INPUT,
-    JOB_SWITCH_INPUT
+    JOB_SWITCH_INPUT,
+
+    //ITEMS
+    WALLET_GAME,
+    EQUIPPEDITEMS_GAME,
+    ITEM_HAT_GAME,
 }
 
