@@ -20,29 +20,32 @@ public static class InputComponentsLookup {
     public const int InputDebugListener = 9;
     public const int InputLoadSceneListener = 10;
     public const int InputLoadSceneRemovedListener = 11;
-    public const int InputNeedListener = 12;
-    public const int InputPauseListener = 13;
-    public const int InputPauseRemovedListener = 14;
-    public const int InputToDestroyListener = 15;
-    public const int InputToDestroyRemovedListener = 16;
-    public const int InputTriggerListener = 17;
-    public const int Interval = 18;
-    public const int Load = 19;
-    public const int LoadSceneComplete = 20;
-    public const int LoadScene = 21;
-    public const int Max = 22;
-    public const int Need = 23;
-    public const int Pause = 24;
-    public const int Reset = 25;
-    public const int Save = 26;
-    public const int TargetEntityID = 27;
-    public const int TargetNeed = 28;
-    public const int TimerReset = 29;
-    public const int TimerState = 30;
-    public const int ToDestroy = 31;
-    public const int Trigger = 32;
+    public const int InputLoadViewsListener = 12;
+    public const int InputLoadViewsRemovedListener = 13;
+    public const int InputNeedListener = 14;
+    public const int InputPauseListener = 15;
+    public const int InputPauseRemovedListener = 16;
+    public const int InputToDestroyListener = 17;
+    public const int InputToDestroyRemovedListener = 18;
+    public const int InputTriggerListener = 19;
+    public const int Interval = 20;
+    public const int Load = 21;
+    public const int LoadSceneComplete = 22;
+    public const int LoadScene = 23;
+    public const int LoadViews = 24;
+    public const int Max = 25;
+    public const int Need = 26;
+    public const int Pause = 27;
+    public const int Reset = 28;
+    public const int Save = 29;
+    public const int TargetEntityID = 30;
+    public const int TargetNeed = 31;
+    public const int TimerReset = 32;
+    public const int TimerState = 33;
+    public const int ToDestroy = 34;
+    public const int Trigger = 35;
 
-    public const int TotalComponents = 33;
+    public const int TotalComponents = 36;
 
     public static readonly string[] componentNames = {
         "Action",
@@ -57,6 +60,8 @@ public static class InputComponentsLookup {
         "InputDebugListener",
         "InputLoadSceneListener",
         "InputLoadSceneRemovedListener",
+        "InputLoadViewsListener",
+        "InputLoadViewsRemovedListener",
         "InputNeedListener",
         "InputPauseListener",
         "InputPauseRemovedListener",
@@ -67,6 +72,7 @@ public static class InputComponentsLookup {
         "Load",
         "LoadSceneComplete",
         "LoadScene",
+        "LoadViews",
         "Max",
         "Need",
         "Pause",
@@ -93,6 +99,8 @@ public static class InputComponentsLookup {
         typeof(InputDebugListenerComponent),
         typeof(InputLoadSceneListenerComponent),
         typeof(InputLoadSceneRemovedListenerComponent),
+        typeof(InputLoadViewsListenerComponent),
+        typeof(InputLoadViewsRemovedListenerComponent),
         typeof(InputNeedListenerComponent),
         typeof(InputPauseListenerComponent),
         typeof(InputPauseRemovedListenerComponent),
@@ -103,6 +111,7 @@ public static class InputComponentsLookup {
         typeof(LoadComponent),
         typeof(LoadSceneCompleteComponent),
         typeof(LoadSceneComponent),
+        typeof(LoadViewsComponent),
         typeof(MaxComponent),
         typeof(NeedComponent),
         typeof(PauseComponent),

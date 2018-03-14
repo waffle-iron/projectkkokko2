@@ -9,9 +9,10 @@ public class UnityViewService : IViewService
 {
     private static Dictionary<string, List<GameObject>> _pool;
 
-    public UnityViewService ()
+    public UnityViewService (bool includeActiveSceneObjs, string[] paths = null)
     {
         _pool = new Dictionary<string, List<GameObject>>();
+        Refresh(includeActiveSceneObjs, paths);
     }
 
     public void Load (IContext context, IEntity entity, string name)
@@ -74,12 +75,13 @@ public class UnityViewService : IViewService
         }
     }
 
+
     /// <summary>
     /// refresh the objects in the pool.
     /// </summary>
     /// <param name="path"></param>
     /// <param name="includeSceneObjects"></param>
-    public void Refresh (string path, bool includeSceneObjects)
+    public void Refresh (bool includeSceneObjects, string[] paths = null)
     {
         foreach (var objs in _pool)
         {
@@ -93,10 +95,13 @@ public class UnityViewService : IViewService
             _pool.Remove(entry.Key);
         }
 
-        if (path.Equals("") == false)
+        foreach (var path in paths)
         {
-            var resources = Resources.LoadAll<GameObject>(path);
-            AddToPool(resources);
+            if (path.Equals("") == false)
+            {
+                var resources = Resources.LoadAll<GameObject>(path);
+                AddToPool(resources);
+            }
         }
 
         if (includeSceneObjects)

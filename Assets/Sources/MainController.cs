@@ -9,6 +9,8 @@ public class MainController : MonoBehaviour
     private string _rootScene;
     [SerializeField]
     private string[] _configPath;
+    [SerializeField]
+    private string[] _viewPaths;
 
     private Contexts _contexts;
     private Systems _systems;
@@ -17,7 +19,10 @@ public class MainController : MonoBehaviour
     {
         _contexts = Contexts.sharedInstance;
         _systems = CreateSystems(_contexts, CreateServices(_contexts));
+    }
 
+    private void Start ()
+    {
         _systems.Initialize();
     }
 
@@ -27,11 +32,11 @@ public class MainController : MonoBehaviour
         _systems.Cleanup();
     }
 
-    private void OnApplicationPause (bool pause)
-    {
-        _systems.Execute();
-        _systems.Cleanup();
-    }
+    //private void OnApplicationPause (bool pause)
+    //{
+    //    _systems.Execute();
+    //    _systems.Cleanup();
+    //}
 
     private void OnDestroy ()
     {
@@ -59,7 +64,7 @@ public class MainController : MonoBehaviour
         return new Services
             (
             new UnityLoadSceneService(contexts, _rootScene),
-            new UnityViewService(),
+            new UnityViewService(true, _viewPaths),
             new JSONSaveLoadService(),
             new UnityTimeService(),
             new UnityEntityService(_configPath, contexts),

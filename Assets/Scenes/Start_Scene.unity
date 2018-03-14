@@ -589,6 +589,7 @@ MonoBehaviour:
   - Configs/General
   - Configs/Needs
   - Configs/Actions
+  _viewPaths: []
 --- !u!4 &1004094933
 Transform:
   m_ObjectHideFlags: 0

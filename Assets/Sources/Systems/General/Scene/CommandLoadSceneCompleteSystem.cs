@@ -30,7 +30,6 @@ public class CommandLoadSceneCompleteSystem : ReactiveSystem<CommandEntity>
     {
         foreach (var e in entities)
         {
-            _meta.viewService.instance.Refresh("", true);
             _game.loadSceneEntity.isToDestroy = true;
             _game.loadSceneEntity.RemoveLoadScene();
         }

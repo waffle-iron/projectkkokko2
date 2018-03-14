@@ -3,11 +3,11 @@ using System.Collections;
 using UnityEngine;
 using Entitas;
 
-public class CreateEntityInputReactiveSystem : ReactiveSystem<InputEntity>
+public class InputLoadViewsReactiveSystem : ReactiveSystem<InputEntity>
 {
     private readonly CommandContext _cmd;
 
-    public CreateEntityInputReactiveSystem (Contexts contexts) : base(contexts.input)
+    public InputLoadViewsReactiveSystem (Contexts contexts) : base(contexts.input)
     {
         _cmd = contexts.command;
     }
@@ -15,13 +15,13 @@ public class CreateEntityInputReactiveSystem : ReactiveSystem<InputEntity>
     protected override ICollector<InputEntity> GetTrigger (IContext<InputEntity> context)
     {
         //return collector
-        return context.CreateCollector(InputMatcher.CreateEntity);
+        return context.CreateCollector(InputMatcher.LoadViews);
     }
 
     protected override bool Filter (InputEntity entity)
     {
         // check for required components
-        return entity.hasCreateEntity;
+        return entity.hasLoadViews;
     }
 
     protected override void Execute (List<InputEntity> entities)
@@ -29,8 +29,8 @@ public class CreateEntityInputReactiveSystem : ReactiveSystem<InputEntity>
         foreach (var e in entities)
         {
             // do stuff to the matched entities
-            var ety = _cmd.CreateEntity();
-            ety.AddCreateEntity(e.createEntity.id);
+            var cmdEntity = _cmd.CreateEntity();
+            cmdEntity.AddLoadViews(e.loadViews.paths, e.loadViews.includeSceneObjects);
         }
     }
 }

@@ -15,34 +15,37 @@ public static class CommandComponentsLookup {
     public const int CommandDebugListener = 4;
     public const int CommandLoadSceneListener = 5;
     public const int CommandLoadSceneRemovedListener = 6;
-    public const int CommandNeedListener = 7;
-    public const int CommandPauseListener = 8;
-    public const int CommandPauseRemovedListener = 9;
-    public const int CommandToDestroyListener = 10;
-    public const int CommandToDestroyRemovedListener = 11;
-    public const int CommandTriggerListener = 12;
-    public const int CreateEntity = 13;
-    public const int Current = 14;
-    public const int Debug = 15;
-    public const int Deplete = 16;
-    public const int ID = 17;
-    public const int Interval = 18;
-    public const int Load = 19;
-    public const int LoadSceneComplete = 20;
-    public const int LoadScene = 21;
-    public const int Max = 22;
-    public const int Need = 23;
-    public const int Pause = 24;
-    public const int Reset = 25;
-    public const int Save = 26;
-    public const int TargetEntityID = 27;
-    public const int TargetNeed = 28;
-    public const int TimerReset = 29;
-    public const int TimerState = 30;
-    public const int ToDestroy = 31;
-    public const int Trigger = 32;
+    public const int CommandLoadViewsListener = 7;
+    public const int CommandLoadViewsRemovedListener = 8;
+    public const int CommandNeedListener = 9;
+    public const int CommandPauseListener = 10;
+    public const int CommandPauseRemovedListener = 11;
+    public const int CommandToDestroyListener = 12;
+    public const int CommandToDestroyRemovedListener = 13;
+    public const int CommandTriggerListener = 14;
+    public const int CreateEntity = 15;
+    public const int Current = 16;
+    public const int Debug = 17;
+    public const int Deplete = 18;
+    public const int ID = 19;
+    public const int Interval = 20;
+    public const int Load = 21;
+    public const int LoadSceneComplete = 22;
+    public const int LoadScene = 23;
+    public const int LoadViews = 24;
+    public const int Max = 25;
+    public const int Need = 26;
+    public const int Pause = 27;
+    public const int Reset = 28;
+    public const int Save = 29;
+    public const int TargetEntityID = 30;
+    public const int TargetNeed = 31;
+    public const int TimerReset = 32;
+    public const int TimerState = 33;
+    public const int ToDestroy = 34;
+    public const int Trigger = 35;
 
-    public const int TotalComponents = 33;
+    public const int TotalComponents = 36;
 
     public static readonly string[] componentNames = {
         "Action",
@@ -52,6 +55,8 @@ public static class CommandComponentsLookup {
         "CommandDebugListener",
         "CommandLoadSceneListener",
         "CommandLoadSceneRemovedListener",
+        "CommandLoadViewsListener",
+        "CommandLoadViewsRemovedListener",
         "CommandNeedListener",
         "CommandPauseListener",
         "CommandPauseRemovedListener",
@@ -67,6 +72,7 @@ public static class CommandComponentsLookup {
         "Load",
         "LoadSceneComplete",
         "LoadScene",
+        "LoadViews",
         "Max",
         "Need",
         "Pause",
@@ -88,6 +94,8 @@ public static class CommandComponentsLookup {
         typeof(CommandDebugListenerComponent),
         typeof(CommandLoadSceneListenerComponent),
         typeof(CommandLoadSceneRemovedListenerComponent),
+        typeof(CommandLoadViewsListenerComponent),
+        typeof(CommandLoadViewsRemovedListenerComponent),
         typeof(CommandNeedListenerComponent),
         typeof(CommandPauseListenerComponent),
         typeof(CommandPauseRemovedListenerComponent),
@@ -103,6 +111,7 @@ public static class CommandComponentsLookup {
         typeof(LoadComponent),
         typeof(LoadSceneCompleteComponent),
         typeof(LoadSceneComponent),
+        typeof(LoadViewsComponent),
         typeof(MaxComponent),
         typeof(NeedComponent),
         typeof(PauseComponent),

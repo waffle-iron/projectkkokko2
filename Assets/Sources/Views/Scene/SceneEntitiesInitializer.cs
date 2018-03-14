@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Entitas;
 
-public class SceneInitializer : MonoBehaviour
+public class SceneEntitiesInitializer : MonoBehaviour
 {
     [SerializeField]
     private EntityCfgID[] entities;
 
-    private MetaContext _meta;
+    private InputContext _input;
 
     private void Awake ()
     {
-        _meta = Contexts.sharedInstance.meta;
+        _input = Contexts.sharedInstance.input;
     }
 
     // Use this for initialization
@@ -20,8 +20,7 @@ public class SceneInitializer : MonoBehaviour
     {
         foreach (var ety in entities)
         {
-            IEntity newEntity;
-            _meta.entityService.instance.Get(ety, out newEntity);
+            _input.CreateEntity().AddCreateEntity(ety);
         }
     }
 }

@@ -20,36 +20,39 @@ public static class GameComponentsLookup {
     public const int GameDebugListener = 9;
     public const int GameLoadSceneListener = 10;
     public const int GameLoadSceneRemovedListener = 11;
-    public const int GameNeedListener = 12;
-    public const int GamePauseListener = 13;
-    public const int GamePauseRemovedListener = 14;
-    public const int GameToDestroyListener = 15;
-    public const int GameToDestroyRemovedListener = 16;
-    public const int GameTriggerListener = 17;
-    public const int ID = 18;
-    public const int Interval = 19;
-    public const int Loading = 20;
-    public const int LoadingListener = 21;
-    public const int LoadingRemovedListener = 22;
-    public const int LoadScene = 23;
-    public const int Max = 24;
-    public const int Need = 25;
-    public const int Pause = 26;
-    public const int Saving = 27;
-    public const int SavingListener = 28;
-    public const int SavingRemovedListener = 29;
-    public const int TargetEntityID = 30;
-    public const int TargetNeed = 31;
-    public const int Timer = 32;
-    public const int TimerReset = 33;
-    public const int TimerState = 34;
-    public const int ToDestroy = 35;
-    public const int Trigger = 36;
-    public const int View = 37;
-    public const int ViewListener = 38;
-    public const int ViewRemovedListener = 39;
+    public const int GameLoadViewsListener = 12;
+    public const int GameLoadViewsRemovedListener = 13;
+    public const int GameNeedListener = 14;
+    public const int GamePauseListener = 15;
+    public const int GamePauseRemovedListener = 16;
+    public const int GameToDestroyListener = 17;
+    public const int GameToDestroyRemovedListener = 18;
+    public const int GameTriggerListener = 19;
+    public const int ID = 20;
+    public const int Interval = 21;
+    public const int Loading = 22;
+    public const int LoadingListener = 23;
+    public const int LoadingRemovedListener = 24;
+    public const int LoadScene = 25;
+    public const int LoadViews = 26;
+    public const int Max = 27;
+    public const int Need = 28;
+    public const int Pause = 29;
+    public const int Saving = 30;
+    public const int SavingListener = 31;
+    public const int SavingRemovedListener = 32;
+    public const int TargetEntityID = 33;
+    public const int TargetNeed = 34;
+    public const int Timer = 35;
+    public const int TimerReset = 36;
+    public const int TimerState = 37;
+    public const int ToDestroy = 38;
+    public const int Trigger = 39;
+    public const int View = 40;
+    public const int ViewListener = 41;
+    public const int ViewRemovedListener = 42;
 
-    public const int TotalComponents = 40;
+    public const int TotalComponents = 43;
 
     public static readonly string[] componentNames = {
         "Action",
@@ -64,6 +67,8 @@ public static class GameComponentsLookup {
         "GameDebugListener",
         "GameLoadSceneListener",
         "GameLoadSceneRemovedListener",
+        "GameLoadViewsListener",
+        "GameLoadViewsRemovedListener",
         "GameNeedListener",
         "GamePauseListener",
         "GamePauseRemovedListener",
@@ -76,6 +81,7 @@ public static class GameComponentsLookup {
         "LoadingListener",
         "LoadingRemovedListener",
         "LoadScene",
+        "LoadViews",
         "Max",
         "Need",
         "Pause",
@@ -107,6 +113,8 @@ public static class GameComponentsLookup {
         typeof(GameDebugListenerComponent),
         typeof(GameLoadSceneListenerComponent),
         typeof(GameLoadSceneRemovedListenerComponent),
+        typeof(GameLoadViewsListenerComponent),
+        typeof(GameLoadViewsRemovedListenerComponent),
         typeof(GameNeedListenerComponent),
         typeof(GamePauseListenerComponent),
         typeof(GamePauseRemovedListenerComponent),
@@ -119,6 +127,7 @@ public static class GameComponentsLookup {
         typeof(LoadingListenerComponent),
         typeof(LoadingRemovedListenerComponent),
         typeof(LoadSceneComponent),
+        typeof(LoadViewsComponent),
         typeof(MaxComponent),
         typeof(NeedComponent),
         typeof(PauseComponent),
