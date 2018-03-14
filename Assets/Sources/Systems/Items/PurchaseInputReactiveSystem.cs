@@ -3,27 +3,27 @@ using System.Collections;
 using UnityEngine;
 using Entitas;
 
-public class InputSaveLoadEntityReactiveSystem : ReactiveSystem<InputEntity>
+public class PurchaseInputReactiveSystem : ReactiveSystem<InputEntity>
 {
+    private readonly CommandContext _cmd;
     private readonly GameContext _game;
-    private readonly CommandContext _command;
 
-    public InputSaveLoadEntityReactiveSystem (Contexts contexts) : base(contexts.input)
+    public PurchaseInputReactiveSystem (Contexts contexts) : base(contexts.input)
     {
+        _cmd = contexts.command;
         _game = contexts.game;
-        _command = contexts.command;
     }
 
     protected override ICollector<InputEntity> GetTrigger (IContext<InputEntity> context)
     {
-        //return collector
-        return context.CreateCollector(InputMatcher.AllOf(InputMatcher.TargetEntityID).AnyOf(InputMatcher.Save, InputMatcher.Load));
+        //return 
+        return context.CreateCollector(InputMatcher.AllOf(InputMatcher.TargetEntityID, InputMatcher.Purchased));
     }
 
     protected override bool Filter (InputEntity entity)
     {
         // check for required components
-        return entity.hasTargetEntityID;
+        return entity.hasTargetEntityID && entity.isPurchased;
     }
 
     protected override void Execute (List<InputEntity> entities)
@@ -31,18 +31,21 @@ public class InputSaveLoadEntityReactiveSystem : ReactiveSystem<InputEntity>
         foreach (var e in entities)
         {
             var target = _game.GetEntityWithID(e.targetEntityID.value);
+
             if (target != null)
             {
-                var cmdEntity = _command.CreateEntity();
+                var cmdEntity = _cmd.CreateEntity();
                 cmdEntity.AddTargetEntityID(e.targetEntityID.value);
 
-                if (e.isSave && target.hasSaveID)
+                if (target.hasPrice && target.isPrePurchase)
                 {
-                    cmdEntity.isSave = true;
+                    //create a purchase command
+                    cmdEntity.isPurchased = true;
                 }
                 else
                 {
-                    cmdEntity.AddLoad(e.load.id, e.load.createNew);
+                    //create a pre purchase command
+                    cmdEntity.isPrePurchase = true;
                 }
             }
         }

@@ -46,6 +46,11 @@ public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
             ((GameEntity)entity).AddView(_viewName);
         }
 
+        if (saveID.Equals("") == false)
+        {
+            ((GameEntity)entity).AddSaveID(saveID);
+        }
+
         if (_loadOnStart && saveID.Equals("") == false)
         {
             var inputEntity = contexts.input.CreateEntity();

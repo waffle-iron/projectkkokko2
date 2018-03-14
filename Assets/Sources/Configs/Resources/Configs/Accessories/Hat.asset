@@ -15,10 +15,10 @@ MonoBehaviour:
   _viewName: 
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 
+    hiddenValue: 5d00400051005c006b005c0055004500
     inited: 1
-    fakeValue: 
-    fakeValueActive: 0
+    fakeValue: item_hat
+    fakeValueActive: 1
   _loadOnStart: 0
   _id: 1
   _type: 1

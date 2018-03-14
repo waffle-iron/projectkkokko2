@@ -12,10 +12,10 @@ public class WalletConfig : UnityEntityConfig
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
-        var gameEntity = contexts.game.CreateEntity();
-        gameEntity.AddWallet(initValue);
+        contexts.game.SetWallet(initValue);
+        contexts.game.walletEntity.isDoNotDestroyOnSceneChange = true;
 
-        return gameEntity;
+        return contexts.game.walletEntity;
     }
 }
 

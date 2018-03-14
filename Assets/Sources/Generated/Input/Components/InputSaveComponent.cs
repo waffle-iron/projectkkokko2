@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    public SaveComponent save { get { return (SaveComponent)GetComponent(InputComponentsLookup.Save); } }
-    public bool hasSave { get { return HasComponent(InputComponentsLookup.Save); } }
+    static readonly SaveComponent saveComponent = new SaveComponent();
 
-    public void AddSave(CodeStage.AntiCheat.ObscuredTypes.ObscuredString newId) {
-        var index = InputComponentsLookup.Save;
-        var component = CreateComponent<SaveComponent>(index);
-        component.id = newId;
-        AddComponent(index, component);
-    }
+    public bool isSave {
+        get { return HasComponent(InputComponentsLookup.Save); }
+        set {
+            if (value != isSave) {
+                var index = InputComponentsLookup.Save;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : saveComponent;
 
-    public void ReplaceSave(CodeStage.AntiCheat.ObscuredTypes.ObscuredString newId) {
-        var index = InputComponentsLookup.Save;
-        var component = CreateComponent<SaveComponent>(index);
-        component.id = newId;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveSave() {
-        RemoveComponent(InputComponentsLookup.Save);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class AccessoryConfig : UnityEntityConfig
 {
+    [Header("Accessory Settings")]
     [SerializeField]
     private AccessoryID _id;
     [SerializeField]

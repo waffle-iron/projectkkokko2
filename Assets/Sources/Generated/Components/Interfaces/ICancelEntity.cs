@@ -6,6 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface ISaveEntity {
-    bool isSave { get; set; }
+public partial interface ICancelEntity {
+    bool isCancel { get; set; }
 }

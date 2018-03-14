@@ -8,11 +8,11 @@ public class EquippedItemsConfig : UnityEntityConfig
 {
     protected override IEntity CustomCreate (Contexts contexts)
     {
-        var gameEntity = contexts.game.CreateEntity();
+        contexts.game.SetEquippedItems(new List<AccessoryID>());
 
-        gameEntity.AddEquippedItems(new List<AccessoryID>());
+        contexts.game.equippedItemsEntity.isDoNotDestroyOnSceneChange = true;
 
-        return gameEntity;
+        return contexts.game.equippedItemsEntity;
     }
 }
 
