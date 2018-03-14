@@ -33,7 +33,7 @@ public partial class UnityEntityService : IEntityService
             }
             catch(ArgumentException e)
             {
-                Debug.LogError($"duplicateID: {cfg.Name}");
+                Debug.LogError($"duplicateID: {cfg.Name} \n{e.Message}");
             }
         }
     }
