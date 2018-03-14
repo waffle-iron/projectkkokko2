@@ -38,6 +38,8 @@ public enum EntityCfgID
     BATH_GAME,
     LIGHTS_GAME,
     JOB_GAME,
-    SHOP_GAME
+    SHOP_GAME,
+    SHOP_SWITCH_INPUT,
+    JOB_SWITCH_INPUT
 }
 

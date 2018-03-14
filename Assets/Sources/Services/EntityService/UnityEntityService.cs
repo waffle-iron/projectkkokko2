@@ -50,5 +50,11 @@ public partial class UnityEntityService : IEntityService
         Debug.LogWarning($"entity config: {name.ToString()} not found.");
         return false;
     }
+
+    public bool Get (EntityCfgID name)
+    {
+        IEntity temp;
+        return Get(name, out temp);
+    }
 }
 

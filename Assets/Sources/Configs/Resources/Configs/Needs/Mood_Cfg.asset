@@ -16,6 +16,7 @@ MonoBehaviour:
   _type: 2
   _matchingAction: 0
   _max: 10
+  _minRequirement: 5
   _depletion: 1
   _target: 0
   _interval:

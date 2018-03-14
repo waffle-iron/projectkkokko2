@@ -36,23 +36,24 @@ public static class GameComponentsLookup {
     public const int LoadScene = 25;
     public const int LoadViews = 26;
     public const int Max = 27;
-    public const int Need = 28;
-    public const int Pause = 29;
-    public const int Saving = 30;
-    public const int SavingListener = 31;
-    public const int SavingRemovedListener = 32;
-    public const int TargetEntityID = 33;
-    public const int TargetNeed = 34;
-    public const int Timer = 35;
-    public const int TimerReset = 36;
-    public const int TimerState = 37;
-    public const int ToDestroy = 38;
-    public const int Trigger = 39;
-    public const int View = 40;
-    public const int ViewListener = 41;
-    public const int ViewRemovedListener = 42;
+    public const int MinRequirement = 28;
+    public const int Need = 29;
+    public const int Pause = 30;
+    public const int Saving = 31;
+    public const int SavingListener = 32;
+    public const int SavingRemovedListener = 33;
+    public const int TargetEntityID = 34;
+    public const int TargetNeed = 35;
+    public const int Timer = 36;
+    public const int TimerReset = 37;
+    public const int TimerState = 38;
+    public const int ToDestroy = 39;
+    public const int Trigger = 40;
+    public const int View = 41;
+    public const int ViewListener = 42;
+    public const int ViewRemovedListener = 43;
 
-    public const int TotalComponents = 43;
+    public const int TotalComponents = 44;
 
     public static readonly string[] componentNames = {
         "Action",
@@ -83,6 +84,7 @@ public static class GameComponentsLookup {
         "LoadScene",
         "LoadViews",
         "Max",
+        "MinRequirement",
         "Need",
         "Pause",
         "Saving",
@@ -129,6 +131,7 @@ public static class GameComponentsLookup {
         typeof(LoadSceneComponent),
         typeof(LoadViewsComponent),
         typeof(MaxComponent),
+        typeof(MinRequirementComponent),
         typeof(NeedComponent),
         typeof(PauseComponent),
         typeof(SavingComponent),

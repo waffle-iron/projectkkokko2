@@ -23,7 +23,8 @@ public class NeedDeductReactiveSystem : ReactiveSystem<GameEntity>
     protected override bool Filter (GameEntity entity)
     {
         // check for required components
-        return entity.trigger.state == true &&
+        return  entity.hasTrigger &&
+                entity.trigger.state == true &&
                 entity.hasInterval &&
                 entity.hasDeplete &&
                 entity.hasTimerState &&

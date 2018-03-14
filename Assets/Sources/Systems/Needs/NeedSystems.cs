@@ -8,6 +8,7 @@ public class NeedSystems : Feature
     public NeedSystems (Contexts contexts) : base("Need Systems")
     {
         Add(new NeedInputReactiveSystem(contexts));
+        Add(new NeedInputSwitchReactiveSystem(contexts));
         Add(new NeedCommandReactiveSystem(contexts));
 
         Add(new NeedTriggerReactiveSystem(contexts));
