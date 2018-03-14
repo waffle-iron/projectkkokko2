@@ -9,5 +9,4 @@ using CodeStage.AntiCheat.ObscuredTypes;
 [Input, Command]
 public sealed class SaveComponent : IComponent
 {
-    public ObscuredString id; 
 }

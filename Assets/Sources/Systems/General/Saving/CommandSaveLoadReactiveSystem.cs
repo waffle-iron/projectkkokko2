@@ -37,10 +37,10 @@ public class CommandSaveLoadReactiveSystem : ReactiveSystem<CommandEntity>
             // do stuff to the matched entities
             var entity = _game.GetEntityWithID(e.targetEntityID.value);
 
-            if (e.hasSave)
+            if (e.isSave)
             {
                 entity.isSaving = true;
-                saveService.Save(e.save.id, entity);
+                saveService.Save(entity.saveID.value, entity);
             }
             if (e.hasLoad)
             {

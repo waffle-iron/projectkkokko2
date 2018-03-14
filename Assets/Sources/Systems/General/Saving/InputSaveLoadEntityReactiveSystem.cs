@@ -30,14 +30,15 @@ public class InputSaveLoadEntityReactiveSystem : ReactiveSystem<InputEntity>
     {
         foreach (var e in entities)
         {
-            if (_game.GetEntityWithID(e.targetEntityID.value) != null)
+            var target = _game.GetEntityWithID(e.targetEntityID.value);
+            if (target != null)
             {
                 var cmdEntity = _command.CreateEntity();
                 cmdEntity.AddTargetEntityID(e.targetEntityID.value);
 
-                if (e.hasSave)
+                if (e.isSave && target.hasSaveID)
                 {
-                    cmdEntity.AddSave(e.save.id);
+                    cmdEntity.isSave = true;
                 }
                 else
                 {

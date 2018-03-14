@@ -13,29 +13,39 @@ public partial class UnityEntityService : IEntityService
     {
         _contexts = contexts;
 
-        List<IEntityConfig> loadedConfigs = new List<IEntityConfig>();
+        //List<IEntityConfig> loadedConfigs = new List<IEntityConfig>();
+        _configs = new Dictionary<EntityCfgID, IEntityConfig>();
 
         foreach (var path in configPath)
         {
-            loadedConfigs.AddRange(Resources.LoadAll<ScriptableObject>(path)
+            var loadedConfigs = Resources.LoadAll<ScriptableObject>(path)
             .Where(obj => obj is IEntityConfig)
             .Select(obj => obj as IEntityConfig)
-            .ToArray());
+            .ToArray();
+
+            foreach (var cfg in loadedConfigs)
+            {
+                IEntityConfig value = null;
+                try
+                {
+                    if (_configs.TryGetValue(cfg.Name, out value))
+                    {
+                        throw new ArgumentException();
+                    }
+                    else
+                    {
+                        cfg.srcPath = path;
+                        _configs.Add(cfg.Name, cfg);
+                    }
+                }
+                catch (ArgumentException e)
+                {
+                    Debug.LogError($"duplicate ID: {cfg.Name} from {path} and {value.srcPath}\n{e.Message}");
+                }
+            }
         }
 
-        _configs = new Dictionary<EntityCfgID, IEntityConfig>();
 
-        foreach (var cfg in loadedConfigs)
-        {
-            try
-            {
-                _configs.Add(cfg.Name, cfg);
-            }
-            catch(ArgumentException e)
-            {
-                Debug.LogError($"duplicateID: {cfg.Name}");
-            }
-        }
     }
 
     public bool Get (EntityCfgID name, out IEntity entity)
@@ -49,6 +59,12 @@ public partial class UnityEntityService : IEntityService
         }
         Debug.LogWarning($"entity config: {name.ToString()} not found.");
         return false;
+    }
+
+    public bool Get (EntityCfgID name)
+    {
+        IEntity temp;
+        return Get(name, out temp);
     }
 }
 

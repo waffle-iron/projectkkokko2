@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Entitas;
+using CodeStage.AntiCheat.ObscuredTypes;
 
 public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
 {
@@ -11,10 +12,29 @@ public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
     [SerializeField]
     private string _viewName;
 
+    [Header("Load Data Settings")]
+    [SerializeField]
+    private ObscuredString saveID = "";
+    [SerializeField]
+    private bool _loadOnStart = false;
+
+    private string _srcPath = "";
+
     public EntityCfgID Name
     {
         get {
             return _name;
+        }
+    }
+
+    public string srcPath
+    {
+        get {
+            return _srcPath;
+        }
+
+        set {
+            _srcPath = value;
         }
     }
 
@@ -25,8 +45,21 @@ public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
         {
             ((GameEntity)entity).AddView(_viewName);
         }
+
+        if (saveID.Equals("") == false)
+        {
+            ((GameEntity)entity).AddSaveID(saveID);
+        }
+
+        if (_loadOnStart && saveID.Equals("") == false)
+        {
+            var inputEntity = contexts.input.CreateEntity();
+            inputEntity.AddLoad(saveID, false);
+            inputEntity.AddTargetEntityID(((IIDEntity)entity).iD.value);
+        }
+
         return entity;
     }
 
-    protected abstract IEntity CustomCreate(Contexts contexts);
+    protected abstract IEntity CustomCreate (Contexts contexts);
 }

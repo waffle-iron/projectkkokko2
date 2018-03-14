@@ -11,15 +11,15 @@ public class SecondaryNeedView : View, IGameTriggerListener
     [SerializeField]
     private NeedType _need;
 
-    private Tween animation;
+    private Tween _tweenAnim = null;
 
     public void OnTrigger (GameEntity entity, DurationType duration, bool state)
     {
         if (entity.hasNeed && _need == entity.need.type)
         {
-            if (animation != null)
+            if (_tweenAnim != null)
             {
-                animation.Kill();
+                _tweenAnim.Kill();
             }
             if (state == true)
             {
@@ -42,7 +42,7 @@ public class SecondaryNeedView : View, IGameTriggerListener
     void Show ()
     {
         _image.GetComponent<Image>().enabled = true;
-        animation = _image.DOShakeScale(3f).SetLoops(-1).Play();
+        _tweenAnim = _image.DOShakeScale(3f).SetLoops(-1).Play();
     }
 
     void Hide ()

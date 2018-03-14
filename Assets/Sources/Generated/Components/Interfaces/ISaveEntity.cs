@@ -7,11 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public partial interface ISaveEntity {
-
-    SaveComponent save { get; }
-    bool hasSave { get; }
-
-    void AddSave(CodeStage.AntiCheat.ObscuredTypes.ObscuredString newId);
-    void ReplaceSave(CodeStage.AntiCheat.ObscuredTypes.ObscuredString newId);
-    void RemoveSave();
+    bool isSave { get; set; }
 }

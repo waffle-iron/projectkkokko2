@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a219f5e308b805145a17fde4f7e276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: Apartment_Scene
+  target: Shop_Scene
 --- !u!1 &1004094931
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,6 +589,8 @@ MonoBehaviour:
   - Configs/General
   - Configs/Needs
   - Configs/Actions
+  - Configs/Accessories
+  - Configs/Items
   _viewPaths: []
 --- !u!4 &1004094933
 Transform:

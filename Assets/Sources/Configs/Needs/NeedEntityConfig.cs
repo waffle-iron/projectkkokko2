@@ -16,6 +16,8 @@ public class NeedEntityConfig : UnityEntityConfig
     [Header("Depletion stuff")]
     [SerializeField, Range(0, 10)]
     private int _max;
+    [SerializeField, Range(0, 10)]
+    private int _minRequirement;
     [SerializeField, Range(1, 10)]
     private int _depletion;
     [SerializeField]
@@ -29,12 +31,6 @@ public class NeedEntityConfig : UnityEntityConfig
     [SerializeField]
     private bool _runOnStart = false;
 
-    [Header("Saving stuff")]
-    [SerializeField]
-    private bool _loadOnStart = false;
-    [SerializeField]
-    private ObscuredString _saveID;
-
     protected override IEntity CustomCreate (Contexts contexts)
     {
         var entity = contexts.game.CreateEntity();
@@ -45,6 +41,7 @@ public class NeedEntityConfig : UnityEntityConfig
         {
             entity.AddMax(_max);
             entity.AddCurrent(_max);
+            entity.AddMinRequirement(_minRequirement);
         }
 
         if (_target != NeedType.NONE)
@@ -55,14 +52,6 @@ public class NeedEntityConfig : UnityEntityConfig
             entity.AddTrigger(_trigger, false);
             entity.AddTimer(0f);
             entity.AddTimerState(_runOnStart);
-        }
-
-
-        if (_loadOnStart && _saveID.Equals("") == false)
-        {
-            var load = contexts.input.CreateEntity();
-            load.AddTargetEntityID(entity.iD.value);
-            load.AddLoad(_saveID, false);
         }
 
         return entity;

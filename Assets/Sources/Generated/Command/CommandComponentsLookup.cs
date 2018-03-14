@@ -8,48 +8,60 @@
 //------------------------------------------------------------------------------
 public static class CommandComponentsLookup {
 
-    public const int Action = 0;
-    public const int Animating = 1;
-    public const int CommandActionListener = 2;
-    public const int CommandCurrentListener = 3;
-    public const int CommandDebugListener = 4;
-    public const int CommandLoadSceneListener = 5;
-    public const int CommandLoadSceneRemovedListener = 6;
-    public const int CommandLoadViewsListener = 7;
-    public const int CommandLoadViewsRemovedListener = 8;
-    public const int CommandNeedListener = 9;
-    public const int CommandPauseListener = 10;
-    public const int CommandPauseRemovedListener = 11;
-    public const int CommandToDestroyListener = 12;
-    public const int CommandToDestroyRemovedListener = 13;
-    public const int CommandTriggerListener = 14;
-    public const int CreateEntity = 15;
-    public const int Current = 16;
-    public const int Debug = 17;
-    public const int Deplete = 18;
-    public const int ID = 19;
-    public const int Interval = 20;
-    public const int Load = 21;
-    public const int LoadSceneComplete = 22;
-    public const int LoadScene = 23;
-    public const int LoadViews = 24;
-    public const int Max = 25;
-    public const int Need = 26;
-    public const int Pause = 27;
-    public const int Reset = 28;
-    public const int Save = 29;
-    public const int TargetEntityID = 30;
-    public const int TargetNeed = 31;
-    public const int TimerReset = 32;
-    public const int TimerState = 33;
-    public const int ToDestroy = 34;
-    public const int Trigger = 35;
+    public const int Accessory = 0;
+    public const int Action = 1;
+    public const int Afford = 2;
+    public const int Animating = 3;
+    public const int Cancel = 4;
+    public const int CommandActionListener = 5;
+    public const int CommandCurrentListener = 6;
+    public const int CommandDebugListener = 7;
+    public const int CommandLoadSceneListener = 8;
+    public const int CommandLoadSceneRemovedListener = 9;
+    public const int CommandLoadViewsListener = 10;
+    public const int CommandLoadViewsRemovedListener = 11;
+    public const int CommandNeedListener = 12;
+    public const int CommandPauseListener = 13;
+    public const int CommandPauseRemovedListener = 14;
+    public const int CommandToDestroyListener = 15;
+    public const int CommandToDestroyRemovedListener = 16;
+    public const int CommandTriggerListener = 17;
+    public const int CreateEntity = 18;
+    public const int Current = 19;
+    public const int Debug = 20;
+    public const int Deplete = 21;
+    public const int Equipped = 22;
+    public const int ID = 23;
+    public const int Interval = 24;
+    public const int Load = 25;
+    public const int LoadSceneComplete = 26;
+    public const int LoadScene = 27;
+    public const int LoadViews = 28;
+    public const int Max = 29;
+    public const int Need = 30;
+    public const int Pause = 31;
+    public const int PrePurchase = 32;
+    public const int Preview = 33;
+    public const int Price = 34;
+    public const int Purchased = 35;
+    public const int Reset = 36;
+    public const int Save = 37;
+    public const int TargetEntityID = 38;
+    public const int TargetNeed = 39;
+    public const int TimerReset = 40;
+    public const int TimerState = 41;
+    public const int ToDestroy = 42;
+    public const int Trigger = 43;
+    public const int Wallet = 44;
 
-    public const int TotalComponents = 36;
+    public const int TotalComponents = 45;
 
     public static readonly string[] componentNames = {
+        "Accessory",
         "Action",
+        "Afford",
         "Animating",
+        "Cancel",
         "CommandActionListener",
         "CommandCurrentListener",
         "CommandDebugListener",
@@ -67,6 +79,7 @@ public static class CommandComponentsLookup {
         "Current",
         "Debug",
         "Deplete",
+        "Equipped",
         "ID",
         "Interval",
         "Load",
@@ -76,6 +89,10 @@ public static class CommandComponentsLookup {
         "Max",
         "Need",
         "Pause",
+        "PrePurchase",
+        "Preview",
+        "Price",
+        "Purchased",
         "Reset",
         "Save",
         "TargetEntityID",
@@ -83,12 +100,16 @@ public static class CommandComponentsLookup {
         "TimerReset",
         "TimerState",
         "ToDestroy",
-        "Trigger"
+        "Trigger",
+        "Wallet"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AccessoryComponent),
         typeof(ActionComponent),
+        typeof(AffordComponent),
         typeof(AnimatingComponent),
+        typeof(CancelComponent),
         typeof(CommandActionListenerComponent),
         typeof(CommandCurrentListenerComponent),
         typeof(CommandDebugListenerComponent),
@@ -106,6 +127,7 @@ public static class CommandComponentsLookup {
         typeof(CurrentComponent),
         typeof(DebugComponent),
         typeof(DepleteComponent),
+        typeof(EquippedComponent),
         typeof(IDComponent),
         typeof(IntervalComponent),
         typeof(LoadComponent),
@@ -115,6 +137,10 @@ public static class CommandComponentsLookup {
         typeof(MaxComponent),
         typeof(NeedComponent),
         typeof(PauseComponent),
+        typeof(PrePurchaseComponent),
+        typeof(PreviewComponent),
+        typeof(PriceComponent),
+        typeof(PurchasedComponent),
         typeof(ResetComponent),
         typeof(SaveComponent),
         typeof(TargetEntityIDComponent),
@@ -122,6 +148,7 @@ public static class CommandComponentsLookup {
         typeof(TimerResetComponent),
         typeof(TimerStateComponent),
         typeof(ToDestroyComponent),
-        typeof(TriggerComponent)
+        typeof(TriggerComponent),
+        typeof(WalletComponent)
     };
 }
