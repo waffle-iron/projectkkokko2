@@ -33,37 +33,38 @@ public static class InputComponentsLookup {
     public const int InputNeedListener = 22;
     public const int InputPauseListener = 23;
     public const int InputPauseRemovedListener = 24;
-    public const int InputPreviewListener = 25;
-    public const int InputPreviewRemovedListener = 26;
-    public const int InputPriceListener = 27;
-    public const int InputPurchasedListener = 28;
-    public const int InputToDestroyListener = 29;
-    public const int InputToDestroyRemovedListener = 30;
-    public const int InputTriggerListener = 31;
-    public const int InputWalletListener = 32;
-    public const int Interval = 33;
-    public const int Load = 34;
-    public const int LoadSceneComplete = 35;
-    public const int LoadScene = 36;
-    public const int LoadViews = 37;
-    public const int Max = 38;
-    public const int Need = 39;
-    public const int Pause = 40;
-    public const int PrePurchase = 41;
-    public const int Preview = 42;
-    public const int Price = 43;
-    public const int Purchased = 44;
-    public const int Reset = 45;
-    public const int Save = 46;
-    public const int TargetEntityID = 47;
-    public const int TargetNeed = 48;
-    public const int TimerReset = 49;
-    public const int TimerState = 50;
-    public const int ToDestroy = 51;
-    public const int Trigger = 52;
-    public const int Wallet = 53;
+    public const int InputPrePurchaseListener = 25;
+    public const int InputPreviewListener = 26;
+    public const int InputPreviewRemovedListener = 27;
+    public const int InputPriceListener = 28;
+    public const int InputPurchasedListener = 29;
+    public const int InputToDestroyListener = 30;
+    public const int InputToDestroyRemovedListener = 31;
+    public const int InputTriggerListener = 32;
+    public const int InputWalletListener = 33;
+    public const int Interval = 34;
+    public const int Load = 35;
+    public const int LoadSceneComplete = 36;
+    public const int LoadScene = 37;
+    public const int LoadViews = 38;
+    public const int Max = 39;
+    public const int Need = 40;
+    public const int Pause = 41;
+    public const int PrePurchase = 42;
+    public const int Preview = 43;
+    public const int Price = 44;
+    public const int Purchased = 45;
+    public const int Reset = 46;
+    public const int Save = 47;
+    public const int TargetEntityID = 48;
+    public const int TargetNeed = 49;
+    public const int TimerReset = 50;
+    public const int TimerState = 51;
+    public const int ToDestroy = 52;
+    public const int Trigger = 53;
+    public const int Wallet = 54;
 
-    public const int TotalComponents = 54;
+    public const int TotalComponents = 55;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -91,6 +92,7 @@ public static class InputComponentsLookup {
         "InputNeedListener",
         "InputPauseListener",
         "InputPauseRemovedListener",
+        "InputPrePurchaseListener",
         "InputPreviewListener",
         "InputPreviewRemovedListener",
         "InputPriceListener",
@@ -148,6 +150,7 @@ public static class InputComponentsLookup {
         typeof(InputNeedListenerComponent),
         typeof(InputPauseListenerComponent),
         typeof(InputPauseRemovedListenerComponent),
+        typeof(InputPrePurchaseListenerComponent),
         typeof(InputPreviewListenerComponent),
         typeof(InputPreviewRemovedListenerComponent),
         typeof(InputPriceListenerComponent),

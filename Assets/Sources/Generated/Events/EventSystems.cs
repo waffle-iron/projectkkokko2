@@ -53,6 +53,9 @@ public sealed class EventSystems : Feature {
         Add(new GamePauseRemovedEventSystem(contexts)); // priority: 0
         Add(new InputPauseRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandPauseRemovedEventSystem(contexts)); // priority: 0
+        Add(new GamePrePurchaseEventSystem(contexts)); // priority: 0
+        Add(new CommandPrePurchaseEventSystem(contexts)); // priority: 0
+        Add(new InputPrePurchaseEventSystem(contexts)); // priority: 0
         Add(new GamePreviewEventSystem(contexts)); // priority: 0
         Add(new InputPreviewEventSystem(contexts)); // priority: 0
         Add(new CommandPreviewEventSystem(contexts)); // priority: 0

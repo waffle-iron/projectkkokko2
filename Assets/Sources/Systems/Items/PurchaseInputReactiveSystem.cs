@@ -32,7 +32,7 @@ public class PurchaseInputReactiveSystem : ReactiveSystem<InputEntity>
         {
             var target = _game.GetEntityWithID(e.targetEntityID.value);
 
-            if (target != null)
+            if (target != null && target.isPurchased == false)
             {
                 var cmdEntity = _cmd.CreateEntity();
                 cmdEntity.AddTargetEntityID(e.targetEntityID.value);

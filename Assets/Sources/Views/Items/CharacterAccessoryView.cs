@@ -13,7 +13,6 @@ public class CharacterAccessoryView : View, IGamePreviewListener, IGameAccessory
     private SpineCharacterAccessories _charRef;
     private Sprite _sprite;
     private AccessoryType _type;
-    [SerializeField]
     private bool _isInitialized = false;
 
     protected override void Awake ()

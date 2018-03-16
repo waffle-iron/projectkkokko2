@@ -11,6 +11,9 @@ public class ItemSystems : Feature
 
         Add(new AffordReactiveSystem(contexts));
 
+        Add(new CancelInputReactiveSystem(contexts));
+        Add(new CancelCommandReactiveSystem(contexts));
+
         Add(new PurchaseInputReactiveSystem(contexts));
         Add(new PrepurchaseCommandReactiveSystem(contexts));
         Add(new PurchaseCommandReactiveSystem(contexts));

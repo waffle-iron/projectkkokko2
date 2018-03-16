@@ -88,9 +88,19 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
 
     public void OnClick ()
     {
-        var inputEntity = contexts.input.CreateEntity();
-        inputEntity.AddTargetEntityID(((IIDEntity)EntityLink.entity).iD.value);
-        inputEntity.isPreview = true;
+        var gameEntity = (GameEntity)this.EntityLink.entity;
+        if (gameEntity.isPreview == false)
+        {
+            var inputEntity = contexts.input.CreateEntity();
+            inputEntity.AddTargetEntityID(((IIDEntity)EntityLink.entity).iD.value);
+            inputEntity.isPreview = true;
+        }
+        else
+        {
+            var inputEntity = contexts.input.CreateEntity();
+            inputEntity.AddTargetEntityID(((IIDEntity)EntityLink.entity).iD.value);
+            inputEntity.isPurchased = true;
+        }
     }
 }
 

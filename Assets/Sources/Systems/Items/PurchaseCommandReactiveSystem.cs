@@ -31,6 +31,7 @@ public class PurchaseCommandReactiveSystem : ReactiveSystem<CommandEntity>
         foreach (var e in entities)
         {
             var target = _game.GetEntityWithID(e.targetEntityID.value);
+            target.isPrePurchase = false;
             target.isPurchased = true;
 
             var saveInputEntity = _input.CreateEntity();
