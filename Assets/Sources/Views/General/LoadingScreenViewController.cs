@@ -26,7 +26,16 @@ public class LoadingScreenViewController : View, IGameLoadSceneListener, IGameLo
 
     protected override void RegisterListeners (IEntity entity, IContext context)
     {
-        ((GameEntity)entity).AddGameLoadSceneListener(this);
-        ((GameEntity)entity).AddGameLoadSceneRemovedListener(this);
+        var gameEntity = (GameEntity)entity;
+
+        gameEntity.AddGameLoadSceneListener(this);
+        gameEntity.AddGameLoadSceneRemovedListener(this);
+    }
+
+    protected override void UnregisterListeners (IEntity entity, IContext context)
+    {
+        var gameEntity = (GameEntity)entity;
+        gameEntity.RemoveGameLoadSceneListener(this);
+        gameEntity.RemoveGameLoadSceneRemovedListener(this);
     }
 }

@@ -20,5 +20,11 @@ public class NeedView : View, IGameCurrentListener
         var gameEntity = (GameEntity)entity;
         gameEntity.AddGameCurrentListener(this);
     }
+
+    protected override void UnregisterListeners (IEntity entity, IContext context)
+    {
+        var gameEntity = (GameEntity)entity;
+        gameEntity.RemoveGameCurrentListener(this);
+    }
 }
 

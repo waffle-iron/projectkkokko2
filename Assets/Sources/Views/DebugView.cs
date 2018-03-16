@@ -19,5 +19,11 @@ public class DebugView : View, IGameDebugListener
         var e = (GameEntity)entity;
         e.AddGameDebugListener(this);
     }
+
+    protected override void UnregisterListeners (IEntity entity, IContext context)
+    {
+        var e = (GameEntity)entity;
+        e.RemoveGameDebugListener(this);
+    }
 }
 

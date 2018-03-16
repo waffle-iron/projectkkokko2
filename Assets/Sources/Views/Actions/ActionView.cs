@@ -26,6 +26,11 @@ public class ActionView : View
         
     }
 
+    protected override void UnregisterListeners (IEntity entity, IContext context)
+    {
+        
+    }
+
     public void OnExecute ()
     {
         IEntity action;

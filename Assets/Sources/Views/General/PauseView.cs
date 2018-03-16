@@ -23,5 +23,12 @@ public class PauseView : View, IGamePauseListener, IGamePauseRemovedListener
         gameEntity.AddGamePauseListener(this);
         gameEntity.AddGamePauseRemovedListener(this);
     }
+
+    protected override void UnregisterListeners (IEntity entity, IContext context)
+    {
+        var gameEntity = (GameEntity)entity;
+        gameEntity.RemoveGamePauseListener(this);
+        gameEntity.RemoveGamePauseRemovedListener(this);
+    }
 }
 

@@ -31,8 +31,9 @@ public class UnityViewService : IViewService
             }
             else
             {
-                newObj = objs[0];
-                objs.RemoveAt(0);
+                //get the last copy
+                newObj = objs[1];
+                objs.RemoveAt(1);
             }
             newObj.name = name;
             newObj.hideFlags = HideFlags.None;

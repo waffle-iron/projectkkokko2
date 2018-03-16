@@ -27,6 +27,13 @@ public class LoadView : View, ILoadingListener, ILoadingRemovedListener
         gameEntity.AddLoadingRemovedListener(this);
     }
 
+    protected override void UnregisterListeners (IEntity entity, IContext context)
+    {
+        var gameEntity = (GameEntity)entity;
+        gameEntity.RemoveLoadingListener(this);
+        gameEntity.RemoveLoadingRemovedListener(this);
+    }
+
     protected override void Update ()
     {
         base.Update();

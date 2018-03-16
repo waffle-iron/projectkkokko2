@@ -38,6 +38,12 @@ public class SecondaryNeedView : View, IGameTriggerListener
         gameEntity.AddGameTriggerListener(this);
     }
 
+    protected override void UnregisterListeners (IEntity entity, IContext context)
+    {
+        var gameEntity = (GameEntity)entity;
+        gameEntity.RemoveGameTriggerListener(this);
+    }
+
 
     void Show ()
     {

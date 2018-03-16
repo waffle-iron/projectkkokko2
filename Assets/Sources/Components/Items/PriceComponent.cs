@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Entitas;
+using Entitas.CodeGeneration.Attributes;
 using CodeStage.AntiCheat.ObscuredTypes;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game, Input, Command]
+[Game, Input, Command, Event(true)]
 public sealed class PriceComponent : IComponent
 {
     public ObscuredInt amount;

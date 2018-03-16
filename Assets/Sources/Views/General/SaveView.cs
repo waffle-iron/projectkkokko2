@@ -27,6 +27,13 @@ public class SaveView : View, ISavingListener, ISavingRemovedListener
         gameEntity.AddSavingRemovedListener(this);
     }
 
+    protected override void UnregisterListeners (IEntity entity, IContext context)
+    {
+        var gameEntity = (GameEntity)entity;
+        gameEntity.RemoveSavingListener(this);
+        gameEntity.RemoveSavingRemovedListener(this);
+    }
+
     protected override void Update ()
     {
         base.Update();

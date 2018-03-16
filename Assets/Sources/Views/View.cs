@@ -14,18 +14,24 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
 
     public void Link (IEntity entity, IContext context)
     {
+        if (_entity != null) { return; }
         _entity = instance.Link(entity, context);
+
         var gameEntity = (GameEntity)entity;
         gameEntity.AddGameToDestroyListener(this);
         RegisterListeners(entity, context);
     }
     public void Unlink ()
     {
+        UnregisterListeners(_entity.entity, _entity.context);
+        ((GameEntity)_entity.entity).RemoveGameToDestroyListener(this);
         _entity.Unlink();
+        _entity = null;
         UnityViewService.Unload(this);
     }
 
     protected abstract void RegisterListeners (IEntity entity, IContext context);
+    protected abstract void UnregisterListeners (IEntity entity, IContext context);
 
     protected virtual void Awake () { }
     protected virtual void Start () { }

@@ -21,50 +21,57 @@ public static class GameComponentsLookup {
     public const int Equipped = 10;
     public const int EquippedItems = 11;
     public const int GameActionListener = 12;
-    public const int GameCurrentListener = 13;
-    public const int GameDebugListener = 14;
-    public const int GameLoadSceneListener = 15;
-    public const int GameLoadSceneRemovedListener = 16;
-    public const int GameLoadViewsListener = 17;
-    public const int GameLoadViewsRemovedListener = 18;
-    public const int GameNeedListener = 19;
-    public const int GamePauseListener = 20;
-    public const int GamePauseRemovedListener = 21;
-    public const int GameToDestroyListener = 22;
-    public const int GameToDestroyRemovedListener = 23;
-    public const int GameTriggerListener = 24;
-    public const int ID = 25;
-    public const int Interval = 26;
-    public const int Loading = 27;
-    public const int LoadingListener = 28;
-    public const int LoadingRemovedListener = 29;
-    public const int LoadScene = 30;
-    public const int LoadViews = 31;
-    public const int Max = 32;
-    public const int MinRequirement = 33;
-    public const int Need = 34;
-    public const int Pause = 35;
-    public const int PrePurchase = 36;
-    public const int Preview = 37;
-    public const int Price = 38;
-    public const int Purchased = 39;
-    public const int SaveID = 40;
-    public const int Saving = 41;
-    public const int SavingListener = 42;
-    public const int SavingRemovedListener = 43;
-    public const int TargetEntityID = 44;
-    public const int TargetNeed = 45;
-    public const int Timer = 46;
-    public const int TimerReset = 47;
-    public const int TimerState = 48;
-    public const int ToDestroy = 49;
-    public const int Trigger = 50;
-    public const int View = 51;
-    public const int ViewListener = 52;
-    public const int ViewRemovedListener = 53;
-    public const int Wallet = 54;
+    public const int GameAffordListener = 13;
+    public const int GameCurrentListener = 14;
+    public const int GameDebugListener = 15;
+    public const int GameEquippedListener = 16;
+    public const int GameEquippedRemovedListener = 17;
+    public const int GameLoadSceneListener = 18;
+    public const int GameLoadSceneRemovedListener = 19;
+    public const int GameLoadViewsListener = 20;
+    public const int GameLoadViewsRemovedListener = 21;
+    public const int GameNeedListener = 22;
+    public const int GamePauseListener = 23;
+    public const int GamePauseRemovedListener = 24;
+    public const int GamePreviewListener = 25;
+    public const int GamePreviewRemovedListener = 26;
+    public const int GamePriceListener = 27;
+    public const int GameToDestroyListener = 28;
+    public const int GameToDestroyRemovedListener = 29;
+    public const int GameTriggerListener = 30;
+    public const int GameWalletListener = 31;
+    public const int ID = 32;
+    public const int Interval = 33;
+    public const int Loading = 34;
+    public const int LoadingListener = 35;
+    public const int LoadingRemovedListener = 36;
+    public const int LoadScene = 37;
+    public const int LoadViews = 38;
+    public const int Max = 39;
+    public const int MinRequirement = 40;
+    public const int Need = 41;
+    public const int Pause = 42;
+    public const int PrePurchase = 43;
+    public const int Preview = 44;
+    public const int Price = 45;
+    public const int Purchased = 46;
+    public const int SaveID = 47;
+    public const int Saving = 48;
+    public const int SavingListener = 49;
+    public const int SavingRemovedListener = 50;
+    public const int TargetEntityID = 51;
+    public const int TargetNeed = 52;
+    public const int Timer = 53;
+    public const int TimerReset = 54;
+    public const int TimerState = 55;
+    public const int ToDestroy = 56;
+    public const int Trigger = 57;
+    public const int View = 58;
+    public const int ViewListener = 59;
+    public const int ViewRemovedListener = 60;
+    public const int Wallet = 61;
 
-    public const int TotalComponents = 55;
+    public const int TotalComponents = 62;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -80,8 +87,11 @@ public static class GameComponentsLookup {
         "Equipped",
         "EquippedItems",
         "GameActionListener",
+        "GameAffordListener",
         "GameCurrentListener",
         "GameDebugListener",
+        "GameEquippedListener",
+        "GameEquippedRemovedListener",
         "GameLoadSceneListener",
         "GameLoadSceneRemovedListener",
         "GameLoadViewsListener",
@@ -89,9 +99,13 @@ public static class GameComponentsLookup {
         "GameNeedListener",
         "GamePauseListener",
         "GamePauseRemovedListener",
+        "GamePreviewListener",
+        "GamePreviewRemovedListener",
+        "GamePriceListener",
         "GameToDestroyListener",
         "GameToDestroyRemovedListener",
         "GameTriggerListener",
+        "GameWalletListener",
         "ID",
         "Interval",
         "Loading",
@@ -138,8 +152,11 @@ public static class GameComponentsLookup {
         typeof(EquippedComponent),
         typeof(EquippedItemsComponent),
         typeof(GameActionListenerComponent),
+        typeof(GameAffordListenerComponent),
         typeof(GameCurrentListenerComponent),
         typeof(GameDebugListenerComponent),
+        typeof(GameEquippedListenerComponent),
+        typeof(GameEquippedRemovedListenerComponent),
         typeof(GameLoadSceneListenerComponent),
         typeof(GameLoadSceneRemovedListenerComponent),
         typeof(GameLoadViewsListenerComponent),
@@ -147,9 +164,13 @@ public static class GameComponentsLookup {
         typeof(GameNeedListenerComponent),
         typeof(GamePauseListenerComponent),
         typeof(GamePauseRemovedListenerComponent),
+        typeof(GamePreviewListenerComponent),
+        typeof(GamePreviewRemovedListenerComponent),
+        typeof(GamePriceListenerComponent),
         typeof(GameToDestroyListenerComponent),
         typeof(GameToDestroyRemovedListenerComponent),
         typeof(GameTriggerListenerComponent),
+        typeof(GameWalletListenerComponent),
         typeof(IDComponent),
         typeof(IntervalComponent),
         typeof(LoadingComponent),
