@@ -9,6 +9,9 @@
 public sealed class EventSystems : Feature {
 
     public EventSystems(Contexts contexts) {
+        Add(new GameAccessoryEventSystem(contexts)); // priority: 0
+        Add(new InputAccessoryEventSystem(contexts)); // priority: 0
+        Add(new CommandAccessoryEventSystem(contexts)); // priority: 0
         Add(new GameActionEventSystem(contexts)); // priority: 0
         Add(new CommandActionEventSystem(contexts)); // priority: 0
         Add(new InputActionEventSystem(contexts)); // priority: 0
@@ -59,6 +62,9 @@ public sealed class EventSystems : Feature {
         Add(new GamePriceEventSystem(contexts)); // priority: 0
         Add(new InputPriceEventSystem(contexts)); // priority: 0
         Add(new CommandPriceEventSystem(contexts)); // priority: 0
+        Add(new GamePurchasedEventSystem(contexts)); // priority: 0
+        Add(new InputPurchasedEventSystem(contexts)); // priority: 0
+        Add(new CommandPurchasedEventSystem(contexts)); // priority: 0
         Add(new SavingEventSystem(contexts)); // priority: 0
         Add(new SavingRemovedEventSystem(contexts)); // priority: 0
         Add(new GameToDestroyEventSystem(contexts)); // priority: 0

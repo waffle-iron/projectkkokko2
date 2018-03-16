@@ -17,13 +17,13 @@ public class AddViewReactiveSystem : ReactiveSystem<GameEntity>
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)
     {
         //return collector
-        return context.CreateCollector(GameMatcher.View);
+        return context.CreateCollector(GameMatcher.View.Added());
     }
 
     protected override bool Filter (GameEntity entity)
     {
         // check for required components
-        return entity.hasView;
+        return entity.hasView && entity.isAddedView == false;
     }
 
     protected override void Execute (List<GameEntity> entities)
@@ -32,6 +32,7 @@ public class AddViewReactiveSystem : ReactiveSystem<GameEntity>
         {
             // do stuff to the matched entities
             _meta.viewService.instance.Load(_game, e, e.view.name);
+            e.isAddedView = true;
         }
     }
 }

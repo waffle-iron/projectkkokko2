@@ -34,7 +34,12 @@ public class ReloadViewsReactiveSystem : ReactiveSystem<GameEntity>
         {
             foreach (var viewEntity in _views.GetEntities())
             {
-                _meta.viewService.instance.Load(_game, viewEntity, viewEntity.view.name);
+                if (viewEntity.isAddedView) { continue; }
+                else
+                {
+                    _meta.viewService.instance.Load(_game, viewEntity, viewEntity.view.name);
+                    viewEntity.isAddedView = true;
+                }
             }
         }
     }

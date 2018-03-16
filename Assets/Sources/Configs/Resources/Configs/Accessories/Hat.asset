@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Hat
   m_EditorClassIdentifier: 
   _name: 31
-  _viewName: 
+  _viewName: ItemUIView
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 5d00400051005c006b005c0055004500

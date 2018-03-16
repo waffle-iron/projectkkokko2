@@ -5,21 +5,33 @@ using Entitas;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener, IGameEquippedRemovedListener, IGamePreviewListener, IGamePreviewRemovedListener, IGamePriceListener
+public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener, IGameEquippedRemovedListener, IGamePriceListener, IGamePurchasedListener, IGameAccessoryListener
 {
     [Header("Item Specific")]
     [SerializeField]
-    private Sprite _display;
+    private Image _display;
 
     [Header("Required")]
     [SerializeField]
-    private Image _afford;
+    private Color _afford;
     [SerializeField]
-    private Image _cantAfford;
+    private Color _cantAfford;
     [SerializeField]
     private Image _equipped;
     [SerializeField]
-    private Text _text;
+    private Image _purchased;
+    [SerializeField]
+    private Text _price;
+
+    protected override void OnEnable ()
+    {
+        base.OnEnable();
+        //init look
+        _equipped.enabled = false;
+        _purchased.enabled = false;
+        _price.text = "";
+        _display.color = Color.white;
+    }
 
     protected override void RegisterListeners (IEntity entity, IContext context)
     {
@@ -27,9 +39,10 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
         gameEntity.AddGameAffordListener(this);
         gameEntity.AddGameEquippedListener(this);
         gameEntity.AddGameEquippedRemovedListener(this);
-        gameEntity.AddGamePreviewListener(this);
-        gameEntity.AddGamePreviewRemovedListener(this);
         gameEntity.AddGamePriceListener(this);
+        gameEntity.AddGamePurchasedListener(this);
+        gameEntity.AddGameAccessoryListener(this);
+
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
@@ -38,15 +51,14 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
         gameEntity.RemoveGameAffordListener(this);
         gameEntity.RemoveGameEquippedListener(this);
         gameEntity.RemoveGameEquippedRemovedListener(this);
-        gameEntity.RemoveGamePreviewListener(this);
-        gameEntity.RemoveGamePreviewRemovedListener(this);
         gameEntity.RemoveGamePriceListener(this);
+        gameEntity.RemoveGamePurchasedListener(this);
+        gameEntity.RemoveGameAccessoryListener(this);
     }
 
     public void OnAfford (GameEntity entity, bool state)
     {
-        _afford.enabled = state;
-        _cantAfford.enabled = !state;
+        _display.color = state ? _afford : _cantAfford;
     }
 
     public void OnEquipped (GameEntity entity)
@@ -61,16 +73,17 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
 
     public void OnPrice (GameEntity entity, ObscuredInt amount)
     {
-        _text.text = amount.ToString();
+        _price.text = amount.ToString();
     }
 
-    public void OnPreview (GameEntity entity)
+    public void OnPurchased (GameEntity entity)
     {
+        _purchased.enabled = true;
     }
 
-    public void OnPreviewRemoved (GameEntity entity)
+    public void OnAccessory (GameEntity entity, AccessoryID id, AccessoryType type)
     {
+        _display.sprite = Resources.Load<Sprite>(Enum.GetName(typeof(AccessoryID), id));
     }
-
 }
 
