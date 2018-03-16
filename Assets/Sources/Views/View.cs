@@ -7,15 +7,23 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
 {
     private EntityLink _entity;
 
-    public GameObject instance { get { return this.gameObject; } }
-    public EntityLink entity { get { return _entity; } }
+    public GameObject Instance { get { return this.gameObject; } }
+    public EntityLink EntityLink { get { return _entity; } }
 
     protected Contexts contexts { get { return Contexts.sharedInstance; } }
 
     public void Link (IEntity entity, IContext context)
     {
         if (_entity != null) { return; }
-        _entity = instance.Link(entity, context);
+
+        if (Instance.GetEntityLink() != null)
+        {
+            _entity = Instance.GetEntityLink();
+        }
+        else
+        {
+            _entity = Instance.Link(entity, context);
+        }
 
         var gameEntity = (GameEntity)entity;
         gameEntity.AddGameToDestroyListener(this);

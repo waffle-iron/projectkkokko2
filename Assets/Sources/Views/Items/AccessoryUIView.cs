@@ -85,5 +85,12 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
     {
         _display.sprite = Resources.Load<Sprite>(Enum.GetName(typeof(AccessoryID), id));
     }
+
+    public void OnClick ()
+    {
+        var inputEntity = contexts.input.CreateEntity();
+        inputEntity.AddTargetEntityID(((IIDEntity)EntityLink.entity).iD.value);
+        inputEntity.isPreview = true;
+    }
 }
 

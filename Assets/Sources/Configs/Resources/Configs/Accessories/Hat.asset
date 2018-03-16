@@ -30,13 +30,13 @@ MonoBehaviour:
     fakeValueActive: 1
   _isPurchased:
     currentCryptoKey: 215
-    hiddenValue: 98
+    hiddenValue: 2
     inited: 1
-    fakeValue: 0
-    fakeValueActive: 0
+    fakeValue: 1
+    fakeValueActive: 1
   _isEquipped:
     currentCryptoKey: 215
-    hiddenValue: 98
+    hiddenValue: 2
     inited: 1
-    fakeValue: 0
-    fakeValueActive: 0
+    fakeValue: 1
+    fakeValueActive: 1

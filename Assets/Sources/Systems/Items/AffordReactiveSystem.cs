@@ -23,6 +23,8 @@ public class AffordReactiveSystem : IExecuteSystem
 
         foreach (var item in _items.GetEntities(_buffer))
         {
+            if (item.isPurchased) { continue; }
+
             if (item.hasAfford == false)
             {
                 item.AddAfford(false);

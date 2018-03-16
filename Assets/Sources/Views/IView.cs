@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface IView
 {
-    GameObject instance { get; }
-    EntityLink entity { get; }
+    GameObject Instance { get; }
+    EntityLink EntityLink { get; }
 
     void Link(IEntity entity, IContext context);
     void Unlink();

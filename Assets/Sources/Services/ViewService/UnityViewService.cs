@@ -62,7 +62,7 @@ public class UnityViewService : IViewService
             foreach (var view in views)
             {
                 view.Link(entity, context);
-                view.instance.SetActive(true);
+                view.Instance.SetActive(true);
             }
         }
     }
@@ -71,8 +71,8 @@ public class UnityViewService : IViewService
     {
         if (views != null)
         {
-            views.instance.SetActive(false);
-            AddToPool(new GameObject[] { views.instance });
+            views.Instance.SetActive(false);
+            AddToPool(new GameObject[] { views.Instance });
         }
     }
 
