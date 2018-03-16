@@ -18,6 +18,10 @@ public class WalletView : View, IGameWalletListener
     {
         var gameEntity = (GameEntity)entity;
         gameEntity.AddGameWalletListener(this);
+        if (gameEntity.hasWallet)
+        {
+            _text.text = gameEntity.wallet.amount.ToString();
+        }
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: WalletConfig
   m_EditorClassIdentifier: 
   _name: 29
-  _viewName: 
+  _viewName: WalletView
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 4300550058005d0051004000
@@ -22,7 +22,7 @@ MonoBehaviour:
   _loadOnStart: 1
   initValue:
     currentCryptoKey: 444444
-    hiddenValue: 444444
+    hiddenValue: 444536
     inited: 1
-    fakeValue: 0
+    fakeValue: 100
     fakeValueActive: 1

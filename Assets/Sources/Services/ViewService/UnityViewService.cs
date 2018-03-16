@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class UnityViewService : IViewService
 {
@@ -53,7 +53,7 @@ public class UnityViewService : IViewService
             }
             else
             {
-                Debug.LogWarning($"view: {name} does not exist.");
+                Debug.LogWarning($"view: {name} does not exist in the pool or in scene {SceneManager.GetActiveScene().name}");
             }
         }
 
