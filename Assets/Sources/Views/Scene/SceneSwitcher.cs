@@ -8,7 +8,18 @@ public class SceneSwitcher : MonoBehaviour {
     [SceneName, SerializeField]
     private string target;
 
+    [SerializeField]
+    private bool _changeOnStart = true;
+
     private void Start ()
+    {
+        if (_changeOnStart)
+        {
+            Execute();
+        }
+    }
+
+    public void Execute ()
     {
         Contexts.sharedInstance.input.CreateEntity().AddLoadScene(target);
     }

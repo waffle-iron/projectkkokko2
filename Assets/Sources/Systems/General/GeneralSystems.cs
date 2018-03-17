@@ -19,5 +19,6 @@ public class GeneralSystems : Feature
 
         //Cleanup
         Add(new DestroySystem(contexts));
+        //Add(new DestroyListenerCleanupSystem(contexts));
     }
 }

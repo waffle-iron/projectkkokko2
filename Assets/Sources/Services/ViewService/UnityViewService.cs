@@ -23,18 +23,24 @@ public class UnityViewService : IViewService
 
         if (_pool.TryGetValue(name, out objs))
         {
-            //this is in the pool
-            if (objs.Count == 1)
+
+            while (objs.Count > 1)
+            {
+                var index = objs.Count - 1;
+                newObj = objs[index];
+                objs.RemoveAt(index);
+
+                if (newObj != null)
+                {
+                    break;
+                }
+            }
+            if (newObj == null)
             {
                 var objTransform = objs[0].transform;
                 newObj = GameObject.Instantiate(objTransform.gameObject, objTransform.position, objTransform.rotation, objTransform.parent);
             }
-            else
-            {
-                //get the last copy
-                newObj = objs[1];
-                objs.RemoveAt(1);
-            }
+
             newObj.name = name;
             newObj.hideFlags = HideFlags.None;
             views = newObj.GetComponentsInChildren<IView>();
@@ -76,6 +82,22 @@ public class UnityViewService : IViewService
         }
     }
 
+    private void CleanPool ()
+    {
+        foreach (var objs in _pool)
+        {
+            //remove all null objects
+            objs.Value.RemoveAll(obj => obj == null);
+        }
+
+        var newPool = new Dictionary<string, List<GameObject>>();
+        foreach (var entry in _pool.Where(pool => pool.Value.Count != 0))
+        {
+            newPool.Add(entry.Key, entry.Value);
+        }
+
+        _pool = newPool;
+    }
 
     /// <summary>
     /// refresh the objects in the pool.
@@ -84,24 +106,18 @@ public class UnityViewService : IViewService
     /// <param name="includeSceneObjects"></param>
     public void Refresh (bool includeSceneObjects, string[] paths = null)
     {
-        foreach (var objs in _pool)
-        {
-            //remove all null objects
-            objs.Value.RemoveAll(obj => obj == null);
-        }
-
         //remove pool with 0 objects
-        foreach (var entry in _pool.Where(pool => pool.Value.Count == 0))
-        {
-            _pool.Remove(entry.Key);
-        }
+        CleanPool();
 
-        foreach (var path in paths)
+        if (paths != null)
         {
-            if (path.Equals("") == false)
+            foreach (var path in paths)
             {
-                var resources = Resources.LoadAll<GameObject>(path);
-                AddToPool(resources);
+                if (path.Equals("") == false)
+                {
+                    var resources = Resources.LoadAll<GameObject>(path);
+                    AddToPool(resources);
+                }
             }
         }
 

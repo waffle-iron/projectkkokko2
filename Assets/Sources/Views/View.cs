@@ -8,21 +8,21 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
     private EntityLink _entity;
 
     public GameObject Instance { get { return this.gameObject; } }
-    public EntityLink EntityLink { get { return _entity; } }
+    public EntityLink EntityLink { get { return _entity; } private set { _entity = value; } }
 
     protected Contexts contexts { get { return Contexts.sharedInstance; } }
 
     public void Link (IEntity entity, IContext context)
     {
-        if (_entity != null) { return; }
+        if (EntityLink != null) { return; }
 
         if (Instance.GetEntityLink() != null)
         {
-            _entity = Instance.GetEntityLink();
+            EntityLink = Instance.GetEntityLink();
         }
         else
         {
-            _entity = Instance.Link(entity, context);
+            EntityLink = Instance.Link(entity, context);
         }
 
         var gameEntity = (GameEntity)entity;
@@ -31,11 +31,15 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
     }
     public void Unlink ()
     {
-        UnregisterListeners(_entity.entity, _entity.context);
-        ((GameEntity)_entity.entity).RemoveGameToDestroyListener(this);
-        _entity.Unlink();
-        _entity = null;
-        UnityViewService.Unload(this);
+        if (EntityLink != null && EntityLink.entity != null)
+        {
+            UnregisterListeners(EntityLink.entity, EntityLink.context);
+            //Debug.Log(this.name);
+            //((GameEntity)EntityLink.entity).RemoveGameToDestroyListener(this);
+            EntityLink.Unlink();
+            EntityLink = null;
+            UnityViewService.Unload(this);
+        }
     }
 
     protected abstract void RegisterListeners (IEntity entity, IContext context);
@@ -46,7 +50,14 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
     protected virtual void Update () { }
     protected virtual void OnEnable () { }
     protected virtual void OnDisable () { }
-    protected virtual void OnDestroy () { }
+    protected virtual void OnDestroy ()
+    {
+        if (EntityLink != null && EntityLink.entity != null)
+        {
+            ((GameEntity)EntityLink.entity).RemoveGameToDestroyListener(this);
+        }
+        Unlink();
+    }
 
     public void OnToDestroy (GameEntity entity)
     {
