@@ -32,12 +32,13 @@ public class PurchaseInputReactiveSystem : ReactiveSystem<InputEntity>
         {
             var target = _game.GetEntityWithID(e.targetEntityID.value);
 
-            if (target != null && target.isPurchased == false)
+            if (target != null && target.isPurchased == false &&
+                target.hasPrice && target.price.amount <= _game.wallet.amount)
             {
                 var cmdEntity = _cmd.CreateEntity();
                 cmdEntity.AddTargetEntityID(e.targetEntityID.value);
 
-                if (target.hasPrice && target.isPrePurchase)
+                if (target.isPrePurchase)
                 {
                     //create a purchase command
                     cmdEntity.isPurchased = true;

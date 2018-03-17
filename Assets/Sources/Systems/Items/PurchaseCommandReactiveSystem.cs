@@ -30,13 +30,20 @@ public class PurchaseCommandReactiveSystem : ReactiveSystem<CommandEntity>
     {
         foreach (var e in entities)
         {
+
             var target = _game.GetEntityWithID(e.targetEntityID.value);
             target.isPrePurchase = false;
             target.isPurchased = true;
 
-            var saveInputEntity = _input.CreateEntity();
-            saveInputEntity.AddTargetEntityID(target.iD.value);
-            saveInputEntity.isSave = true;
+            _game.ReplaceWallet(_game.wallet.amount - target.price.amount);
+
+            var saveWalletEntity = _input.CreateEntity();
+            saveWalletEntity.AddTargetEntityID(_game.walletEntity.iD.value);
+            saveWalletEntity.isSave = true;
+
+            var saveItemEntity = _input.CreateEntity();
+            saveItemEntity.AddTargetEntityID(target.iD.value);
+            saveItemEntity.isSave = true;
 
             var equipInputEntity = _input.CreateEntity();
             equipInputEntity.AddTargetEntityID(target.iD.value);
