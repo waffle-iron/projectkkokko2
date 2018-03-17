@@ -5,8 +5,6 @@ using Entitas;
 
 public class MainController : MonoBehaviour
 {
-    [SceneName, SerializeField]
-    private string _rootScene;
     [SerializeField]
     private string[] _configPath;
     [SerializeField]
@@ -63,7 +61,7 @@ public class MainController : MonoBehaviour
     {
         return new Services
             (
-            new UnityLoadSceneService(contexts, _rootScene),
+            new UnityLoadSceneServiceV2(contexts),
             new UnityViewService(true, _viewPaths),
             new JSONSaveLoadService(),
             new UnityTimeService(),

@@ -9,13 +9,13 @@ public class SceneSwitcher : MonoBehaviour {
     private string target;
 
     [SerializeField]
-    private bool _changeOnStart = true;
+    private float delay = -1f;
 
     private void Start ()
     {
-        if (_changeOnStart)
+        if (delay >= 0f)
         {
-            Execute();
+            Invoke("Execute", delay);
         }
     }
 
