@@ -42,5 +42,7 @@ public class CommandLoadSceneSystem : ReactiveSystem<CommandEntity>
         {
             e.isToDestroy = true;
         }
+
+        _meta.viewService.instance.Clear();
     }
 }

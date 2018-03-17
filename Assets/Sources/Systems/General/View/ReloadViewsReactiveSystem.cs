@@ -13,7 +13,7 @@ public class ReloadViewsReactiveSystem : ReactiveSystem<GameEntity>
     {
         _game = contexts.game;
         _meta = contexts.meta;
-        _views = _game.GetGroup(GameMatcher.View);
+        _views = _game.GetGroup(GameMatcher.AllOf(GameMatcher.View).NoneOf(GameMatcher.ToDestroy));
     }
 
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)

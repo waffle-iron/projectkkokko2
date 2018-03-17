@@ -157,10 +157,6 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1606891997403000, guid: 1c5dad6248d971149af23232b73d309e, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c5dad6248d971149af23232b73d309e, type: 2}
   m_IsPrefabParent: 0
@@ -1290,34 +1286,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &2137984355 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1606891997403000, guid: 1c5dad6248d971149af23232b73d309e,
-    type: 2}
-  m_PrefabInternal: {fileID: 67756657}
---- !u!114 &2137984356 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114454427381393134, guid: 1c5dad6248d971149af23232b73d309e,
-    type: 2}
-  m_PrefabInternal: {fileID: 67756657}
-  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
---- !u!114 &2137984357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2137984355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d369ea7b8dc30df43afd1e7633234315, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonAnimation: {fileID: 2137984356}
-  _originalSkin: default
-  _originalMaterial: {fileID: 2100000, guid: b04b8c6e4c57e78449f243c27617a2cd, type: 2}
-  headSlot: head
-  headKey: head
-  bodySlot: body
-  bodyKey: body
-  footSlot: foot1
-  footKey: foot1

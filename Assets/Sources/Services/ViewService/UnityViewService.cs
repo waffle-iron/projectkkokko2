@@ -42,7 +42,8 @@ public class UnityViewService : IViewService
             }
 
             newObj.name = name;
-            newObj.hideFlags = HideFlags.None;
+            //newObj.hideFlags = HideFlags.None;
+            newObj.SetActive(true);
             views = newObj.GetComponentsInChildren<IView>();
         }
         else
@@ -53,8 +54,9 @@ public class UnityViewService : IViewService
             {
                 AddToPool(new GameObject[] { obj });
                 newObj = GameObject.Instantiate(obj, obj.transform.position, obj.transform.rotation, obj.transform.parent);
-                newObj.hideFlags = HideFlags.None;
+                //newObj.hideFlags = HideFlags.None;
                 newObj.name = name;
+                newObj.SetActive(true);
                 views = newObj.GetComponentsInChildren<IView>();
             }
             else
@@ -128,6 +130,18 @@ public class UnityViewService : IViewService
         }
     }
 
+    public void Clear ()
+    {
+        foreach (var key in _pool)
+        {
+            foreach (var obj in key.Value)
+            {
+                GameObject.Destroy(obj);
+            }
+        }
+        _pool = new Dictionary<string, List<GameObject>>();
+    }
+
     static void AddToPool (GameObject[] objs)
     {
         objs = objs.Where(obj => obj.GetComponent<IView>() != null).ToArray();
@@ -145,7 +159,7 @@ public class UnityViewService : IViewService
                 _pool[obj.name].Add(obj);
             }
 
-            obj.hideFlags = HideFlags.HideInHierarchy;
+            //obj.hideFlags = HideFlags.HideInHierarchy;
         }
     }
 

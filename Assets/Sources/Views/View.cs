@@ -14,7 +14,7 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
 
     public void Link (IEntity entity, IContext context)
     {
-        if (EntityLink != null) { return; }
+        if (EntityLink != null && EntityLink.entity != null) { return; }
 
         if (Instance.GetEntityLink() != null)
         {

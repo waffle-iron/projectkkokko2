@@ -5,7 +5,7 @@ using Spine;
 using Spine.Unity;
 using UnityEngine;
 
-public class CharacterAccessoryView : View, IGamePreviewListener, IGameAccessoryListener
+public class CharacterAccessoryView : View, IGamePreviewListener, IGameAccessoryListener, IGameEquippedListener
 {
     [Tag, SerializeField]
     private string characterTarget;
@@ -25,7 +25,7 @@ public class CharacterAccessoryView : View, IGamePreviewListener, IGameAccessory
     {
         var gameEntity = (GameEntity)entity;
         gameEntity.AddGamePreviewListener(this);
-
+        gameEntity.AddGameEquippedListener(this);
         if (gameEntity.hasAccessory)
         {
             OnAccessory(gameEntity, gameEntity.accessory.id, gameEntity.accessory.type);
@@ -40,6 +40,7 @@ public class CharacterAccessoryView : View, IGamePreviewListener, IGameAccessory
     {
         var gameEntity = (GameEntity)entity;
         gameEntity.RemoveGamePreviewListener(this);
+        gameEntity.RemoveGameEquippedListener(this);
     }
 
     public void OnPreview (GameEntity entity)
@@ -56,6 +57,14 @@ public class CharacterAccessoryView : View, IGamePreviewListener, IGameAccessory
         _type = type;
         _sprite = Resources.Load<Sprite>(Enum.GetName(typeof(AccessoryID), id));
         _isInitialized = true;
+    }
+
+    public void OnEquipped (GameEntity entity)
+    {
+        if (_isInitialized)
+        {
+            _charRef.Apply(_sprite, _type);
+        }
     }
 }
 

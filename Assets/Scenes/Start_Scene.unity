@@ -557,6 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: Shop_Scene
+  _changeOnStart: 1
 --- !u!1 &1004094931
 GameObject:
   m_ObjectHideFlags: 0
