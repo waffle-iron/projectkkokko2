@@ -36,13 +36,13 @@ public class CommandLoadSceneSystem : ReactiveSystem<CommandEntity>
             var entity = _game.CreateEntity();
             entity.AddLoadScene(e.loadScene.name);
             entity.isDoNotDestroyOnSceneChange = true;
+            _game.isLoadSceneComplete = false;
+            _game.isLoadedViewsComplete = false;
         }
 
         foreach (var e in _toDestroy.GetEntities())
         {
             e.isToDestroy = true;
         }
-
-        _meta.viewService.instance.Clear();
     }
 }

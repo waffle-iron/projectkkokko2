@@ -46,36 +46,38 @@ public static class GameComponentsLookup {
     public const int GameWalletListener = 35;
     public const int ID = 36;
     public const int Interval = 37;
-    public const int Loading = 38;
-    public const int LoadingListener = 39;
-    public const int LoadingRemovedListener = 40;
-    public const int LoadScene = 41;
-    public const int LoadViews = 42;
-    public const int Max = 43;
-    public const int MinRequirement = 44;
-    public const int Need = 45;
-    public const int Pause = 46;
-    public const int PrePurchase = 47;
-    public const int Preview = 48;
-    public const int Price = 49;
-    public const int Purchased = 50;
-    public const int SaveID = 51;
-    public const int Saving = 52;
-    public const int SavingListener = 53;
-    public const int SavingRemovedListener = 54;
-    public const int TargetEntityID = 55;
-    public const int TargetNeed = 56;
-    public const int Timer = 57;
-    public const int TimerReset = 58;
-    public const int TimerState = 59;
-    public const int ToDestroy = 60;
-    public const int Trigger = 61;
-    public const int View = 62;
-    public const int ViewListener = 63;
-    public const int ViewRemovedListener = 64;
-    public const int Wallet = 65;
+    public const int LoadedViewsComplete = 38;
+    public const int Loading = 39;
+    public const int LoadingListener = 40;
+    public const int LoadingRemovedListener = 41;
+    public const int LoadSceneComplete = 42;
+    public const int LoadScene = 43;
+    public const int LoadViews = 44;
+    public const int Max = 45;
+    public const int MinRequirement = 46;
+    public const int Need = 47;
+    public const int Pause = 48;
+    public const int PrePurchase = 49;
+    public const int Preview = 50;
+    public const int Price = 51;
+    public const int Purchased = 52;
+    public const int SaveID = 53;
+    public const int Saving = 54;
+    public const int SavingListener = 55;
+    public const int SavingRemovedListener = 56;
+    public const int TargetEntityID = 57;
+    public const int TargetNeed = 58;
+    public const int Timer = 59;
+    public const int TimerReset = 60;
+    public const int TimerState = 61;
+    public const int ToDestroy = 62;
+    public const int Trigger = 63;
+    public const int View = 64;
+    public const int ViewListener = 65;
+    public const int ViewRemovedListener = 66;
+    public const int Wallet = 67;
 
-    public const int TotalComponents = 66;
+    public const int TotalComponents = 68;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -116,9 +118,11 @@ public static class GameComponentsLookup {
         "GameWalletListener",
         "ID",
         "Interval",
+        "LoadedViewsComplete",
         "Loading",
         "LoadingListener",
         "LoadingRemovedListener",
+        "LoadSceneComplete",
         "LoadScene",
         "LoadViews",
         "Max",
@@ -185,9 +189,11 @@ public static class GameComponentsLookup {
         typeof(GameWalletListenerComponent),
         typeof(IDComponent),
         typeof(IntervalComponent),
+        typeof(LoadedViewsCompleteComponent),
         typeof(LoadingComponent),
         typeof(LoadingListenerComponent),
         typeof(LoadingRemovedListenerComponent),
+        typeof(LoadSceneCompleteComponent),
         typeof(LoadSceneComponent),
         typeof(LoadViewsComponent),
         typeof(MaxComponent),

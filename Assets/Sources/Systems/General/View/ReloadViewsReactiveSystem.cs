@@ -30,7 +30,7 @@ public class ReloadViewsReactiveSystem : ReactiveSystem<GameEntity>
 
     protected override void Execute (List<GameEntity> entities)
     {
-        _meta.viewService.instance.Refresh(true);
+        _meta.viewService.instance.Repopulate(true);
         foreach (var e in entities)
         {
             foreach (var viewEntity in _views.GetEntities())

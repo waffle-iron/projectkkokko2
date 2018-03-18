@@ -32,7 +32,7 @@ public class CommandLoadViewsReactiveSystem : ReactiveSystem<CommandEntity>
         {
             // do stuff to the matched entities
             _game.CreateEntity().AddLoadViews(e.loadViews.paths, e.loadViews.includeSceneObjects);
-            _meta.viewService.instance.Refresh(e.loadViews.includeSceneObjects, e.loadViews.paths);
+            _meta.viewService.instance.Repopulate(e.loadViews.includeSceneObjects, e.loadViews.paths);
         }
     }
 }

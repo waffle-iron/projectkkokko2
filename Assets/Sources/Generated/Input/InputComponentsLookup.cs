@@ -44,27 +44,28 @@ public static class InputComponentsLookup {
     public const int InputWalletListener = 33;
     public const int Interval = 34;
     public const int Load = 35;
-    public const int LoadSceneComplete = 36;
-    public const int LoadScene = 37;
-    public const int LoadViews = 38;
-    public const int Max = 39;
-    public const int Need = 40;
-    public const int Pause = 41;
-    public const int PrePurchase = 42;
-    public const int Preview = 43;
-    public const int Price = 44;
-    public const int Purchased = 45;
-    public const int Reset = 46;
-    public const int Save = 47;
-    public const int TargetEntityID = 48;
-    public const int TargetNeed = 49;
-    public const int TimerReset = 50;
-    public const int TimerState = 51;
-    public const int ToDestroy = 52;
-    public const int Trigger = 53;
-    public const int Wallet = 54;
+    public const int LoadedViewsComplete = 36;
+    public const int LoadSceneComplete = 37;
+    public const int LoadScene = 38;
+    public const int LoadViews = 39;
+    public const int Max = 40;
+    public const int Need = 41;
+    public const int Pause = 42;
+    public const int PrePurchase = 43;
+    public const int Preview = 44;
+    public const int Price = 45;
+    public const int Purchased = 46;
+    public const int Reset = 47;
+    public const int Save = 48;
+    public const int TargetEntityID = 49;
+    public const int TargetNeed = 50;
+    public const int TimerReset = 51;
+    public const int TimerState = 52;
+    public const int ToDestroy = 53;
+    public const int Trigger = 54;
+    public const int Wallet = 55;
 
-    public const int TotalComponents = 55;
+    public const int TotalComponents = 56;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -103,6 +104,7 @@ public static class InputComponentsLookup {
         "InputWalletListener",
         "Interval",
         "Load",
+        "LoadedViewsComplete",
         "LoadSceneComplete",
         "LoadScene",
         "LoadViews",
@@ -161,6 +163,7 @@ public static class InputComponentsLookup {
         typeof(InputWalletListenerComponent),
         typeof(IntervalComponent),
         typeof(LoadComponent),
+        typeof(LoadedViewsCompleteComponent),
         typeof(LoadSceneCompleteComponent),
         typeof(LoadSceneComponent),
         typeof(LoadViewsComponent),

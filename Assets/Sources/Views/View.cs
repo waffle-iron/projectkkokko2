@@ -38,7 +38,8 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
             //((GameEntity)EntityLink.entity).RemoveGameToDestroyListener(this);
             EntityLink.Unlink();
             EntityLink = null;
-            UnityViewService.Unload(this);
+            //return to pool by falsing
+            this.gameObject.SetActive(false);
         }
     }
 

@@ -12,7 +12,7 @@ public class UnityViewService : IViewService
     public UnityViewService (bool includeActiveSceneObjs, string[] paths = null)
     {
         _pool = new Dictionary<string, List<GameObject>>();
-        Refresh(includeActiveSceneObjs, paths);
+        Repopulate(includeActiveSceneObjs, paths);
     }
 
     public void Load (IContext context, IEntity entity, string name)
@@ -106,7 +106,7 @@ public class UnityViewService : IViewService
     /// </summary>
     /// <param name="path"></param>
     /// <param name="includeSceneObjects"></param>
-    public void Refresh (bool includeSceneObjects, string[] paths = null)
+    public void Repopulate (bool includeSceneObjects, string[] paths = null)
     {
         //remove pool with 0 objects
         CleanPool();

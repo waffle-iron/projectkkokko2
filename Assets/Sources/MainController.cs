@@ -62,7 +62,7 @@ public class MainController : MonoBehaviour
         return new Services
             (
             new UnityLoadSceneServiceV2(contexts),
-            new UnityViewService(true, _viewPaths),
+            new UnityViewServiceV2(contexts, _viewPaths),
             new JSONSaveLoadService(),
             new UnityTimeService(),
             new UnityEntityService(_configPath, contexts),

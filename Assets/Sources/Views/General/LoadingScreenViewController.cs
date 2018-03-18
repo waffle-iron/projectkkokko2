@@ -11,17 +11,17 @@ public class LoadingScreenViewController : View, IGameLoadSceneListener, IGameLo
     protected override void Start ()
     {
         base.Start();
-        image.gameObject.SetActive(false);
+        image.enabled = false;
     }
 
     public void OnLoadScene (GameEntity entity, string name)
     {
-        image.gameObject.SetActive(true);
+        image.enabled = true;
     }
 
     public void OnLoadSceneRemoved (GameEntity entity)
     {
-        image.gameObject.SetActive(false);
+        image.enabled = false;
     }
 
     protected override void RegisterListeners (IEntity entity, IContext context)

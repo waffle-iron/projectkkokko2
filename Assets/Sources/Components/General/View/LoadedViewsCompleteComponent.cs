@@ -5,7 +5,7 @@ using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Input, Command, Game, Unique]
-public sealed class LoadSceneCompleteComponent : IComponent
+[Game, Input, Command, Unique]
+public sealed class LoadedViewsCompleteComponent : IComponent
 {
 }

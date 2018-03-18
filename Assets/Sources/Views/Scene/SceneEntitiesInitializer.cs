@@ -9,18 +9,26 @@ public class SceneEntitiesInitializer : MonoBehaviour
     private EntityCfgID[] entities;
 
     private InputContext _input;
+    private GameContext _game;
+    private bool isInitialized = false;
 
     private void Awake ()
     {
         _input = Contexts.sharedInstance.input;
+        _game = Contexts.sharedInstance.game;
     }
 
     // Use this for initialization
-    void Start ()
+    void Update ()
     {
-        foreach (var ety in entities)
+        if (_game.isLoadSceneComplete && _game.isLoadedViewsComplete && isInitialized == false)
         {
-            _input.CreateEntity().AddCreateEntity(ety);
+            foreach (var ety in entities)
+            {
+                _input.CreateEntity().AddCreateEntity(ety);
+            }
+
+            isInitialized = true;
         }
     }
 }
