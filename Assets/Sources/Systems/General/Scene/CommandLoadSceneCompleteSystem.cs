@@ -6,10 +6,12 @@ using Entitas;
 public class CommandLoadSceneCompleteSystem : ReactiveSystem<CommandEntity>
 {
     private readonly GameContext _game;
+    private readonly MetaContext _meta;
 
     public CommandLoadSceneCompleteSystem (Contexts contexts) : base(contexts.command)
     {
         _game = contexts.game;
+        _meta = contexts.meta;
     }
 
     protected override ICollector<CommandEntity> GetTrigger (IContext<CommandEntity> context)

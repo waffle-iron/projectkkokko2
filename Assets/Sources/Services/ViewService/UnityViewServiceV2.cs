@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using UniRx;
 using System.Linq;
 using Entitas;
 using UnityEngine;
@@ -12,17 +14,15 @@ public class UnityViewServiceV2 : IViewService
 
     private readonly Contexts _contexts;
 
-    private bool isRepopulating = false;
-
     public UnityViewServiceV2 (Contexts contexts, string[] paths)
     {
         _pools = new Dictionary<string, ObjectPool>();
         _loadedBundles = new List<AssetBundle>();
         _contexts = contexts;
-        Repopulate(true, paths);
+        Populate(true, paths);
     }
 
-    public void Load (IContext context, IEntity entity, string name)
+    public void Instantiate (IContext context, IEntity entity, string name)
     {
         ObjectPool pool = null;
         if (_pools.TryGetValue(name, out pool))
@@ -39,80 +39,105 @@ public class UnityViewServiceV2 : IViewService
         }
     }
 
-    public void Repopulate (bool includeSceneObjects, string[] paths = null)
+    public IObservable<bool> Populate (bool includeSceneObjects, string[] bundles = null)
     {
-        if (isRepopulating) { return; }
-        isRepopulating = true;
-
-        this.Cleanup().completed += (res) =>
+        if (includeSceneObjects)
         {
-            //get scene objs first
-            if (includeSceneObjects)
-            {
-                var sceneObjs = SceneManager.GetActiveScene().GetRootGameObjects()
-                                            .SelectMany(obj => obj.GetComponentsInChildren<IView>())
-                                            .Select(obj => obj.Instance);
-                foreach (var obj in sceneObjs)
-                {
-                    var view = obj.GetComponent<IView>();
+            var sceneObjs = GetActiveSceneObjects();
+            AddToPool(sceneObjs);
+        }
 
-                    if (_pools.ContainsKey(obj.name) == false)
+        //load from asset bundles
+        if (bundles != null && bundles.Length > 0)
+        {
+            var loaders = new List<IObservable<Unit>>();
+
+            foreach (var path in bundles)
+            {
+                var loader = AssetBundle.LoadFromFileAsync(path)
+                    .AsAsyncOperationObservable()
+                    .Where(request => request.isDone)
+                    .Select(request =>
                     {
-                        _pools.Add(obj.name, new ObjectPool(obj.name, obj, 0));
-                    }
-                }
+                        return request.assetBundle.LoadAllAssetsAsync<GameObject>()
+                        .AsAsyncOperationObservable()
+                        .Where(assets => assets.isDone)
+                        .Select(assets =>
+                        {
+                            AddToPool(assets.allAssets.Select(obj => obj as GameObject).ToArray());
+                            _loadedBundles.Add(request.assetBundle);
+                            return Observable.ReturnUnit();
+                        });
+
+                    }).Merge().Merge();
+
+                loaders.Add(loader);
             }
 
-            //load from asset bundles
-            if (paths != null && paths.Length > 0)
-            {
-                int numBundles = paths.Length;
-                int finBundles = 0;
-                foreach (var path in paths)
-                {
-                    var fileRequest = AssetBundle.LoadFromFileAsync(path);
-                    fileRequest.completed += (op) =>
-                    {
-                        finBundles++;
-                        var assets = fileRequest.assetBundle.LoadAllAssets<GameObject>();
-                        foreach (var obj in assets)
-                        {
-                            obj.SetActive(false);
-                            _pools.Add(obj.name, new ObjectPool(obj.name, obj));
-                        }
+            return loaders.ToObservable().Merge().Aggregate<Unit, int>(0, (count, result) => count++)
+                    .Where(count => count == bundles.Length)
+                    .Select(_ => true);
+        }
+        else
+        {
+            return Observable.Return<bool>(true);
+        }
 
-                        if (finBundles == numBundles)
-                        {
-                            Finish();
-                        }
-                    };
-                }
+    }
+
+    //remove all null references
+    public void Clean ()
+    {
+        var newPool = new Dictionary<string, ObjectPool>();
+        foreach (var pool in _pools)
+        {
+            pool.Value.Cleanup();
+
+            if (pool.Value.IsEmpty == false)
+            {
+                newPool.Add(pool.Key, pool.Value);
+            }
+        }
+
+        _pools = newPool;
+    }
+
+    public void Unload (string bundle)
+    {
+        var newBundles = new List<AssetBundle>();
+        foreach (var result in _loadedBundles)
+        {
+            if (result.name.Equals(bundle))
+            {
+                result.Unload(true);
             }
             else
             {
-                Finish();
+                newBundles.Add(result);
             }
-        };
-
-    }
-
-    void Finish ()
-    {
-        isRepopulating = false;
-        //change to input later
-        _contexts.game.isLoadedViewsComplete = true;
-    }
-
-    AsyncOperation Cleanup ()
-    {
-        _pools = new Dictionary<string, ObjectPool>();
-
-        foreach (var bundle in _loadedBundles)
-        {
-            bundle.Unload(true);
         }
 
-        return Resources.UnloadUnusedAssets();
+        _loadedBundles = newBundles;
+        Clean();
+    }
+
+    private GameObject[] GetActiveSceneObjects ()
+    {
+        return SceneManager.GetActiveScene().GetRootGameObjects()
+                                        .SelectMany(obj => obj.GetComponentsInChildren<IView>())
+                                        .Select(obj => obj.Instance)
+                                        .ToArray();
+    }
+
+    private void AddToPool (GameObject[] objs)
+    {
+        foreach (var obj in objs)
+        {
+            if (_pools.ContainsKey(obj.name) == false)
+            {
+                _pools.Add(obj.name, new ObjectPool(obj.name, obj, 0));
+            }
+        }
     }
 
 }

@@ -8,6 +8,12 @@ public class ObjectPool
     private GameObject _type;
     private readonly string _name;
     public string Name { get { return _name; } }
+    public bool IsEmpty
+    {
+        get {
+            return _objs.Count == 0;
+        }
+    }
 
     public ObjectPool (string name, GameObject type, int initInstances = 1)
     {
@@ -44,6 +50,11 @@ public class ObjectPool
         newObj.SetActive(true);
         _objs.Add(newObj);
         return newObj;
+    }
+
+    public void Cleanup ()
+    {
+        _objs.RemoveAll(obj => obj == null);
     }
 }
 

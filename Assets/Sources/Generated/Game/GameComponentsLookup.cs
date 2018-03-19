@@ -28,56 +28,59 @@ public static class GameComponentsLookup {
     public const int GameDebugListener = 17;
     public const int GameEquippedListener = 18;
     public const int GameEquippedRemovedListener = 19;
-    public const int GameLoadSceneListener = 20;
-    public const int GameLoadSceneRemovedListener = 21;
-    public const int GameLoadViewsListener = 22;
-    public const int GameLoadViewsRemovedListener = 23;
-    public const int GameNeedListener = 24;
-    public const int GamePauseListener = 25;
-    public const int GamePauseRemovedListener = 26;
-    public const int GamePrePurchaseListener = 27;
-    public const int GamePreviewListener = 28;
-    public const int GamePreviewRemovedListener = 29;
-    public const int GamePriceListener = 30;
-    public const int GamePurchasedListener = 31;
-    public const int GameToDestroyListener = 32;
-    public const int GameToDestroyRemovedListener = 33;
-    public const int GameTriggerListener = 34;
-    public const int GameWalletListener = 35;
-    public const int ID = 36;
-    public const int Interval = 37;
-    public const int LoadedViewsComplete = 38;
-    public const int Loading = 39;
-    public const int LoadingListener = 40;
-    public const int LoadingRemovedListener = 41;
-    public const int LoadSceneComplete = 42;
-    public const int LoadScene = 43;
-    public const int LoadViews = 44;
-    public const int Max = 45;
-    public const int MinRequirement = 46;
-    public const int Need = 47;
-    public const int Pause = 48;
-    public const int PrePurchase = 49;
-    public const int Preview = 50;
-    public const int Price = 51;
-    public const int Purchased = 52;
-    public const int SaveID = 53;
-    public const int Saving = 54;
-    public const int SavingListener = 55;
-    public const int SavingRemovedListener = 56;
-    public const int TargetEntityID = 57;
-    public const int TargetNeed = 58;
-    public const int Timer = 59;
-    public const int TimerReset = 60;
-    public const int TimerState = 61;
-    public const int ToDestroy = 62;
-    public const int Trigger = 63;
-    public const int View = 64;
-    public const int ViewListener = 65;
-    public const int ViewRemovedListener = 66;
-    public const int Wallet = 67;
+    public const int GameLoadedViewsCompleteListener = 20;
+    public const int GameLoadedViewsCompleteRemovedListener = 21;
+    public const int GameLoadSceneCompleteListener = 22;
+    public const int GameLoadSceneListener = 23;
+    public const int GameLoadSceneRemovedListener = 24;
+    public const int GameLoadViewsListener = 25;
+    public const int GameLoadViewsRemovedListener = 26;
+    public const int GameNeedListener = 27;
+    public const int GamePauseListener = 28;
+    public const int GamePauseRemovedListener = 29;
+    public const int GamePrePurchaseListener = 30;
+    public const int GamePreviewListener = 31;
+    public const int GamePreviewRemovedListener = 32;
+    public const int GamePriceListener = 33;
+    public const int GamePurchasedListener = 34;
+    public const int GameToDestroyListener = 35;
+    public const int GameToDestroyRemovedListener = 36;
+    public const int GameTriggerListener = 37;
+    public const int GameWalletListener = 38;
+    public const int ID = 39;
+    public const int Interval = 40;
+    public const int LoadedViewsComplete = 41;
+    public const int Loading = 42;
+    public const int LoadingListener = 43;
+    public const int LoadingRemovedListener = 44;
+    public const int LoadSceneComplete = 45;
+    public const int LoadScene = 46;
+    public const int LoadViews = 47;
+    public const int Max = 48;
+    public const int MinRequirement = 49;
+    public const int Need = 50;
+    public const int Pause = 51;
+    public const int PrePurchase = 52;
+    public const int Preview = 53;
+    public const int Price = 54;
+    public const int Purchased = 55;
+    public const int SaveID = 56;
+    public const int Saving = 57;
+    public const int SavingListener = 58;
+    public const int SavingRemovedListener = 59;
+    public const int TargetEntityID = 60;
+    public const int TargetNeed = 61;
+    public const int Timer = 62;
+    public const int TimerReset = 63;
+    public const int TimerState = 64;
+    public const int ToDestroy = 65;
+    public const int Trigger = 66;
+    public const int View = 67;
+    public const int ViewListener = 68;
+    public const int ViewRemovedListener = 69;
+    public const int Wallet = 70;
 
-    public const int TotalComponents = 68;
+    public const int TotalComponents = 71;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -100,6 +103,9 @@ public static class GameComponentsLookup {
         "GameDebugListener",
         "GameEquippedListener",
         "GameEquippedRemovedListener",
+        "GameLoadedViewsCompleteListener",
+        "GameLoadedViewsCompleteRemovedListener",
+        "GameLoadSceneCompleteListener",
         "GameLoadSceneListener",
         "GameLoadSceneRemovedListener",
         "GameLoadViewsListener",
@@ -171,6 +177,9 @@ public static class GameComponentsLookup {
         typeof(GameDebugListenerComponent),
         typeof(GameEquippedListenerComponent),
         typeof(GameEquippedRemovedListenerComponent),
+        typeof(GameLoadedViewsCompleteListenerComponent),
+        typeof(GameLoadedViewsCompleteRemovedListenerComponent),
+        typeof(GameLoadSceneCompleteListenerComponent),
         typeof(GameLoadSceneListenerComponent),
         typeof(GameLoadSceneRemovedListenerComponent),
         typeof(GameLoadViewsListenerComponent),

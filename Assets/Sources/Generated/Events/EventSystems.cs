@@ -30,6 +30,12 @@ public sealed class EventSystems : Feature {
         Add(new GameEquippedRemovedEventSystem(contexts)); // priority: 0
         Add(new InputEquippedRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandEquippedRemovedEventSystem(contexts)); // priority: 0
+        Add(new GameLoadedViewsCompleteEventSystem(contexts)); // priority: 0
+        Add(new InputLoadedViewsCompleteEventSystem(contexts)); // priority: 0
+        Add(new CommandLoadedViewsCompleteEventSystem(contexts)); // priority: 0
+        Add(new GameLoadedViewsCompleteRemovedEventSystem(contexts)); // priority: 0
+        Add(new InputLoadedViewsCompleteRemovedEventSystem(contexts)); // priority: 0
+        Add(new CommandLoadedViewsCompleteRemovedEventSystem(contexts)); // priority: 0
         Add(new LoadingEventSystem(contexts)); // priority: 0
         Add(new LoadingRemovedEventSystem(contexts)); // priority: 0
         Add(new InputLoadSceneEventSystem(contexts)); // priority: 0
@@ -38,6 +44,9 @@ public sealed class EventSystems : Feature {
         Add(new InputLoadSceneRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandLoadSceneRemovedEventSystem(contexts)); // priority: 0
         Add(new GameLoadSceneRemovedEventSystem(contexts)); // priority: 0
+        Add(new InputLoadSceneCompleteEventSystem(contexts)); // priority: 0
+        Add(new CommandLoadSceneCompleteEventSystem(contexts)); // priority: 0
+        Add(new GameLoadSceneCompleteEventSystem(contexts)); // priority: 0
         Add(new InputLoadViewsEventSystem(contexts)); // priority: 0
         Add(new CommandLoadViewsEventSystem(contexts)); // priority: 0
         Add(new GameLoadViewsEventSystem(contexts)); // priority: 0

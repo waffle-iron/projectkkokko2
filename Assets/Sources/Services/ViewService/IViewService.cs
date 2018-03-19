@@ -5,7 +5,9 @@ using System.Collections.Generic;
 
 public interface IViewService
 {
-    void Load (IContext context, IEntity entity, string name);
-    void Repopulate (bool includeSceneObjects, string[] paths = null);
+    void Instantiate (IContext context, IEntity entity, string name);
+    IObservable<bool> Populate (bool includeSceneObjects, string[] bundles = null);
+    void Clean ();
+    void Unload (string bundle);
 }
 

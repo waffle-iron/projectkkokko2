@@ -19,7 +19,7 @@ public class ReloadViewsReactiveSystem : ReactiveSystem<GameEntity>
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)
     {
         //return collector
-        return context.CreateCollector(GameMatcher.LoadScene.Removed());
+        return context.CreateCollector(GameMatcher.LoadedViewsComplete);
     }
 
     protected override bool Filter (GameEntity entity)
@@ -30,15 +30,14 @@ public class ReloadViewsReactiveSystem : ReactiveSystem<GameEntity>
 
     protected override void Execute (List<GameEntity> entities)
     {
-        _meta.viewService.instance.Repopulate(true);
         foreach (var e in entities)
         {
             foreach (var viewEntity in _views.GetEntities())
             {
-                if (viewEntity.isAddedView) { continue; }
+                if (viewEntity.isAddedView || viewEntity.view.reloadOnSceneChange == false) { continue; }
                 else
                 {
-                    _meta.viewService.instance.Load(_game, viewEntity, viewEntity.view.name);
+                    _meta.viewService.instance.Instantiate(_game, viewEntity, viewEntity.view.name);
                     viewEntity.isAddedView = true;
                 }
             }

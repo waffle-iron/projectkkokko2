@@ -14,7 +14,12 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
 
     public void Link (IEntity entity, IContext context)
     {
-        if (EntityLink != null && EntityLink.entity != null) { return; }
+        //return to pool if entity is already linked to a view
+        //if (EntityLink != null && EntityLink.entity != null)
+        //{
+        //    this.gameObject.SetActive(false);
+        //    return;
+        //}
 
         if (Instance.GetEntityLink() != null)
         {

@@ -2,26 +2,54 @@
 using UnityEngine.UI;
 using System.Collections;
 using Entitas;
+using UnityEngine.SceneManagement;
 
-public class LoadingScreenViewController : View, IGameLoadSceneListener, IGameLoadSceneRemovedListener
+public class LoadingScreenViewController : View, IGameLoadSceneListener, IGameLoadSceneRemovedListener, IGameLoadedViewsCompleteListener, IGameLoadedViewsCompleteRemovedListener
 {
     [SerializeField]
     private Image image;
 
+    private bool isSceneLoaded = false;
+    private bool isViewLoaded = false;
+
     protected override void Start ()
     {
         base.Start();
-        image.enabled = false;
+        isSceneLoaded = false;
+        isViewLoaded = false;
+    }
+
+    protected override void Update ()
+    {
+        base.Update();
+        if (isSceneLoaded && isViewLoaded && image.enabled)
+        {
+            image.enabled = false;
+        }
+        else if (image.enabled == false && (isSceneLoaded == false || isViewLoaded == false))
+        {
+            image.enabled = true;
+        }
     }
 
     public void OnLoadScene (GameEntity entity, string name)
     {
-        image.enabled = true;
+        isSceneLoaded = false;
     }
 
     public void OnLoadSceneRemoved (GameEntity entity)
     {
-        image.enabled = false;
+        isSceneLoaded = true;
+    }
+
+    public void OnLoadedViewsComplete (GameEntity entity)
+    {
+        isViewLoaded = true;
+    }
+
+    public void OnLoadedViewsCompleteRemoved (GameEntity entity)
+    {
+        isViewLoaded = false;
     }
 
     protected override void RegisterListeners (IEntity entity, IContext context)
@@ -30,6 +58,8 @@ public class LoadingScreenViewController : View, IGameLoadSceneListener, IGameLo
 
         gameEntity.AddGameLoadSceneListener(this);
         gameEntity.AddGameLoadSceneRemovedListener(this);
+        gameEntity.AddGameLoadedViewsCompleteListener(this);
+        gameEntity.AddGameLoadedViewsCompleteRemovedListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
@@ -37,5 +67,9 @@ public class LoadingScreenViewController : View, IGameLoadSceneListener, IGameLo
         var gameEntity = (GameEntity)entity;
         gameEntity.RemoveGameLoadSceneListener(this);
         gameEntity.RemoveGameLoadSceneRemovedListener(this);
+        gameEntity.RemoveGameLoadedViewsCompleteListener(this);
+        gameEntity.RemoveGameLoadedViewsCompleteRemovedListener(this);
     }
+
+
 }

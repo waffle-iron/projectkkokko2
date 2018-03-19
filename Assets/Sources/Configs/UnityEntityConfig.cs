@@ -9,8 +9,11 @@ public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
     [SerializeField]
     private EntityCfgID _name;
 
+    [Header("View Settings")]
     [SerializeField]
     private string _viewName;
+    [SerializeField]
+    private bool _isDestroyOnSceneChange = true;
 
     [Header("Load Data Settings")]
     [SerializeField]
@@ -43,7 +46,7 @@ public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
         var entity = CustomCreate(contexts);
         if (_viewName.Equals("") == false)
         {
-            ((GameEntity)entity).AddView(_viewName);
+            ((GameEntity)entity).AddView(_viewName, _isDestroyOnSceneChange);
         }
 
         if (saveID.Equals("") == false)

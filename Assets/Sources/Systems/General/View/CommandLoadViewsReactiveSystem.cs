@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using Entitas;
+using UniRx;
 
 public class CommandLoadViewsReactiveSystem : ReactiveSystem<CommandEntity>
 {
@@ -31,8 +32,9 @@ public class CommandLoadViewsReactiveSystem : ReactiveSystem<CommandEntity>
         foreach (var e in entities)
         {
             // do stuff to the matched entities
-            _game.CreateEntity().AddLoadViews(e.loadViews.paths, e.loadViews.includeSceneObjects);
-            _meta.viewService.instance.Repopulate(e.loadViews.includeSceneObjects, e.loadViews.paths);
+            _meta.viewService.instance.Populate(e.loadViews.includeSceneObjects, e.loadViews.paths)
+                .Where(result => result == true)
+                .Subscribe(_ => _game.isLoadedViewsComplete = true);
         }
     }
 }

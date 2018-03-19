@@ -9,4 +9,5 @@ using Entitas.CodeGeneration.Attributes;
 public sealed class ViewComponent : IComponent
 {
     public string name;
+    public bool reloadOnSceneChange;
 }
