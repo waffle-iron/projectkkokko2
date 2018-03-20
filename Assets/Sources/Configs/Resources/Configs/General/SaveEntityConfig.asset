@@ -13,3 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: 2
   _viewName: SaveView
+  _isDestroyOnSceneChange: 0
+  saveID:
+    currentCryptoKey: 4441
+    hiddenValue: 
+    inited: 1
+    fakeValue: 
+    fakeValueActive: 0
+  _loadOnStart: 0
