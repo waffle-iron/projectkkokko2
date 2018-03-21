@@ -33,6 +33,7 @@ public class CreateEntitiesOnLoadSceneCompleteReactiveSystem : IExecuteSystem
             }
             Debug.Log("load entities complete");
             _game.isLoadEntitiesComplete = true;
+            _input.CreateEntity().AddPause(false);
         }
     }
 }

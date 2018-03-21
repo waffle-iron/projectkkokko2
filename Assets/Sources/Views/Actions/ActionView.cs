@@ -12,7 +12,7 @@ public class ActionView : View
     [SerializeField]
     private string label;
     [SerializeField]
-    private EntityCfgID _inputAction;
+    private UnityEntityConfig _inputAction;
 
     protected override void OnEnable ()
     {
@@ -33,8 +33,7 @@ public class ActionView : View
 
     public void OnExecute ()
     {
-        IEntity action;
-        this.contexts.meta.entityService.instance.Get(_inputAction, out action);
+        _inputAction.Create(Contexts.sharedInstance);
     }
 }
 

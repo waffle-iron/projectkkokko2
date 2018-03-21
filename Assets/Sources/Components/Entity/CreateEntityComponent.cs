@@ -7,5 +7,5 @@ using Entitas;
 [Input, Command]
 public sealed class CreateEntityComponent : IComponent
 {
-    public EntityCfgID id;
+    public IEntityConfig config;
 }

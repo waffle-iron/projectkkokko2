@@ -6,10 +6,12 @@ using Entitas;
 public class CreateEntityCommandReactiveSystem : ReactiveSystem<CommandEntity>
 {
     private readonly MetaContext _meta;
+    private readonly Contexts _contexts;
 
     public CreateEntityCommandReactiveSystem (Contexts contexts) : base(contexts.command)
     {
         _meta = contexts.meta;
+        _contexts = contexts;
     }
 
     protected override ICollector<CommandEntity> GetTrigger (IContext<CommandEntity> context)
@@ -29,8 +31,9 @@ public class CreateEntityCommandReactiveSystem : ReactiveSystem<CommandEntity>
         foreach (var e in entities)
         {
             // do stuff to the matched entities
-            IEntity newEntity;
-            _meta.entityService.instance.Get(e.createEntity.id, out newEntity);
+            //IEntity newEntity;
+            //_meta.entityService.instance.Get(e.createEntity.id, out newEntity);
+            e.createEntity.config.Create(_contexts);
         }
     }
 }
