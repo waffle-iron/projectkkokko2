@@ -13,7 +13,9 @@ public class UnitySceneSettingService : ISceneSettingService
 
     public InitSceneConfig[] GetAll ()
     {
-        return Resources.LoadAll<InitSceneConfig>(_configPath);
+        var configs = Resources.LoadAll<InitSceneConfig>(_configPath);
+        if (configs == null) { Debug.LogError($"no configs found in path {_configPath}"); }
+        return configs;
     }
 }
 

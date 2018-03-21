@@ -16,6 +16,13 @@ class UnityLoadSceneService : ILoadSceneService
 
     private string sceneToLoad;
 
+    public string ActiveScene
+    {
+        get {
+            return SceneManager.GetActiveScene().name;
+        }
+    }
+
     public UnityLoadSceneService (Contexts contexts, string rootScene)
     {
         _input = contexts.input;

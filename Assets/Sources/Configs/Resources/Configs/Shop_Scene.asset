@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f9a0e21118be6246ab03cdea522dfc8, type: 3}
-  m_Name: Apartment_Scene
+  m_Name: Shop_Scene
   m_EditorClassIdentifier: 
-  scene: Start_Scene
+  scene: Shop_Scene
   loadBundles: []
   unloadBundles: []
   entities: []

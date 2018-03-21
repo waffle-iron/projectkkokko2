@@ -36,6 +36,8 @@ public sealed class EventSystems : Feature {
         Add(new GameLoadedViewsCompleteRemovedEventSystem(contexts)); // priority: 0
         Add(new InputLoadedViewsCompleteRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandLoadedViewsCompleteRemovedEventSystem(contexts)); // priority: 0
+        Add(new LoadEntitiesCompleteEventSystem(contexts)); // priority: 0
+        Add(new LoadEntitiesCompleteRemovedEventSystem(contexts)); // priority: 0
         Add(new LoadingEventSystem(contexts)); // priority: 0
         Add(new LoadingRemovedEventSystem(contexts)); // priority: 0
         Add(new InputLoadSceneEventSystem(contexts)); // priority: 0

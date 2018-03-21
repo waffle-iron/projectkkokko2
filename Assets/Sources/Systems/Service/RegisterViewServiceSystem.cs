@@ -16,6 +16,6 @@ public class RegisterViewServiceSystem : IInitializeSystem
 
     public void Initialize ()
     {
-        _meta.SetViewService(_service);
+        _meta.SetViewService(_service, false);
     }
 }

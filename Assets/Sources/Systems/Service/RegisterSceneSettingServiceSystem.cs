@@ -11,6 +11,7 @@ public class RegisterSceneSettingServiceSystem : IInitializeSystem
     public RegisterSceneSettingServiceSystem (Contexts contexts, ISceneSettingService service)
     {
         _meta = contexts.meta;
+        _service = service;
     }
 
     public void Initialize ()

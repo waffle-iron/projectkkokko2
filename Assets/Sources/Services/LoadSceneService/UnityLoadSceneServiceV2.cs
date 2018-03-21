@@ -14,6 +14,13 @@ public class UnityLoadSceneServiceV2 : ILoadSceneService
         _contexts = contexts;
     }
 
+    public string ActiveScene
+    {
+        get {
+            return SceneManager.GetActiveScene().name;
+        }
+    }
+
     public void LoadScene (string name)
     {
         var activeScene = SceneManager.GetActiveScene();

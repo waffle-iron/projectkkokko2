@@ -7,12 +7,14 @@ public class CommandLoadSceneSystem : ReactiveSystem<CommandEntity>
 {
     private readonly GameContext _game;
     private readonly MetaContext _meta;
+    private readonly InputContext _input;
     private readonly IGroup<GameEntity> _toDestroy;
 
     public CommandLoadSceneSystem (Contexts contexts) : base(contexts.command)
     {
         _game = contexts.game;
         _meta = contexts.meta;
+        _input = contexts.input;
         _toDestroy = _game.GetGroup(GameMatcher.AllOf(GameMatcher.ID).NoneOf(GameMatcher.DoNotDestroyOnSceneChange));
     }
 
@@ -38,6 +40,9 @@ public class CommandLoadSceneSystem : ReactiveSystem<CommandEntity>
             entity.isDoNotDestroyOnSceneChange = true;
             _game.isLoadSceneComplete = false;
             _game.isLoadedViewsComplete = false;
+            _game.isLoadEntitiesComplete = false;
+
+            _input.CreateEntity().AddPause(true);
         }
 
         foreach (var e in _toDestroy.GetEntities())

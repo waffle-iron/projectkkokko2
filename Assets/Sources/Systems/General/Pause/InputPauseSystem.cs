@@ -18,7 +18,7 @@ public class InputPauseSystem : IExecuteSystem
 
     public void Execute ()
     {
-        if (_game.pause.state != _meta.pauseService.instance.state)
+        if (_game.pauseEntity != null && _game.pause.state != _meta.pauseService.instance.state)
         {
             _command.CreateEntity().AddPause(_meta.pauseService.instance.state);
         }

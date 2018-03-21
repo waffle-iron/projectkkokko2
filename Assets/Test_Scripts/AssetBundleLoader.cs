@@ -7,39 +7,10 @@ using System.Threading;
 using UniRx;
 using UnityEngine;
 
-public class AssetBundleLoader
+public static class AssetBundleLoader
 {
-    public AssetBundleLoader (string[] _bundles, string[] _objs)
-    {
-        Debug.Log("starting loader");
-        var timeStarted = Time.time;
-        Observable.FromCoroutine<AssetBundleManager>((observer, token) =>
-        {
-            return Init(null, observer, token);
-        })
-            .Where(manager => manager != null)
-            .SelectMany(manager =>
-            {
-                //get bundles
-                return Observable.FromCoroutine<AssetBundle>((observer, token) =>
-                LoadBundle(manager, _bundles, observer, token));
-            })
-            .Where(bundle => bundle != null)
-            .Select(bundle =>
-            {
-                Debug.Log($"bundled loaded: {bundle.name} - {Time.time - timeStarted}");
-                return LoadAsset<GameObject>(bundle, _objs);
-            })
-            .Merge()
-            .Subscribe(obj =>
-            {
-                //get objects
-                Debug.Log($"obj loaded: {obj.name} - {Time.time - timeStarted}");
-                GameObject.Instantiate(obj);
-            });
-    }
 
-    IEnumerator Init (string uri, IObserver<AssetBundleManager> observer, CancellationToken token)
+    public static IEnumerator Init (string uri, IObserver<AssetBundleManager> observer, CancellationToken token)
     {
         var manager = new AssetBundleManager();
         manager.SetPrioritizationStrategy(AssetBundleManager.PrioritizationStrategy.PrioritizeStreamingAssets);
@@ -60,11 +31,11 @@ public class AssetBundleLoader
         }
     }
 
-    IEnumerator LoadBundle (AssetBundleManager manager, string bundle, IObserver<AssetBundle> observer, CancellationToken token)
+    public static IEnumerator LoadBundle (AssetBundleManager manager, string bundle, IObserver<AssetBundle> observer, CancellationToken token)
     {
         return LoadBundle(manager, new string[] { bundle }, observer, token);
     }
-    IEnumerator LoadBundle (AssetBundleManager manager, string[] bundles, IObserver<AssetBundle> observer, CancellationToken token)
+    public static IEnumerator LoadBundle (AssetBundleManager manager, string[] bundles, IObserver<AssetBundle> observer, CancellationToken token)
     {
         foreach (var bundle in bundles)
         {
@@ -85,7 +56,7 @@ public class AssetBundleLoader
         observer.OnCompleted();
     }
 
-    IObservable<T> LoadAsset<T> (AssetBundle bundle, string[] names) where T : UnityEngine.Object
+    public static IObservable<T> LoadAsset<T> (AssetBundle bundle, string[] names) where T : UnityEngine.Object
     {
         var requests = new List<AssetBundleRequest>();
 
@@ -100,7 +71,18 @@ public class AssetBundleLoader
                     .Where(request => request.isDone)
                     .Select(request => request.asset as T);
     }
-    IObservable<T> LoadAllAssets<T> (AssetBundle bundle) where T : UnityEngine.Object
+    public static IObservable<T[]> LoadAllAssetsArray<T> (AssetBundle bundle) where T : UnityEngine.Object
+    {
+        var loadStream = bundle.LoadAllAssetsAsync<T>().AsAsyncOperationObservable()
+                            .Where(request => request.isDone)
+                            .Select(request =>
+                            {
+                                return request.allAssets.Select(obj => obj as T).ToArray();
+                            });
+
+        return loadStream;
+    }
+    public static IObservable<T> LoadAllAssets<T> (AssetBundle bundle) where T : UnityEngine.Object
     {
         var loadStream = bundle.LoadAllAssetsAsync<T>().AsAsyncOperationObservable()
                             .Where(request => request.isDone)

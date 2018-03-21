@@ -26,7 +26,7 @@ public class AssetBundle_Test : MonoBehaviour
     private void Start ()
     {
         //init manager
-        var loader = new AssetBundleLoader(_bundles, _objs);
+        //var loader = new AssetBundleLoader(_bundles, _objs);
     }
 
     
