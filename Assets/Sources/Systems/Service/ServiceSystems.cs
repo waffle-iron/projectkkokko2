@@ -16,5 +16,6 @@ public class ServiceSystems : Feature
         Add(new RegisterPauseServiceSystem(contexts, services.pause));
         Add(new RegisterNotificationService(contexts, services.notif));
         Add(new RegisterDebugServiceSystem(contexts, services.debug));
+        Add(new RegisterSceneSettingServiceSystem(contexts, services.sceneSetting));
     }
 }

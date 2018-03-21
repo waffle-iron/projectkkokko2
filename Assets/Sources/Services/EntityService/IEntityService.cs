@@ -7,5 +7,6 @@ public interface IEntityService
 {
     bool Get (EntityCfgID name, out IEntity entity);
     bool Get (EntityCfgID name);
+    bool Add (IEntityConfig config);
 }
 

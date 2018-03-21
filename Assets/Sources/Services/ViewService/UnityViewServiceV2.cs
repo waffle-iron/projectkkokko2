@@ -14,12 +14,11 @@ public class UnityViewServiceV2 : IViewService
 
     private readonly Contexts _contexts;
 
-    public UnityViewServiceV2 (Contexts contexts, string[] paths)
+    public UnityViewServiceV2 (Contexts contexts)
     {
         _pools = new Dictionary<string, ObjectPool>();
         _loadedBundles = new List<AssetBundle>();
         _contexts = contexts;
-        Populate(true, paths);
     }
 
     public void Instantiate (IContext context, IEntity entity, string name)

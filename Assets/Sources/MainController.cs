@@ -7,9 +7,7 @@ using Entitas;
 public class MainController : MonoBehaviour
 {
     [SerializeField]
-    private string[] _configPath;
-    [SerializeField]
-    private string[] _viewPaths;
+    private string _configPath;
 
     private Contexts _contexts;
     private Systems _systems;
@@ -63,13 +61,14 @@ public class MainController : MonoBehaviour
         return new Services
             (
             new UnityLoadSceneServiceV2(contexts),
-            new UnityViewServiceV2(contexts, _viewPaths),
+            new UnityViewServiceV2(contexts),
             new JSONSaveLoadService(),
             new UnityTimeService(),
-            new UnityEntityService(_configPath, contexts),
+            new UnityEntityService(contexts),
             GetComponentInChildren<UnityPauseService>(),
             new UltimateMobileNotificationService(),
-            new UnityDebugService()
+            new UnityDebugService(),
+            new UnitySceneSettingService(_configPath)
             );
     }
 }
