@@ -42,11 +42,16 @@ public class ReloadViewsOnSceneLoadCompleteReactiveSystem : ReactiveSystem<GameE
 
             if (config == null) { Debug.LogError($"no config for scene {_meta.loadSceneService.instance.ActiveScene}"); }
 
+            foreach (var unload in config.sceneInitConfig.unloadBundles.SelectMany(bundle => bundle.Names))
+            {
+                _meta.viewService.instance.Unload(unload);
+            }
+
             _meta.viewService.instance.Populate(
                 true,
                 config.sceneInitConfig.loadBundles.SelectMany(bundle => bundle.Names).ToArray())
                 .Where(result => result == true)
-                .Subscribe(_ => _game.isLoadedViewsComplete = true);
+                .Subscribe(_ => { Debug.Log("load views complete"); _game.isLoadedViewsComplete = true; });
         }
     }
 }

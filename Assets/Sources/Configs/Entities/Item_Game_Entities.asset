@@ -8,11 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f9a0e21118be6246ab03cdea522dfc8, type: 3}
-  m_Name: Start_Scene
+  m_Script: {fileID: 11500000, guid: 43b733f2c8a735b4eb5c2eb48f789d68, type: 3}
+  m_Name: Item_Game_Entities
   m_EditorClassIdentifier: 
-  scene: Start_Scene
-  loadBundles: []
-  unloadBundles: []
   entities:
-  - {fileID: 11400000, guid: eedf0d8438f3d6e43ac7eb8297935c14, type: 2}
+  - {fileID: 11400000, guid: 2b0914438463c4643844b21418e773f5, type: 2}

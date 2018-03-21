@@ -73,6 +73,8 @@ public class LoadingScreenViewController : View, IGameLoadSceneListener, IGameLo
         gameEntity.AddGameLoadSceneRemovedListener(this);
         gameEntity.AddGameLoadedViewsCompleteListener(this);
         gameEntity.AddGameLoadedViewsCompleteRemovedListener(this);
+        gameEntity.AddLoadEntitiesCompleteListener(this);
+        gameEntity.AddLoadEntitiesCompleteRemovedListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
@@ -82,5 +84,7 @@ public class LoadingScreenViewController : View, IGameLoadSceneListener, IGameLo
         gameEntity.RemoveGameLoadSceneRemovedListener(this);
         gameEntity.RemoveGameLoadedViewsCompleteListener(this);
         gameEntity.RemoveGameLoadedViewsCompleteRemovedListener(this);
+        gameEntity.RemoveLoadEntitiesCompleteListener(this);
+        gameEntity.RemoveLoadEntitiesCompleteRemovedListener(this);
     }
 }

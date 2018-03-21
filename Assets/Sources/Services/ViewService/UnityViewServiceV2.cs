@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using UniRx;
 using System.Linq;
@@ -19,19 +20,9 @@ public class UnityViewServiceV2 : IViewService
     {
         _pools = new Dictionary<string, ObjectPool>();
         _contexts = contexts;
-
-        //uses streaming assets only
-        Observable.FromCoroutine<AssetBundleManager>((observer, token) =>
-        {
-            return AssetBundleLoader.Init(null, observer, token);
-        })
-        .Where(manager => manager != null)
-        .Subscribe(manager =>
-        {
-            this._manager = manager;
-            contexts.meta.viewService.isInitialized = true;
-        });
     }
+
+
 
     public void Instantiate (IContext context, IEntity entity, string name)
     {
@@ -53,12 +44,6 @@ public class UnityViewServiceV2 : IViewService
 
     public IObservable<bool> Populate (bool includeSceneObjects, string[] bundles = null)
     {
-        if (_manager == null)
-        {
-            Debug.LogError("Manager not yet initialized");
-            return Observable.Return<bool>(false);
-        }
-
         if (includeSceneObjects)
         {
             var sceneObjs = GetActiveSceneObjects();
@@ -67,18 +52,26 @@ public class UnityViewServiceV2 : IViewService
 
         if (bundles != null && bundles.Length > 0)
         {
-            return Observable.FromCoroutine<AssetBundle>((observer, token) => AssetBundleLoader.LoadBundle(this._manager, bundles, observer, token))
-            .Where(bundle => bundle != null)
-            .Select(bundle =>
+            if (_manager == null)
             {
-                return AssetBundleLoader.LoadAllAssetsArray<GameObject>(bundle);
-            })
-            .Merge()
-            .Select(objs =>
+                //init manager then load assets
+                return Observable.FromCoroutine<AssetBundleManager>((observer, token) =>
+                {
+                    return AssetBundleLoader.Init(null, observer, token);
+                })
+                .Where(manager => manager != null)
+                .Select(manager =>
+                {
+                    this._manager = manager;
+                    Contexts.sharedInstance.meta.viewService.isInitialized = true;
+
+                    return LoadAssets(includeSceneObjects, bundles);
+                }).Merge();
+            }
+            else
             {
-                AddToPool(objs);
-                return true;
-            });
+                return LoadAssets(includeSceneObjects, bundles);
+            }
         }
         else
         {
@@ -108,6 +101,22 @@ public class UnityViewServiceV2 : IViewService
     {
         _manager.UnloadBundle(bundle, true, true);
         Clean();
+    }
+
+    private IObservable<bool> LoadAssets (bool includeSceneObjects, string[] bundles = null)
+    {
+        return Observable.FromCoroutine<AssetBundle>((observer, token) => AssetBundleLoader.LoadBundle(this._manager, bundles, observer, token))
+            .Where(bundle => bundle != null)
+            .Select(bundle =>
+            {
+                return AssetBundleLoader.LoadAllAssetsArray<GameObject>(bundle);
+            })
+            .Merge()
+            .Select(objs =>
+            {
+                AddToPool(objs);
+                return true;
+            });
     }
 
     private GameObject[] GetActiveSceneObjects ()

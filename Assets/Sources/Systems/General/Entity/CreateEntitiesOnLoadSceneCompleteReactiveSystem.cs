@@ -4,34 +4,24 @@ using System.Linq;
 using UnityEngine;
 using Entitas;
 
-public class CreateEntitiesOnLoadSceneCompleteReactiveSystem : ReactiveSystem<GameEntity>
+public class CreateEntitiesOnLoadSceneCompleteReactiveSystem : IExecuteSystem
 {
     private readonly MetaContext _meta;
     private readonly GameContext _game;
     private readonly InputContext _input;
+    private readonly Contexts _contexts;
 
-    public CreateEntitiesOnLoadSceneCompleteReactiveSystem (Contexts contexts) : base(contexts.game)
+    public CreateEntitiesOnLoadSceneCompleteReactiveSystem (Contexts contexts)
     {
         _meta = contexts.meta;
         _game = contexts.game;
         _input = contexts.input;
+        _contexts = contexts;
     }
 
-    protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)
+    public void Execute ()
     {
-        //return collector
-        return context.CreateCollector(GameMatcher.AllOf(GameMatcher.LoadedViewsComplete, GameMatcher.LoadSceneComplete));
-    }
-
-    protected override bool Filter (GameEntity entity)
-    {
-        // check for required components
-        return true;
-    }
-
-    protected override void Execute (List<GameEntity> entities)
-    {
-        foreach (var e in entities)
+        if (_game.isLoadSceneComplete && _game.isLoadedViewsComplete && _game.isLoadEntitiesComplete == false)
         {
             var config = _game.GetEntityWithSceneInitConfig(_meta.loadSceneService.instance.ActiveScene);
 
@@ -39,10 +29,9 @@ public class CreateEntitiesOnLoadSceneCompleteReactiveSystem : ReactiveSystem<Ga
 
             foreach (var entityCfg in config.sceneInitConfig.initEntities.SelectMany(init => init.Entities).ToArray())
             {
-                var inputEntity = _input.CreateEntity();
-                inputEntity.AddCreateEntity(entityCfg.Name);
+                entityCfg.Create(_contexts);
             }
-
+            Debug.Log("load entities complete");
             _game.isLoadEntitiesComplete = true;
         }
     }

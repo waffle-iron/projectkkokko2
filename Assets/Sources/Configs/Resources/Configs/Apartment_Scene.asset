@@ -14,4 +14,7 @@ MonoBehaviour:
   scene: Apartment_Scene
   loadBundles: []
   unloadBundles: []
-  entities: []
+  entities:
+  - {fileID: 11400000, guid: ca3cb11fd7f396e4b89d4a6724744894, type: 2}
+  - {fileID: 11400000, guid: a02df37f590fd5449a84f795bcfea5aa, type: 2}
+  - {fileID: 11400000, guid: b65621a57af9dfe40b23d75bd69b692f, type: 2}

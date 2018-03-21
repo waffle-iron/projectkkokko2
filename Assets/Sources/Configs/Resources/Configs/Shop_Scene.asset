@@ -14,4 +14,5 @@ MonoBehaviour:
   scene: Shop_Scene
   loadBundles: []
   unloadBundles: []
-  entities: []
+  entities:
+  - {fileID: 11400000, guid: b65621a57af9dfe40b23d75bd69b692f, type: 2}

@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7f8e1c752fa4149a3fdaee59e7df04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isEnabled: 1
+  _isEnabled: 0
 --- !u!4 &293890760
 Transform:
   m_ObjectHideFlags: 0
@@ -585,13 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4398970b3bd304d8bdf900310c6c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _configPath:
-  - Configs/General
-  - Configs/Needs
-  - Configs/Actions
-  - Configs/Accessories
-  - Configs/Items
-  _viewPaths: []
+  _configPath: Configs
 --- !u!4 &1004094933
 Transform:
   m_ObjectHideFlags: 0

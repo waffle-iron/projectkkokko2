@@ -21,6 +21,7 @@ public class MainController : MonoBehaviour
     private void Start ()
     {
         _systems.Initialize();
+        _contexts.game.isLoadSceneComplete = true;
     }
 
     private void Update ()

@@ -23,6 +23,7 @@ public class SceneSettingsInitializeSystem : IInitializeSystem
         {
             var configEntity = _game.CreateEntity();
             configEntity.AddSceneInitConfig(config.Scene, config.LoadBundles, config.UnloadBundles, config.Entities);
+            configEntity.isDoNotDestroyOnSceneChange = true;
         }
     }
 }
