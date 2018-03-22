@@ -62,29 +62,31 @@ public static class GameComponentsLookup {
     public const int Max = 51;
     public const int MinRequirement = 52;
     public const int Need = 53;
-    public const int Pause = 54;
-    public const int PrePurchase = 55;
-    public const int Preview = 56;
-    public const int Price = 57;
-    public const int Purchased = 58;
-    public const int SaveID = 59;
-    public const int Saving = 60;
-    public const int SavingListener = 61;
-    public const int SavingRemovedListener = 62;
-    public const int SceneInitConfig = 63;
-    public const int TargetEntityID = 64;
-    public const int TargetNeed = 65;
-    public const int Timer = 66;
-    public const int TimerReset = 67;
-    public const int TimerState = 68;
-    public const int ToDestroy = 69;
-    public const int Trigger = 70;
-    public const int View = 71;
-    public const int ViewListener = 72;
-    public const int ViewRemovedListener = 73;
-    public const int Wallet = 74;
+    public const int NotificationMessage = 54;
+    public const int NotificationScheduled = 55;
+    public const int Pause = 56;
+    public const int PrePurchase = 57;
+    public const int Preview = 58;
+    public const int Price = 59;
+    public const int Purchased = 60;
+    public const int SaveID = 61;
+    public const int Saving = 62;
+    public const int SavingListener = 63;
+    public const int SavingRemovedListener = 64;
+    public const int SceneInitConfig = 65;
+    public const int TargetEntityID = 66;
+    public const int TargetNeed = 67;
+    public const int Timer = 68;
+    public const int TimerReset = 69;
+    public const int TimerState = 70;
+    public const int ToDestroy = 71;
+    public const int Trigger = 72;
+    public const int View = 73;
+    public const int ViewListener = 74;
+    public const int ViewRemovedListener = 75;
+    public const int Wallet = 76;
 
-    public const int TotalComponents = 75;
+    public const int TotalComponents = 77;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -141,6 +143,8 @@ public static class GameComponentsLookup {
         "Max",
         "MinRequirement",
         "Need",
+        "NotificationMessage",
+        "NotificationScheduled",
         "Pause",
         "PrePurchase",
         "Preview",
@@ -219,6 +223,8 @@ public static class GameComponentsLookup {
         typeof(MaxComponent),
         typeof(MinRequirementComponent),
         typeof(NeedComponent),
+        typeof(NotificationMessageComponent),
+        typeof(NotificationScheduledComponent),
         typeof(PauseComponent),
         typeof(PrePurchaseComponent),
         typeof(PreviewComponent),

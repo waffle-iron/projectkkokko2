@@ -13,5 +13,8 @@ public class NeedSystems : Feature
 
         Add(new NeedTriggerReactiveSystem(contexts));
         Add(new NeedDeductReactiveSystem(contexts));
+
+        Add(new NeedUnscheduleNotificationReactiveSystem(contexts));
+        Add(new NeedScheduleNotificationReactiveSystem(contexts));
     }
 }

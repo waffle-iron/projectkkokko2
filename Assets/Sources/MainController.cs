@@ -30,11 +30,16 @@ public class MainController : MonoBehaviour
         _systems.Cleanup();
     }
 
-    //private void OnApplicationPause (bool pause)
-    //{
-    //    _systems.Execute();
-    //    _systems.Cleanup();
-    //}
+    private void OnApplicationPause (bool pause)
+    {
+        //_systems.Execute();
+        //_systems.Cleanup();
+        List<LocalNotificationTemplate> scheduled = AndroidNotificationManager.Instance.LoadPendingNotifications();
+        foreach (var sched in scheduled)
+        {
+            Debug.Log($"id:{sched.id} title:{sched.title} seconds: {sched.fireDate} isFired: {sched.IsFired}");
+        }
+    }
 
     private void OnDestroy ()
     {
