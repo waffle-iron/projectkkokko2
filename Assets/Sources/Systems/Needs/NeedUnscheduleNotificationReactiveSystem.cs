@@ -44,8 +44,8 @@ public class NeedUnscheduleNotificationReactiveSystem : ReactiveSystem<GameEntit
             if (e.notificationScheduled.seconds - notiData.offset <= e.timer.current)
             {
                 _meta.notificationService.instance.Cancel(e.notificationScheduled.id);
-                e.RemoveNotificationScheduled();
                 Debug.Log($"unscheduled {e.notificationScheduled.id}");
+                e.RemoveNotificationScheduled();
             }
         }
     }

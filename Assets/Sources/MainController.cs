@@ -37,6 +37,7 @@ public class MainController : MonoBehaviour
         List<LocalNotificationTemplate> scheduled = AndroidNotificationManager.Instance.LoadPendingNotifications();
         foreach (var sched in scheduled)
         {
+            Debug.Log($"now:{System.DateTime.Now} utcnow:{System.DateTime.UtcNow}");
             Debug.Log($"id:{sched.id} title:{sched.title} seconds: {sched.fireDate} isFired: {sched.IsFired}");
         }
     }

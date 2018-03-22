@@ -13,14 +13,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accounts: []
   platfromBounds: []
-  showAdditionalParams: 0
+  showAdditionalParams: 1
   showAdvancedParams: 0
   showCParams: 0
   showAccounts: 1
-  showPlatfroms: 0
-  showTestingMode: 0
-  AppName: My App
-  AppVersion: 0.0.1
+  showPlatfroms: 1
+  showTestingMode: 1
+  AppName: Project_KkoKko_2
+  AppVersion: 0.1-1
   UseHTTPS: 0
   StringEscaping: 1
   EditorAnalytics: 1
