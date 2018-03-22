@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Entitas;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,11 @@ public class ActionView : View
     {
         base.OnEnable();
         _text.text = label;
+    }
+
+    protected override IObservable<bool> Initialize ()
+    {
+        return Observable.Return(true);
     }
 
     protected override void RegisterListeners (IEntity entity, IContext context)

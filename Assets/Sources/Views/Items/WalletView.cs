@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Entitas;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,16 @@ public class WalletView : View, IGameWalletListener
     public void OnWallet (GameEntity entity, int amount)
     {
         _text.text = amount.ToString();
+    }
+
+    protected override void OnEnable ()
+    {
+        base.OnEnable();
+    }
+
+    protected override IObservable<bool> Initialize ()
+    {
+        return Observable.Return(true);
     }
 
     protected override void RegisterListeners (IEntity entity, IContext context)

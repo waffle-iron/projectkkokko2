@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: Start_Scene
   m_EditorClassIdentifier: 
   scene: Start_Scene
-  loadBundles: []
+  loadBundles:
+  - {fileID: 11400000, guid: dcb6358c87050754aa0a90446f3b162e, type: 2}
   unloadBundles: []
   entities:
   - {fileID: 11400000, guid: eedf0d8438f3d6e43ac7eb8297935c14, type: 2}

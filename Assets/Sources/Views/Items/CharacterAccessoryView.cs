@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Entitas;
 using Spine;
 using Spine.Unity;
+using UniRx;
 using UnityEngine;
 
 public class CharacterAccessoryView : View, IGamePreviewListener, IGameAccessoryListener, IGameEquippedListener
@@ -19,6 +20,16 @@ public class CharacterAccessoryView : View, IGamePreviewListener, IGameAccessory
     {
         base.Awake();
         _charRef = GameObject.FindGameObjectWithTag(characterTarget).GetComponent<SpineCharacterAccessories>();
+    }
+
+    protected override void OnEnable ()
+    {
+        base.OnEnable();
+    }
+
+    protected override IObservable<bool> Initialize ()
+    {
+        return Observable.Return(true);
     }
 
     protected override void RegisterListeners (IEntity entity, IContext context)

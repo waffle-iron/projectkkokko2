@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UniRx;
 using System.Linq;
@@ -11,6 +10,7 @@ using AssetBundles;
 public class UnityViewServiceV2 : IViewService
 {
     private Dictionary<string, ObjectPool> _pools;
+    private List<AssetBundle> _loadedBundles;
 
     private readonly Contexts _contexts;
 
@@ -19,9 +19,23 @@ public class UnityViewServiceV2 : IViewService
     public UnityViewServiceV2 (Contexts contexts)
     {
         _pools = new Dictionary<string, ObjectPool>();
+        _loadedBundles = new List<AssetBundle>();
         _contexts = contexts;
     }
 
+    public IObservable<T> GetAsset<T> (string name) where T : UnityEngine.Object
+    {
+        return _loadedBundles.ToObservable()
+            .SelectMany(bundle =>
+            {
+                return bundle.LoadAssetAsync<T>(name).AsAsyncOperationObservable()
+                .Where(request => request.isDone && request.asset != null)
+                .Select(request =>
+                {
+                    return request.asset as T;
+                });
+            }).First();
+    }
 
 
     public void Instantiate (IContext context, IEntity entity, string name)
@@ -80,7 +94,7 @@ public class UnityViewServiceV2 : IViewService
 
     }
 
-    //remove all null references
+    //remove all null references and unload resources not used
     public void Clean ()
     {
         var newPool = new Dictionary<string, ObjectPool>();
@@ -95,10 +109,13 @@ public class UnityViewServiceV2 : IViewService
         }
 
         _pools = newPool;
+        Resources.UnloadUnusedAssets();
     }
 
     public void Unload (string bundle)
     {
+        var result = _loadedBundles.Find(bdl => bdl.name.Equals(bundle));
+        if (result != null) { _loadedBundles.Remove(result); }
         _manager.UnloadBundle(bundle, true, true);
         Clean();
     }
@@ -109,6 +126,7 @@ public class UnityViewServiceV2 : IViewService
             .Where(bundle => bundle != null)
             .Select(bundle =>
             {
+                _loadedBundles.Add(bundle);
                 return AssetBundleLoader.LoadAllAssetsArray<GameObject>(bundle);
             })
             .Merge()

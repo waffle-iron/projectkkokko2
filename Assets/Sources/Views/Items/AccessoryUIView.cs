@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CodeStage.AntiCheat.ObscuredTypes;
 using Entitas;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,6 +32,11 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
         _purchased.enabled = false;
         _price.text = "";
         _display.color = Color.white;
+    }
+
+    protected override IObservable<bool> Initialize ()
+    {
+        return Observable.Return(true);
     }
 
     protected override void RegisterListeners (IEntity entity, IContext context)

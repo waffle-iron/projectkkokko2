@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 using Entitas;
 using UnityEngine.SceneManagement;
+using UniRx;
+using System;
 
 public class LoadingScreenViewController : View, IGameLoadSceneListener, IGameLoadSceneRemovedListener, IGameLoadedViewsCompleteListener, IGameLoadedViewsCompleteRemovedListener
                                             , ILoadEntitiesCompleteListener, ILoadEntitiesCompleteRemovedListener
@@ -14,12 +16,12 @@ public class LoadingScreenViewController : View, IGameLoadSceneListener, IGameLo
     private bool isViewLoaded = false;
     private bool isEntitiesLoaded = false;
 
-    protected override void Start ()
+    protected override IObservable<bool> Initialize ()
     {
-        base.Start();
         isSceneLoaded = false;
         isViewLoaded = false;
         isEntitiesLoaded = false;
+        return Observable.Return(true);
     }
 
     protected override void Update ()

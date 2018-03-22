@@ -3,15 +3,34 @@ using UnityEngine.UI;
 using System.Collections;
 using Entitas;
 using DG.Tweening;
+using UniRx;
+using System;
 
 public class SecondaryNeedView : View, IGameTriggerListener
 {
     [SerializeField]
     private RectTransform _image;
     [SerializeField]
+    private Image _icon;
+    [SerializeField]
+    private string imageSprite;
+    [SerializeField]
     private NeedType _need;
 
     private Tween _tweenAnim = null;
+
+
+    protected override IObservable<bool> Initialize ()
+    {
+        _icon.enabled = false;
+
+        return this.contexts.meta.viewService.instance.GetAsset<Sprite>(imageSprite)
+            .Select(result =>
+            {
+                _icon.sprite = result;
+                return true;
+            });
+    }
 
     public void OnTrigger (GameEntity entity, DurationType duration, bool state)
     {

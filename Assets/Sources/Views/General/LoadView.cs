@@ -3,12 +3,19 @@ using UnityEngine.UI;
 using System.Collections;
 using Entitas;
 using CodeStage.AntiCheat.ObscuredTypes;
+using UniRx;
+using System;
 
 public class LoadView : View, ILoadingListener, ILoadingRemovedListener
 {
     private int loadCount = 0;
     [SerializeField]
     private Image image;
+
+    protected override IObservable<bool> Initialize ()
+    {
+        return Observable.Return(true);
+    }
 
     public void OnLoading (GameEntity entity)
     {

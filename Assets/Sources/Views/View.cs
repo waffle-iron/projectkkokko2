@@ -2,6 +2,8 @@
 using System.Collections;
 using Entitas;
 using Entitas.Unity;
+using System;
+using UniRx;
 
 public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
 {
@@ -11,6 +13,9 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
     public EntityLink EntityLink { get { return _entity; } private set { _entity = value; } }
 
     protected Contexts contexts { get { return Contexts.sharedInstance; } }
+
+    private IDisposable _initObservable;
+    private bool _isInitialized = false;
 
     public void Link (IEntity entity, IContext context)
     {
@@ -32,13 +37,23 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
 
         var gameEntity = (GameEntity)entity;
         gameEntity.AddGameToDestroyListener(this);
-        RegisterListeners(entity, context);
+
+        _isInitialized = false;
+
+        _initObservable = Initialize().Where(state => state == true)
+            .First()
+            .Subscribe(_ =>
+            {
+                _isInitialized = true;
+                RegisterListeners(entity, context);
+            });
     }
     public void Unlink ()
     {
+        if (_initObservable != null) { _initObservable.Dispose(); }
         if (EntityLink != null && EntityLink.entity != null)
         {
-            UnregisterListeners(EntityLink.entity, EntityLink.context);
+            if (_isInitialized) { UnregisterListeners(EntityLink.entity, EntityLink.context); }
             //Debug.Log(this.name);
             //((GameEntity)EntityLink.entity).RemoveGameToDestroyListener(this);
             EntityLink.Unlink();
@@ -50,6 +65,7 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
 
     protected abstract void RegisterListeners (IEntity entity, IContext context);
     protected abstract void UnregisterListeners (IEntity entity, IContext context);
+    protected abstract IObservable<bool> Initialize ();
 
     protected virtual void Awake () { }
     protected virtual void Start () { }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Entitas;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,16 @@ public class PromptItemView : View, IGamePrePurchaseListener
     {
         base.Awake();
         _prompt = GameObject.FindGameObjectWithTag(_targetPrompt).GetComponent<IPrompt>();
+    }
+
+    protected override void OnEnable ()
+    {
+        base.OnEnable();
+    }
+
+    protected override IObservable<bool> Initialize ()
+    {
+        return Observable.Return(true);
     }
 
     public void OnPrePurchase (GameEntity entity)

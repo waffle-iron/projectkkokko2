@@ -21,7 +21,7 @@ public class ObjectPool
         _name = name;
         _type = type;
         type.SetActive(false);
-        _objs.Add(_type);
+        //_objs.Add(_type);
 
         //pool instances
         for (int ctr = 0; ctr < initInstances; ctr++)

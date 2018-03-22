@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 4159631441
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f2aa11de51595cfcdfb123f415973320
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 460b4f5d62b6facbccf7c01637df8f00
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Sprites/UI/Needs/energy.png
+- Assets/Sprites/UI/Needs/hygiene.png
+- Assets/Sprites/UI/Needs/heart-plus.png
+- Assets/Sprites/UI/Needs/fitness.png
+- Assets/Sprites/UI/Needs/bladder.png
+- Assets/Sprites/UI/Needs/hunger.png
+Dependencies: []

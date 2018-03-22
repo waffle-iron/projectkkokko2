@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Entitas;
+using UniRx;
 
 public class DebugView : View, IGameDebugListener
 {
@@ -12,6 +13,11 @@ public class DebugView : View, IGameDebugListener
     public void OnDebug(GameEntity entity, string value)
     {
         text.text = value;
+    }
+
+    protected override IObservable<bool> Initialize ()
+    {
+        return Observable.Return(true);
     }
 
     protected override void RegisterListeners(IEntity entity, IContext context)
