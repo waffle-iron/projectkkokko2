@@ -11,7 +11,7 @@ public partial class GameEntity {
     public AccessoryComponent accessory { get { return (AccessoryComponent)GetComponent(GameComponentsLookup.Accessory); } }
     public bool hasAccessory { get { return HasComponent(GameComponentsLookup.Accessory); } }
 
-    public void AddAccessory(AccessoryID newId, AccessoryType newType) {
+    public void AddAccessory(string newId, AccessoryType newType) {
         var index = GameComponentsLookup.Accessory;
         var component = CreateComponent<AccessoryComponent>(index);
         component.id = newId;
@@ -19,7 +19,7 @@ public partial class GameEntity {
         AddComponent(index, component);
     }
 
-    public void ReplaceAccessory(AccessoryID newId, AccessoryType newType) {
+    public void ReplaceAccessory(string newId, AccessoryType newType) {
         var index = GameComponentsLookup.Accessory;
         var component = CreateComponent<AccessoryComponent>(index);
         component.id = newId;

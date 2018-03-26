@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IInputAccessoryListener {
-    void OnAccessory(InputEntity entity, AccessoryID id, AccessoryType type);
+    void OnAccessory(InputEntity entity, string id, AccessoryType type);
 }

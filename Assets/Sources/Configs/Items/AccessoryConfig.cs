@@ -8,7 +8,7 @@ public class AccessoryConfig : UnityEntityConfig
 {
     [Header("Accessory Settings")]
     [SerializeField]
-    private AccessoryID _id;
+    private string _id;
     [SerializeField]
     private AccessoryType _type;
     [SerializeField]

@@ -9,5 +9,5 @@ using CodeStage.AntiCheat.ObscuredTypes;
 [Game, Unique]
 public sealed class EquippedItemsComponent : IComponent
 {
-    public List<AccessoryID> _accessoryList;
+    public List<string> _accessoryList;
 }

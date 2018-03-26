@@ -9,14 +9,38 @@ public class EnumGenerator
 {
 
     [MenuItem("Project/Create/Refresh Entity Config List")]
-    public static void Gen ()
+    public static void GenEntitylist ()
     {
         string enumFileName = "EntityConfigList";
         string enumName = "EntityCfgID";
-        string[] enumEntries = GetEntityConfigs("Assets/Sources/Configs");
+        string[] enumEntries = GetEntityConfigs("Assets/Sources/Configs", "t:UnityEntityConfig");
         string filePathAndName = "Assets/Sources/Configs/" + enumFileName + ".cs"; //create folder first
 
-        using (StreamWriter streamWriter = new StreamWriter(filePathAndName))
+        CreateEnum(filePathAndName, enumName, enumEntries);
+    }
+
+    //[MenuItem("Project/Create/Refresh Accessory ID List")]
+    //public static void GenAccessoryIDs()
+    //{
+    //    string enumFileName = "AccessoryID";
+    //    string enumName = "AccessoryID";
+    //    string[] enumEntries = GetEntityConfigs("Assets/Sources/Configs", "t:AccessoryConfig");
+    //    string filePathAndName = "Assets/Sources/Utilities/Items/" + enumFileName + ".cs"; //create folder first
+
+    //    CreateEnum(filePathAndName, enumName, enumEntries);
+    //}
+
+    static string[] GetEntityConfigs (string folder, string typeFilter)
+    {
+        return AssetDatabase.FindAssets(typeFilter, new string[] { folder })
+            .Select(guid => AssetDatabase.GUIDToAssetPath(guid))
+            .Select(path => AssetDatabase.LoadAssetAtPath<UnityEntityConfig>(path).name)
+            .ToArray();
+    }
+
+    static void CreateEnum (string filePath, string enumName, string[] enumEntries)
+    {
+        using (StreamWriter streamWriter = new StreamWriter(filePath))
         {
             streamWriter.WriteLine("public enum " + enumName);
             streamWriter.WriteLine("{");
@@ -27,14 +51,5 @@ public class EnumGenerator
             streamWriter.WriteLine("}");
         }
         AssetDatabase.Refresh();
-
-    }
-
-    static string[] GetEntityConfigs (string folder)
-    {
-        return AssetDatabase.FindAssets("t:UnityEntityConfig", new string[] { folder })
-            .Select(guid => AssetDatabase.GUIDToAssetPath(guid))
-            .Select(path => AssetDatabase.LoadAssetAtPath<UnityEntityConfig>(path).name)
-            .ToArray();
     }
 }

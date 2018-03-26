@@ -21,7 +21,7 @@ MonoBehaviour:
     fakeValue: item_hat
     fakeValueActive: 1
   _loadOnStart: 1
-  _id: 1
+  _id: hat
   _type: 1
   _price:
     currentCryptoKey: 444444

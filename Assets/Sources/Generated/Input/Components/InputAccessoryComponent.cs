@@ -11,7 +11,7 @@ public partial class InputEntity {
     public AccessoryComponent accessory { get { return (AccessoryComponent)GetComponent(InputComponentsLookup.Accessory); } }
     public bool hasAccessory { get { return HasComponent(InputComponentsLookup.Accessory); } }
 
-    public void AddAccessory(AccessoryID newId, AccessoryType newType) {
+    public void AddAccessory(string newId, AccessoryType newType) {
         var index = InputComponentsLookup.Accessory;
         var component = CreateComponent<AccessoryComponent>(index);
         component.id = newId;
@@ -19,7 +19,7 @@ public partial class InputEntity {
         AddComponent(index, component);
     }
 
-    public void ReplaceAccessory(AccessoryID newId, AccessoryType newType) {
+    public void ReplaceAccessory(string newId, AccessoryType newType) {
         var index = InputComponentsLookup.Accessory;
         var component = CreateComponent<AccessoryComponent>(index);
         component.id = newId;
