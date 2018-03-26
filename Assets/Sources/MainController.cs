@@ -8,6 +8,8 @@ public class MainController : MonoBehaviour
 {
     [SerializeField]
     private string _configPath;
+    [SerializeField]
+    private bool _isSimulationMode = false;
 
     private Contexts _contexts;
     private Systems _systems;
@@ -71,7 +73,7 @@ public class MainController : MonoBehaviour
         return new Services
             (
             new UnityLoadSceneServiceV2(contexts),
-            new UnityViewServiceV2(contexts),
+            new UnityViewServiceV2(contexts, _isSimulationMode),
             new JSONSaveLoadService(),
             new UnityTimeService(),
             new UnityEntityService(contexts),

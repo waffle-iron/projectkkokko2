@@ -13,6 +13,7 @@ public static class AssetBundleLoader
     public static IEnumerator Init (string uri, IObserver<AssetBundleManager> observer, CancellationToken token)
     {
         var manager = new AssetBundleManager();
+
         manager.SetPrioritizationStrategy(AssetBundleManager.PrioritizationStrategy.PrioritizeStreamingAssets);
         if (uri != null) { manager.SetBaseUri(uri); }
         else { manager.UseStreamingAssetsFolder(); }

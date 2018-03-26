@@ -39,8 +39,10 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
         gameEntity.AddGameToDestroyListener(this);
 
         _isInitialized = false;
-
-        _initObservable = Initialize().Where(state => state == true)
+        Debug.Log(this.name);
+        _initObservable = Initialize()
+            .Do(_ => Debug.Log(this.name))
+            .Where(state => state == true)
             .First()
             .Subscribe(_ =>
             {
