@@ -13,6 +13,7 @@ public class AssetBundleLoadLevelSimulationOperation : AssetBundleLoadOperation
 
     public AssetBundleLoadLevelSimulationOperation (string assetBundleName, string levelName, bool isAdditive)
     {
+#if UNITY_EDITOR
         string[] levelPaths = UnityEditor.AssetDatabase.GetAssetPathsFromAssetBundleAndAssetName(assetBundleName, levelName);
         if (levelPaths.Length == 0)
         {
@@ -27,6 +28,7 @@ public class AssetBundleLoadLevelSimulationOperation : AssetBundleLoadOperation
             m_Operation = UnityEditor.EditorApplication.LoadLevelAdditiveAsyncInPlayMode(levelPaths[0]);
         else
             m_Operation = UnityEditor.EditorApplication.LoadLevelAsyncInPlayMode(levelPaths[0]);
+#endif
     }
 
     public override bool Update ()
