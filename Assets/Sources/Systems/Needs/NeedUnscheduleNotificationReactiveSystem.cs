@@ -39,12 +39,13 @@ public class NeedUnscheduleNotificationReactiveSystem : ReactiveSystem<GameEntit
             if (noti == null || noti.Count() == 0) { continue; }
 
             var notiData = noti.Single().notificationMessage;
+            var debug = _meta.debugService.instance;
 
             //cancel if it matches conditions
             if (e.notificationScheduled.seconds - notiData.offset <= e.timer.current)
             {
                 _meta.notificationService.instance.Cancel(e.notificationScheduled.id);
-                Debug.Log($"unscheduled {e.notificationScheduled.id}");
+                debug.Log($"unscheduled {e.notificationScheduled.id}");
                 e.RemoveNotificationScheduled();
             }
         }

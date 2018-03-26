@@ -37,10 +37,11 @@ public class ReloadViewsOnSceneLoadCompleteReactiveSystem : ReactiveSystem<GameE
         {
             //clean
             _meta.viewService.instance.Clean();
+            var debug = _meta.debugService.instance;
             //reload
             var config = _game.GetEntityWithSceneInitConfig(_meta.loadSceneService.instance.ActiveScene);
 
-            if (config == null) { Debug.LogError($"no config for scene {_meta.loadSceneService.instance.ActiveScene}"); }
+            if (config == null) { debug.LogError($"no config for scene {_meta.loadSceneService.instance.ActiveScene}"); }
 
             foreach (var unload in config.sceneInitConfig.unloadBundles.SelectMany(bundle => bundle.Names))
             {
@@ -51,7 +52,7 @@ public class ReloadViewsOnSceneLoadCompleteReactiveSystem : ReactiveSystem<GameE
                 true,
                 config.sceneInitConfig.loadBundles.SelectMany(bundle => bundle.Names).ToArray())
                 .Where(result => result == true)
-                .Subscribe(_ => { Debug.Log("load views complete"); _game.isLoadedViewsComplete = true; });
+                .Subscribe(_ => { debug.Log("load views complete"); _game.isLoadedViewsComplete = true; });
         }
     }
 }
