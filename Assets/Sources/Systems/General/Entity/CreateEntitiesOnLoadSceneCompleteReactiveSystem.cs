@@ -31,7 +31,7 @@ public class CreateEntitiesOnLoadSceneCompleteReactiveSystem : IExecuteSystem
             {
                 entityCfg.Create(_contexts);
             }
-            Debug.Log("load entities complete");
+            _meta.debugService.instance.Log("load entities complete");
             _game.isLoadEntitiesComplete = true;
             _input.CreateEntity().AddPause(false);
         }

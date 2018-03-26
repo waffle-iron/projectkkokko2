@@ -35,7 +35,7 @@ public class CommandLoadSceneCompleteSystem : ReactiveSystem<CommandEntity>
             _game.loadSceneEntity.isToDestroy = true;
             _game.loadSceneEntity.RemoveLoadScene();
             _game.isLoadSceneComplete = true;
-            Debug.Log("load scene complete");
+            _meta.debugService.instance.Log("load scene complete");
         }
     }
 }

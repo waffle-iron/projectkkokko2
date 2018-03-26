@@ -9,5 +9,10 @@ public class UnityDebugService : IDebugService
     {
         Debug.Log(message);
     }
+
+    public void LogError (object message)
+    {
+        Debug.LogError(message);
+    }
 }
 

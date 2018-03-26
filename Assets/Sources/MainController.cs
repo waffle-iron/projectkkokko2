@@ -8,6 +8,8 @@ public class MainController : MonoBehaviour
 {
     [SerializeField]
     private string _configPath;
+    [SerializeField]
+    private bool _isSimulationMode = false;
 
     private Contexts _contexts;
     private Systems _systems;
@@ -34,17 +36,20 @@ public class MainController : MonoBehaviour
     {
         //_systems.Execute();
         //_systems.Cleanup();
+
+        var debug = _contexts.meta.hasDebugService ? _contexts.meta.debugService.instance : null;
+
         List<LocalNotificationTemplate> scheduled = AndroidNotificationManager.Instance.LoadPendingNotifications();
         foreach (var sched in scheduled)
         {
-            Debug.Log($"now:{System.DateTime.Now} utcnow:{System.DateTime.UtcNow}");
-            Debug.Log($"id:{sched.id} title:{sched.title} seconds: {sched.fireDate} isFired: {sched.IsFired}");
+            debug?.Log($"now:{System.DateTime.Now} utcnow:{System.DateTime.UtcNow}");
+            debug?.Log($"id:{sched.id} title:{sched.title} seconds: {sched.fireDate} isFired: {sched.IsFired}");
         }
     }
 
     private void OnDestroy ()
     {
-        _systems.TearDown();
+        _systems.TearDown();    
         _systems.DeactivateReactiveSystems();
         _systems.ClearReactiveSystems();
     }
@@ -68,7 +73,7 @@ public class MainController : MonoBehaviour
         return new Services
             (
             new UnityLoadSceneServiceV2(contexts),
-            new UnityViewServiceV2(contexts),
+            new UnityViewServiceV2(contexts, _isSimulationMode),
             new JSONSaveLoadService(),
             new UnityTimeService(),
             new UnityEntityService(contexts),

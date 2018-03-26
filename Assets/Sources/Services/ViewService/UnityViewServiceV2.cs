@@ -6,26 +6,60 @@ using Entitas;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using AssetBundles;
+using UnityEditor;
 
 public class UnityViewServiceV2 : IViewService
 {
     private Dictionary<string, ObjectPool> _pools;
     private List<AssetBundle> _loadedBundles;
+    private List<string> _loadedBundlesSimulation;
 
     private readonly Contexts _contexts;
 
     private AssetBundleManager _manager;
 
-    public UnityViewServiceV2 (Contexts contexts)
+    private bool _isSimulationMode = false;
+
+    public UnityViewServiceV2 (Contexts contexts, bool isSimulationMode)
     {
         _pools = new Dictionary<string, ObjectPool>();
         _loadedBundles = new List<AssetBundle>();
+        _loadedBundlesSimulation = new List<string>();
         _contexts = contexts;
+        _isSimulationMode = isSimulationMode;
     }
 
     public IObservable<T> GetAsset<T> (string name) where T : UnityEngine.Object
     {
-        return _loadedBundles.ToObservable()
+        var debug = _contexts.meta.debugService.instance;
+
+        if (_isSimulationMode)
+        {
+            return _loadedBundlesSimulation.ToObservable()
+                    .Select(bundle =>
+                    {
+                        var result = AssetDatabase.GetAssetPathsFromAssetBundleAndAssetName(bundle, name);
+                        debug.Log($"getting asset {name} from bundle {bundle} = {result != null || result.Length > 0}");
+                        return result;
+                    })
+                    .Where(assetPaths => assetPaths.Length > 0)
+                    .Select(assetPaths => assetPaths[0])
+                    .Select(path =>
+                    {
+                        UnityEngine.Object target = AssetDatabase.LoadAssetAtPath<T>(path);
+                        return new AssetBundleLoadAssetOperationSimulation(target);
+                    })
+                    .Where(op => op.IsDone())
+                    .Select(op =>
+                    {
+                        var asset = op.GetAsset<T>();
+
+                        return asset;
+                    });
+        }
+        else
+        {
+            return _loadedBundles.ToObservable()
             .SelectMany(bundle =>
             {
                 return bundle.LoadAssetAsync<T>(name).AsAsyncOperationObservable()
@@ -35,6 +69,7 @@ public class UnityViewServiceV2 : IViewService
                     return request.asset as T;
                 });
             }).First();
+        }
     }
 
 
@@ -79,12 +114,12 @@ public class UnityViewServiceV2 : IViewService
                     this._manager = manager;
                     Contexts.sharedInstance.meta.viewService.isInitialized = true;
 
-                    return LoadAssets(includeSceneObjects, bundles);
+                    return LoadGameObjects(bundles);
                 }).Merge();
             }
             else
             {
-                return LoadAssets(includeSceneObjects, bundles);
+                return LoadGameObjects(bundles);
             }
         }
         else
@@ -120,9 +155,52 @@ public class UnityViewServiceV2 : IViewService
         Clean();
     }
 
-    private IObservable<bool> LoadAssets (bool includeSceneObjects, string[] bundles = null)
+    private IObservable<bool> LoadGameObjects (string[] bundles)
     {
-        return Observable.FromCoroutine<AssetBundle>((observer, token) => AssetBundleLoader.LoadBundle(this._manager, bundles, observer, token))
+        var debug = _contexts.meta.debugService.instance;
+
+        if (_isSimulationMode)
+        {
+            return bundles.ToObservable()
+                    .Select(bundle =>
+                    {
+                        var paths = AssetDatabase.GetAssetPathsFromAssetBundle(bundle);
+                        _loadedBundlesSimulation.Add(bundle);
+                        debug.Log($"sim paths: {paths.Count()}");
+                        return paths;
+                    })
+                    .Where(paths => paths != null && paths.Length > 0)
+                    .Select(paths =>
+                    {
+                        var objs = new List<AssetBundleLoadAssetOperationSimulation>();
+
+                        foreach (var path in paths)
+                        {
+                            UnityEngine.Object target = AssetDatabase.LoadMainAssetAtPath(path);
+                            if (target is GameObject)
+                            {
+                                debug.Log($"added object: {target.name}");
+                                objs.Add(new AssetBundleLoadAssetOperationSimulation(target));
+                            }
+                        }
+
+                        return objs;
+                    })
+                    .Select(op =>
+                    {
+                        if (op == null || op.Count == 0)
+                        {
+                            _contexts.meta.debugService.instance.Log("no views to pool");
+                            return true;
+                        }
+
+                        AddToPool(op.Select(p => p.GetAsset<GameObject>()).ToArray());
+                        return true;
+                    });
+        }
+        else
+        {
+            return Observable.FromCoroutine<AssetBundle>((observer, token) => AssetBundleLoader.LoadBundle(this._manager, bundles, observer, token))
             .Where(bundle => bundle != null)
             .Select(bundle =>
             {
@@ -135,6 +213,8 @@ public class UnityViewServiceV2 : IViewService
                 AddToPool(objs);
                 return true;
             });
+        }
+
     }
 
     private GameObject[] GetActiveSceneObjects ()

@@ -8,5 +8,6 @@ using System.Threading.Tasks;
 public interface IDebugService
 {
     void Log(object message);
+    void LogError (object message);
 }
 
