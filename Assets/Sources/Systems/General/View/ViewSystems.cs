@@ -9,5 +9,8 @@ public class ViewSystems : Feature
     {
         //Add(system here);
         Add(new AddViewReactiveSystem(contexts));
+        Add(new ReloadViewsReactiveSystem(contexts));
+
+        Add(new ViewCleanupAddedSystem(contexts));
     }
 }

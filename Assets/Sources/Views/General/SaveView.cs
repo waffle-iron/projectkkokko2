@@ -3,12 +3,19 @@ using UnityEngine.UI;
 using System.Collections;
 using Entitas;
 using CodeStage.AntiCheat.ObscuredTypes;
+using UniRx;
+using System;
 
 public class SaveView : View, ISavingListener, ISavingRemovedListener
 {
     private int saveCount = 0;
     [SerializeField]
     private Image image;
+
+    protected override IObservable<bool> Initialize ()
+    {
+        return Observable.Return(true);
+    }
 
     public void OnSaving (GameEntity entity)
     {
@@ -25,6 +32,13 @@ public class SaveView : View, ISavingListener, ISavingRemovedListener
         var gameEntity = (GameEntity)entity;
         gameEntity.AddSavingListener(this);
         gameEntity.AddSavingRemovedListener(this);
+    }
+
+    protected override void UnregisterListeners (IEntity entity, IContext context)
+    {
+        var gameEntity = (GameEntity)entity;
+        gameEntity.RemoveSavingListener(this);
+        gameEntity.RemoveSavingRemovedListener(this);
     }
 
     protected override void Update ()

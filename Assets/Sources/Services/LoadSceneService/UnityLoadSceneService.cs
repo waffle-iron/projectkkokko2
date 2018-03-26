@@ -16,6 +16,13 @@ class UnityLoadSceneService : ILoadSceneService
 
     private string sceneToLoad;
 
+    public string ActiveScene
+    {
+        get {
+            return SceneManager.GetActiveScene().name;
+        }
+    }
+
     public UnityLoadSceneService (Contexts contexts, string rootScene)
     {
         _input = contexts.input;
@@ -29,9 +36,6 @@ class UnityLoadSceneService : ILoadSceneService
         isAlreadyLoading = true;
         sceneToLoad = name;
 
-        var loading = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
-        loading.allowSceneActivation = true;
-        loading.completed += Loading_completed;
 
         var activeScene = SceneManager.GetActiveScene();
 
@@ -43,9 +47,12 @@ class UnityLoadSceneService : ILoadSceneService
         }
         else
         {
-            isDoneUnloading = true; 
+            isDoneUnloading = true;
         }
 
+        var loading = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
+        loading.allowSceneActivation = true;
+        loading.completed += Loading_completed;
     }
 
     private void Unloading_completed (AsyncOperation obj)

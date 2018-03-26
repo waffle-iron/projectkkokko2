@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using Entitas;
+using UniRx;
 using UnityEngine;
 
 public class PauseView : View, IGamePauseListener, IGamePauseRemovedListener
 {
+    protected override IObservable<bool> Initialize ()
+    {
+        return Observable.Return(true);
+    }
 
     public void OnPause (GameEntity entity, bool state)
     {
@@ -22,6 +27,13 @@ public class PauseView : View, IGamePauseListener, IGamePauseRemovedListener
         var gameEntity = (GameEntity)entity;
         gameEntity.AddGamePauseListener(this);
         gameEntity.AddGamePauseRemovedListener(this);
+    }
+
+    protected override void UnregisterListeners (IEntity entity, IContext context)
+    {
+        var gameEntity = (GameEntity)entity;
+        gameEntity.RemoveGamePauseListener(this);
+        gameEntity.RemoveGamePauseRemovedListener(this);
     }
 }
 

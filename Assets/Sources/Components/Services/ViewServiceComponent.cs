@@ -9,4 +9,5 @@ using Entitas.CodeGeneration.Attributes;
 public sealed class ViewServiceComponent : IComponent
 {
     public IViewService instance;
+    public bool isInitialized;
 }

@@ -12,22 +12,22 @@ public partial class MetaContext {
     public ViewServiceComponent viewService { get { return viewServiceEntity.viewService; } }
     public bool hasViewService { get { return viewServiceEntity != null; } }
 
-    public MetaEntity SetViewService(IViewService newInstance) {
+    public MetaEntity SetViewService(IViewService newInstance, bool newIsInitialized) {
         if (hasViewService) {
             throw new Entitas.EntitasException("Could not set ViewService!\n" + this + " already has an entity with ViewServiceComponent!",
                 "You should check if the context already has a viewServiceEntity before setting it or use context.ReplaceViewService().");
         }
         var entity = CreateEntity();
-        entity.AddViewService(newInstance);
+        entity.AddViewService(newInstance, newIsInitialized);
         return entity;
     }
 
-    public void ReplaceViewService(IViewService newInstance) {
+    public void ReplaceViewService(IViewService newInstance, bool newIsInitialized) {
         var entity = viewServiceEntity;
         if (entity == null) {
-            entity = SetViewService(newInstance);
+            entity = SetViewService(newInstance, newIsInitialized);
         } else {
-            entity.ReplaceViewService(newInstance);
+            entity.ReplaceViewService(newInstance, newIsInitialized);
         }
     }
 
@@ -49,17 +49,19 @@ public partial class MetaEntity {
     public ViewServiceComponent viewService { get { return (ViewServiceComponent)GetComponent(MetaComponentsLookup.ViewService); } }
     public bool hasViewService { get { return HasComponent(MetaComponentsLookup.ViewService); } }
 
-    public void AddViewService(IViewService newInstance) {
+    public void AddViewService(IViewService newInstance, bool newIsInitialized) {
         var index = MetaComponentsLookup.ViewService;
         var component = CreateComponent<ViewServiceComponent>(index);
         component.instance = newInstance;
+        component.isInitialized = newIsInitialized;
         AddComponent(index, component);
     }
 
-    public void ReplaceViewService(IViewService newInstance) {
+    public void ReplaceViewService(IViewService newInstance, bool newIsInitialized) {
         var index = MetaComponentsLookup.ViewService;
         var component = CreateComponent<ViewServiceComponent>(index);
         component.instance = newInstance;
+        component.isInitialized = newIsInitialized;
         ReplaceComponent(index, component);
     }
 

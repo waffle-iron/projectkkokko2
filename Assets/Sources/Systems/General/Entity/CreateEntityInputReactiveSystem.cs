@@ -3,34 +3,31 @@ using System.Collections;
 using UnityEngine;
 using Entitas;
 
-public class CreateEntityInputReactiveSystem : ReactiveSystem<InputEntity>
+public class CreateEntityInputReactiveSystem : IExecuteSystem
 {
     private readonly CommandContext _cmd;
+    private readonly GameContext _game;
 
-    public CreateEntityInputReactiveSystem (Contexts contexts) : base(contexts.input)
+    private readonly IGroup<InputEntity> _inputs;
+    private List<InputEntity> _buffer;
+
+    public CreateEntityInputReactiveSystem (Contexts contexts)
     {
         _cmd = contexts.command;
+        _game = contexts.game;
+        _inputs = contexts.input.GetGroup(InputMatcher.CreateEntity);
+        _buffer = new List<InputEntity>();
     }
 
-    protected override ICollector<InputEntity> GetTrigger (IContext<InputEntity> context)
+    public void Execute ()
     {
-        //return collector
-        return context.CreateCollector(InputMatcher.CreateEntity);
-    }
-
-    protected override bool Filter (InputEntity entity)
-    {
-        // check for required components
-        return entity.hasCreateEntity;
-    }
-
-    protected override void Execute (List<InputEntity> entities)
-    {
-        foreach (var e in entities)
+        if (_game.isLoadSceneComplete && _game.isLoadedViewsComplete)
         {
-            // do stuff to the matched entities
-            var ety = _cmd.CreateEntity();
-            ety.AddCreateEntity(e.createEntity.id);
+            foreach (var e in _inputs.GetEntities(_buffer))
+            {
+                var ety = _cmd.CreateEntity();
+                ety.AddCreateEntity(e.createEntity.config);
+            }
         }
     }
 }

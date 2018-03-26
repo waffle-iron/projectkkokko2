@@ -65,6 +65,7 @@ public partial class Contexts {
     public const string Accessory = "Accessory";
     public const string ID = "ID";
     public const string Need = "Need";
+    public const string SceneInitConfig = "SceneInitConfig";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
@@ -106,6 +107,11 @@ public partial class Contexts {
             Need,
             command.GetGroup(CommandMatcher.Need),
             (e, c) => ((NeedComponent)c).type));
+
+        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, string>(
+            SceneInitConfig,
+            game.GetGroup(GameMatcher.SceneInitConfig),
+            (e, c) => ((SceneInitConfigComponent)c).sceneName));
     }
 }
 
@@ -145,6 +151,10 @@ public static class ContextsExtensions {
 
     public static CommandEntity GetEntityWithNeed(this CommandContext context, NeedType type) {
         return ((Entitas.PrimaryEntityIndex<CommandEntity, NeedType>)context.GetEntityIndex(Contexts.Need)).GetEntity(type);
+    }
+
+    public static GameEntity GetEntityWithSceneInitConfig(this GameContext context, string sceneName) {
+        return ((Entitas.PrimaryEntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.SceneInitConfig)).GetEntity(sceneName);
     }
 }
 //------------------------------------------------------------------------------

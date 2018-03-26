@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b733f2c8a735b4eb5c2eb48f789d68, type: 3}
+  m_Name: Action_Game_Entities
+  m_EditorClassIdentifier: 
+  entities:
+  - {fileID: 11400000, guid: 4e97640e09d4bdc4385c7992a986844a, type: 2}
+  - {fileID: 11400000, guid: 2a47b44394456d24f93b2bf373291c2c, type: 2}
+  - {fileID: 11400000, guid: 580668f171ef2ef42bde864290a51de4, type: 2}
+  - {fileID: 11400000, guid: 9709c49b0dae9b246a8332db80c4a704, type: 2}
+  - {fileID: 11400000, guid: 7c79c2d896f59bf4e9da16af19c6665d, type: 2}
+  - {fileID: 11400000, guid: 1cb8eac23e9eeab42b845710a2be6372, type: 2}
+  - {fileID: 11400000, guid: 93e5778e765eb504bbd2fbaaa5c90413, type: 2}

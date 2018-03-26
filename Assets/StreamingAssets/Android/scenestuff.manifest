@@ -1,0 +1,68 @@
+ManifestFileVersion: 0
+CRC: 2645015747
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a62a8412d7ba49225f3484b37a627ced
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 46e23bfcbf500339d3e6de9949c8c15b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: e2f26350ccaa7384a8af43e33b3ccbb9, type: 3}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f9af9a339aeda1b47b9b33d889a65a7e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f6a49009db4907a499112ec195fc5084, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d369ea7b8dc30df43afd1e7633234315, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 65a9fe5cde0208849b28e3e337efda1f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dfd409af629a4b948bc8fc7e0cb6f30a, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefabs/Character.prefab
+- Assets/Prefabs/UI/Dialog_YesAndNo.prefab
+- Assets/Prefabs/UI/Need.prefab
+- Assets/Prefabs/UI/Action.prefab
+- Assets/Prefabs/UI/ItemUIView.prefab
+Dependencies: []

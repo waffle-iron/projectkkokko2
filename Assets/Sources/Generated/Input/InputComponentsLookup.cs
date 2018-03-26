@@ -19,42 +19,56 @@ public static class InputComponentsLookup {
     public const int Deplete = 8;
     public const int Equipped = 9;
     public const int ID = 10;
-    public const int InputActionListener = 11;
-    public const int InputCurrentListener = 12;
-    public const int InputDebugListener = 13;
-    public const int InputLoadSceneListener = 14;
-    public const int InputLoadSceneRemovedListener = 15;
-    public const int InputLoadViewsListener = 16;
-    public const int InputLoadViewsRemovedListener = 17;
-    public const int InputNeedListener = 18;
-    public const int InputPauseListener = 19;
-    public const int InputPauseRemovedListener = 20;
-    public const int InputToDestroyListener = 21;
-    public const int InputToDestroyRemovedListener = 22;
-    public const int InputTriggerListener = 23;
-    public const int Interval = 24;
-    public const int Load = 25;
-    public const int LoadSceneComplete = 26;
-    public const int LoadScene = 27;
-    public const int LoadViews = 28;
-    public const int Max = 29;
-    public const int Need = 30;
-    public const int Pause = 31;
-    public const int PrePurchase = 32;
-    public const int Preview = 33;
-    public const int Price = 34;
-    public const int Purchased = 35;
-    public const int Reset = 36;
-    public const int Save = 37;
-    public const int TargetEntityID = 38;
-    public const int TargetNeed = 39;
-    public const int TimerReset = 40;
-    public const int TimerState = 41;
-    public const int ToDestroy = 42;
-    public const int Trigger = 43;
-    public const int Wallet = 44;
+    public const int InputAccessoryListener = 11;
+    public const int InputActionListener = 12;
+    public const int InputAffordListener = 13;
+    public const int InputCurrentListener = 14;
+    public const int InputDebugListener = 15;
+    public const int InputEquippedListener = 16;
+    public const int InputEquippedRemovedListener = 17;
+    public const int InputLoadedViewsCompleteListener = 18;
+    public const int InputLoadedViewsCompleteRemovedListener = 19;
+    public const int InputLoadSceneCompleteListener = 20;
+    public const int InputLoadSceneListener = 21;
+    public const int InputLoadSceneRemovedListener = 22;
+    public const int InputLoadViewsListener = 23;
+    public const int InputLoadViewsRemovedListener = 24;
+    public const int InputNeedListener = 25;
+    public const int InputPauseListener = 26;
+    public const int InputPauseRemovedListener = 27;
+    public const int InputPrePurchaseListener = 28;
+    public const int InputPreviewListener = 29;
+    public const int InputPreviewRemovedListener = 30;
+    public const int InputPriceListener = 31;
+    public const int InputPurchasedListener = 32;
+    public const int InputToDestroyListener = 33;
+    public const int InputToDestroyRemovedListener = 34;
+    public const int InputTriggerListener = 35;
+    public const int InputWalletListener = 36;
+    public const int Interval = 37;
+    public const int Load = 38;
+    public const int LoadedViewsComplete = 39;
+    public const int LoadSceneComplete = 40;
+    public const int LoadScene = 41;
+    public const int LoadViews = 42;
+    public const int Max = 43;
+    public const int Need = 44;
+    public const int Pause = 45;
+    public const int PrePurchase = 46;
+    public const int Preview = 47;
+    public const int Price = 48;
+    public const int Purchased = 49;
+    public const int Reset = 50;
+    public const int Save = 51;
+    public const int TargetEntityID = 52;
+    public const int TargetNeed = 53;
+    public const int TimerReset = 54;
+    public const int TimerState = 55;
+    public const int ToDestroy = 56;
+    public const int Trigger = 57;
+    public const int Wallet = 58;
 
-    public const int TotalComponents = 45;
+    public const int TotalComponents = 59;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -68,9 +82,16 @@ public static class InputComponentsLookup {
         "Deplete",
         "Equipped",
         "ID",
+        "InputAccessoryListener",
         "InputActionListener",
+        "InputAffordListener",
         "InputCurrentListener",
         "InputDebugListener",
+        "InputEquippedListener",
+        "InputEquippedRemovedListener",
+        "InputLoadedViewsCompleteListener",
+        "InputLoadedViewsCompleteRemovedListener",
+        "InputLoadSceneCompleteListener",
         "InputLoadSceneListener",
         "InputLoadSceneRemovedListener",
         "InputLoadViewsListener",
@@ -78,11 +99,18 @@ public static class InputComponentsLookup {
         "InputNeedListener",
         "InputPauseListener",
         "InputPauseRemovedListener",
+        "InputPrePurchaseListener",
+        "InputPreviewListener",
+        "InputPreviewRemovedListener",
+        "InputPriceListener",
+        "InputPurchasedListener",
         "InputToDestroyListener",
         "InputToDestroyRemovedListener",
         "InputTriggerListener",
+        "InputWalletListener",
         "Interval",
         "Load",
+        "LoadedViewsComplete",
         "LoadSceneComplete",
         "LoadScene",
         "LoadViews",
@@ -116,9 +144,16 @@ public static class InputComponentsLookup {
         typeof(DepleteComponent),
         typeof(EquippedComponent),
         typeof(IDComponent),
+        typeof(InputAccessoryListenerComponent),
         typeof(InputActionListenerComponent),
+        typeof(InputAffordListenerComponent),
         typeof(InputCurrentListenerComponent),
         typeof(InputDebugListenerComponent),
+        typeof(InputEquippedListenerComponent),
+        typeof(InputEquippedRemovedListenerComponent),
+        typeof(InputLoadedViewsCompleteListenerComponent),
+        typeof(InputLoadedViewsCompleteRemovedListenerComponent),
+        typeof(InputLoadSceneCompleteListenerComponent),
         typeof(InputLoadSceneListenerComponent),
         typeof(InputLoadSceneRemovedListenerComponent),
         typeof(InputLoadViewsListenerComponent),
@@ -126,11 +161,18 @@ public static class InputComponentsLookup {
         typeof(InputNeedListenerComponent),
         typeof(InputPauseListenerComponent),
         typeof(InputPauseRemovedListenerComponent),
+        typeof(InputPrePurchaseListenerComponent),
+        typeof(InputPreviewListenerComponent),
+        typeof(InputPreviewRemovedListenerComponent),
+        typeof(InputPriceListenerComponent),
+        typeof(InputPurchasedListenerComponent),
         typeof(InputToDestroyListenerComponent),
         typeof(InputToDestroyRemovedListenerComponent),
         typeof(InputTriggerListenerComponent),
+        typeof(InputWalletListenerComponent),
         typeof(IntervalComponent),
         typeof(LoadComponent),
+        typeof(LoadedViewsCompleteComponent),
         typeof(LoadSceneCompleteComponent),
         typeof(LoadSceneComponent),
         typeof(LoadViewsComponent),

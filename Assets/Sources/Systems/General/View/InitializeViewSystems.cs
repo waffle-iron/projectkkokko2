@@ -7,11 +7,9 @@ public class InitializeViewSystems : Feature
 {
     public InitializeViewSystems (Contexts contexts) : base("Init View Systems")
     {
-        //Add(new InitializeInputLoadViewsSystem(contexts));
-        //Add(new InitializeCommandLoadViewsSystem(contexts));
+        Add(new ReloadViewsOnSceneLoadCompleteReactiveSystem(contexts));
 
-        Add(new InputLoadViewsReactiveSystem(contexts));
-        Add(new CommandLoadViewsReactiveSystem(contexts));
-        Add(new CleanupLoadViewReactiveSystem(contexts));
+        //Add(new InputLoadViewsReactiveSystem(contexts));
+        //Add(new CommandLoadViewsReactiveSystem(contexts));
     }
 }
