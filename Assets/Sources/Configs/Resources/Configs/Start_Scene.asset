@@ -14,6 +14,7 @@ MonoBehaviour:
   scene: Start_Scene
   loadBundles:
   - {fileID: 11400000, guid: dcb6358c87050754aa0a90446f3b162e, type: 2}
+  - {fileID: 11400000, guid: 7769a88b19c6a8e4582b2beb595160ad, type: 2}
   unloadBundles: []
   entities:
   - {fileID: 11400000, guid: eedf0d8438f3d6e43ac7eb8297935c14, type: 2}
