@@ -27,7 +27,7 @@ public class CharacterAccessoryView : View, IGamePreviewListener, IGameAccessory
         base.OnEnable();
     }
 
-    protected override IObservable<bool> Initialize ()
+    protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         return Observable.Return(true);
     }

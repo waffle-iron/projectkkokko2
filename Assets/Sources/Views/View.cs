@@ -40,7 +40,7 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
 
         _isInitialized = false;
         //Debug.Log(this.name);
-        _initObservable = Initialize()
+        _initObservable = Initialize(entity, context)
             .Do(_ => Debug.Log(this.name))
             .Where(state => state == true)
             .First()
@@ -67,7 +67,7 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
 
     protected abstract void RegisterListeners (IEntity entity, IContext context);
     protected abstract void UnregisterListeners (IEntity entity, IContext context);
-    protected abstract IObservable<bool> Initialize ();
+    protected abstract IObservable<bool> Initialize (IEntity entity, IContext context);
 
     protected virtual void Awake () { }
     protected virtual void Start () { }

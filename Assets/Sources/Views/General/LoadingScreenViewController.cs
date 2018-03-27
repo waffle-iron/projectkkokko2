@@ -16,7 +16,7 @@ public class LoadingScreenViewController : View, IGameLoadSceneListener, IGameLo
     private bool isViewLoaded = false;
     private bool isEntitiesLoaded = false;
 
-    protected override IObservable<bool> Initialize ()
+    protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         isSceneLoaded = false;
         isViewLoaded = false;

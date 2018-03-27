@@ -34,7 +34,7 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
         _display.color = Color.white;
     }
 
-    protected override IObservable<bool> Initialize ()
+    protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         return Observable.Return(true);
     }

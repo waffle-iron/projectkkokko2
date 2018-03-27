@@ -21,60 +21,62 @@ public static class CommandComponentsLookup {
     public const int CommandDebugListener = 10;
     public const int CommandEquippedListener = 11;
     public const int CommandEquippedRemovedListener = 12;
-    public const int CommandLoadedViewsCompleteListener = 13;
-    public const int CommandLoadedViewsCompleteRemovedListener = 14;
-    public const int CommandLoadSceneCompleteListener = 15;
-    public const int CommandLoadSceneListener = 16;
-    public const int CommandLoadSceneRemovedListener = 17;
-    public const int CommandLoadViewsListener = 18;
-    public const int CommandLoadViewsRemovedListener = 19;
-    public const int CommandNeedListener = 20;
-    public const int CommandPauseListener = 21;
-    public const int CommandPauseRemovedListener = 22;
-    public const int CommandPrePurchaseListener = 23;
-    public const int CommandPreviewListener = 24;
-    public const int CommandPreviewRemovedListener = 25;
-    public const int CommandPriceListener = 26;
-    public const int CommandPurchasedListener = 27;
-    public const int CommandToDestroyListener = 28;
-    public const int CommandToDestroyRemovedListener = 29;
-    public const int CommandTriggerListener = 30;
-    public const int CommandWalletListener = 31;
-    public const int CreateEntity = 32;
-    public const int Current = 33;
-    public const int Debug = 34;
-    public const int Deplete = 35;
-    public const int Equipped = 36;
-    public const int Food = 37;
-    public const int ID = 38;
-    public const int Interval = 39;
-    public const int Load = 40;
-    public const int LoadedViewsComplete = 41;
-    public const int LoadSceneComplete = 42;
-    public const int LoadScene = 43;
-    public const int LoadViews = 44;
-    public const int Max = 45;
-    public const int Moveable = 46;
-    public const int Need = 47;
-    public const int OnCollision = 48;
-    public const int Pause = 49;
-    public const int Position = 50;
-    public const int PrePurchase = 51;
-    public const int Preview = 52;
-    public const int Price = 53;
-    public const int Purchased = 54;
-    public const int Reset = 55;
-    public const int Save = 56;
-    public const int TargetEntityID = 57;
-    public const int TargetMove = 58;
-    public const int TargetNeed = 59;
-    public const int TimerReset = 60;
-    public const int TimerState = 61;
-    public const int ToDestroy = 62;
-    public const int Trigger = 63;
-    public const int Wallet = 64;
+    public const int CommandFoodListener = 13;
+    public const int CommandLoadedViewsCompleteListener = 14;
+    public const int CommandLoadedViewsCompleteRemovedListener = 15;
+    public const int CommandLoadSceneCompleteListener = 16;
+    public const int CommandLoadSceneListener = 17;
+    public const int CommandLoadSceneRemovedListener = 18;
+    public const int CommandLoadViewsListener = 19;
+    public const int CommandLoadViewsRemovedListener = 20;
+    public const int CommandNeedListener = 21;
+    public const int CommandPauseListener = 22;
+    public const int CommandPauseRemovedListener = 23;
+    public const int CommandPrePurchaseListener = 24;
+    public const int CommandPreviewListener = 25;
+    public const int CommandPreviewRemovedListener = 26;
+    public const int CommandPriceListener = 27;
+    public const int CommandPurchasedListener = 28;
+    public const int CommandToDestroyListener = 29;
+    public const int CommandToDestroyRemovedListener = 30;
+    public const int CommandTriggerListener = 31;
+    public const int CommandWalletListener = 32;
+    public const int CreateEntity = 33;
+    public const int Current = 34;
+    public const int Debug = 35;
+    public const int Deplete = 36;
+    public const int Equipped = 37;
+    public const int Food = 38;
+    public const int ID = 39;
+    public const int InCart = 40;
+    public const int Interval = 41;
+    public const int Load = 42;
+    public const int LoadedViewsComplete = 43;
+    public const int LoadSceneComplete = 44;
+    public const int LoadScene = 45;
+    public const int LoadViews = 46;
+    public const int Max = 47;
+    public const int Moveable = 48;
+    public const int Need = 49;
+    public const int OnCollision = 50;
+    public const int Pause = 51;
+    public const int Position = 52;
+    public const int PrePurchase = 53;
+    public const int Preview = 54;
+    public const int Price = 55;
+    public const int Purchased = 56;
+    public const int Reset = 57;
+    public const int Save = 58;
+    public const int TargetEntityID = 59;
+    public const int TargetMove = 60;
+    public const int TargetNeed = 61;
+    public const int TimerReset = 62;
+    public const int TimerState = 63;
+    public const int ToDestroy = 64;
+    public const int Trigger = 65;
+    public const int Wallet = 66;
 
-    public const int TotalComponents = 65;
+    public const int TotalComponents = 67;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -90,6 +92,7 @@ public static class CommandComponentsLookup {
         "CommandDebugListener",
         "CommandEquippedListener",
         "CommandEquippedRemovedListener",
+        "CommandFoodListener",
         "CommandLoadedViewsCompleteListener",
         "CommandLoadedViewsCompleteRemovedListener",
         "CommandLoadSceneCompleteListener",
@@ -116,6 +119,7 @@ public static class CommandComponentsLookup {
         "Equipped",
         "Food",
         "ID",
+        "InCart",
         "Interval",
         "Load",
         "LoadedViewsComplete",
@@ -158,6 +162,7 @@ public static class CommandComponentsLookup {
         typeof(CommandDebugListenerComponent),
         typeof(CommandEquippedListenerComponent),
         typeof(CommandEquippedRemovedListenerComponent),
+        typeof(CommandFoodListenerComponent),
         typeof(CommandLoadedViewsCompleteListenerComponent),
         typeof(CommandLoadedViewsCompleteRemovedListenerComponent),
         typeof(CommandLoadSceneCompleteListenerComponent),
@@ -184,6 +189,7 @@ public static class CommandComponentsLookup {
         typeof(EquippedComponent),
         typeof(FoodComponent),
         typeof(IDComponent),
+        typeof(InCartComponent),
         typeof(IntervalComponent),
         typeof(LoadComponent),
         typeof(LoadedViewsCompleteComponent),

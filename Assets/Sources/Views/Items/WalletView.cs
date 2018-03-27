@@ -20,7 +20,7 @@ public class WalletView : View, IGameWalletListener
         base.OnEnable();
     }
 
-    protected override IObservable<bool> Initialize ()
+    protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         return Observable.Return(true);
     }

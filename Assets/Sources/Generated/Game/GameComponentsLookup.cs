@@ -30,69 +30,71 @@ public static class GameComponentsLookup {
     public const int GameDebugListener = 19;
     public const int GameEquippedListener = 20;
     public const int GameEquippedRemovedListener = 21;
-    public const int GameLoadedViewsCompleteListener = 22;
-    public const int GameLoadedViewsCompleteRemovedListener = 23;
-    public const int GameLoadSceneCompleteListener = 24;
-    public const int GameLoadSceneListener = 25;
-    public const int GameLoadSceneRemovedListener = 26;
-    public const int GameLoadViewsListener = 27;
-    public const int GameLoadViewsRemovedListener = 28;
-    public const int GameNeedListener = 29;
-    public const int GamePauseListener = 30;
-    public const int GamePauseRemovedListener = 31;
-    public const int GamePrePurchaseListener = 32;
-    public const int GamePreviewListener = 33;
-    public const int GamePreviewRemovedListener = 34;
-    public const int GamePriceListener = 35;
-    public const int GamePurchasedListener = 36;
-    public const int GameToDestroyListener = 37;
-    public const int GameToDestroyRemovedListener = 38;
-    public const int GameTriggerListener = 39;
-    public const int GameWalletListener = 40;
-    public const int ID = 41;
-    public const int Interval = 42;
-    public const int LoadedViewsComplete = 43;
-    public const int LoadEntitiesComplete = 44;
-    public const int LoadEntitiesCompleteListener = 45;
-    public const int LoadEntitiesCompleteRemovedListener = 46;
-    public const int Loading = 47;
-    public const int LoadingListener = 48;
-    public const int LoadingRemovedListener = 49;
-    public const int LoadSceneComplete = 50;
-    public const int LoadScene = 51;
-    public const int LoadViews = 52;
-    public const int Max = 53;
-    public const int MinRequirement = 54;
-    public const int Moveable = 55;
-    public const int Need = 56;
-    public const int NotificationMessage = 57;
-    public const int NotificationScheduled = 58;
-    public const int OnCollision = 59;
-    public const int Pause = 60;
-    public const int Position = 61;
-    public const int PrePurchase = 62;
-    public const int Preview = 63;
-    public const int Price = 64;
-    public const int Purchased = 65;
-    public const int SaveID = 66;
-    public const int Saving = 67;
-    public const int SavingListener = 68;
-    public const int SavingRemovedListener = 69;
-    public const int SceneInitConfig = 70;
-    public const int TargetEntityID = 71;
-    public const int TargetMove = 72;
-    public const int TargetNeed = 73;
-    public const int Timer = 74;
-    public const int TimerReset = 75;
-    public const int TimerState = 76;
-    public const int ToDestroy = 77;
-    public const int Trigger = 78;
-    public const int View = 79;
-    public const int ViewListener = 80;
-    public const int ViewRemovedListener = 81;
-    public const int Wallet = 82;
+    public const int GameFoodListener = 22;
+    public const int GameLoadedViewsCompleteListener = 23;
+    public const int GameLoadedViewsCompleteRemovedListener = 24;
+    public const int GameLoadSceneCompleteListener = 25;
+    public const int GameLoadSceneListener = 26;
+    public const int GameLoadSceneRemovedListener = 27;
+    public const int GameLoadViewsListener = 28;
+    public const int GameLoadViewsRemovedListener = 29;
+    public const int GameNeedListener = 30;
+    public const int GamePauseListener = 31;
+    public const int GamePauseRemovedListener = 32;
+    public const int GamePrePurchaseListener = 33;
+    public const int GamePreviewListener = 34;
+    public const int GamePreviewRemovedListener = 35;
+    public const int GamePriceListener = 36;
+    public const int GamePurchasedListener = 37;
+    public const int GameToDestroyListener = 38;
+    public const int GameToDestroyRemovedListener = 39;
+    public const int GameTriggerListener = 40;
+    public const int GameWalletListener = 41;
+    public const int ID = 42;
+    public const int InCart = 43;
+    public const int Interval = 44;
+    public const int LoadedViewsComplete = 45;
+    public const int LoadEntitiesComplete = 46;
+    public const int LoadEntitiesCompleteListener = 47;
+    public const int LoadEntitiesCompleteRemovedListener = 48;
+    public const int Loading = 49;
+    public const int LoadingListener = 50;
+    public const int LoadingRemovedListener = 51;
+    public const int LoadSceneComplete = 52;
+    public const int LoadScene = 53;
+    public const int LoadViews = 54;
+    public const int Max = 55;
+    public const int MinRequirement = 56;
+    public const int Moveable = 57;
+    public const int Need = 58;
+    public const int NotificationMessage = 59;
+    public const int NotificationScheduled = 60;
+    public const int OnCollision = 61;
+    public const int Pause = 62;
+    public const int Position = 63;
+    public const int PrePurchase = 64;
+    public const int Preview = 65;
+    public const int Price = 66;
+    public const int Purchased = 67;
+    public const int SaveID = 68;
+    public const int Saving = 69;
+    public const int SavingListener = 70;
+    public const int SavingRemovedListener = 71;
+    public const int SceneInitConfig = 72;
+    public const int TargetEntityID = 73;
+    public const int TargetMove = 74;
+    public const int TargetNeed = 75;
+    public const int Timer = 76;
+    public const int TimerReset = 77;
+    public const int TimerState = 78;
+    public const int ToDestroy = 79;
+    public const int Trigger = 80;
+    public const int View = 81;
+    public const int ViewListener = 82;
+    public const int ViewRemovedListener = 83;
+    public const int Wallet = 84;
 
-    public const int TotalComponents = 83;
+    public const int TotalComponents = 85;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -117,6 +119,7 @@ public static class GameComponentsLookup {
         "GameDebugListener",
         "GameEquippedListener",
         "GameEquippedRemovedListener",
+        "GameFoodListener",
         "GameLoadedViewsCompleteListener",
         "GameLoadedViewsCompleteRemovedListener",
         "GameLoadSceneCompleteListener",
@@ -137,6 +140,7 @@ public static class GameComponentsLookup {
         "GameTriggerListener",
         "GameWalletListener",
         "ID",
+        "InCart",
         "Interval",
         "LoadedViewsComplete",
         "LoadEntitiesComplete",
@@ -203,6 +207,7 @@ public static class GameComponentsLookup {
         typeof(GameDebugListenerComponent),
         typeof(GameEquippedListenerComponent),
         typeof(GameEquippedRemovedListenerComponent),
+        typeof(GameFoodListenerComponent),
         typeof(GameLoadedViewsCompleteListenerComponent),
         typeof(GameLoadedViewsCompleteRemovedListenerComponent),
         typeof(GameLoadSceneCompleteListenerComponent),
@@ -223,6 +228,7 @@ public static class GameComponentsLookup {
         typeof(GameTriggerListenerComponent),
         typeof(GameWalletListenerComponent),
         typeof(IDComponent),
+        typeof(InCartComponent),
         typeof(IntervalComponent),
         typeof(LoadedViewsCompleteComponent),
         typeof(LoadEntitiesCompleteComponent),

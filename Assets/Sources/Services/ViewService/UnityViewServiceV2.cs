@@ -268,7 +268,7 @@ public class UnityViewServiceV2 : IViewService
     private GameObject[] GetActiveSceneObjects ()
     {
         return SceneManager.GetActiveScene().GetRootGameObjects()
-                                        .SelectMany(obj => obj.GetComponentsInChildren<IView>())
+                                        .SelectMany(obj => obj.GetComponentsInChildren<IView>(true))
                                         .Select(obj => obj.Instance)
                                         .ToArray();
     }

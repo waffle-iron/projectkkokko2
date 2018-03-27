@@ -30,6 +30,9 @@ public sealed class EventSystems : Feature {
         Add(new GameEquippedRemovedEventSystem(contexts)); // priority: 0
         Add(new InputEquippedRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandEquippedRemovedEventSystem(contexts)); // priority: 0
+        Add(new GameFoodEventSystem(contexts)); // priority: 0
+        Add(new CommandFoodEventSystem(contexts)); // priority: 0
+        Add(new InputFoodEventSystem(contexts)); // priority: 0
         Add(new GameLoadedViewsCompleteEventSystem(contexts)); // priority: 0
         Add(new InputLoadedViewsCompleteEventSystem(contexts)); // priority: 0
         Add(new CommandLoadedViewsCompleteEventSystem(contexts)); // priority: 0

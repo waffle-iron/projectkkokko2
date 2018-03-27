@@ -12,7 +12,7 @@ public class SaveView : View, ISavingListener, ISavingRemovedListener
     [SerializeField]
     private Image image;
 
-    protected override IObservable<bool> Initialize ()
+    protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         return Observable.Return(true);
     }

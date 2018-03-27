@@ -15,7 +15,7 @@ public class DebugView : View, IGameDebugListener
         text.text = value;
     }
 
-    protected override IObservable<bool> Initialize ()
+    protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         return Observable.Return(true);
     }
