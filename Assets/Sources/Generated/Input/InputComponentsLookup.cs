@@ -13,62 +13,66 @@ public static class InputComponentsLookup {
     public const int Afford = 2;
     public const int Animating = 3;
     public const int Cancel = 4;
-    public const int CreateEntity = 5;
-    public const int Current = 6;
-    public const int Debug = 7;
-    public const int Deplete = 8;
-    public const int Equipped = 9;
-    public const int ID = 10;
-    public const int InputAccessoryListener = 11;
-    public const int InputActionListener = 12;
-    public const int InputAffordListener = 13;
-    public const int InputCurrentListener = 14;
-    public const int InputDebugListener = 15;
-    public const int InputEquippedListener = 16;
-    public const int InputEquippedRemovedListener = 17;
-    public const int InputLoadedViewsCompleteListener = 18;
-    public const int InputLoadedViewsCompleteRemovedListener = 19;
-    public const int InputLoadSceneCompleteListener = 20;
-    public const int InputLoadSceneListener = 21;
-    public const int InputLoadSceneRemovedListener = 22;
-    public const int InputLoadViewsListener = 23;
-    public const int InputLoadViewsRemovedListener = 24;
-    public const int InputNeedListener = 25;
-    public const int InputPauseListener = 26;
-    public const int InputPauseRemovedListener = 27;
-    public const int InputPrePurchaseListener = 28;
-    public const int InputPreviewListener = 29;
-    public const int InputPreviewRemovedListener = 30;
-    public const int InputPriceListener = 31;
-    public const int InputPurchasedListener = 32;
-    public const int InputToDestroyListener = 33;
-    public const int InputToDestroyRemovedListener = 34;
-    public const int InputTriggerListener = 35;
-    public const int InputWalletListener = 36;
-    public const int Interval = 37;
-    public const int Load = 38;
-    public const int LoadedViewsComplete = 39;
-    public const int LoadSceneComplete = 40;
-    public const int LoadScene = 41;
-    public const int LoadViews = 42;
-    public const int Max = 43;
-    public const int Need = 44;
-    public const int Pause = 45;
-    public const int PrePurchase = 46;
-    public const int Preview = 47;
-    public const int Price = 48;
-    public const int Purchased = 49;
-    public const int Reset = 50;
-    public const int Save = 51;
-    public const int TargetEntityID = 52;
-    public const int TargetNeed = 53;
-    public const int TimerReset = 54;
-    public const int TimerState = 55;
-    public const int ToDestroy = 56;
-    public const int Trigger = 57;
-    public const int Wallet = 58;
+    public const int Collidable = 5;
+    public const int CreateEntity = 6;
+    public const int Current = 7;
+    public const int Debug = 8;
+    public const int Deplete = 9;
+    public const int Equipped = 10;
+    public const int Food = 11;
+    public const int ID = 12;
+    public const int InputAccessoryListener = 13;
+    public const int InputActionListener = 14;
+    public const int InputAffordListener = 15;
+    public const int InputCurrentListener = 16;
+    public const int InputDebugListener = 17;
+    public const int InputEquippedListener = 18;
+    public const int InputEquippedRemovedListener = 19;
+    public const int InputLoadedViewsCompleteListener = 20;
+    public const int InputLoadedViewsCompleteRemovedListener = 21;
+    public const int InputLoadSceneCompleteListener = 22;
+    public const int InputLoadSceneListener = 23;
+    public const int InputLoadSceneRemovedListener = 24;
+    public const int InputLoadViewsListener = 25;
+    public const int InputLoadViewsRemovedListener = 26;
+    public const int InputNeedListener = 27;
+    public const int InputPauseListener = 28;
+    public const int InputPauseRemovedListener = 29;
+    public const int InputPrePurchaseListener = 30;
+    public const int InputPreviewListener = 31;
+    public const int InputPreviewRemovedListener = 32;
+    public const int InputPriceListener = 33;
+    public const int InputPurchasedListener = 34;
+    public const int InputToDestroyListener = 35;
+    public const int InputToDestroyRemovedListener = 36;
+    public const int InputTriggerListener = 37;
+    public const int InputWalletListener = 38;
+    public const int Interval = 39;
+    public const int Load = 40;
+    public const int LoadedViewsComplete = 41;
+    public const int LoadSceneComplete = 42;
+    public const int LoadScene = 43;
+    public const int LoadViews = 44;
+    public const int Max = 45;
+    public const int Moveable = 46;
+    public const int Need = 47;
+    public const int Pause = 48;
+    public const int Position = 49;
+    public const int PrePurchase = 50;
+    public const int Preview = 51;
+    public const int Price = 52;
+    public const int Purchased = 53;
+    public const int Reset = 54;
+    public const int Save = 55;
+    public const int TargetEntityID = 56;
+    public const int TargetNeed = 57;
+    public const int TimerReset = 58;
+    public const int TimerState = 59;
+    public const int ToDestroy = 60;
+    public const int Trigger = 61;
+    public const int Wallet = 62;
 
-    public const int TotalComponents = 59;
+    public const int TotalComponents = 63;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -76,11 +80,13 @@ public static class InputComponentsLookup {
         "Afford",
         "Animating",
         "Cancel",
+        "Collidable",
         "CreateEntity",
         "Current",
         "Debug",
         "Deplete",
         "Equipped",
+        "Food",
         "ID",
         "InputAccessoryListener",
         "InputActionListener",
@@ -115,8 +121,10 @@ public static class InputComponentsLookup {
         "LoadScene",
         "LoadViews",
         "Max",
+        "Moveable",
         "Need",
         "Pause",
+        "Position",
         "PrePurchase",
         "Preview",
         "Price",
@@ -138,11 +146,13 @@ public static class InputComponentsLookup {
         typeof(AffordComponent),
         typeof(AnimatingComponent),
         typeof(CancelComponent),
+        typeof(CollidableComponent),
         typeof(CreateEntityComponent),
         typeof(CurrentComponent),
         typeof(DebugComponent),
         typeof(DepleteComponent),
         typeof(EquippedComponent),
+        typeof(FoodComponent),
         typeof(IDComponent),
         typeof(InputAccessoryListenerComponent),
         typeof(InputActionListenerComponent),
@@ -177,8 +187,10 @@ public static class InputComponentsLookup {
         typeof(LoadSceneComponent),
         typeof(LoadViewsComponent),
         typeof(MaxComponent),
+        typeof(MoveableComponent),
         typeof(NeedComponent),
         typeof(PauseComponent),
+        typeof(PositionComponent),
         typeof(PrePurchaseComponent),
         typeof(PreviewComponent),
         typeof(PriceComponent),
