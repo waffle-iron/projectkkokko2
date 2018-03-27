@@ -5,8 +5,7 @@ using Entitas;
 
 //[Entitas.CodeGenerator.SingleEntity]
 [Game, Input, Command]
-public sealed class OnCollisionComponent : IComponent
+public sealed class TargetMoveComponent : IComponent
 {
-    public uint otherEntityID;
-    public CollisionType type;
+    public Vector3 position;
 }

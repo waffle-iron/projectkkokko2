@@ -56,23 +56,25 @@ public static class CommandComponentsLookup {
     public const int Max = 45;
     public const int Moveable = 46;
     public const int Need = 47;
-    public const int Pause = 48;
-    public const int Position = 49;
-    public const int PrePurchase = 50;
-    public const int Preview = 51;
-    public const int Price = 52;
-    public const int Purchased = 53;
-    public const int Reset = 54;
-    public const int Save = 55;
-    public const int TargetEntityID = 56;
-    public const int TargetNeed = 57;
-    public const int TimerReset = 58;
-    public const int TimerState = 59;
-    public const int ToDestroy = 60;
-    public const int Trigger = 61;
-    public const int Wallet = 62;
+    public const int OnCollision = 48;
+    public const int Pause = 49;
+    public const int Position = 50;
+    public const int PrePurchase = 51;
+    public const int Preview = 52;
+    public const int Price = 53;
+    public const int Purchased = 54;
+    public const int Reset = 55;
+    public const int Save = 56;
+    public const int TargetEntityID = 57;
+    public const int TargetMove = 58;
+    public const int TargetNeed = 59;
+    public const int TimerReset = 60;
+    public const int TimerState = 61;
+    public const int ToDestroy = 62;
+    public const int Trigger = 63;
+    public const int Wallet = 64;
 
-    public const int TotalComponents = 63;
+    public const int TotalComponents = 65;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -123,6 +125,7 @@ public static class CommandComponentsLookup {
         "Max",
         "Moveable",
         "Need",
+        "OnCollision",
         "Pause",
         "Position",
         "PrePurchase",
@@ -132,6 +135,7 @@ public static class CommandComponentsLookup {
         "Reset",
         "Save",
         "TargetEntityID",
+        "TargetMove",
         "TargetNeed",
         "TimerReset",
         "TimerState",
@@ -189,6 +193,7 @@ public static class CommandComponentsLookup {
         typeof(MaxComponent),
         typeof(MoveableComponent),
         typeof(NeedComponent),
+        typeof(OnCollisionComponent),
         typeof(PauseComponent),
         typeof(PositionComponent),
         typeof(PrePurchaseComponent),
@@ -198,6 +203,7 @@ public static class CommandComponentsLookup {
         typeof(ResetComponent),
         typeof(SaveComponent),
         typeof(TargetEntityIDComponent),
+        typeof(TargetMoveComponent),
         typeof(TargetNeedComponent),
         typeof(TimerResetComponent),
         typeof(TimerStateComponent),

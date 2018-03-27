@@ -80,18 +80,19 @@ public static class GameComponentsLookup {
     public const int SavingRemovedListener = 69;
     public const int SceneInitConfig = 70;
     public const int TargetEntityID = 71;
-    public const int TargetNeed = 72;
-    public const int Timer = 73;
-    public const int TimerReset = 74;
-    public const int TimerState = 75;
-    public const int ToDestroy = 76;
-    public const int Trigger = 77;
-    public const int View = 78;
-    public const int ViewListener = 79;
-    public const int ViewRemovedListener = 80;
-    public const int Wallet = 81;
+    public const int TargetMove = 72;
+    public const int TargetNeed = 73;
+    public const int Timer = 74;
+    public const int TimerReset = 75;
+    public const int TimerState = 76;
+    public const int ToDestroy = 77;
+    public const int Trigger = 78;
+    public const int View = 79;
+    public const int ViewListener = 80;
+    public const int ViewRemovedListener = 81;
+    public const int Wallet = 82;
 
-    public const int TotalComponents = 82;
+    public const int TotalComponents = 83;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -166,6 +167,7 @@ public static class GameComponentsLookup {
         "SavingRemovedListener",
         "SceneInitConfig",
         "TargetEntityID",
+        "TargetMove",
         "TargetNeed",
         "Timer",
         "TimerReset",
@@ -251,6 +253,7 @@ public static class GameComponentsLookup {
         typeof(SavingRemovedListenerComponent),
         typeof(SceneInitConfigComponent),
         typeof(TargetEntityIDComponent),
+        typeof(TargetMoveComponent),
         typeof(TargetNeedComponent),
         typeof(TimerComponent),
         typeof(TimerResetComponent),
