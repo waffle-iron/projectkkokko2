@@ -20,6 +20,8 @@ public class UnityViewServiceV2 : IViewService
 
     private bool _isSimulationMode = false;
 
+    private MetaContext _meta;
+
     public UnityViewServiceV2 (Contexts contexts, bool isSimulationMode)
     {
         _pools = new Dictionary<string, ObjectPool>();
@@ -27,6 +29,30 @@ public class UnityViewServiceV2 : IViewService
         _loadedBundlesSimulation = new List<string>();
         _contexts = contexts;
         _isSimulationMode = isSimulationMode;
+        _meta = Contexts.sharedInstance.meta;
+    }
+
+    public IObservable<bool> CombineLoadAssets (IObservable<bool>[] observables)
+    {
+        return observables.CombineLatestValuesAreAllTrue();
+    }
+
+    public IObservable<bool> GetAsset<T> (string name, Action<T> action) where T : UnityEngine.Object
+    {
+        if (action == null) { Debug.LogError("ACTION IS NULL"); }
+        return this.GetAsset<T>(name).Select(value =>
+        {
+            if (value != null)
+            {
+                action(value);
+                return true;
+            }
+            else
+            {
+                Contexts.sharedInstance.meta.debugService.instance.LogError($"cannot find and load asset {name}");
+                return true;
+            }
+        });
     }
 
     public IObservable<T> GetAsset<T> (string name) where T : UnityEngine.Object
