@@ -16,11 +16,11 @@ MonoBehaviour:
   _isDestroyOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 
+    hiddenValue: 52005b005b0055006b005b00460050005a0053005100
     inited: 1
-    fakeValue: 
-    fakeValueActive: 0
-  _loadOnStart: 0
+    fakeValue: food_orange
+    fakeValueActive: 1
+  _loadOnStart: 1
   name: orange
   price: 2
   recovery: 0.2

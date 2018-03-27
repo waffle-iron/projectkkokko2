@@ -5,10 +5,6 @@ using CodeStage.AntiCheat.ObscuredTypes;
 
 public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
 {
-    [Header("ENTITY AND VIEW IDS")]
-    [SerializeField]
-    private EntityCfgID _name;
-
     [Header("View Settings")]
     [SerializeField]
     private string _viewName;
@@ -23,14 +19,14 @@ public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
 
     private string _srcPath = "";
 
-    public EntityCfgID Name
+    public string Name
     {
         get {
-            return _name;
+            return this.name;
         }
     }
 
-    public string srcPath
+    public string SrcPath
     {
         get {
             return _srcPath;

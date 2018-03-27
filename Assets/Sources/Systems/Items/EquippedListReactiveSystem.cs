@@ -23,7 +23,7 @@ public class EquippedListReactiveSystem : ReactiveSystem<GameEntity>
     protected override bool Filter (GameEntity entity)
     {
         // check for required components
-        return entity.hasAccessory;
+        return entity.hasAccessory && entity.hasSaveID;
     }
 
     protected override void Execute (List<GameEntity> entities)
@@ -33,17 +33,17 @@ public class EquippedListReactiveSystem : ReactiveSystem<GameEntity>
         {
             if (e.isEquipped)
             {
-                if (accessories.Contains(e.accessory.id) == false)
+                if (accessories.Contains(e.saveID.value) == false)
                 {
-                    accessories.Add(e.accessory.id);
+                    accessories.Add(e.saveID.value);
                     Save(_game.equippedItemsEntity);
                 }
             }
             else
             {
-                if (accessories.Contains(e.accessory.id))
+                if (accessories.Contains(e.saveID.value))
                 {
-                    accessories.Remove(e.accessory.id);
+                    accessories.Remove(e.saveID.value);
                     Save(_game.equippedItemsEntity);
                 }
             }

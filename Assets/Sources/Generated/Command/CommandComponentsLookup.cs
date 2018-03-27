@@ -45,38 +45,39 @@ public static class CommandComponentsLookup {
     public const int Current = 34;
     public const int Debug = 35;
     public const int Deplete = 36;
-    public const int Equipped = 37;
-    public const int Food = 38;
-    public const int ID = 39;
-    public const int InCart = 40;
-    public const int Interval = 41;
-    public const int Load = 42;
-    public const int LoadedViewsComplete = 43;
-    public const int LoadSceneComplete = 44;
-    public const int LoadScene = 45;
-    public const int LoadViews = 46;
-    public const int Max = 47;
-    public const int Moveable = 48;
-    public const int Need = 49;
-    public const int OnCollision = 50;
-    public const int Pause = 51;
-    public const int Position = 52;
-    public const int PrePurchase = 53;
-    public const int Preview = 54;
-    public const int Price = 55;
-    public const int Purchased = 56;
-    public const int Reset = 57;
-    public const int Save = 58;
-    public const int TargetEntityID = 59;
-    public const int TargetMove = 60;
-    public const int TargetNeed = 61;
-    public const int TimerReset = 62;
-    public const int TimerState = 63;
-    public const int ToDestroy = 64;
-    public const int Trigger = 65;
-    public const int Wallet = 66;
+    public const int EntityConfigID = 37;
+    public const int Equipped = 38;
+    public const int Food = 39;
+    public const int ID = 40;
+    public const int InCart = 41;
+    public const int Interval = 42;
+    public const int Load = 43;
+    public const int LoadedViewsComplete = 44;
+    public const int LoadSceneComplete = 45;
+    public const int LoadScene = 46;
+    public const int LoadViews = 47;
+    public const int Max = 48;
+    public const int Moveable = 49;
+    public const int Need = 50;
+    public const int OnCollision = 51;
+    public const int Pause = 52;
+    public const int Position = 53;
+    public const int PrePurchase = 54;
+    public const int Preview = 55;
+    public const int Price = 56;
+    public const int Purchased = 57;
+    public const int Reset = 58;
+    public const int Save = 59;
+    public const int TargetEntityID = 60;
+    public const int TargetMove = 61;
+    public const int TargetNeed = 62;
+    public const int TimerReset = 63;
+    public const int TimerState = 64;
+    public const int ToDestroy = 65;
+    public const int Trigger = 66;
+    public const int Wallet = 67;
 
-    public const int TotalComponents = 67;
+    public const int TotalComponents = 68;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -116,6 +117,7 @@ public static class CommandComponentsLookup {
         "Current",
         "Debug",
         "Deplete",
+        "EntityConfigID",
         "Equipped",
         "Food",
         "ID",
@@ -186,6 +188,7 @@ public static class CommandComponentsLookup {
         typeof(CurrentComponent),
         typeof(DebugComponent),
         typeof(DepleteComponent),
+        typeof(EntityConfigIDComponent),
         typeof(EquippedComponent),
         typeof(FoodComponent),
         typeof(IDComponent),

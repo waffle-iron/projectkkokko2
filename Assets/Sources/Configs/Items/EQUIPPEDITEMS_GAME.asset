@@ -21,3 +21,5 @@ MonoBehaviour:
     fakeValue: equipped_items
     fakeValueActive: 1
   _loadOnStart: 1
+  _filterInScenes:
+  - Apartment_Scene

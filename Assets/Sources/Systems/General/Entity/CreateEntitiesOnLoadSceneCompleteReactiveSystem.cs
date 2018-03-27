@@ -29,7 +29,9 @@ public class CreateEntitiesOnLoadSceneCompleteReactiveSystem : IExecuteSystem
 
             foreach (var entityCfg in config.sceneInitConfig.initEntities.SelectMany(init => init.Entities).ToArray())
             {
+                _meta.entityService.instance.Add(entityCfg);
                 entityCfg.Create(_contexts);
+
             }
             _meta.debugService.instance.Log("load entities complete");
             _game.isLoadEntitiesComplete = true;

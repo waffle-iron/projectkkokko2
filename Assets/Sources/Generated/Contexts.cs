@@ -63,6 +63,7 @@ public partial class Contexts : Entitas.IContexts {
 public partial class Contexts {
 
     public const string Accessory = "Accessory";
+    public const string EntityConfigID = "EntityConfigID";
     public const string Food = "Food";
     public const string ID = "ID";
     public const string Need = "Need";
@@ -82,6 +83,19 @@ public partial class Contexts {
             Accessory,
             command.GetGroup(CommandMatcher.Accessory),
             (e, c) => ((AccessoryComponent)c).id));
+
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, EntityCfgID>(
+            EntityConfigID,
+            game.GetGroup(GameMatcher.EntityConfigID),
+            (e, c) => ((EntityConfigIDComponent)c).value));
+        command.AddEntityIndex(new Entitas.EntityIndex<CommandEntity, EntityCfgID>(
+            EntityConfigID,
+            command.GetGroup(CommandMatcher.EntityConfigID),
+            (e, c) => ((EntityConfigIDComponent)c).value));
+        input.AddEntityIndex(new Entitas.EntityIndex<InputEntity, EntityCfgID>(
+            EntityConfigID,
+            input.GetGroup(InputMatcher.EntityConfigID),
+            (e, c) => ((EntityConfigIDComponent)c).value));
 
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, string>(
             Food,
@@ -141,6 +155,18 @@ public static class ContextsExtensions {
 
     public static CommandEntity GetEntityWithAccessory(this CommandContext context, string id) {
         return ((Entitas.PrimaryEntityIndex<CommandEntity, string>)context.GetEntityIndex(Contexts.Accessory)).GetEntity(id);
+    }
+
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithEntityConfigID(this GameContext context, EntityCfgID value) {
+        return ((Entitas.EntityIndex<GameEntity, EntityCfgID>)context.GetEntityIndex(Contexts.EntityConfigID)).GetEntities(value);
+    }
+
+    public static System.Collections.Generic.HashSet<CommandEntity> GetEntitiesWithEntityConfigID(this CommandContext context, EntityCfgID value) {
+        return ((Entitas.EntityIndex<CommandEntity, EntityCfgID>)context.GetEntityIndex(Contexts.EntityConfigID)).GetEntities(value);
+    }
+
+    public static System.Collections.Generic.HashSet<InputEntity> GetEntitiesWithEntityConfigID(this InputContext context, EntityCfgID value) {
+        return ((Entitas.EntityIndex<InputEntity, EntityCfgID>)context.GetEntityIndex(Contexts.EntityConfigID)).GetEntities(value);
     }
 
     public static GameEntity GetEntityWithFood(this GameContext context, string id) {

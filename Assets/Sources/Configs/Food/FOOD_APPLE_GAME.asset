@@ -16,11 +16,11 @@ MonoBehaviour:
   _isDestroyOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 
+    hiddenValue: 52005b005b0055006b0055004400410058005100
     inited: 1
-    fakeValue: 
-    fakeValueActive: 0
-  _loadOnStart: 0
+    fakeValue: food_apple
+    fakeValueActive: 1
+  _loadOnStart: 1
   name: apple
   price: 1
   recovery: 0.1
