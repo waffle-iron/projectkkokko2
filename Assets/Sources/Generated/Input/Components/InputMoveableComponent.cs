@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    public MoveableComponent moveable { get { return (MoveableComponent)GetComponent(InputComponentsLookup.Moveable); } }
-    public bool hasMoveable { get { return HasComponent(InputComponentsLookup.Moveable); } }
+    static readonly MoveableComponent moveableComponent = new MoveableComponent();
 
-    public void AddMoveable(float newSpeed) {
-        var index = InputComponentsLookup.Moveable;
-        var component = CreateComponent<MoveableComponent>(index);
-        component.speed = newSpeed;
-        AddComponent(index, component);
-    }
+    public bool isMoveable {
+        get { return HasComponent(InputComponentsLookup.Moveable); }
+        set {
+            if (value != isMoveable) {
+                var index = InputComponentsLookup.Moveable;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : moveableComponent;
 
-    public void ReplaceMoveable(float newSpeed) {
-        var index = InputComponentsLookup.Moveable;
-        var component = CreateComponent<MoveableComponent>(index);
-        component.speed = newSpeed;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveMoveable() {
-        RemoveComponent(InputComponentsLookup.Moveable);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

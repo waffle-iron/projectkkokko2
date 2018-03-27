@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class CommandEntity {
 
-    public MoveableComponent moveable { get { return (MoveableComponent)GetComponent(CommandComponentsLookup.Moveable); } }
-    public bool hasMoveable { get { return HasComponent(CommandComponentsLookup.Moveable); } }
+    static readonly MoveableComponent moveableComponent = new MoveableComponent();
 
-    public void AddMoveable(float newSpeed) {
-        var index = CommandComponentsLookup.Moveable;
-        var component = CreateComponent<MoveableComponent>(index);
-        component.speed = newSpeed;
-        AddComponent(index, component);
-    }
+    public bool isMoveable {
+        get { return HasComponent(CommandComponentsLookup.Moveable); }
+        set {
+            if (value != isMoveable) {
+                var index = CommandComponentsLookup.Moveable;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : moveableComponent;
 
-    public void ReplaceMoveable(float newSpeed) {
-        var index = CommandComponentsLookup.Moveable;
-        var component = CreateComponent<MoveableComponent>(index);
-        component.speed = newSpeed;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveMoveable() {
-        RemoveComponent(CommandComponentsLookup.Moveable);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

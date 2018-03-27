@@ -30,7 +30,8 @@ public class CommandConsumeReactiveSystem : ReactiveSystem<CommandEntity>
         {
             // do stuff to the matched entities
             var target = _game.GetEntityWithID(e.targetEntityID.value);
-
+            target.isMoveable = true;
+            target.isCollidable = true;
             target.isConsuming = true;
         }
     }

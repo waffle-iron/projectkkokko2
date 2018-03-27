@@ -30,6 +30,7 @@ public partial class UnityEntityService : IEntityService
             if (_configs.TryGetValue(config.Name, out value))
             {
                 //do not add
+                Debug.LogWarning($"duplicate Name: {config.Name}");
                 return false;
             }
             else

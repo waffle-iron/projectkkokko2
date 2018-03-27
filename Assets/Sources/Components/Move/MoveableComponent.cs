@@ -7,5 +7,4 @@ using Entitas;
 [Game, Command, Input]
 public sealed class MoveableComponent : IComponent
 {
-    public float speed;
 }
