@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IGameAccessoryListener {
-    void OnAccessory(GameEntity entity, AccessoryID id, AccessoryType type);
+    void OnAccessory(GameEntity entity, string id, AccessoryType type);
 }

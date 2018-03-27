@@ -63,19 +63,22 @@ public class CharacterAccessoryView : View, IGamePreviewListener, IGameAccessory
         }
     }
 
-    public void OnAccessory (GameEntity entity, AccessoryID id, AccessoryType type)
-    {
-        _type = type;
-        _sprite = Resources.Load<Sprite>(Enum.GetName(typeof(AccessoryID), id));
-        _isInitialized = true;
-    }
-
     public void OnEquipped (GameEntity entity)
     {
         if (_isInitialized)
         {
             _charRef.Apply(_sprite, _type);
         }
+    }
+
+    public void OnAccessory (GameEntity entity, string id, AccessoryType type)
+    {
+        contexts.meta.viewService.instance.GetAsset<Sprite>(id).Subscribe(sprite =>
+        {
+            _type = type;
+            _sprite = sprite;
+            _isInitialized = true;
+        });
     }
 }
 

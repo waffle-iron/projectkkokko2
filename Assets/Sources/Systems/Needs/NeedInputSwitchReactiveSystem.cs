@@ -36,7 +36,7 @@ public class NeedInputSwitchReactiveSystem : ReactiveSystem<InputEntity>
                 var target = _game.GetEntityWithNeed(NeedType.MOOD);
                 if (IsValid(target))
                 {
-                    _meta.entityService.instance.Get(EntityCfgID.SHOP_SWITCH_INPUT);
+                    _meta.entityService.instance.Get(EntityCfgID.ACTION_SHOPSCENE_INPUT);
                 }
             }
             else if (e.action.type == ActionType.JOB)
@@ -44,7 +44,7 @@ public class NeedInputSwitchReactiveSystem : ReactiveSystem<InputEntity>
                 var target = _game.GetEntityWithNeed(NeedType.HEALTH);
                 if (IsValid(target))
                 {
-                    _meta.entityService.instance.Get(EntityCfgID.JOB_SWITCH_INPUT);
+                    _meta.entityService.instance.Get(EntityCfgID.ACTION_JOBSCENE_INPUT);
                 }
             }
         }

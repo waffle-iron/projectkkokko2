@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ICommandAccessoryListener {
-    void OnAccessory(CommandEntity entity, AccessoryID id, AccessoryType type);
+    void OnAccessory(CommandEntity entity, string id, AccessoryType type);
 }

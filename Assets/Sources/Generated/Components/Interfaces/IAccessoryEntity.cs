@@ -11,7 +11,7 @@ public partial interface IAccessoryEntity {
     AccessoryComponent accessory { get; }
     bool hasAccessory { get; }
 
-    void AddAccessory(AccessoryID newId, AccessoryType newType);
-    void ReplaceAccessory(AccessoryID newId, AccessoryType newType);
+    void AddAccessory(string newId, AccessoryType newType);
+    void ReplaceAccessory(string newId, AccessoryType newType);
     void RemoveAccessory();
 }

@@ -12,7 +12,7 @@ public partial class GameContext {
     public EquippedItemsComponent equippedItems { get { return equippedItemsEntity.equippedItems; } }
     public bool hasEquippedItems { get { return equippedItemsEntity != null; } }
 
-    public GameEntity SetEquippedItems(System.Collections.Generic.List<AccessoryID> new_accessoryList) {
+    public GameEntity SetEquippedItems(System.Collections.Generic.List<string> new_accessoryList) {
         if (hasEquippedItems) {
             throw new Entitas.EntitasException("Could not set EquippedItems!\n" + this + " already has an entity with EquippedItemsComponent!",
                 "You should check if the context already has a equippedItemsEntity before setting it or use context.ReplaceEquippedItems().");
@@ -22,7 +22,7 @@ public partial class GameContext {
         return entity;
     }
 
-    public void ReplaceEquippedItems(System.Collections.Generic.List<AccessoryID> new_accessoryList) {
+    public void ReplaceEquippedItems(System.Collections.Generic.List<string> new_accessoryList) {
         var entity = equippedItemsEntity;
         if (entity == null) {
             entity = SetEquippedItems(new_accessoryList);
@@ -49,14 +49,14 @@ public partial class GameEntity {
     public EquippedItemsComponent equippedItems { get { return (EquippedItemsComponent)GetComponent(GameComponentsLookup.EquippedItems); } }
     public bool hasEquippedItems { get { return HasComponent(GameComponentsLookup.EquippedItems); } }
 
-    public void AddEquippedItems(System.Collections.Generic.List<AccessoryID> new_accessoryList) {
+    public void AddEquippedItems(System.Collections.Generic.List<string> new_accessoryList) {
         var index = GameComponentsLookup.EquippedItems;
         var component = CreateComponent<EquippedItemsComponent>(index);
         component._accessoryList = new_accessoryList;
         AddComponent(index, component);
     }
 
-    public void ReplaceEquippedItems(System.Collections.Generic.List<AccessoryID> new_accessoryList) {
+    public void ReplaceEquippedItems(System.Collections.Generic.List<string> new_accessoryList) {
         var index = GameComponentsLookup.EquippedItems;
         var component = CreateComponent<EquippedItemsComponent>(index);
         component._accessoryList = new_accessoryList;

@@ -9,6 +9,6 @@ using Entitas.CodeGeneration.Attributes;
 public sealed class AccessoryComponent : IComponent
 {
     [PrimaryEntityIndex]
-    public AccessoryID id;
+    public string id;
     public AccessoryType type;
 }

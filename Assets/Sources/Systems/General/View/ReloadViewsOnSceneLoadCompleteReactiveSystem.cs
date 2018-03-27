@@ -51,6 +51,7 @@ public class ReloadViewsOnSceneLoadCompleteReactiveSystem : ReactiveSystem<GameE
             _meta.viewService.instance.Populate(
                 true,
                 config.sceneInitConfig.loadBundles.SelectMany(bundle => bundle.Names).ToArray())
+                .Do(result => Debug.Log($"view service status: {result}"))
                 .Where(result => result == true)
                 .Subscribe(_ => { debug.Log("load views complete"); _game.isLoadedViewsComplete = true; });
         }

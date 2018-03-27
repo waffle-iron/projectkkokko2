@@ -8,7 +8,7 @@ public class EquippedItemsConfig : UnityEntityConfig
 {
     protected override IEntity CustomCreate (Contexts contexts)
     {
-        contexts.game.SetEquippedItems(new List<AccessoryID>());
+        contexts.game.SetEquippedItems(new List<string>());
 
         contexts.game.equippedItemsEntity.isDoNotDestroyOnSceneChange = true;
 

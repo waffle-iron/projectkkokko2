@@ -87,9 +87,9 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
         _purchased.enabled = true;
     }
 
-    public void OnAccessory (GameEntity entity, AccessoryID id, AccessoryType type)
+    public void OnAccessory (GameEntity entity, string id, AccessoryType type)
     {
-        _display.sprite = Resources.Load<Sprite>(Enum.GetName(typeof(AccessoryID), id));
+        this.contexts.meta.viewService.instance.GetAsset<Sprite>(id).Subscribe(sprite => _display.sprite = sprite);
     }
 
     public void OnClick ()
@@ -108,5 +108,7 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
             inputEntity.isPurchased = true;
         }
     }
+
+
 }
 
