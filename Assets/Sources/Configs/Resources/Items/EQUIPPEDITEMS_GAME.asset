@@ -11,7 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18eb280523111aa47a0dc12cb7487da7, type: 3}
   m_Name: EQUIPPEDITEMS_GAME
   m_EditorClassIdentifier: 
-  _name: 22
   _viewName: 
   _isDestroyOnSceneChange: 1
   saveID:

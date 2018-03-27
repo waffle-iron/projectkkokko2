@@ -14,70 +14,71 @@ public static class InputComponentsLookup {
     public const int Animating = 3;
     public const int Cancel = 4;
     public const int Collidable = 5;
-    public const int CreateEntity = 6;
-    public const int Current = 7;
-    public const int Debug = 8;
-    public const int Deplete = 9;
-    public const int EntityConfigID = 10;
-    public const int Equipped = 11;
-    public const int Food = 12;
-    public const int ID = 13;
-    public const int InCart = 14;
-    public const int InputAccessoryListener = 15;
-    public const int InputActionListener = 16;
-    public const int InputAffordListener = 17;
-    public const int InputCurrentListener = 18;
-    public const int InputDebugListener = 19;
-    public const int InputEquippedListener = 20;
-    public const int InputEquippedRemovedListener = 21;
-    public const int InputFoodListener = 22;
-    public const int InputLoadedViewsCompleteListener = 23;
-    public const int InputLoadedViewsCompleteRemovedListener = 24;
-    public const int InputLoadSceneCompleteListener = 25;
-    public const int InputLoadSceneListener = 26;
-    public const int InputLoadSceneRemovedListener = 27;
-    public const int InputLoadViewsListener = 28;
-    public const int InputLoadViewsRemovedListener = 29;
-    public const int InputNeedListener = 30;
-    public const int InputPauseListener = 31;
-    public const int InputPauseRemovedListener = 32;
-    public const int InputPrePurchaseListener = 33;
-    public const int InputPreviewListener = 34;
-    public const int InputPreviewRemovedListener = 35;
-    public const int InputPriceListener = 36;
-    public const int InputPurchasedListener = 37;
-    public const int InputToDestroyListener = 38;
-    public const int InputToDestroyRemovedListener = 39;
-    public const int InputTriggerListener = 40;
-    public const int InputWalletListener = 41;
-    public const int Interval = 42;
-    public const int Load = 43;
-    public const int LoadedViewsComplete = 44;
-    public const int LoadSceneComplete = 45;
-    public const int LoadScene = 46;
-    public const int LoadViews = 47;
-    public const int Max = 48;
-    public const int Moveable = 49;
-    public const int Need = 50;
-    public const int OnCollision = 51;
-    public const int Pause = 52;
-    public const int Position = 53;
-    public const int PrePurchase = 54;
-    public const int Preview = 55;
-    public const int Price = 56;
-    public const int Purchased = 57;
-    public const int Reset = 58;
-    public const int Save = 59;
-    public const int TargetEntityID = 60;
-    public const int TargetMove = 61;
-    public const int TargetNeed = 62;
-    public const int TimerReset = 63;
-    public const int TimerState = 64;
-    public const int ToDestroy = 65;
-    public const int Trigger = 66;
-    public const int Wallet = 67;
+    public const int Consuming = 6;
+    public const int CreateEntity = 7;
+    public const int Current = 8;
+    public const int Debug = 9;
+    public const int Deplete = 10;
+    public const int EntityConfigID = 11;
+    public const int Equipped = 12;
+    public const int Food = 13;
+    public const int ID = 14;
+    public const int InCart = 15;
+    public const int InputAccessoryListener = 16;
+    public const int InputActionListener = 17;
+    public const int InputAffordListener = 18;
+    public const int InputCurrentListener = 19;
+    public const int InputDebugListener = 20;
+    public const int InputEquippedListener = 21;
+    public const int InputEquippedRemovedListener = 22;
+    public const int InputFoodListener = 23;
+    public const int InputLoadedViewsCompleteListener = 24;
+    public const int InputLoadedViewsCompleteRemovedListener = 25;
+    public const int InputLoadSceneCompleteListener = 26;
+    public const int InputLoadSceneListener = 27;
+    public const int InputLoadSceneRemovedListener = 28;
+    public const int InputLoadViewsListener = 29;
+    public const int InputLoadViewsRemovedListener = 30;
+    public const int InputNeedListener = 31;
+    public const int InputPauseListener = 32;
+    public const int InputPauseRemovedListener = 33;
+    public const int InputPrePurchaseListener = 34;
+    public const int InputPreviewListener = 35;
+    public const int InputPreviewRemovedListener = 36;
+    public const int InputPriceListener = 37;
+    public const int InputPurchasedListener = 38;
+    public const int InputToDestroyListener = 39;
+    public const int InputToDestroyRemovedListener = 40;
+    public const int InputTriggerListener = 41;
+    public const int InputWalletListener = 42;
+    public const int Interval = 43;
+    public const int Load = 44;
+    public const int LoadedViewsComplete = 45;
+    public const int LoadSceneComplete = 46;
+    public const int LoadScene = 47;
+    public const int LoadViews = 48;
+    public const int Max = 49;
+    public const int Moveable = 50;
+    public const int Need = 51;
+    public const int OnCollision = 52;
+    public const int Pause = 53;
+    public const int Position = 54;
+    public const int PrePurchase = 55;
+    public const int Preview = 56;
+    public const int Price = 57;
+    public const int Purchased = 58;
+    public const int Reset = 59;
+    public const int Save = 60;
+    public const int TargetEntityID = 61;
+    public const int TargetMove = 62;
+    public const int TargetNeed = 63;
+    public const int TimerReset = 64;
+    public const int TimerState = 65;
+    public const int ToDestroy = 66;
+    public const int Trigger = 67;
+    public const int Wallet = 68;
 
-    public const int TotalComponents = 68;
+    public const int TotalComponents = 69;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -86,6 +87,7 @@ public static class InputComponentsLookup {
         "Animating",
         "Cancel",
         "Collidable",
+        "Consuming",
         "CreateEntity",
         "Current",
         "Debug",
@@ -157,6 +159,7 @@ public static class InputComponentsLookup {
         typeof(AnimatingComponent),
         typeof(CancelComponent),
         typeof(CollidableComponent),
+        typeof(ConsumingComponent),
         typeof(CreateEntityComponent),
         typeof(CurrentComponent),
         typeof(DebugComponent),

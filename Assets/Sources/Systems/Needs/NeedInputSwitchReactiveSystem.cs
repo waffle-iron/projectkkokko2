@@ -7,6 +7,8 @@ public class NeedInputSwitchReactiveSystem : ReactiveSystem<InputEntity>
 {
     private readonly GameContext _game;
     private readonly MetaContext _meta;
+    private static string SHOP_SCENE = "ACTION_SHOPSCENE_INPUT";
+    private static string JOB_SCENE = "ACTION_JOBSCENE_INPUT";
 
     public NeedInputSwitchReactiveSystem (Contexts contexts) : base(contexts.input)
     {
@@ -36,7 +38,7 @@ public class NeedInputSwitchReactiveSystem : ReactiveSystem<InputEntity>
                 var target = _game.GetEntityWithNeed(NeedType.MOOD);
                 if (IsValid(target))
                 {
-                    _meta.entityService.instance.Get(EntityCfgID.ACTION_SHOPSCENE_INPUT);
+                    _meta.entityService.instance.Get(SHOP_SCENE);
                 }
             }
             else if (e.action.type == ActionType.JOB)
@@ -44,7 +46,7 @@ public class NeedInputSwitchReactiveSystem : ReactiveSystem<InputEntity>
                 var target = _game.GetEntityWithNeed(NeedType.HEALTH);
                 if (IsValid(target))
                 {
-                    _meta.entityService.instance.Get(EntityCfgID.ACTION_JOBSCENE_INPUT);
+                    _meta.entityService.instance.Get(JOB_SCENE);
                 }
             }
         }

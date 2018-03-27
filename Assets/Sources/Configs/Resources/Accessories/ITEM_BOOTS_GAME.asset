@@ -11,7 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d477fd476b3784899c07ce4f3072d5, type: 3}
   m_Name: ITEM_BOOTS_GAME
   m_EditorClassIdentifier: 
-  _name: 0
   _viewName: ItemUIView
   _isDestroyOnSceneChange: 1
   saveID:
@@ -22,7 +21,7 @@ MonoBehaviour:
     fakeValueActive: 1
   _loadOnStart: 1
   _id: boots
-  _type: 3
+  _type: 1
   _price:
     currentCryptoKey: 444444
     hiddenValue: 444536

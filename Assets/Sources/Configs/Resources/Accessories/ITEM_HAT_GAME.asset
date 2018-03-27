@@ -11,7 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d477fd476b3784899c07ce4f3072d5, type: 3}
   m_Name: ITEM_HAT_GAME
   m_EditorClassIdentifier: 
-  _name: 0
   _viewName: ItemUIView
   _isDestroyOnSceneChange: 1
   saveID:

@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4398970b3bd304d8bdf900310c6c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _configPath: Configs
+  _configPath: Scene
   _isSimulationMode: 1
 --- !u!4 &1004094933
 Transform:
