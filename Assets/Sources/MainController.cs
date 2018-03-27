@@ -36,7 +36,7 @@ public class MainController : MonoBehaviour
     {
         //_systems.Execute();
         //_systems.Cleanup();
-
+#if UNITY_IOS || UNITY_ANDROID
         var debug = _contexts.meta.hasDebugService ? _contexts.meta.debugService.instance : null;
 
         List<LocalNotificationTemplate> scheduled = AndroidNotificationManager.Instance.LoadPendingNotifications();
@@ -45,6 +45,7 @@ public class MainController : MonoBehaviour
             debug?.Log($"now:{System.DateTime.Now} utcnow:{System.DateTime.UtcNow}");
             debug?.Log($"id:{sched.id} title:{sched.title} seconds: {sched.fireDate} isFired: {sched.IsFired}");
         }
+#endif
     }
 
     private void OnDestroy ()
