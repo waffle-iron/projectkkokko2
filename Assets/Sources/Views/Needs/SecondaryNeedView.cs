@@ -20,7 +20,7 @@ public class SecondaryNeedView : View, IGameTriggerListener
     private Tween _tweenAnim = null;
 
 
-    protected override IObservable<bool> Initialize ()
+    protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         _icon.enabled = false;
 

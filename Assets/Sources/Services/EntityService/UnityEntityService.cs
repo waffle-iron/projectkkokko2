@@ -6,7 +6,7 @@ using UnityEngine;
 
 public partial class UnityEntityService : IEntityService
 {
-    private readonly Dictionary<EntityCfgID, IEntityConfig> _configs;
+    private readonly Dictionary<string, IEntityConfig> _configs;
     private readonly Contexts _contexts;
 
     public UnityEntityService (Contexts contexts)
@@ -14,19 +14,24 @@ public partial class UnityEntityService : IEntityService
         _contexts = contexts;
 
         //List<IEntityConfig> loadedConfigs = new List<IEntityConfig>();
-        _configs = new Dictionary<EntityCfgID, IEntityConfig>();
-
+        _configs = new Dictionary<string, IEntityConfig>();
+        var results = Resources.LoadAll<UnityEntityConfig>("");
+        foreach (var result in results)
+        {
+            Add(result);
+        }
     }
 
     public bool Add (IEntityConfig config)
     {
-
         IEntityConfig value = null;
         try
         {
             if (_configs.TryGetValue(config.Name, out value))
             {
-                throw new ArgumentException();
+                //do not add
+                Debug.LogWarning($"duplicate Name: {config.Name}");
+                return false;
             }
             else
             {
@@ -36,13 +41,13 @@ public partial class UnityEntityService : IEntityService
         }
         catch (ArgumentException e)
         {
-            Debug.LogError($"duplicate ID: {config.Name}\n{e.Message}");
+            Debug.LogWarning($"duplicate ID: {config.Name}\n{e.Message}");
             return false;
         }
 
     }
 
-    public bool Get (EntityCfgID name, out IEntity entity)
+    public bool Get (string name, out IEntity entity)
     {
         IEntityConfig result = null;
         entity = null;
@@ -55,7 +60,7 @@ public partial class UnityEntityService : IEntityService
         return false;
     }
 
-    public bool Get (EntityCfgID name)
+    public bool Get (string name)
     {
         IEntity temp;
         return Get(name, out temp);

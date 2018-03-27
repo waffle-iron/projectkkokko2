@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PauseView : View, IGamePauseListener, IGamePauseRemovedListener
 {
-    protected override IObservable<bool> Initialize ()
+    protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         return Observable.Return(true);
     }

@@ -5,8 +5,8 @@ using System.Linq;
 
 public interface IEntityConfig
 {
-    string srcPath { get; set; }
-    EntityCfgID Name { get; }
+    string SrcPath { get; set; }
+    string Name { get; }
     IEntity Create (Contexts contexts);
 }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using Entitas;
@@ -7,8 +8,6 @@ public class ItemSystems : Feature
 {
     public ItemSystems (Contexts contexts) : base("Item Systems")
     {
-        Add(new ItemInitializeSystem(contexts));
-
         Add(new AffordReactiveSystem(contexts));
 
         Add(new CancelInputReactiveSystem(contexts));
@@ -25,7 +24,6 @@ public class ItemSystems : Feature
         Add(new EquipCommandReactiveSystem(contexts));
 
         Add(new EquippedListReactiveSystem(contexts));
-
-
+        Add(new ReloadEquippedItemsReactiveSystem(contexts));
     }
 }

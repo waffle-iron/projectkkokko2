@@ -21,7 +21,7 @@ public class ActionView : View
         _text.text = label;
     }
 
-    protected override IObservable<bool> Initialize ()
+    protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         return Observable.Return(true);
     }

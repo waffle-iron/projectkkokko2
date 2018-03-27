@@ -5,8 +5,9 @@ using System.Collections.Generic;
 
 public interface IEntityService
 {
-    bool Get (EntityCfgID name, out IEntity entity);
-    bool Get (EntityCfgID name);
+    bool Get (string name, out IEntity entity);
+    bool Get (string name);
     bool Add (IEntityConfig config);
+    bool 
 }
 

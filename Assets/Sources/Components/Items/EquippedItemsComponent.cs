@@ -10,4 +10,5 @@ using CodeStage.AntiCheat.ObscuredTypes;
 public sealed class EquippedItemsComponent : IComponent
 {
     public List<string> _accessoryList;
+    public List<string> _filterInScenes;
 }
