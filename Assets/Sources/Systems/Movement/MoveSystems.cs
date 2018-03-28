@@ -8,6 +8,7 @@ public class MoveSystems : Feature
     public MoveSystems (Contexts contexts) : base("Move Systems")
     {
         //Add(system here);
+        Add(new InputTouchTargetMovePlayerReactiveSystem(contexts));
         Add(new InputTargetMoveReactiveSystem(contexts));
         Add(new InputMoveReactiveSystem(contexts));
 

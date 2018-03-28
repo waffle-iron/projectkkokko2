@@ -39,6 +39,7 @@ public class CommandConsumeReactiveSystem : ReactiveSystem<CommandEntity>
 
             var gameEty = (GameEntity)entity;
             gameEty.AddFood(target.food.id, target.food.recovery);
+            gameEty.AddTargetEntityID(target.iD.value);
         }
     }
 }

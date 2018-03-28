@@ -9,7 +9,7 @@ namespace Spine.Unity.Examples {
 		[Range(0, 100)]
 		public int count = 20;
 
-		[SpineAnimation(dataField:"skeletonDataAsset")]
+		[SpineSkeleton(dataField:"skeletonDataAsset")]
 		public string startingAnimation;
 
 		IEnumerator Start () {

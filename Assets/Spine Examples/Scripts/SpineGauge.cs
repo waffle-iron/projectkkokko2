@@ -40,7 +40,7 @@ namespace Spine.Unity.Examples {
 		[Range(0,1)]
 		public float fillPercent = 0;
 
-		[SpineAnimation]
+		[SpineSkeleton]
 		public string fillAnimationName;
 		#endregion
 

@@ -238,8 +238,8 @@ namespace Spine.Unity.Editor {
 
 	}
 
-	[CustomPropertyDrawer(typeof(SpineAnimation))]
-	public class SpineAnimationDrawer : SpineTreeItemDrawerBase<SpineAnimation> {
+	[CustomPropertyDrawer(typeof(SpineSkeleton))]
+	public class SpineAnimationDrawer : SpineTreeItemDrawerBase<SpineSkeleton> {
 
 		protected override Texture2D Icon {	get { return SpineEditorUtilities.Icons.animation; } }
 
@@ -263,7 +263,7 @@ namespace Spine.Unity.Editor {
 			}
 		}
 
-		protected override void PopulateMenu (GenericMenu menu, SerializedProperty property, SpineAnimation targetAttribute, SkeletonData data) {
+		protected override void PopulateMenu (GenericMenu menu, SerializedProperty property, SpineSkeleton targetAttribute, SkeletonData data) {
 			var animations = skeletonDataAsset.GetAnimationStateData().SkeletonData.Animations;
 
 			if (TargetAttribute.includeNone)

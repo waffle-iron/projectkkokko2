@@ -160,7 +160,7 @@ namespace Spine.Unity {
 			this.fallbackToTextField = fallbackToTextField;
 		}
 	}
-	public class SpineAnimation : SpineAttributeBase {
+	public class SpineSkeleton : SpineAttributeBase {
 		/// <summary>
 		/// Smart popup menu for Spine Animations
 		/// </summary>
@@ -171,7 +171,7 @@ namespace Spine.Unity {
 		/// Valid types are SkeletonDataAsset and SkeletonRenderer (and derivatives)
 		/// If left empty and the script the attribute is applied to is derived from Component, GetComponent<SkeletonRenderer>() will be called as a fallback.
 		/// </param>
-		public SpineAnimation (string startsWith = "", string dataField = "", bool includeNone = true, bool fallbackToTextField = false) {
+		public SpineSkeleton (string startsWith = "", string dataField = "", bool includeNone = true, bool fallbackToTextField = false) {
 			this.startsWith = startsWith;
 			this.dataField = dataField;
 			this.includeNone = includeNone;

@@ -58,17 +58,17 @@ namespace Spine.Unity.Examples {
 		public SkeletonAnimation skeletonAnimation;
 
 		[Header("Animation")]
-		[SpineAnimation(dataField: "skeletonAnimation")]
+		[SpineSkeleton(dataField: "skeletonAnimation")]
 		public string walkName = "Walk";
-		[SpineAnimation(dataField: "skeletonAnimation")]
+		[SpineSkeleton(dataField: "skeletonAnimation")]
 		public string runName = "Run";
-		[SpineAnimation(dataField: "skeletonAnimation")]
+		[SpineSkeleton(dataField: "skeletonAnimation")]
 		public string idleName = "Idle";
-		[SpineAnimation(dataField: "skeletonAnimation")]
+		[SpineSkeleton(dataField: "skeletonAnimation")]
 		public string jumpName = "Jump";
-		[SpineAnimation(dataField: "skeletonAnimation")]
+		[SpineSkeleton(dataField: "skeletonAnimation")]
 		public string fallName = "Fall";
-		[SpineAnimation(dataField: "skeletonAnimation")]
+		[SpineSkeleton(dataField: "skeletonAnimation")]
 		public string crouchName = "Crouch";
 
 		[Header("Effects")]

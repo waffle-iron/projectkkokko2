@@ -37,23 +37,23 @@ namespace Spine.Unity.Examples {
 
 		#region Inspector
 		// [SpineAnimation] attribute allows an Inspector dropdown of Spine animation names coming form SkeletonAnimation.
-		[SpineAnimation]
+		[SpineSkeleton]
 		public string runAnimationName;
 
-		[SpineAnimation]
+		[SpineSkeleton]
 		public string idleAnimationName;
 
-		[SpineAnimation]
+		[SpineSkeleton]
 		public string walkAnimationName;
 
-		[SpineAnimation]
+		[SpineSkeleton]
 		public string shootAnimationName;
 
 		[Header("Transitions")]
-		[SpineAnimation]
+		[SpineSkeleton]
 		public string idleTurnAnimationName;
 
-		[SpineAnimation]
+		[SpineSkeleton]
 		public string runToIdleAnimationName;
 
 		public float runWalkDuration = 1.5f;

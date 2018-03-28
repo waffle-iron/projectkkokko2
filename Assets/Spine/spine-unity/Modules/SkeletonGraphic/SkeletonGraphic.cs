@@ -45,7 +45,7 @@ namespace Spine.Unity {
 		public string initialSkinName = "default";
 		public bool initialFlipX, initialFlipY;
 
-		[SpineAnimation(dataField:"skeletonDataAsset")]
+		[SpineSkeleton(dataField:"skeletonDataAsset")]
 		public string startingAnimation;
 		public bool startingLoop;
 		public float timeScale = 1f;

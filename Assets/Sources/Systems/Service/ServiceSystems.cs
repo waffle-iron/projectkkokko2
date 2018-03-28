@@ -17,5 +17,6 @@ public class ServiceSystems : Feature
         Add(new RegisterNotificationService(contexts, services.notif));
         Add(new RegisterDebugServiceSystem(contexts, services.debug));
         Add(new RegisterSceneSettingServiceSystem(contexts, services.sceneSetting));
+        Add(new RegisterTouchServiceSystem(contexts, services.touch));
     }
 }

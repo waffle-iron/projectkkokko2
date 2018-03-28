@@ -67,6 +67,9 @@ public sealed class EventSystems : Feature {
         Add(new InputLoadViewsRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandLoadViewsRemovedEventSystem(contexts)); // priority: 0
         Add(new GameLoadViewsRemovedEventSystem(contexts)); // priority: 0
+        Add(new GameMoveableEventSystem(contexts)); // priority: 0
+        Add(new CommandMoveableEventSystem(contexts)); // priority: 0
+        Add(new InputMoveableEventSystem(contexts)); // priority: 0
         Add(new GameNeedEventSystem(contexts)); // priority: 0
         Add(new InputNeedEventSystem(contexts)); // priority: 0
         Add(new CommandNeedEventSystem(contexts)); // priority: 0
@@ -93,6 +96,9 @@ public sealed class EventSystems : Feature {
         Add(new CommandPurchasedEventSystem(contexts)); // priority: 0
         Add(new SavingEventSystem(contexts)); // priority: 0
         Add(new SavingRemovedEventSystem(contexts)); // priority: 0
+        Add(new GameTargetMoveEventSystem(contexts)); // priority: 0
+        Add(new InputTargetMoveEventSystem(contexts)); // priority: 0
+        Add(new CommandTargetMoveEventSystem(contexts)); // priority: 0
         Add(new GameToDestroyEventSystem(contexts)); // priority: 0
         Add(new InputToDestroyEventSystem(contexts)); // priority: 0
         Add(new CommandToDestroyEventSystem(contexts)); // priority: 0

@@ -19,9 +19,10 @@ public static class MetaComponentsLookup {
     public const int SceneSettingService = 8;
     public const int TimeService = 9;
     public const int ToDestroy = 10;
-    public const int ViewService = 11;
+    public const int TouchService = 11;
+    public const int ViewService = 12;
 
-    public const int TotalComponents = 12;
+    public const int TotalComponents = 13;
 
     public static readonly string[] componentNames = {
         "DebugService",
@@ -35,6 +36,7 @@ public static class MetaComponentsLookup {
         "SceneSettingService",
         "TimeService",
         "ToDestroy",
+        "TouchService",
         "ViewService"
     };
 
@@ -50,6 +52,7 @@ public static class MetaComponentsLookup {
         typeof(SceneSettingServiceComponent),
         typeof(TimeServiceComponent),
         typeof(ToDestroyComponent),
+        typeof(TouchServiceComponent),
         typeof(ViewServiceComponent)
     };
 }

@@ -40,7 +40,7 @@ namespace Spine.Unity.Examples {
 		public SpineboyBeginnerModel model;
 		public SkeletonAnimation skeletonAnimation;
 
-		[SpineAnimation] public string run, idle, shoot, jump;
+		[SpineSkeleton] public string run, idle, shoot, jump;
 		[SpineEvent] public string footstepEventName;
 
 		[Header("Audio")]

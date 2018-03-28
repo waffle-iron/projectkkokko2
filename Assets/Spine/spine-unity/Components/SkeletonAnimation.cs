@@ -74,7 +74,7 @@ namespace Spine.Unity {
 
 		#region Serialized state and Beginner API
 		[SerializeField]
-		[SpineAnimation]
+		[SpineSkeleton]
 		private string _animationName;
 
 		/// <summary>

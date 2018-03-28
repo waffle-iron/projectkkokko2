@@ -13,6 +13,7 @@ public class Services
     public readonly INotificationService notif;
     public readonly IDebugService debug;
     public readonly ISceneSettingService sceneSetting;
+    public readonly IInputTouchService touch;
 
     public Services
         (
@@ -24,7 +25,8 @@ public class Services
             IPauseService pause,
             INotificationService notif,
             IDebugService debug,
-            ISceneSettingService sceneSetting
+            ISceneSettingService sceneSetting,
+            IInputTouchService touch
         )
     {
         this.scene = scene;
@@ -36,5 +38,6 @@ public class Services
         this.notif = notif;
         this.debug = debug;
         this.sceneSetting = sceneSetting;
+        this.touch = touch;
     }
 }

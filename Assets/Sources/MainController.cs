@@ -50,7 +50,7 @@ public class MainController : MonoBehaviour
 
     private void OnDestroy ()
     {
-        _systems.TearDown();    
+        _systems.TearDown();
         _systems.DeactivateReactiveSystems();
         _systems.ClearReactiveSystems();
     }
@@ -84,7 +84,8 @@ public class MainController : MonoBehaviour
             GetComponentInChildren<UnityPauseService>(),
             new UltimateMobileNotificationService(),
             new UnityDebugService(),
-            new UnitySceneSettingService(_configPath)
+            new UnitySceneSettingService(_configPath),
+            GetComponentInChildren<UnityTouchService>()
             );
     }
 }

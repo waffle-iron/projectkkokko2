@@ -36,13 +36,13 @@ using Spine.Unity;
 
 namespace Spine.Unity.Examples {
 	public class FootSoldierExample : MonoBehaviour {
-		[SpineAnimation("Idle")]
+		[SpineSkeleton("Idle")]
 		public string idleAnimation;
 
-		[SpineAnimation]
+		[SpineSkeleton]
 		public string attackAnimation;
 
-		[SpineAnimation]
+		[SpineSkeleton]
 		public string moveAnimation;
 
 		[SpineSlot]

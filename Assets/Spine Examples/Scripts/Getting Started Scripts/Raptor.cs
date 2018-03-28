@@ -36,13 +36,13 @@ namespace Spine.Unity.Examples {
 	public class Raptor : MonoBehaviour {
 
 		#region Inspector
-		[SpineAnimation]
+		[SpineSkeleton]
 		public string walk = "walk";
 
-		[SpineAnimation]
+		[SpineSkeleton]
 		public string gungrab = "gungrab";
 
-		[SpineAnimation]
+		[SpineSkeleton]
 		public string gunkeep = "gunkeep";
 		#endregion
 

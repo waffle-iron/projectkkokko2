@@ -8,6 +8,10 @@ public class FoodActualView : View
 {
     [SerializeField]
     private SpriteRenderer _sprite;
+    [SerializeField]
+    private Transform _leftBound;
+    [SerializeField]
+    private Transform _rightBound;
 
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
@@ -18,6 +22,10 @@ public class FoodActualView : View
         {
             _sprite.sprite = sprite;
             _sprite.enabled = true;
+            var xPos = UnityEngine.Random.Range(_leftBound.position.x, _rightBound.position.y);
+            var newPos = _sprite.transform.position;
+            newPos.x = xPos;
+            _sprite.transform.position = newPos;
         });
     }
 
@@ -30,5 +38,14 @@ public class FoodActualView : View
     protected override void UnregisterListeners (IEntity entity, IContext context)
     {
         var gameEty = ((GameEntity)entity);
+    }
+
+    protected override void Update ()
+    {
+        base.Update();
+
+        var inputEty = contexts.input.CreateEntity();
+        inputEty.AddTargetEntityID(this.ID);
+        inputEty.AddPosition(_sprite.transform.position);
     }
 }
