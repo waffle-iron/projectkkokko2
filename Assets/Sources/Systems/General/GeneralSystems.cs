@@ -10,6 +10,7 @@ public class GeneralSystems : Feature
         Add(new SceneSystems(contexts));
         Add(new InitializeViewSystems(contexts));
         Add(new CreateEntitySystems(contexts));
+        Add(new GameStateSystems(contexts));
         Add(new ViewSystems(contexts));
         Add(new SaveSystems(contexts));
         Add(new PauseSystems(contexts));

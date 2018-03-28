@@ -6,14 +6,26 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FoodView : View, IGameFoodListener
+public class FoodView : View, IGameConsumingListener, IGameConsumingRemovedListener
 {
     [SerializeField]
     private Image _image;
 
-    public void OnFood (GameEntity entity, string id, float recovery)
+    public void OnConsuming (GameEntity entity)
     {
+        _image.enabled = false;
+    }
 
+    public void OnConsumingRemoved (GameEntity entity)
+    {
+        _image.enabled = true;
+    }
+
+    public void OnClick ()
+    {
+        var inputEty = this.contexts.input.CreateEntity();
+        inputEty.AddTargetEntityID(this.ID);
+        inputEty.isConsuming = true;
     }
 
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
@@ -33,13 +45,15 @@ public class FoodView : View, IGameFoodListener
     protected override void RegisterListeners (IEntity entity, IContext context)
     {
         var gameEtty = (GameEntity)entity;
-        gameEtty.AddGameFoodListener(this);
+        gameEtty.AddGameConsumingListener(this);
+        gameEtty.AddGameConsumingRemovedListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
     {
         var gameEtty = (GameEntity)entity;
-        gameEtty.RemoveGameFoodListener(this);
+        gameEtty.RemoveGameConsumingListener(this);
+        gameEtty.RemoveGameConsumingRemovedListener(this);
     }
 }
 

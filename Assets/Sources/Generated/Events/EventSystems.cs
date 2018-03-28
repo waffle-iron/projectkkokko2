@@ -18,6 +18,12 @@ public sealed class EventSystems : Feature {
         Add(new GameAffordEventSystem(contexts)); // priority: 0
         Add(new InputAffordEventSystem(contexts)); // priority: 0
         Add(new CommandAffordEventSystem(contexts)); // priority: 0
+        Add(new GameConsumingEventSystem(contexts)); // priority: 0
+        Add(new InputConsumingEventSystem(contexts)); // priority: 0
+        Add(new CommandConsumingEventSystem(contexts)); // priority: 0
+        Add(new GameConsumingRemovedEventSystem(contexts)); // priority: 0
+        Add(new InputConsumingRemovedEventSystem(contexts)); // priority: 0
+        Add(new CommandConsumingRemovedEventSystem(contexts)); // priority: 0
         Add(new GameCurrentEventSystem(contexts)); // priority: 0
         Add(new CommandCurrentEventSystem(contexts)); // priority: 0
         Add(new InputCurrentEventSystem(contexts)); // priority: 0
@@ -33,6 +39,9 @@ public sealed class EventSystems : Feature {
         Add(new GameFoodEventSystem(contexts)); // priority: 0
         Add(new CommandFoodEventSystem(contexts)); // priority: 0
         Add(new InputFoodEventSystem(contexts)); // priority: 0
+        Add(new GameGameStateEventSystem(contexts)); // priority: 0
+        Add(new CommandGameStateEventSystem(contexts)); // priority: 0
+        Add(new InputGameStateEventSystem(contexts)); // priority: 0
         Add(new GameLoadedViewsCompleteEventSystem(contexts)); // priority: 0
         Add(new InputLoadedViewsCompleteEventSystem(contexts)); // priority: 0
         Add(new CommandLoadedViewsCompleteEventSystem(contexts)); // priority: 0

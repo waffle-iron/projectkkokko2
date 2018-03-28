@@ -15,13 +15,13 @@ public class CommandConsumeReactiveSystem : ReactiveSystem<CommandEntity>
     protected override ICollector<CommandEntity> GetTrigger (IContext<CommandEntity> context)
     {
         //return collector
-        return context.CreateCollector(CommandMatcher.AllOf(CommandMatcher.Food, CommandMatcher.TargetEntityID));
+        return context.CreateCollector(CommandMatcher.AllOf(CommandMatcher.Consuming, CommandMatcher.TargetEntityID));
     }
 
     protected override bool Filter (CommandEntity entity)
     {
         // check for required components
-        return entity.hasFood && entity.hasTargetEntityID;
+        return entity.isConsuming && entity.hasTargetEntityID;
     }
 
     protected override void Execute (List<CommandEntity> entities)
