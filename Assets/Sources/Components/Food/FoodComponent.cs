@@ -8,7 +8,7 @@ using Entitas.CodeGeneration.Attributes;
 [Game, Command, Input, Event(true)]
 public sealed class FoodComponent : IComponent
 {
-    [PrimaryEntityIndex]
+    [EntityIndex]
     public string id;
     public float recovery;
 }

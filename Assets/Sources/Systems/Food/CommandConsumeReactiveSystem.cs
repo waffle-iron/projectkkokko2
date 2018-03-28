@@ -6,10 +6,12 @@ using Entitas;
 public class CommandConsumeReactiveSystem : ReactiveSystem<CommandEntity>
 {
     private readonly GameContext _game;
+    private readonly MetaContext _meta;
 
     public CommandConsumeReactiveSystem (Contexts contexts) : base(contexts.command)
     {
         _game = contexts.game;
+        _meta = contexts.meta;
     }
 
     protected override ICollector<CommandEntity> GetTrigger (IContext<CommandEntity> context)
@@ -31,6 +33,12 @@ public class CommandConsumeReactiveSystem : ReactiveSystem<CommandEntity>
             // do stuff to the matched entities
             var target = _game.GetEntityWithID(e.targetEntityID.value);
             target.isConsuming = true;
+
+            IEntity entity;
+            _meta.entityService.instance.Get("FOOD_INTERACTABLE_GAME", out entity);
+
+            var gameEty = (GameEntity)entity;
+            gameEty.AddFood(target.food.id, target.food.recovery);
         }
     }
 }

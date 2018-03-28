@@ -6,7 +6,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FoodView : View, IGameConsumingListener, IGameConsumingRemovedListener
+public class FoodUIView : View, IGameConsumingListener, IGameConsumingRemovedListener
 {
     [SerializeField]
     private Image _image;
