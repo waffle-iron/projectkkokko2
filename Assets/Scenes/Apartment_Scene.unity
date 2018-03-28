@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 2060458314}
+  _newState: 2
   _activate: 1
 --- !u!224 &208137443 stripped
 RectTransform:
@@ -1951,6 +1952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 2060458314}
+  _newState: 1
   _activate: 0
 --- !u!114 &1458284954
 MonoBehaviour:
