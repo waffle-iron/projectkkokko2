@@ -59,26 +59,27 @@ public static class InputComponentsLookup {
     public const int LoadViews = 48;
     public const int Max = 49;
     public const int Moveable = 50;
-    public const int Need = 51;
-    public const int OnCollision = 52;
-    public const int Pause = 53;
-    public const int Position = 54;
-    public const int PrePurchase = 55;
-    public const int Preview = 56;
-    public const int Price = 57;
-    public const int Purchased = 58;
-    public const int Reset = 59;
-    public const int Save = 60;
-    public const int TargetEntityID = 61;
-    public const int TargetMove = 62;
-    public const int TargetNeed = 63;
-    public const int TimerReset = 64;
-    public const int TimerState = 65;
-    public const int ToDestroy = 66;
-    public const int Trigger = 67;
-    public const int Wallet = 68;
+    public const int Moving = 51;
+    public const int Need = 52;
+    public const int OnCollision = 53;
+    public const int Pause = 54;
+    public const int Position = 55;
+    public const int PrePurchase = 56;
+    public const int Preview = 57;
+    public const int Price = 58;
+    public const int Purchased = 59;
+    public const int Reset = 60;
+    public const int Save = 61;
+    public const int TargetEntityID = 62;
+    public const int TargetMove = 63;
+    public const int TargetNeed = 64;
+    public const int TimerReset = 65;
+    public const int TimerState = 66;
+    public const int ToDestroy = 67;
+    public const int Trigger = 68;
+    public const int Wallet = 69;
 
-    public const int TotalComponents = 69;
+    public const int TotalComponents = 70;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -132,6 +133,7 @@ public static class InputComponentsLookup {
         "LoadViews",
         "Max",
         "Moveable",
+        "Moving",
         "Need",
         "OnCollision",
         "Pause",
@@ -204,6 +206,7 @@ public static class InputComponentsLookup {
         typeof(LoadViewsComponent),
         typeof(MaxComponent),
         typeof(MoveableComponent),
+        typeof(MovingComponent),
         typeof(NeedComponent),
         typeof(OnCollisionComponent),
         typeof(PauseComponent),

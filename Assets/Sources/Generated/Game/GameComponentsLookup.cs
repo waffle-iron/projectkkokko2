@@ -68,36 +68,37 @@ public static class GameComponentsLookup {
     public const int Max = 57;
     public const int MinRequirement = 58;
     public const int Moveable = 59;
-    public const int Need = 60;
-    public const int NotificationMessage = 61;
-    public const int NotificationScheduled = 62;
-    public const int OnCollision = 63;
-    public const int Pause = 64;
-    public const int Position = 65;
-    public const int PrePurchase = 66;
-    public const int Preview = 67;
-    public const int Price = 68;
-    public const int Purchased = 69;
-    public const int ReloadEquipment = 70;
-    public const int SaveID = 71;
-    public const int Saving = 72;
-    public const int SavingListener = 73;
-    public const int SavingRemovedListener = 74;
-    public const int SceneInitConfig = 75;
-    public const int TargetEntityID = 76;
-    public const int TargetMove = 77;
-    public const int TargetNeed = 78;
-    public const int Timer = 79;
-    public const int TimerReset = 80;
-    public const int TimerState = 81;
-    public const int ToDestroy = 82;
-    public const int Trigger = 83;
-    public const int View = 84;
-    public const int ViewListener = 85;
-    public const int ViewRemovedListener = 86;
-    public const int Wallet = 87;
+    public const int Moving = 60;
+    public const int Need = 61;
+    public const int NotificationMessage = 62;
+    public const int NotificationScheduled = 63;
+    public const int OnCollision = 64;
+    public const int Pause = 65;
+    public const int Position = 66;
+    public const int PrePurchase = 67;
+    public const int Preview = 68;
+    public const int Price = 69;
+    public const int Purchased = 70;
+    public const int ReloadEquipment = 71;
+    public const int SaveID = 72;
+    public const int Saving = 73;
+    public const int SavingListener = 74;
+    public const int SavingRemovedListener = 75;
+    public const int SceneInitConfig = 76;
+    public const int TargetEntityID = 77;
+    public const int TargetMove = 78;
+    public const int TargetNeed = 79;
+    public const int Timer = 80;
+    public const int TimerReset = 81;
+    public const int TimerState = 82;
+    public const int ToDestroy = 83;
+    public const int Trigger = 84;
+    public const int View = 85;
+    public const int ViewListener = 86;
+    public const int ViewRemovedListener = 87;
+    public const int Wallet = 88;
 
-    public const int TotalComponents = 88;
+    public const int TotalComponents = 89;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -160,6 +161,7 @@ public static class GameComponentsLookup {
         "Max",
         "MinRequirement",
         "Moveable",
+        "Moving",
         "Need",
         "NotificationMessage",
         "NotificationScheduled",
@@ -251,6 +253,7 @@ public static class GameComponentsLookup {
         typeof(MaxComponent),
         typeof(MinRequirementComponent),
         typeof(MoveableComponent),
+        typeof(MovingComponent),
         typeof(NeedComponent),
         typeof(NotificationMessageComponent),
         typeof(NotificationScheduledComponent),

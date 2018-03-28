@@ -8,11 +8,19 @@ using UniRx;
 public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
 {
     private EntityLink _entity;
+    private uint _id = 0;
 
     public GameObject Instance { get { return this.gameObject; } }
     public EntityLink EntityLink { get { return _entity; } private set { _entity = value; } }
+    public uint ID
+    {
+        get {
+            return _id;
+        }
+    }
 
     protected Contexts contexts { get { return Contexts.sharedInstance; } }
+
 
     private IDisposable _initObservable;
     private bool _isInitialized = false;
@@ -25,6 +33,8 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
         //    this.gameObject.SetActive(false);
         //    return;
         //}
+
+        _id = ((IIDEntity)entity).iD.value;
 
         if (Instance.GetEntityLink() != null)
         {

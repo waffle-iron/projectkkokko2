@@ -13,5 +13,7 @@ public class MoveSystems : Feature
 
         Add(new CommandTargetMoveReactiveSystem(contexts));
         Add(new CommandMoveReactiveSystem(contexts));
+
+        Add(new MoveCleanupSystem(contexts));
     }
 }

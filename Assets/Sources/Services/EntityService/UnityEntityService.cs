@@ -65,5 +65,31 @@ public partial class UnityEntityService : IEntityService
         IEntity temp;
         return Get(name, out temp);
     }
+
+    public bool Append (string name, IEntity entity)
+    {
+        IEntity temp;
+        Get(name, out temp);
+
+        if (temp != null)
+        {
+            //append logic
+            return true;
+        }
+        return false;
+    }
+
+    public bool Remove (string name, IEntity entity)
+    {
+        IEntity temp;
+        Get(name, out temp);
+
+        if (temp != null)
+        {
+            //remove logic
+            return true;
+        }
+        return false;
+    }
 }
 

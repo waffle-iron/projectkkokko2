@@ -4,8 +4,7 @@ using UnityEngine;
 using Entitas;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game, Command, Input]
-public sealed class MoveableComponent : IComponent
+[Game, Input, Command]
+public sealed class MovingComponent : IComponent
 {
-    public float speed;
 }

@@ -6,12 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IMoveableEntity {
-
-    MoveableComponent moveable { get; }
-    bool hasMoveable { get; }
-
-    void AddMoveable(float newSpeed);
-    void ReplaceMoveable(float newSpeed);
-    void RemoveMoveable();
+public partial interface IMovingEntity {
+    bool isMoving { get; set; }
 }

@@ -30,6 +30,7 @@ public class CommandMoveReactiveSystem : ReactiveSystem<CommandEntity>
         {
             var target = _game.GetEntityWithID(e.targetEntityID.value);
 
+            target.isMoving = true;
             target.ReplacePosition(e.position.current);
         }
     }
