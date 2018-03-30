@@ -74,7 +74,6 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
             EntityLink.Unlink();
             EntityLink = null;
             //return to pool by falsing
-            Cleanup();
             this.gameObject.SetActive(false);
         }
     }
@@ -109,6 +108,7 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
         {
             ((GameEntity)EntityLink.entity).RemoveGameToDestroyListener(this);
         }
+        Cleanup();
         Unlink();
     }
 

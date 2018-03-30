@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
+using System;
 
 public class UnityTouchService : MonoBehaviour, IInputTouchService
 {
     [SerializeField]
-    private Camera camera;
+    private Camera _camera;
+    [SerializeField]
+    private int _layerMask;
 
     public TouchData[] touch
     {
@@ -13,47 +17,83 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
         }
     }
 
+    public static event Action<TouchData[]> OnTouch;
+
     private TouchData[] _touchData = null;
 
     // Use this for initialization
     void Start ()
     {
         _touchData = null;
+        if (_camera == null)
+        {
+            _camera = Camera.main;
+        }
     }
 
     // Update is called once per frame
     void Update ()
     {
 #if UNITY_EDITOR
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            var newTouches = new TouchData[1];
-            var screenPos = Input.mousePosition;
-            var worldPos = (Vector3)screenPos;
-            worldPos.z = camera.transform.position.z;
-            worldPos = camera.ScreenToWorldPoint(worldPos);
-            newTouches[0] = new TouchData(1, screenPos, worldPos, TouchPhase.Began);
-            _touchData = newTouches;
+            _touchData = PollMouseTouch(Input.mousePosition, TouchPhase.Began, _camera);
+            if (OnTouch != null) { OnTouch(_touchData); }
         }
+        else if (Input.GetMouseButton(0))
+        {
+            _touchData = PollMouseTouch(Input.mousePosition, Input.mouseScrollDelta.magnitude > 0f ? TouchPhase.Moved : TouchPhase.Stationary, _camera);
+            if (OnTouch != null) { OnTouch(_touchData); }
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            _touchData = PollMouseTouch(Input.mousePosition, TouchPhase.Ended, _camera);
+            if (OnTouch != null) { OnTouch(_touchData); }
+        }
+
+
+
 #elif UNITY_ANDROID || UNITY_IOS
         if (Input.touchCount > 0)
         {
-            var newTouches = new TouchData[Input.touchCount];
-            for (int ctr = 0; ctr < Input.touchCount; ctr++)
-            {
-                var touch = Input.GetTouch(ctr);
-                var screenPos = touch.position;
-                var worldPos = (Vector3)screenPos;
-                worldPos.z = camera.transform.position.z;
-                worldPos = camera.ScreenToWorldPoint(worldPos);
-                newTouches[ctr] = new TouchData(touch.fingerId, screenPos, worldPos, touch.phase);
-            }
-            _touchData = newTouches;
+            _touchData = PollScreenTouch(Input.touchCount);
+
+            if (OnTouch != null) { OnTouch(_touchData); }
         }
-#endif  
+#endif
         else
         {
             _touchData = null;
         }
+    }
+
+    private TouchData[] PollMouseTouch (Vector2 screenPos, TouchPhase phase, Camera camera)
+    {
+        var newTouches = new TouchData[1];
+        var worldPos = (Vector3)screenPos;
+        worldPos.z = camera.transform.position.z;
+        worldPos = camera.ScreenToWorldPoint(worldPos);
+
+        var results = Physics2D.RaycastAll(worldPos, Vector2.zero, Mathf.Infinity, _layerMask);
+        newTouches[0] = new TouchData(1, screenPos, worldPos, phase, results);
+
+        return newTouches;
+    }
+
+    private TouchData[] PollScreenTouch (int touchCount, Camera camera)
+    {
+        var newTouches = new TouchData[touchCount];
+        for (int ctr = 0; ctr < touchCount; ctr++)
+        {
+            var touch = Input.GetTouch(ctr);
+            var screenPos = touch.position;
+            var worldPos = (Vector3)screenPos;
+            worldPos.z = camera.transform.position.z;
+            worldPos = camera.ScreenToWorldPoint(worldPos);
+            var results = Physics2D.RaycastAll(worldPos, Vector2.zero, Mathf.Infinity, _layerMask);
+            newTouches[ctr] = new TouchData(touch.fingerId, screenPos, worldPos, touch.phase, results);
+        }
+
+        return newTouches;
     }
 }

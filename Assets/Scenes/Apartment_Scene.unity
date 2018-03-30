@@ -3082,6 +3082,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114229782350989176, guid: 9ba5c8db24c107549a35fd17ab13bfe6,
+        type: 2}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 880614717}
     - target: {fileID: 114772107342325392, guid: 9ba5c8db24c107549a35fd17ab13bfe6,
         type: 2}
       propertyPath: _leftBound
@@ -3092,10 +3097,6 @@ Prefab:
       propertyPath: _rightBound
       value: 
       objectReference: {fileID: 890540276}
-    - target: {fileID: 1220369073833490, guid: 9ba5c8db24c107549a35fd17ab13bfe6, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ba5c8db24c107549a35fd17ab13bfe6, type: 2}
   m_IsPrefabParent: 0
