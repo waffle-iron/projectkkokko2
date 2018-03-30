@@ -5,7 +5,7 @@ using Spine.Unity;
 using UnityEngine;
 using UniRx;
 
-public class PlayerView : View, IGameTargetMoveListener, IGameOnCollisionListener
+public class PlayerView : View, IGameTargetMoveListener
 {
     public SpineSkeleton _player;
     [SerializeField]
@@ -33,6 +33,7 @@ public class PlayerView : View, IGameTargetMoveListener, IGameOnCollisionListene
                 var inputEty = contexts.input.CreateEntity();
                 inputEty.AddTargetEntityID(this.ID);
                 inputEty.AddPosition(_playerTransform.position);
+
             }
 
         });
@@ -59,11 +60,6 @@ public class PlayerView : View, IGameTargetMoveListener, IGameOnCollisionListene
         this.stopDistance = stopDistance;
     }
 
-    public void OnOnCollision (GameEntity entity, uint otherEntityID, CollisionType type)
-    {
-        //react to shit
-    }
-
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         return Observable.Return(true);
@@ -73,14 +69,12 @@ public class PlayerView : View, IGameTargetMoveListener, IGameOnCollisionListene
     {
         var gameEty = (GameEntity)entity;
         gameEty.AddGameTargetMoveListener(this);
-        gameEty.AddGameOnCollisionListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
     {
         var gameEty = (GameEntity)entity;
         gameEty.RemoveGameTargetMoveListener(this);
-        gameEty.RemoveGameOnCollisionListener(this);
     }
 
     protected override void Cleanup ()
@@ -88,5 +82,6 @@ public class PlayerView : View, IGameTargetMoveListener, IGameOnCollisionListene
         base.Cleanup();
         _movement?.Dispose();
     }
+
 }
 

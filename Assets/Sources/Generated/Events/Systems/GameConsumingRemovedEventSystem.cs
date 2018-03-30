@@ -18,7 +18,7 @@ public sealed class GameConsumingRemovedEventSystem : Entitas.ReactiveSystem<Gam
     }
 
     protected override bool Filter(GameEntity entity) {
-        return !entity.isConsuming && entity.hasGameConsumingRemovedListener;
+        return !entity.hasConsuming && entity.hasGameConsumingRemovedListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {

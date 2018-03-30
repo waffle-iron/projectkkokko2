@@ -8,6 +8,6 @@ using Entitas.CodeGeneration.Attributes;
 [Game, Input, Command, Event(true)]
 public sealed class OnCollisionComponent : IComponent
 {
-    public uint id;
+    public uint otherID;
     public CollisionType type;
 }

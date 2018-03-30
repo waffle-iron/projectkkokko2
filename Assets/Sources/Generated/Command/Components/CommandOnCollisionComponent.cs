@@ -11,18 +11,18 @@ public partial class CommandEntity {
     public OnCollisionComponent onCollision { get { return (OnCollisionComponent)GetComponent(CommandComponentsLookup.OnCollision); } }
     public bool hasOnCollision { get { return HasComponent(CommandComponentsLookup.OnCollision); } }
 
-    public void AddOnCollision(uint newId, CollisionType newType) {
+    public void AddOnCollision(uint newOtherID, CollisionType newType) {
         var index = CommandComponentsLookup.OnCollision;
         var component = CreateComponent<OnCollisionComponent>(index);
-        component.id = newId;
+        component.otherID = newOtherID;
         component.type = newType;
         AddComponent(index, component);
     }
 
-    public void ReplaceOnCollision(uint newId, CollisionType newType) {
+    public void ReplaceOnCollision(uint newOtherID, CollisionType newType) {
         var index = CommandComponentsLookup.OnCollision;
         var component = CreateComponent<OnCollisionComponent>(index);
-        component.id = newId;
+        component.otherID = newOtherID;
         component.type = newType;
         ReplaceComponent(index, component);
     }

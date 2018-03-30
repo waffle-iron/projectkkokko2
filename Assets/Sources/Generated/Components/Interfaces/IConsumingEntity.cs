@@ -7,5 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public partial interface IConsumingEntity {
-    bool isConsuming { get; set; }
+
+    ConsumingComponent consuming { get; }
+    bool hasConsuming { get; }
+
+    void AddConsuming(uint newConsumerID, uint newFoodID);
+    void ReplaceConsuming(uint newConsumerID, uint newFoodID);
+    void RemoveConsuming();
 }

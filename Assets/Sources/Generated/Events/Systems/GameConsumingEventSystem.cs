@@ -18,14 +18,14 @@ public sealed class GameConsumingEventSystem : Entitas.ReactiveSystem<GameEntity
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.isConsuming && entity.hasGameConsumingListener;
+        return entity.hasConsuming && entity.hasGameConsumingListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
-            
+            var component = e.consuming;
             foreach (var listener in e.gameConsumingListener.value) {
-                listener.OnConsuming(e);
+                listener.OnConsuming(e, component.consumerID, component.foodID);
             }
         }
     }

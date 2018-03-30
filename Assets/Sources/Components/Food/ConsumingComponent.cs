@@ -8,4 +8,6 @@ using Entitas.CodeGeneration.Attributes;
 [Game, Input, Command, Event(true), Event(true, Entitas.CodeGeneration.Attributes.EventType.Removed)]
 public sealed class ConsumingComponent : IComponent
 {
+    public uint consumerID;
+    public uint foodID;
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Entitas;
@@ -6,17 +7,17 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FoodUIView : View, IGameConsumingListener, IGameConsumingRemovedListener
+public class FoodUIView : View, IGameRemoveFromStorageListener, IGameRemoveFromStorageRemovedListener
 {
     [SerializeField]
     private Image _image;
 
-    public void OnConsuming (GameEntity entity)
+    public void OnRemoveFromStorage (GameEntity entity)
     {
         _image.enabled = false;
     }
 
-    public void OnConsumingRemoved (GameEntity entity)
+    public void OnRemoveFromStorageRemoved (GameEntity entity)
     {
         _image.enabled = true;
     }
@@ -25,7 +26,7 @@ public class FoodUIView : View, IGameConsumingListener, IGameConsumingRemovedLis
     {
         var inputEty = this.contexts.input.CreateEntity();
         inputEty.AddTargetEntityID(this.ID);
-        inputEty.isConsuming = true;
+        inputEty.isRemoveFromStorage = true;
     }
 
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
@@ -45,15 +46,16 @@ public class FoodUIView : View, IGameConsumingListener, IGameConsumingRemovedLis
     protected override void RegisterListeners (IEntity entity, IContext context)
     {
         var gameEtty = (GameEntity)entity;
-        gameEtty.AddGameConsumingListener(this);
-        gameEtty.AddGameConsumingRemovedListener(this);
+        gameEtty.AddGameRemoveFromStorageListener(this);
+        gameEtty.AddGameRemoveFromStorageRemovedListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
     {
         var gameEtty = (GameEntity)entity;
-        gameEtty.RemoveGameConsumingListener(this);
-        gameEtty.RemoveGameConsumingRemovedListener(this);
+        gameEtty.RemoveGameRemoveFromStorageListener(this);
+        gameEtty.RemoveGameRemoveFromStorageRemovedListener(this);
     }
+
 }
 

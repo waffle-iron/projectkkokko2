@@ -11,7 +11,7 @@ public partial interface IOnCollisionEntity {
     OnCollisionComponent onCollision { get; }
     bool hasOnCollision { get; }
 
-    void AddOnCollision(uint newId, CollisionType newType);
-    void ReplaceOnCollision(uint newId, CollisionType newType);
+    void AddOnCollision(uint newOtherID, CollisionType newType);
+    void ReplaceOnCollision(uint newOtherID, CollisionType newType);
     void RemoveOnCollision();
 }

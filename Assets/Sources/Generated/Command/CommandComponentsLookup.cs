@@ -42,52 +42,57 @@ public static class CommandComponentsLookup {
     public const int CommandPreviewRemovedListener = 31;
     public const int CommandPriceListener = 32;
     public const int CommandPurchasedListener = 33;
-    public const int CommandTargetMoveListener = 34;
-    public const int CommandToDestroyListener = 35;
-    public const int CommandToDestroyRemovedListener = 36;
-    public const int CommandTriggerListener = 37;
-    public const int CommandWalletListener = 38;
-    public const int Consuming = 39;
-    public const int CreateEntity = 40;
-    public const int Current = 41;
-    public const int Debug = 42;
-    public const int Deplete = 43;
-    public const int EntityConfigID = 44;
-    public const int Equipped = 45;
-    public const int Food = 46;
-    public const int GameState = 47;
-    public const int ID = 48;
-    public const int InCart = 49;
-    public const int Interval = 50;
-    public const int Load = 51;
-    public const int LoadedViewsComplete = 52;
-    public const int LoadSceneComplete = 53;
-    public const int LoadScene = 54;
-    public const int LoadViews = 55;
-    public const int Max = 56;
-    public const int Moveable = 57;
-    public const int Moving = 58;
-    public const int Need = 59;
-    public const int OnCollision = 60;
-    public const int Pause = 61;
-    public const int Position = 62;
-    public const int PrePurchase = 63;
-    public const int Preview = 64;
-    public const int Price = 65;
-    public const int Purchased = 66;
-    public const int Reset = 67;
-    public const int Save = 68;
-    public const int Targetable = 69;
-    public const int TargetEntityID = 70;
-    public const int TargetMove = 71;
-    public const int TargetNeed = 72;
-    public const int TimerReset = 73;
-    public const int TimerState = 74;
-    public const int ToDestroy = 75;
-    public const int Trigger = 76;
-    public const int Wallet = 77;
+    public const int CommandRemoveFromStorageListener = 34;
+    public const int CommandRemoveFromStorageRemovedListener = 35;
+    public const int CommandTargetMoveListener = 36;
+    public const int CommandToDestroyListener = 37;
+    public const int CommandToDestroyRemovedListener = 38;
+    public const int CommandTriggerListener = 39;
+    public const int CommandWalletListener = 40;
+    public const int Consumed = 41;
+    public const int Consuming = 42;
+    public const int CreateEntity = 43;
+    public const int Current = 44;
+    public const int Debug = 45;
+    public const int DelayDestroy = 46;
+    public const int Deplete = 47;
+    public const int EntityConfigID = 48;
+    public const int Equipped = 49;
+    public const int Food = 50;
+    public const int GameState = 51;
+    public const int ID = 52;
+    public const int InCart = 53;
+    public const int Interval = 54;
+    public const int Load = 55;
+    public const int LoadedViewsComplete = 56;
+    public const int LoadSceneComplete = 57;
+    public const int LoadScene = 58;
+    public const int LoadViews = 59;
+    public const int Max = 60;
+    public const int Moveable = 61;
+    public const int Moving = 62;
+    public const int Need = 63;
+    public const int OnCollision = 64;
+    public const int Pause = 65;
+    public const int Position = 66;
+    public const int PrePurchase = 67;
+    public const int Preview = 68;
+    public const int Price = 69;
+    public const int Purchased = 70;
+    public const int RemoveFromStorage = 71;
+    public const int Reset = 72;
+    public const int Save = 73;
+    public const int Targetable = 74;
+    public const int TargetEntityID = 75;
+    public const int TargetMove = 76;
+    public const int TargetNeed = 77;
+    public const int TimerReset = 78;
+    public const int TimerState = 79;
+    public const int ToDestroy = 80;
+    public const int Trigger = 81;
+    public const int Wallet = 82;
 
-    public const int TotalComponents = 78;
+    public const int TotalComponents = 83;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -124,15 +129,19 @@ public static class CommandComponentsLookup {
         "CommandPreviewRemovedListener",
         "CommandPriceListener",
         "CommandPurchasedListener",
+        "CommandRemoveFromStorageListener",
+        "CommandRemoveFromStorageRemovedListener",
         "CommandTargetMoveListener",
         "CommandToDestroyListener",
         "CommandToDestroyRemovedListener",
         "CommandTriggerListener",
         "CommandWalletListener",
+        "Consumed",
         "Consuming",
         "CreateEntity",
         "Current",
         "Debug",
+        "DelayDestroy",
         "Deplete",
         "EntityConfigID",
         "Equipped",
@@ -157,6 +166,7 @@ public static class CommandComponentsLookup {
         "Preview",
         "Price",
         "Purchased",
+        "RemoveFromStorage",
         "Reset",
         "Save",
         "Targetable",
@@ -205,15 +215,19 @@ public static class CommandComponentsLookup {
         typeof(CommandPreviewRemovedListenerComponent),
         typeof(CommandPriceListenerComponent),
         typeof(CommandPurchasedListenerComponent),
+        typeof(CommandRemoveFromStorageListenerComponent),
+        typeof(CommandRemoveFromStorageRemovedListenerComponent),
         typeof(CommandTargetMoveListenerComponent),
         typeof(CommandToDestroyListenerComponent),
         typeof(CommandToDestroyRemovedListenerComponent),
         typeof(CommandTriggerListenerComponent),
         typeof(CommandWalletListenerComponent),
+        typeof(ConsumedComponent),
         typeof(ConsumingComponent),
         typeof(CreateEntityComponent),
         typeof(CurrentComponent),
         typeof(DebugComponent),
+        typeof(DelayDestroyComponent),
         typeof(DepleteComponent),
         typeof(EntityConfigIDComponent),
         typeof(EquippedComponent),
@@ -238,6 +252,7 @@ public static class CommandComponentsLookup {
         typeof(PreviewComponent),
         typeof(PriceComponent),
         typeof(PurchasedComponent),
+        typeof(RemoveFromStorageComponent),
         typeof(ResetComponent),
         typeof(SaveComponent),
         typeof(TargetableComponent),

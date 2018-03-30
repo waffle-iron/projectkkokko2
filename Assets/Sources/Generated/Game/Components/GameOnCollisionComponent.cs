@@ -11,18 +11,18 @@ public partial class GameEntity {
     public OnCollisionComponent onCollision { get { return (OnCollisionComponent)GetComponent(GameComponentsLookup.OnCollision); } }
     public bool hasOnCollision { get { return HasComponent(GameComponentsLookup.OnCollision); } }
 
-    public void AddOnCollision(uint newId, CollisionType newType) {
+    public void AddOnCollision(uint newOtherID, CollisionType newType) {
         var index = GameComponentsLookup.OnCollision;
         var component = CreateComponent<OnCollisionComponent>(index);
-        component.id = newId;
+        component.otherID = newOtherID;
         component.type = newType;
         AddComponent(index, component);
     }
 
-    public void ReplaceOnCollision(uint newId, CollisionType newType) {
+    public void ReplaceOnCollision(uint newOtherID, CollisionType newType) {
         var index = GameComponentsLookup.OnCollision;
         var component = CreateComponent<OnCollisionComponent>(index);
-        component.id = newId;
+        component.otherID = newOtherID;
         component.type = newType;
         ReplaceComponent(index, component);
     }

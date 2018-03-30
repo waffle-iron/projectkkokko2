@@ -13,6 +13,7 @@ public class FoodConfig : UnityEntityConfig
     [SerializeField]
     [Range(0.00f, 1.00f)]
     private float recovery;
+    
 
     protected override IEntity CustomCreate (Contexts contexts)
     {

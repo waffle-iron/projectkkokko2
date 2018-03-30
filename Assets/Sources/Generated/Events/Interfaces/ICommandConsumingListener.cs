@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ICommandConsumingListener {
-    void OnConsuming(CommandEntity entity);
+    void OnConsuming(CommandEntity entity, uint consumerID, uint foodID);
 }

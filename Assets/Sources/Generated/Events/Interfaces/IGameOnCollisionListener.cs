@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IGameOnCollisionListener {
-    void OnOnCollision(GameEntity entity, uint id, CollisionType type);
+    void OnOnCollision(GameEntity entity, uint otherID, CollisionType type);
 }

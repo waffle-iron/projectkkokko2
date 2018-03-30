@@ -35,7 +35,7 @@ public class CommandCollisionReactiveSystem : ReactiveSystem<CommandEntity>
             //updatedCollisions.RemoveAll(col => col.Type == CollisionType.EXIT);
             //updatedCollisions.AddRange(target.onCollision.data);
 
-            target.ReplaceOnCollision(e.onCollision.id, e.onCollision.type);
+            target.ReplaceOnCollision(e.onCollision.otherID, e.onCollision.type);
         }
     }
 }

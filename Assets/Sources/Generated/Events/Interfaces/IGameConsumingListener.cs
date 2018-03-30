@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IGameConsumingListener {
-    void OnConsuming(GameEntity entity);
+    void OnConsuming(GameEntity entity, uint consumerID, uint foodID);
 }

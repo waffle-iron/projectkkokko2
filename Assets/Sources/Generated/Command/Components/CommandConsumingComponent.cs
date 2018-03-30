@@ -8,25 +8,27 @@
 //------------------------------------------------------------------------------
 public partial class CommandEntity {
 
-    static readonly ConsumingComponent consumingComponent = new ConsumingComponent();
+    public ConsumingComponent consuming { get { return (ConsumingComponent)GetComponent(CommandComponentsLookup.Consuming); } }
+    public bool hasConsuming { get { return HasComponent(CommandComponentsLookup.Consuming); } }
 
-    public bool isConsuming {
-        get { return HasComponent(CommandComponentsLookup.Consuming); }
-        set {
-            if (value != isConsuming) {
-                var index = CommandComponentsLookup.Consuming;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : consumingComponent;
+    public void AddConsuming(uint newConsumerID, uint newFoodID) {
+        var index = CommandComponentsLookup.Consuming;
+        var component = CreateComponent<ConsumingComponent>(index);
+        component.consumerID = newConsumerID;
+        component.foodID = newFoodID;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceConsuming(uint newConsumerID, uint newFoodID) {
+        var index = CommandComponentsLookup.Consuming;
+        var component = CreateComponent<ConsumingComponent>(index);
+        component.consumerID = newConsumerID;
+        component.foodID = newFoodID;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveConsuming() {
+        RemoveComponent(CommandComponentsLookup.Consuming);
     }
 }
 

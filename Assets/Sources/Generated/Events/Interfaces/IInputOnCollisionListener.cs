@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IInputOnCollisionListener {
-    void OnOnCollision(InputEntity entity, uint id, CollisionType type);
+    void OnOnCollision(InputEntity entity, uint otherID, CollisionType type);
 }

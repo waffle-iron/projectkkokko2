@@ -61,9 +61,9 @@ public class MainController : MonoBehaviour
             .Add(new ServiceSystems(contexts, services))
             .Add(new InitializeGeneralSystems(contexts)) //all initialization sa general diri para walay null reference if accessed by custom systems
 
-            .Add(new NeedSystems(contexts))
-            .Add(new ItemSystems(contexts))
             .Add(new FoodSystems(contexts))
+            .Add(new ItemSystems(contexts))
+            .Add(new NeedSystems(contexts))
             .Add(new TargetSystems(contexts))
             .Add(new MoveSystems(contexts))
             .Add(new CollisionSystems(contexts))

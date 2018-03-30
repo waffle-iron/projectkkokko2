@@ -26,11 +26,25 @@ public class DestroySystem : ICleanupSystem
         // Initialization code here
         foreach (var e in _input.GetEntities())
         {
-            e.Destroy();
+            if (e.hasDelayDestroy && e.delayDestroy.frames > 0)
+            {
+                e.ReplaceDelayDestroy(e.delayDestroy.frames - 1);
+            }
+            else
+            {
+                e.Destroy();
+            }
         }
         foreach (var e in _command.GetEntities())
         {
-            e.Destroy();
+            if (e.hasDelayDestroy && e.delayDestroy.frames > 0)
+            {
+                e.ReplaceDelayDestroy(e.delayDestroy.frames - 1);
+            }
+            else
+            {
+                e.Destroy();
+            }
         }
 
         foreach (var e in _game.GetEntities(_gameBuffer))

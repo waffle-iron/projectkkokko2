@@ -4,7 +4,7 @@ using Entitas;
 using System;
 using UniRx;
 
-public class FoodActualView : View, IGameOnCollisionListener
+public class FoodActualView : View, IGameTriggerListener
 {
     [SerializeField]
     private SpriteRenderer _sprite;
@@ -34,9 +34,15 @@ public class FoodActualView : View, IGameOnCollisionListener
         collision.CreateCollisionEntity(contexts, this.ID, CollisionType.EXIT);
     }
 
-    public void OnOnCollision (GameEntity entity, uint otherEntityID, CollisionType type)
+    public void OnTrigger (GameEntity entity, DurationType duration, bool state)
     {
-
+        if (state == true)
+        {
+            var inputEty = contexts.input.CreateEntity();
+            inputEty.AddTargetEntityID(this.ID);
+            inputEty.isConsumed = true;
+            inputEty.AddDelayDestroy(1);
+        }
     }
 
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
@@ -58,13 +64,13 @@ public class FoodActualView : View, IGameOnCollisionListener
     protected override void RegisterListeners (IEntity entity, IContext context)
     {
         var gameEty = ((GameEntity)entity);
-        gameEty.AddGameOnCollisionListener(this);
+        gameEty.AddGameTriggerListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
     {
         var gameEty = ((GameEntity)entity);
-        gameEty.RemoveGameOnCollisionListener(this);
+        gameEty.RemoveGameTriggerListener(this);
     }
 
 }

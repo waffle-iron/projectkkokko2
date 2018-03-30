@@ -8,25 +8,27 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly ConsumingComponent consumingComponent = new ConsumingComponent();
+    public ConsumingComponent consuming { get { return (ConsumingComponent)GetComponent(GameComponentsLookup.Consuming); } }
+    public bool hasConsuming { get { return HasComponent(GameComponentsLookup.Consuming); } }
 
-    public bool isConsuming {
-        get { return HasComponent(GameComponentsLookup.Consuming); }
-        set {
-            if (value != isConsuming) {
-                var index = GameComponentsLookup.Consuming;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : consumingComponent;
+    public void AddConsuming(uint newConsumerID, uint newFoodID) {
+        var index = GameComponentsLookup.Consuming;
+        var component = CreateComponent<ConsumingComponent>(index);
+        component.consumerID = newConsumerID;
+        component.foodID = newFoodID;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceConsuming(uint newConsumerID, uint newFoodID) {
+        var index = GameComponentsLookup.Consuming;
+        var component = CreateComponent<ConsumingComponent>(index);
+        component.consumerID = newConsumerID;
+        component.foodID = newFoodID;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveConsuming() {
+        RemoveComponent(GameComponentsLookup.Consuming);
     }
 }
 

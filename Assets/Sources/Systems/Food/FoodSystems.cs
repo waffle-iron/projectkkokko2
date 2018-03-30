@@ -8,7 +8,16 @@ public class FoodSystems : Feature
     public FoodSystems (Contexts contexts) : base("Food Systems")
     {
         //Add(system here);
-        Add(new ConsumeInputReactiveSystem(contexts));
-        Add(new CommandConsumeReactiveSystem(contexts));
+
+        Add(new RemoveFromStorageInputReactiveSystem(contexts));
+        Add(new ConsumedCompleteInputReactiveSystem(contexts));
+
+        Add(new CommandRemoveFromStorageReactiveSystem(contexts));
+        Add(new ConsumedCompleteCommandReactiveSystem(contexts));
+
+        Add(new FoodTimerReactiveSystem(contexts));
+        Add(new FoodTriggeredReactiveSystem(contexts));
+
+        Add(new FoodConsumingOnPlayerCollisionReactiveSystem(contexts));
     }
 }

@@ -18,14 +18,14 @@ public sealed class CommandConsumingEventSystem : Entitas.ReactiveSystem<Command
     }
 
     protected override bool Filter(CommandEntity entity) {
-        return entity.isConsuming && entity.hasCommandConsumingListener;
+        return entity.hasConsuming && entity.hasCommandConsumingListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<CommandEntity> entities) {
         foreach (var e in entities) {
-            
+            var component = e.consuming;
             foreach (var listener in e.commandConsumingListener.value) {
-                listener.OnConsuming(e);
+                listener.OnConsuming(e, component.consumerID, component.foodID);
             }
         }
     }

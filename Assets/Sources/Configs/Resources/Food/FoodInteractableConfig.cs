@@ -7,6 +7,8 @@ public class FoodInteractableConfig : UnityEntityConfig
 {
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private DurationType eatTime;
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
@@ -14,6 +16,8 @@ public class FoodInteractableConfig : UnityEntityConfig
         gameEty.isCollidable = true;
         gameEty.AddMoveable(speed);
         gameEty.isTargetable = true;
+        gameEty.AddTimer(0f);
+        gameEty.AddTrigger(eatTime, false);
 
         return gameEty;
     }

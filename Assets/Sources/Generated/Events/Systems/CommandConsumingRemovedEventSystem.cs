@@ -18,7 +18,7 @@ public sealed class CommandConsumingRemovedEventSystem : Entitas.ReactiveSystem<
     }
 
     protected override bool Filter(CommandEntity entity) {
-        return !entity.isConsuming && entity.hasCommandConsumingRemovedListener;
+        return !entity.hasConsuming && entity.hasCommandConsumingRemovedListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<CommandEntity> entities) {

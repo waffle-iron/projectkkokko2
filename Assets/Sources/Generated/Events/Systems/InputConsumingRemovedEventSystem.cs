@@ -18,7 +18,7 @@ public sealed class InputConsumingRemovedEventSystem : Entitas.ReactiveSystem<In
     }
 
     protected override bool Filter(InputEntity entity) {
-        return !entity.isConsuming && entity.hasInputConsumingRemovedListener;
+        return !entity.hasConsuming && entity.hasInputConsumingRemovedListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<InputEntity> entities) {
