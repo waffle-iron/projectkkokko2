@@ -87,6 +87,20 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
     protected virtual void Awake () { }
     protected virtual void Start () { }
     protected virtual void Update () { }
+    protected virtual void FixedUpdate () { }
+    protected virtual void LateUpdate () { }
+    protected virtual void OnTriggerEnter (Collider other) { }
+    protected virtual void OnTriggerStay (Collider other) { }
+    protected virtual void OnTriggerExit (Collider other) { }
+    protected virtual void OnTriggerEnter2D (Collider2D collision) { }
+    protected virtual void OnTriggerStay2D (Collider2D collision) { }
+    protected virtual void OnTriggerExit2D (Collider2D collision) { }
+    protected virtual void OnCollisionEnter (Collision collision) { }
+    protected virtual void OnCollisionStay (Collision collision) { }
+    protected virtual void OnCollisionExit (Collision collision) { }
+    protected virtual void OnCollisionEnter2D (Collision2D collision) { }
+    protected virtual void OnCollisionStay2D (Collision2D collision) { }
+    protected virtual void OnCollisionExit2D (Collision2D collision) { }
     protected virtual void OnEnable () { }
     protected virtual void OnDisable () { }
     protected virtual void OnDestroy ()

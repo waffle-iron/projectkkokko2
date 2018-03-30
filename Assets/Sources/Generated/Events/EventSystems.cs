@@ -73,6 +73,9 @@ public sealed class EventSystems : Feature {
         Add(new GameNeedEventSystem(contexts)); // priority: 0
         Add(new InputNeedEventSystem(contexts)); // priority: 0
         Add(new CommandNeedEventSystem(contexts)); // priority: 0
+        Add(new GameOnCollisionEventSystem(contexts)); // priority: 0
+        Add(new InputOnCollisionEventSystem(contexts)); // priority: 0
+        Add(new CommandOnCollisionEventSystem(contexts)); // priority: 0
         Add(new GamePauseEventSystem(contexts)); // priority: 0
         Add(new InputPauseEventSystem(contexts)); // priority: 0
         Add(new CommandPauseEventSystem(contexts)); // priority: 0
