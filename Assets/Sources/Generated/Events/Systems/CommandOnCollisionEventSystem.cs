@@ -25,7 +25,7 @@ public sealed class CommandOnCollisionEventSystem : Entitas.ReactiveSystem<Comma
         foreach (var e in entities) {
             var component = e.onCollision;
             foreach (var listener in e.commandOnCollisionListener.value) {
-                listener.OnOnCollision(e, component.otherEntityID, component.type);
+                listener.OnOnCollision(e, component.id, component.type);
             }
         }
     }

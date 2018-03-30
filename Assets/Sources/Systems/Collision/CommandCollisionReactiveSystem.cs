@@ -30,7 +30,12 @@ public class CommandCollisionReactiveSystem : ReactiveSystem<CommandEntity>
         {
             var target = _game.GetEntityWithID(e.targetEntityID.value);
 
-            target.ReplaceOnCollision(e.onCollision.otherEntityID, e.onCollision.type);
+            //var updatedCollisions = target.hasOnCollision ? new List<CollisionData>() : target.onCollision.data;
+
+            //updatedCollisions.RemoveAll(col => col.Type == CollisionType.EXIT);
+            //updatedCollisions.AddRange(target.onCollision.data);
+
+            target.ReplaceOnCollision(e.onCollision.id, e.onCollision.type);
         }
     }
 }

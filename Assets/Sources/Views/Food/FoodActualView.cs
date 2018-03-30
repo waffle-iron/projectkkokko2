@@ -4,7 +4,7 @@ using Entitas;
 using System;
 using UniRx;
 
-public class FoodActualView : View
+public class FoodActualView : View, IGameOnCollisionListener
 {
     [SerializeField]
     private SpriteRenderer _sprite;
@@ -12,6 +12,32 @@ public class FoodActualView : View
     private Transform _leftBound;
     [SerializeField]
     private Transform _rightBound;
+
+    protected override void Update ()
+    {
+        base.Update();
+
+        var inputEty = contexts.input.CreateEntity();
+        inputEty.AddTargetEntityID(this.ID);
+        inputEty.AddPosition(_sprite.transform.position);
+    }
+
+    protected override void OnTriggerEnter2D (Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        collision.CreateCollisionEntity(contexts, this.ID, CollisionType.ENTER);
+    }
+
+    protected override void OnTriggerExit2D (Collider2D collision)
+    {
+        base.OnTriggerExit2D(collision);
+        collision.CreateCollisionEntity(contexts, this.ID, CollisionType.EXIT);
+    }
+
+    public void OnOnCollision (GameEntity entity, uint otherEntityID, CollisionType type)
+    {
+
+    }
 
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
@@ -32,20 +58,13 @@ public class FoodActualView : View
     protected override void RegisterListeners (IEntity entity, IContext context)
     {
         var gameEty = ((GameEntity)entity);
-
+        gameEty.AddGameOnCollisionListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
     {
         var gameEty = ((GameEntity)entity);
+        gameEty.RemoveGameOnCollisionListener(this);
     }
 
-    protected override void Update ()
-    {
-        base.Update();
-
-        var inputEty = contexts.input.CreateEntity();
-        inputEty.AddTargetEntityID(this.ID);
-        inputEty.AddPosition(_sprite.transform.position);
-    }
 }

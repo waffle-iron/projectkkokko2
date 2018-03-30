@@ -17,26 +17,26 @@ public class GenerateIDSystem : IInitializeSystem, ITearDownSystem
     {
         _contexts.game.SetCurrentID(1);
 
-        foreach (var context in _contexts.allContexts)
+        //foreach (var context in _contexts.allContexts)
+        //{
+        if (_contexts.game.contextInfo.componentTypes.Contains(typeof(IDComponent)))
         {
-            if (context.contextInfo.componentTypes.Contains(typeof(IDComponent)))
-            {
-                context.OnEntityCreated += AddId;
-            }
+            _contexts.game.OnEntityCreated += AddId;
         }
+        //}
     }
 
     public void TearDown ()
     {
         _contexts.game.RemoveCurrentID();
 
-        foreach (var context in _contexts.allContexts)
+        //foreach (var context in _contexts.allContexts)
+        //{
+        if (_contexts.game.contextInfo.componentTypes.Contains(typeof(IDComponent)))
         {
-            if (context.contextInfo.componentTypes.Contains(typeof(IDComponent)))
-            {
-                context.OnEntityCreated -= AddId;
-            }
+            _contexts.game.OnEntityCreated -= AddId;
         }
+        //}
     }
 
     private void AddId (IContext context, IEntity entity)

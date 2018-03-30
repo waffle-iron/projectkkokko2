@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ICommandOnCollisionListener {
-    void OnOnCollision(CommandEntity entity, uint otherEntityID, CollisionType type);
+    void OnOnCollision(CommandEntity entity, uint id, CollisionType type);
 }

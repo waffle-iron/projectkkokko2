@@ -5,7 +5,7 @@ using Spine.Unity;
 using UnityEngine;
 using UniRx;
 
-public class PlayerView : View, IGameTargetMoveListener
+public class PlayerView : View, IGameTargetMoveListener, IGameOnCollisionListener
 {
     public SpineSkeleton _player;
     [SerializeField]
@@ -38,10 +38,16 @@ public class PlayerView : View, IGameTargetMoveListener
         });
     }
 
-    protected override void OnDestroy ()
+    protected override void OnTriggerEnter2D (Collider2D collision)
     {
-        base.OnDestroy();
-        _movement.Dispose();
+        base.OnTriggerEnter2D(collision);
+        collision.CreateCollisionEntity(contexts, this.ID, CollisionType.ENTER);
+    }
+
+    protected override void OnTriggerExit2D (Collider2D collision)
+    {
+        base.OnTriggerExit2D(collision);
+        collision.CreateCollisionEntity(contexts, this.ID, CollisionType.EXIT);
     }
 
     public void OnTargetMove (GameEntity entity, Vector3 position, float stopDistance)
@@ -53,6 +59,11 @@ public class PlayerView : View, IGameTargetMoveListener
         this.stopDistance = stopDistance;
     }
 
+    public void OnOnCollision (GameEntity entity, uint otherEntityID, CollisionType type)
+    {
+        //react to shit
+    }
+
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         return Observable.Return(true);
@@ -62,12 +73,14 @@ public class PlayerView : View, IGameTargetMoveListener
     {
         var gameEty = (GameEntity)entity;
         gameEty.AddGameTargetMoveListener(this);
+        gameEty.AddGameOnCollisionListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
     {
         var gameEty = (GameEntity)entity;
         gameEty.RemoveGameTargetMoveListener(this);
+        gameEty.RemoveGameOnCollisionListener(this);
     }
 
     protected override void Cleanup ()

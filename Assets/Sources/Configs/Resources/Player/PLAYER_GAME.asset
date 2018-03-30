@@ -21,3 +21,4 @@ MonoBehaviour:
     fakeValueActive: 0
   _loadOnStart: 0
   _speed: 1
+  _stopDistance: 0.5

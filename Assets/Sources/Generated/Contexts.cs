@@ -114,13 +114,13 @@ public partial class Contexts {
             ID,
             game.GetGroup(GameMatcher.ID),
             (e, c) => ((IDComponent)c).value));
-        input.AddEntityIndex(new Entitas.PrimaryEntityIndex<InputEntity, uint>(
-            ID,
-            input.GetGroup(InputMatcher.ID),
-            (e, c) => ((IDComponent)c).value));
         command.AddEntityIndex(new Entitas.PrimaryEntityIndex<CommandEntity, uint>(
             ID,
             command.GetGroup(CommandMatcher.ID),
+            (e, c) => ((IDComponent)c).value));
+        input.AddEntityIndex(new Entitas.PrimaryEntityIndex<InputEntity, uint>(
+            ID,
+            input.GetGroup(InputMatcher.ID),
             (e, c) => ((IDComponent)c).value));
 
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, NeedType>(
@@ -185,12 +185,12 @@ public static class ContextsExtensions {
         return ((Entitas.PrimaryEntityIndex<GameEntity, uint>)context.GetEntityIndex(Contexts.ID)).GetEntity(value);
     }
 
-    public static InputEntity GetEntityWithID(this InputContext context, uint value) {
-        return ((Entitas.PrimaryEntityIndex<InputEntity, uint>)context.GetEntityIndex(Contexts.ID)).GetEntity(value);
-    }
-
     public static CommandEntity GetEntityWithID(this CommandContext context, uint value) {
         return ((Entitas.PrimaryEntityIndex<CommandEntity, uint>)context.GetEntityIndex(Contexts.ID)).GetEntity(value);
+    }
+
+    public static InputEntity GetEntityWithID(this InputContext context, uint value) {
+        return ((Entitas.PrimaryEntityIndex<InputEntity, uint>)context.GetEntityIndex(Contexts.ID)).GetEntity(value);
     }
 
     public static GameEntity GetEntityWithNeed(this GameContext context, NeedType type) {

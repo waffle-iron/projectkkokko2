@@ -20,6 +20,7 @@ public class PlayerConfig : UnityEntityConfig
         gameEty.isPlayer = true;
         gameEty.AddMoveable(_speed);
         gameEty.AddFollowTarget(_stopDistance);
+        gameEty.isCollidable = true;
 
         return gameEty;
     }
