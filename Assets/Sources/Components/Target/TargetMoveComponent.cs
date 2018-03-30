@@ -9,4 +9,5 @@ using Entitas.CodeGeneration.Attributes;
 public sealed class TargetMoveComponent : IComponent
 {
     public Vector3 position;
+    public float stopDistance;
 }

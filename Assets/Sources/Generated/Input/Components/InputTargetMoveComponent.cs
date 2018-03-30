@@ -11,17 +11,19 @@ public partial class InputEntity {
     public TargetMoveComponent targetMove { get { return (TargetMoveComponent)GetComponent(InputComponentsLookup.TargetMove); } }
     public bool hasTargetMove { get { return HasComponent(InputComponentsLookup.TargetMove); } }
 
-    public void AddTargetMove(UnityEngine.Vector3 newPosition) {
+    public void AddTargetMove(UnityEngine.Vector3 newPosition, float newStopDistance) {
         var index = InputComponentsLookup.TargetMove;
         var component = CreateComponent<TargetMoveComponent>(index);
         component.position = newPosition;
+        component.stopDistance = newStopDistance;
         AddComponent(index, component);
     }
 
-    public void ReplaceTargetMove(UnityEngine.Vector3 newPosition) {
+    public void ReplaceTargetMove(UnityEngine.Vector3 newPosition, float newStopDistance) {
         var index = InputComponentsLookup.TargetMove;
         var component = CreateComponent<TargetMoveComponent>(index);
         component.position = newPosition;
+        component.stopDistance = newStopDistance;
         ReplaceComponent(index, component);
     }
 

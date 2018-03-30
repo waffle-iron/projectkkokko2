@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IInputTargetMoveListener {
-    void OnTargetMove(InputEntity entity, UnityEngine.Vector3 position);
+    void OnTargetMove(InputEntity entity, UnityEngine.Vector3 position, float stopDistance);
 }

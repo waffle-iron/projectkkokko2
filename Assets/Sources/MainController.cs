@@ -64,6 +64,7 @@ public class MainController : MonoBehaviour
             .Add(new NeedSystems(contexts))
             .Add(new ItemSystems(contexts))
             .Add(new FoodSystems(contexts))
+            .Add(new TargetSystems(contexts))
             .Add(new MoveSystems(contexts))
             .Add(new CollisionSystems(contexts))
 

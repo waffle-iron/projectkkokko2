@@ -11,7 +11,7 @@ public partial interface ITargetMoveEntity {
     TargetMoveComponent targetMove { get; }
     bool hasTargetMove { get; }
 
-    void AddTargetMove(UnityEngine.Vector3 newPosition);
-    void ReplaceTargetMove(UnityEngine.Vector3 newPosition);
+    void AddTargetMove(UnityEngine.Vector3 newPosition, float newStopDistance);
+    void ReplaceTargetMove(UnityEngine.Vector3 newPosition, float newStopDistance);
     void RemoveTargetMove();
 }

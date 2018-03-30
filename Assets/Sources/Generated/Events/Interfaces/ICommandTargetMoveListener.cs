@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ICommandTargetMoveListener {
-    void OnTargetMove(CommandEntity entity, UnityEngine.Vector3 position);
+    void OnTargetMove(CommandEntity entity, UnityEngine.Vector3 position, float stopDistance);
 }

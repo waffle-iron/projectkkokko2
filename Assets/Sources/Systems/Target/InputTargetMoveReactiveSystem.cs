@@ -38,7 +38,7 @@ public class InputTargetMoveReactiveSystem : ReactiveSystem<InputEntity>
             {
                 var cmd = _cmd.CreateEntity();
                 cmd.AddTargetEntityID(e.targetEntityID.value);
-                cmd.AddTargetMove(e.targetMove.position);
+                cmd.AddTargetMove(e.targetMove.position, e.targetMove.stopDistance);
             }
         }
     }

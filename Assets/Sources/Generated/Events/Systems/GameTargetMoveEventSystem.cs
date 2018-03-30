@@ -25,7 +25,7 @@ public sealed class GameTargetMoveEventSystem : Entitas.ReactiveSystem<GameEntit
         foreach (var e in entities) {
             var component = e.targetMove;
             foreach (var listener in e.gameTargetMoveListener.value) {
-                listener.OnTargetMove(e, component.position);
+                listener.OnTargetMove(e, component.position, component.stopDistance);
             }
         }
     }

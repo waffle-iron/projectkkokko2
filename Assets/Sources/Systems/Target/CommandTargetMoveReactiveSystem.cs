@@ -29,7 +29,7 @@ public class CommandTargetMoveReactiveSystem : ReactiveSystem<CommandEntity>
         foreach (var e in entities)
         {
             var target = _game.GetEntityWithID(e.targetEntityID.value);
-            target.ReplaceTargetMove(e.targetMove.position);
+            target.ReplaceTargetMove(e.targetMove.position, e.targetMove.stopDistance);
         }
     }
 }

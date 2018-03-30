@@ -65,7 +65,11 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
         if (_initObservable != null) { _initObservable.Dispose(); }
         if (EntityLink != null && EntityLink.entity != null)
         {
-            if (_isInitialized) { UnregisterListeners(EntityLink.entity, EntityLink.context); }
+            if (_isInitialized)
+            {
+                Cleanup();
+                UnregisterListeners(EntityLink.entity, EntityLink.context);
+            }
             //Debug.Log(this.name);
             //((GameEntity)EntityLink.entity).RemoveGameToDestroyListener(this);
             EntityLink.Unlink();
@@ -79,6 +83,7 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
     protected abstract void UnregisterListeners (IEntity entity, IContext context);
     protected abstract IObservable<bool> Initialize (IEntity entity, IContext context);
 
+    protected virtual void Cleanup () { }
     protected virtual void Awake () { }
     protected virtual void Start () { }
     protected virtual void Update () { }

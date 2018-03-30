@@ -9,12 +9,17 @@ public class PlayerConfig : UnityEntityConfig
     [SerializeField]
     private float _speed;
 
+    [Header("Target Settings")]
+    [SerializeField]
+    private float _stopDistance;
+
     protected override IEntity CustomCreate (Contexts contexts)
     {
         var gameEty = contexts.game.CreateEntity();
 
         gameEty.isPlayer = true;
         gameEty.AddMoveable(_speed);
+        gameEty.AddFollowTarget(_stopDistance);
 
         return gameEty;
     }

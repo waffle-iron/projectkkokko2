@@ -13,6 +13,7 @@ public class FoodInteractableConfig : UnityEntityConfig
         var gameEty = contexts.game.CreateEntity();
         gameEty.isCollidable = true;
         gameEty.AddMoveable(speed);
+        gameEty.isTargetable = true;
 
         return gameEty;
     }

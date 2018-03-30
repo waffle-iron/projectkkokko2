@@ -15,25 +15,42 @@ public class PlayerView : View, IGameTargetMoveListener
 
     private IDisposable _movement;
 
-    public void OnTargetMove (GameEntity entity, Vector3 position)
+    private Vector3 targetPosition = Vector3.zero;
+    private float stopDistance = 0;
+
+    protected override void Start ()
     {
-        if (_movement != null) { _movement.Dispose(); }
+        base.Start();
 
-        _speed = entity?.moveable.speed ?? _speed;
-        var targetPosition = _playerTransform.position;
-        targetPosition.x = position.x;
-
+        //initialize movement on start
         _movement = Observable.EveryUpdate().Subscribe(_ =>
         {
-            _playerTransform.position = Vector3.MoveTowards(_playerTransform.position, targetPosition, _speed * Time.deltaTime);
 
-            var inputEty = contexts.input.CreateEntity();
-            inputEty.AddTargetEntityID(this.ID);
-            inputEty.AddPosition(_playerTransform.position);
+            if (Mathf.Abs(_playerTransform.position.x - targetPosition.x) > stopDistance)
+            {
+                _playerTransform.position = Vector3.MoveTowards(_playerTransform.position, targetPosition, _speed * Time.deltaTime);
 
-            if (Mathf.Abs(_playerTransform.position.x - targetPosition.x) < 0.1f) { _movement.Dispose(); }
+                var inputEty = contexts.input.CreateEntity();
+                inputEty.AddTargetEntityID(this.ID);
+                inputEty.AddPosition(_playerTransform.position);
+            }
 
         });
+    }
+
+    protected override void OnDestroy ()
+    {
+        base.OnDestroy();
+        _movement.Dispose();
+    }
+
+    public void OnTargetMove (GameEntity entity, Vector3 position, float stopDistance)
+    {
+        _speed = entity?.moveable.speed ?? _speed;
+        var newPos = _playerTransform.position;
+        newPos.x = position.x;
+        this.targetPosition = newPos;
+        this.stopDistance = stopDistance;
     }
 
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
@@ -51,6 +68,12 @@ public class PlayerView : View, IGameTargetMoveListener
     {
         var gameEty = (GameEntity)entity;
         gameEty.RemoveGameTargetMoveListener(this);
+    }
+
+    protected override void Cleanup ()
+    {
+        base.Cleanup();
+        _movement?.Dispose();
     }
 }
 

@@ -25,7 +25,7 @@ public sealed class CommandTargetMoveEventSystem : Entitas.ReactiveSystem<Comman
         foreach (var e in entities) {
             var component = e.targetMove;
             foreach (var listener in e.commandTargetMoveListener.value) {
-                listener.OnTargetMove(e, component.position);
+                listener.OnTargetMove(e, component.position, component.stopDistance);
             }
         }
     }

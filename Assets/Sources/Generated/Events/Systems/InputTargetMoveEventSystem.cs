@@ -25,7 +25,7 @@ public sealed class InputTargetMoveEventSystem : Entitas.ReactiveSystem<InputEnt
         foreach (var e in entities) {
             var component = e.targetMove;
             foreach (var listener in e.inputTargetMoveListener.value) {
-                listener.OnTargetMove(e, component.position);
+                listener.OnTargetMove(e, component.position, component.stopDistance);
             }
         }
     }
