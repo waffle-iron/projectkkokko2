@@ -35,9 +35,19 @@ public class NeedCommandReactiveSystem : ReactiveSystem<CommandEntity>
 
             //reset triggered need and timer
             target.ReplaceTrigger(target.trigger.duration, false);
-            var input = _input.CreateEntity();
-            input.AddTargetEntityID(target.iD.value);
-            input.isTimerReset = true;
+
+            if (e.hasFood)
+            {
+                Debug.Log($"reduced timer {target.timer.current} by {(target.trigger.duration.GetInSeconds() * e.food.recovery)} ");
+                target.ReplaceTimer(target.timer.current - (target.trigger.duration.GetInSeconds() * e.food.recovery));
+                Debug.Log($"current timer {target.timer.current} ");
+            }
+            else
+            {
+                var input = _input.CreateEntity();
+                input.AddTargetEntityID(target.iD.value);
+                input.isTimerReset = true;
+            }
 
             //increase value of the targeted need of the triggered need
             var newValue = targetOfTarget.current.amount + e.reset.restoreAmount;

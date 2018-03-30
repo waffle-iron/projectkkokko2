@@ -21,3 +21,6 @@ MonoBehaviour:
     fakeValueActive: 0
   _loadOnStart: 0
   speed: 2
+  eatTime:
+    length: 10
+    unit: 1

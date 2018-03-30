@@ -67,7 +67,6 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
         {
             if (_isInitialized)
             {
-                Cleanup();
                 UnregisterListeners(EntityLink.entity, EntityLink.context);
             }
             //Debug.Log(this.name);
@@ -75,6 +74,7 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
             EntityLink.Unlink();
             EntityLink = null;
             //return to pool by falsing
+            Cleanup();
             this.gameObject.SetActive(false);
         }
     }

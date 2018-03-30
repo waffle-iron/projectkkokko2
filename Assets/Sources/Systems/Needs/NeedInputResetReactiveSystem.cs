@@ -31,7 +31,7 @@ public class NeedInputReactiveSystem : ReactiveSystem<InputEntity>
         foreach (var e in entities)
         {
             var target = _game.GetEntityWithNeed(e.targetNeed.type);
-            if (target != null && target.isAnimating == false && 
+            if (target != null && target.isAnimating == false &&
                 target.hasTargetNeed && target.hasTrigger && target.trigger.state == true
                 && target.need.action == e.action.type)
             {
@@ -42,6 +42,10 @@ public class NeedInputReactiveSystem : ReactiveSystem<InputEntity>
                     var cmdEntity = _cmd.CreateEntity();
                     cmdEntity.AddTargetNeed(e.targetNeed.type);
                     cmdEntity.AddReset(e.reset.restoreAmount);
+                    if (e.hasFood)
+                    {
+                        cmdEntity.AddFood(e.food.id, e.food.recovery);
+                    }
                 }
             }
         }
