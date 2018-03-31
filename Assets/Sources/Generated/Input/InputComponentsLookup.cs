@@ -89,10 +89,11 @@ public static class InputComponentsLookup {
     public const int TimerReset = 78;
     public const int TimerState = 79;
     public const int ToDestroy = 80;
-    public const int Trigger = 81;
-    public const int Wallet = 82;
+    public const int TouchPhase = 81;
+    public const int Trigger = 82;
+    public const int Wallet = 83;
 
-    public const int TotalComponents = 83;
+    public const int TotalComponents = 84;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -176,6 +177,7 @@ public static class InputComponentsLookup {
         "TimerReset",
         "TimerState",
         "ToDestroy",
+        "TouchPhase",
         "Trigger",
         "Wallet"
     };
@@ -262,6 +264,7 @@ public static class InputComponentsLookup {
         typeof(TimerResetComponent),
         typeof(TimerStateComponent),
         typeof(ToDestroyComponent),
+        typeof(TouchPhaseComponent),
         typeof(TriggerComponent),
         typeof(WalletComponent)
     };

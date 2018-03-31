@@ -94,26 +94,28 @@ public static class GameComponentsLookup {
     public const int Purchased = 83;
     public const int ReloadEquipment = 84;
     public const int RemoveFromStorage = 85;
-    public const int SaveID = 86;
-    public const int Saving = 87;
-    public const int SavingListener = 88;
-    public const int SavingRemovedListener = 89;
-    public const int SceneInitConfig = 90;
-    public const int Targetable = 91;
-    public const int TargetEntityID = 92;
-    public const int TargetMove = 93;
-    public const int TargetNeed = 94;
-    public const int Timer = 95;
-    public const int TimerReset = 96;
-    public const int TimerState = 97;
-    public const int ToDestroy = 98;
-    public const int Trigger = 99;
-    public const int View = 100;
-    public const int ViewListener = 101;
-    public const int ViewRemovedListener = 102;
-    public const int Wallet = 103;
+    public const int Return = 86;
+    public const int SaveID = 87;
+    public const int Saving = 88;
+    public const int SavingListener = 89;
+    public const int SavingRemovedListener = 90;
+    public const int SceneInitConfig = 91;
+    public const int Targetable = 92;
+    public const int TargetEntityID = 93;
+    public const int TargetMove = 94;
+    public const int TargetNeed = 95;
+    public const int Timer = 96;
+    public const int TimerReset = 97;
+    public const int TimerState = 98;
+    public const int ToDestroy = 99;
+    public const int TouchPhase = 100;
+    public const int Trigger = 101;
+    public const int View = 102;
+    public const int ViewListener = 103;
+    public const int ViewRemovedListener = 104;
+    public const int Wallet = 105;
 
-    public const int TotalComponents = 104;
+    public const int TotalComponents = 106;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -202,6 +204,7 @@ public static class GameComponentsLookup {
         "Purchased",
         "ReloadEquipment",
         "RemoveFromStorage",
+        "Return",
         "SaveID",
         "Saving",
         "SavingListener",
@@ -215,6 +218,7 @@ public static class GameComponentsLookup {
         "TimerReset",
         "TimerState",
         "ToDestroy",
+        "TouchPhase",
         "Trigger",
         "View",
         "ViewListener",
@@ -309,6 +313,7 @@ public static class GameComponentsLookup {
         typeof(PurchasedComponent),
         typeof(ReloadEquipmentComponent),
         typeof(RemoveFromStorageComponent),
+        typeof(ReturnComponent),
         typeof(SaveIDComponent),
         typeof(SavingComponent),
         typeof(SavingListenerComponent),
@@ -322,6 +327,7 @@ public static class GameComponentsLookup {
         typeof(TimerResetComponent),
         typeof(TimerStateComponent),
         typeof(ToDestroyComponent),
+        typeof(TouchPhaseComponent),
         typeof(TriggerComponent),
         typeof(ViewComponent),
         typeof(ViewListenerComponent),
