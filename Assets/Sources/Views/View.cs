@@ -36,7 +36,8 @@ public abstract class View : MonoBehaviour, IView, IGameToDestroyListener
 
         _id = ((IIDEntity)entity).iD.value;
 
-        if (Instance.GetEntityLink() != null)
+        //for multiple views on the same entity
+        if (Instance.GetEntityLink() != null && Instance.GetEntityLink().entity != null)
         {
             EntityLink = Instance.GetEntityLink();
         }

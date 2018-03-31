@@ -22,6 +22,7 @@ public class FoodCollisionReturnReactiveSystem : ReactiveSystem<GameEntity>
     {
         // check for required components
         return entity.hasOnCollision &&
+            entity.onCollision.type == CollisionType.ENTER &&
             entity.hasTouchPhase &&
             entity.touchPhase.current == TouchPhase.Ended &&
             entity.hasFood &&
