@@ -37,6 +37,13 @@ public class TouchdataInputReactiveSystem : ReactiveSystem<InputEntity>
 
             if (target != null)
             {
+                //skip if beyond touch time gap
+                if (target.hasTouchTimeGap &&
+                    target.hasTouchData && 
+                    target.touchData.current.Phase == TouchPhase.Began &&
+                    e.touchData.current.Phase == TouchPhase.Ended &&
+                    (e.touchData.current.TouchTime - target.touchData.current.TouchTime) > target.touchTimeGap.value) { continue; }
+
                 var cmdEty = _cmd.CreateEntity();
                 cmdEty.AddTargetEntityID(e.targetEntityID.value);
                 cmdEty.AddTouchData(e.touchData.current);

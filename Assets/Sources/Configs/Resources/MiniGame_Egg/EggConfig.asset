@@ -20,5 +20,6 @@ MonoBehaviour:
     fakeValue: 
     fakeValueActive: 0
   _loadOnStart: 0
-  force: 10
+  force: 30
   minDistance: 1
+  _maxTouchTime: 0.25

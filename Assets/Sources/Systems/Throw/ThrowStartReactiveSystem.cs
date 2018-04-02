@@ -39,7 +39,7 @@ public class ThrowStartReactiveSystem : ReactiveSystem<GameEntity>
             if (Vector2.Distance(endPos, e.origin.current) > e.canThrow.minDistance)
             {
                 var direction = endPos - e.origin.current;
-                e.ReplaceVelocity(direction * e.canThrow.force);
+                e.ReplaceVelocity(direction.normalized * e.canThrow.force);
             }
         }
     }

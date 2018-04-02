@@ -16,7 +16,7 @@ class DefaultTouchDataInstanceCreator : IDefaultInstanceCreator, ITypeDrawer
     public object CreateDefault (Type type)
     {
         // TODO return an instance of type CodeStage.AntiCheat.ObscuredTypes.ObscuredInt
-        var data = new TouchData(-1, Vector3.zero, Vector3.zero, TouchPhase.Canceled, null);
+        var data = new TouchData(-1, Vector3.zero, Vector3.zero, TouchPhase.Canceled, 0, null);
         return data;
     }
 
@@ -28,7 +28,7 @@ class DefaultTouchDataInstanceCreator : IDefaultInstanceCreator, ITypeDrawer
         var newScreenPos = EditorGUILayout.Vector3Field("ScreenPos", obj.ScreenPosition);
         var newWorldPos = EditorGUILayout.Vector3Field("WorldPos", obj.WorldPosition);
         var newPhase = EditorGUILayout.EnumPopup("Phase", obj.Phase);
-
+        var newTime = EditorGUILayout.DoubleField("Touch Time", obj.TouchTime);
         if (obj.Hits == null || obj.Hits.Length == 0)
         {
             EditorGUILayout.LabelField("Raycasts", 0.ToString());
@@ -38,12 +38,12 @@ class DefaultTouchDataInstanceCreator : IDefaultInstanceCreator, ITypeDrawer
             var list = "";
             foreach (var hit in obj.Hits)
             {
-                list += $"{hit.transform.name}\n";
+                list += $"{hit.transform.name}, ";
             }
             EditorGUILayout.LabelField("Raycasts", $"{list}");
         }
 
-        var newObj = new TouchData(newID, newScreenPos, newWorldPos, (TouchPhase)newPhase, obj.Hits);
+        var newObj = new TouchData(newID, newScreenPos, newWorldPos, (TouchPhase)newPhase, newTime, obj.Hits);
 
         return newObj;
     }

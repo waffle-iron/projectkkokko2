@@ -10,11 +10,14 @@ public class EggConfig : UnityEntityConfig
     private float force;
     [SerializeField]
     private float minDistance;
+    [SerializeField]
+    private float _maxTouchTime;
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
         var gameEty = contexts.game.CreateEntity();
         gameEty.AddCanThrow(force, minDistance);
+        gameEty.AddTouchTimeGap(_maxTouchTime);
 
         return gameEty;
     }
