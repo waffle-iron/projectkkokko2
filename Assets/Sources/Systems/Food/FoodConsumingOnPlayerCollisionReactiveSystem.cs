@@ -34,13 +34,13 @@ public class FoodConsumingOnPlayerCollisionReactiveSystem : ReactiveSystem<GameE
             {
                 if (player.hasConsuming == false && player.onCollision.type == CollisionType.ENTER)
                 {
-                    player.AddConsuming(player.iD.value, e.iD.value);
-                    e.AddConsuming(player.iD.value, e.iD.value);
+                    player.ReplaceConsuming(player.iD.value, e.iD.value);
+                    e.ReplaceConsuming(player.iD.value, e.iD.value);
                 }
                 else if (player.hasConsuming && player.onCollision.type == CollisionType.EXIT)
                 {
                     player.RemoveConsuming();
-                    e.RemoveConsuming();
+                    if (e.hasConsuming) { e.RemoveConsuming(); }
                 }
             }
         }

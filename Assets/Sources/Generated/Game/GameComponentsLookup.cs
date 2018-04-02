@@ -108,7 +108,7 @@ public static class GameComponentsLookup {
     public const int TimerReset = 97;
     public const int TimerState = 98;
     public const int ToDestroy = 99;
-    public const int TouchPhase = 100;
+    public const int TouchData = 100;
     public const int Trigger = 101;
     public const int View = 102;
     public const int ViewListener = 103;
@@ -218,7 +218,7 @@ public static class GameComponentsLookup {
         "TimerReset",
         "TimerState",
         "ToDestroy",
-        "TouchPhase",
+        "TouchData",
         "Trigger",
         "View",
         "ViewListener",
@@ -327,7 +327,7 @@ public static class GameComponentsLookup {
         typeof(TimerResetComponent),
         typeof(TimerStateComponent),
         typeof(ToDestroyComponent),
-        typeof(TouchPhaseComponent),
+        typeof(TouchDataComponent),
         typeof(TriggerComponent),
         typeof(ViewComponent),
         typeof(ViewListenerComponent),

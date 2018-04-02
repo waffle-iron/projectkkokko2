@@ -15,7 +15,7 @@ public class FoodCollisionReturnReactiveSystem : ReactiveSystem<GameEntity>
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)
     {
         //return collector
-        return context.CreateCollector(GameMatcher.AllOf(GameMatcher.OnCollision, GameMatcher.TouchPhase, GameMatcher.Food));
+        return context.CreateCollector(GameMatcher.AllOf(GameMatcher.OnCollision, GameMatcher.TouchData, GameMatcher.Food));
     }
 
     protected override bool Filter (GameEntity entity)
@@ -23,8 +23,8 @@ public class FoodCollisionReturnReactiveSystem : ReactiveSystem<GameEntity>
         // check for required components
         return entity.hasOnCollision &&
             entity.onCollision.type == CollisionType.ENTER &&
-            entity.hasTouchPhase &&
-            entity.touchPhase.current == TouchPhase.Ended &&
+            entity.hasTouchData &&
+            entity.touchData.current.Phase == TouchPhase.Ended &&
             entity.hasFood &&
             entity.hasTargetEntityID;
     }

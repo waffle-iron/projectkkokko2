@@ -6,7 +6,7 @@ using Entitas.CodeGeneration.Attributes;
 
 //[Entitas.CodeGenerator.SingleEntity]
 [Game, Command, Input]
-public sealed class TouchPhaseComponent : IComponent
+public sealed class TouchDataComponent : IComponent
 {
-    public TouchPhase current;
+    public TouchData current;
 }

@@ -11,6 +11,9 @@ public class MainController : MonoBehaviour
     [SerializeField]
     private bool _isSimulationMode = false;
 
+    [SerializeField]
+    private List<Feature> _additionalSystems = new List<Feature>();
+
     private Contexts _contexts;
     private Systems _systems;
 

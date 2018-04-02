@@ -6,12 +6,12 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface ITouchPhaseEntity {
+public partial interface ITouchDataEntity {
 
-    TouchPhaseComponent touchPhase { get; }
-    bool hasTouchPhase { get; }
+    TouchDataComponent touchData { get; }
+    bool hasTouchData { get; }
 
-    void AddTouchPhase(UnityEngine.TouchPhase newCurrent);
-    void ReplaceTouchPhase(UnityEngine.TouchPhase newCurrent);
-    void RemoveTouchPhase();
+    void AddTouchData(TouchData newCurrent);
+    void ReplaceTouchData(TouchData newCurrent);
+    void RemoveTouchData();
 }

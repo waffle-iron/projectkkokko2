@@ -3,11 +3,11 @@ using System.Collections;
 using UnityEngine;
 using Entitas;
 
-public class TouchPhaseCommandReactiveSystem : ReactiveSystem<CommandEntity>
+public class TouchdataCommandReactiveSystem : ReactiveSystem<CommandEntity>
 {
     private readonly GameContext _game;
 
-    public TouchPhaseCommandReactiveSystem (Contexts contexts) : base(contexts.command)
+    public TouchdataCommandReactiveSystem (Contexts contexts) : base(contexts.command)
     {
         _game = contexts.game;
     }
@@ -15,13 +15,13 @@ public class TouchPhaseCommandReactiveSystem : ReactiveSystem<CommandEntity>
     protected override ICollector<CommandEntity> GetTrigger (IContext<CommandEntity> context)
     {
         //return collector
-        return context.CreateCollector(CommandMatcher.AllOf(CommandMatcher.TargetEntityID, CommandMatcher.TouchPhase));
+        return context.CreateCollector(CommandMatcher.AllOf(CommandMatcher.TargetEntityID, CommandMatcher.TouchData));
     }
 
     protected override bool Filter (CommandEntity entity)
     {
         // check for required components
-        return entity.hasTargetEntityID && entity.hasTouchPhase;
+        return entity.hasTargetEntityID && entity.hasTouchData;
     }
 
     protected override void Execute (List<CommandEntity> entities)
@@ -30,7 +30,7 @@ public class TouchPhaseCommandReactiveSystem : ReactiveSystem<CommandEntity>
         {
             // do stuff to the matched entities
             var target = _game.GetEntityWithID(e.targetEntityID.value);
-            target.ReplaceTouchPhase(e.touchPhase.current);
+            target.ReplaceTouchData(e.touchData.current);
         }
     }
 }
