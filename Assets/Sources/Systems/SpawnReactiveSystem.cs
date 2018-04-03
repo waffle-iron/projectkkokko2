@@ -33,7 +33,12 @@ public class SpawnReactiveSystem : ReactiveSystem<GameEntity>
     {
         foreach (var e in entities)
         {
-            if (e.timer.current >= e.spawn.interval.GetInSeconds())
+            if (e.hasInterval == false)
+            {
+                AddNewRandomInterval(e);
+            }
+
+            if (e.timer.current >= e.interval.duration.GetInSeconds())
             {
                 foreach (var id in e.spawn.entityID)
                 {
@@ -44,7 +49,14 @@ public class SpawnReactiveSystem : ReactiveSystem<GameEntity>
                 var inputEty = _input.CreateEntity();
                 inputEty.AddTargetEntityID(e.iD.value);
                 inputEty.isTimerReset = true;
+                AddNewRandomInterval(e);
             }
         }
+    }
+
+    void AddNewRandomInterval (GameEntity e)
+    {
+        var newDur = new DurationType(Random.Range(e.spawn.minInterval.GetInSeconds(), e.spawn.maxInterval.GetInSeconds()), UnitTime.Second);
+        e.ReplaceInterval(newDur);
     }
 }

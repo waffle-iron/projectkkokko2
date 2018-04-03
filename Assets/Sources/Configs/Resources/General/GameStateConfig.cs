@@ -15,7 +15,7 @@ public class GameStateConfig : UnityEntityConfig
         if (_isInput == false)
         {
             var gameEty = contexts.game.CreateEntity();
-            gameEty.AddGameState(state);
+            gameEty.AddGameState((int)state, typeof(GameState));
             gameEty.isDoNotDestroyOnSceneChange = true;
 
             return gameEty;
@@ -23,7 +23,7 @@ public class GameStateConfig : UnityEntityConfig
         else
         {
             var inputEty = contexts.input.CreateEntity();
-            inputEty.AddGameState(state);
+            inputEty.AddGameState((int)state, typeof(GameState));
             return inputEty;
         }
     }

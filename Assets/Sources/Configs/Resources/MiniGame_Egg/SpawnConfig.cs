@@ -8,14 +8,17 @@ public class SpawnConfig : UnityEntityConfig
     [SerializeField]
     private string[] entities;
     [SerializeField]
-    private DurationType interval;
+    private DurationType minInterval;
+    [SerializeField]
+    private DurationType maxInterval;
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
         var gameEty = contexts.game.CreateEntity();
 
-        gameEty.AddSpawn(entities, interval);
-
+        gameEty.AddSpawn(entities, minInterval, maxInterval);
+        gameEty.AddTimer(0f);
+        gameEty.AddTimerState(true);
         return gameEty;
     }
 }

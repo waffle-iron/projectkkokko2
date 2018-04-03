@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IGameGameStateListener {
-    void OnGameState(GameEntity entity, GameState state);
+    void OnGameState(GameEntity entity, int state, System.Type stateType);
 }

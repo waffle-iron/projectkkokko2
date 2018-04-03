@@ -28,7 +28,7 @@ public class GameStateCommandReactiveSystem : ReactiveSystem<CommandEntity>
     {
         foreach (var e in entities)
         {
-            _game.ReplaceGameState(e.gameState.state);
+            _game.ReplaceGameState(e.gameState.state, e.gameState.stateType);
         }
     }
 }

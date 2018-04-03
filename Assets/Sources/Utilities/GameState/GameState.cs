@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public enum GameState
 {
-    NONE,
-    PLAYING,
-    MENUS
+    NONE = 0,
+    PLAYING = 1,
+    MENUS = 2
 }

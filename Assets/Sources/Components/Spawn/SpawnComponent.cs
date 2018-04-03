@@ -9,5 +9,6 @@ using Entitas.CodeGeneration.Attributes;
 public sealed class SpawnComponent : IComponent
 {
     public string[] entityID;
-    public DurationType interval;
+    public DurationType minInterval;
+    public DurationType maxInterval;
 }

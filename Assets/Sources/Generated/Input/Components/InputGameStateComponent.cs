@@ -12,22 +12,22 @@ public partial class InputContext {
     public GameStateComponent gameState { get { return gameStateEntity.gameState; } }
     public bool hasGameState { get { return gameStateEntity != null; } }
 
-    public InputEntity SetGameState(GameState newState) {
+    public InputEntity SetGameState(int newState, System.Type newStateType) {
         if (hasGameState) {
             throw new Entitas.EntitasException("Could not set GameState!\n" + this + " already has an entity with GameStateComponent!",
                 "You should check if the context already has a gameStateEntity before setting it or use context.ReplaceGameState().");
         }
         var entity = CreateEntity();
-        entity.AddGameState(newState);
+        entity.AddGameState(newState, newStateType);
         return entity;
     }
 
-    public void ReplaceGameState(GameState newState) {
+    public void ReplaceGameState(int newState, System.Type newStateType) {
         var entity = gameStateEntity;
         if (entity == null) {
-            entity = SetGameState(newState);
+            entity = SetGameState(newState, newStateType);
         } else {
-            entity.ReplaceGameState(newState);
+            entity.ReplaceGameState(newState, newStateType);
         }
     }
 
@@ -49,17 +49,19 @@ public partial class InputEntity {
     public GameStateComponent gameState { get { return (GameStateComponent)GetComponent(InputComponentsLookup.GameState); } }
     public bool hasGameState { get { return HasComponent(InputComponentsLookup.GameState); } }
 
-    public void AddGameState(GameState newState) {
+    public void AddGameState(int newState, System.Type newStateType) {
         var index = InputComponentsLookup.GameState;
         var component = CreateComponent<GameStateComponent>(index);
         component.state = newState;
+        component.stateType = newStateType;
         AddComponent(index, component);
     }
 
-    public void ReplaceGameState(GameState newState) {
+    public void ReplaceGameState(int newState, System.Type newStateType) {
         var index = InputComponentsLookup.GameState;
         var component = CreateComponent<GameStateComponent>(index);
         component.state = newState;
+        component.stateType = newStateType;
         ReplaceComponent(index, component);
     }
 

@@ -29,7 +29,7 @@ public sealed class InputGameStateEventSystem : Entitas.ReactiveSystem<InputEnti
             var component = e.gameState;
             foreach (var listenerEntity in _listeners) {
                 foreach (var listener in listenerEntity.inputGameStateListener.value) {
-                    listener.OnGameState(e, component.state);
+                    listener.OnGameState(e, component.state, component.stateType);
                 }
             }
         }

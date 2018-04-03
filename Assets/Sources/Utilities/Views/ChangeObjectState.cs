@@ -18,7 +18,7 @@ public class ChangeObjectState : MonoBehaviour
         if (_newState != GameState.NONE)
         {
             var input = Contexts.sharedInstance.input.CreateEntity();
-            input.AddGameState(_newState);
+            input.AddGameState((int)_newState, typeof(GameState));
         }
     }
 }

@@ -35,7 +35,7 @@ public class GameStateInputReactiveSystem : ReactiveSystem<InputEntity>
             if (_game.hasGameState && _game.gameState.state != e.gameState.state)
             {
                 var cmd = _cmd.CreateEntity();
-                cmd.AddGameState(e.gameState.state);
+                cmd.AddGameState(e.gameState.state, e.gameState.stateType);
             }
         }
     }
