@@ -9,5 +9,5 @@ using CodeStage.AntiCheat.ObscuredTypes;
 public sealed class CoinComponent : IComponent
 {
     public ObscuredInt value;
-    public OperationType type;
+    public OperationType operation;
 }

@@ -31,7 +31,7 @@ public class WalletAddCoinCommandReactiveSystem : ReactiveSystem<CommandEntity>
             // do stuff to the matched entities
             var target = _game.GetEntityWithID(e.targetEntityID.value);
 
-            switch (e.coin.type)
+            switch (e.coin.operation)
             {
                 case OperationType.ADD:
                     target.ReplaceWallet(target.wallet.amount + e.coin.value);

@@ -11,7 +11,7 @@ public partial interface ICoinEntity {
     CoinComponent coin { get; }
     bool hasCoin { get; }
 
-    void AddCoin(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue, OperationType newType);
-    void ReplaceCoin(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue, OperationType newType);
+    void AddCoin(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue, OperationType newOperation);
+    void ReplaceCoin(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue, OperationType newOperation);
     void RemoveCoin();
 }

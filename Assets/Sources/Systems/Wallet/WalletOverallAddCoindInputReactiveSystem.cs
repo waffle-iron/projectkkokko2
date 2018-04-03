@@ -38,8 +38,8 @@ public class WalletOverallAddCoindInputReactiveSystem : ReactiveSystem<InputEnti
             foreach (var target in _wallets.GetEntities())
             {
                 var cmdEty = _cmd.CreateEntity();
-                cmdEty.AddTargetEntityID(e.targetEntityID.value);
-                cmdEty.AddCoin(e.coin.value, e.coin.type);
+                cmdEty.AddTargetEntityID(target.iD.value);
+                cmdEty.AddCoin(e.coin.value, e.coin.operation);
             }
         }
     }

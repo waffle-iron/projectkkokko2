@@ -11,19 +11,19 @@ public partial class GameEntity {
     public CoinComponent coin { get { return (CoinComponent)GetComponent(GameComponentsLookup.Coin); } }
     public bool hasCoin { get { return HasComponent(GameComponentsLookup.Coin); } }
 
-    public void AddCoin(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue, OperationType newType) {
+    public void AddCoin(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue, OperationType newOperation) {
         var index = GameComponentsLookup.Coin;
         var component = CreateComponent<CoinComponent>(index);
         component.value = newValue;
-        component.type = newType;
+        component.operation = newOperation;
         AddComponent(index, component);
     }
 
-    public void ReplaceCoin(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue, OperationType newType) {
+    public void ReplaceCoin(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue, OperationType newOperation) {
         var index = GameComponentsLookup.Coin;
         var component = CreateComponent<CoinComponent>(index);
         component.value = newValue;
-        component.type = newType;
+        component.operation = newOperation;
         ReplaceComponent(index, component);
     }
 

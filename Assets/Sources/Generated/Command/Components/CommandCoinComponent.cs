@@ -11,19 +11,19 @@ public partial class CommandEntity {
     public CoinComponent coin { get { return (CoinComponent)GetComponent(CommandComponentsLookup.Coin); } }
     public bool hasCoin { get { return HasComponent(CommandComponentsLookup.Coin); } }
 
-    public void AddCoin(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue, OperationType newType) {
+    public void AddCoin(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue, OperationType newOperation) {
         var index = CommandComponentsLookup.Coin;
         var component = CreateComponent<CoinComponent>(index);
         component.value = newValue;
-        component.type = newType;
+        component.operation = newOperation;
         AddComponent(index, component);
     }
 
-    public void ReplaceCoin(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue, OperationType newType) {
+    public void ReplaceCoin(CodeStage.AntiCheat.ObscuredTypes.ObscuredInt newValue, OperationType newOperation) {
         var index = CommandComponentsLookup.Coin;
         var component = CreateComponent<CoinComponent>(index);
         component.value = newValue;
-        component.type = newType;
+        component.operation = newOperation;
         ReplaceComponent(index, component);
     }
 
