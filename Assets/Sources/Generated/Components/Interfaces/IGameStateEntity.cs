@@ -11,7 +11,7 @@ public partial interface IGameStateEntity {
     GameStateComponent gameState { get; }
     bool hasGameState { get; }
 
-    void AddGameState(int newState, System.Type newStateType);
-    void ReplaceGameState(int newState, System.Type newStateType);
+    void AddGameState(GameState newCurrent);
+    void ReplaceGameState(GameState newCurrent);
     void RemoveGameState();
 }

@@ -15,7 +15,7 @@ public class MiniGameEggStateConfig : UnityEntityConfig
     {
         var gameEty = contexts.game.CreateEntity();
 
-        gameEty.AddGameState((int)_startState, typeof(MiniGameEggState));
+        gameEty.AddGameState(new GameState((int)_startState, typeof(MiniGameEggState)));
 
         return gameEty;
     }

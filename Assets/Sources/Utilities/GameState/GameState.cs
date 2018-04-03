@@ -1,9 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 
-public enum GameState
+public struct GameState
 {
-    NONE = 0,
-    PLAYING = 1,
-    MENUS = 2
+    public int state;
+    public System.Type type;
+
+    public GameState (int state, System.Type type)
+    {
+        this.state = state;
+        this.type = type;
+    }
 }
+

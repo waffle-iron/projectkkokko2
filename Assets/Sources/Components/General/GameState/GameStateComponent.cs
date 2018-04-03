@@ -8,6 +8,5 @@ using Entitas.CodeGeneration.Attributes;
 [Game, Command, Input, Unique, Event(false)]
 public sealed class GameStateComponent : IComponent
 {
-    public int state;
-    public System.Type stateType;
+    public GameState current;
 }

@@ -23,8 +23,8 @@ public class TimerUpdateSystem : IExecuteSystem
         foreach (var e in _timers.GetEntities(_buffer))
         {
             if (e.timerState.isRunning && _game?.pause?.state == false && 
-                _game.gameState.stateType == typeof(GameState) && 
-                _game.gameState.state == (int)GameState.PLAYING)
+                _game.gameState.current.type == typeof(MainGameState) && 
+                _game.gameState.current.state == (int)MainGameState.PLAYING)
             {
                 e.ReplaceTimer(e.timer.current + _meta.timeService.instance.delta);
             }

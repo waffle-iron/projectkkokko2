@@ -5,10 +5,15 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreView : View, IScoreListener
+public class ScoreView : View, IScoreListener, IGameGameStateListener
 {
     [SerializeField]
     private Text _scoreText;
+
+    public void OnGameState (GameEntity entity, GameState current)
+    {
+        
+    }
 
     public void OnScore (GameEntity entity, int value)
     {

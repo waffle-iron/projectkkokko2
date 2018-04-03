@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ICommandGameStateListener {
-    void OnGameState(CommandEntity entity, int state, System.Type stateType);
+    void OnGameState(CommandEntity entity, GameState current);
 }
