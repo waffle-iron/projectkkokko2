@@ -1,27 +1,27 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Entitas;
+using UniRx;
 
-public class EggConfig : UnityEntityConfig
+public class ScoreHoopConfig : UnityEntityConfig
 {
-    [Header("Egg Settings")]
+    //enter serialized fields here
+    [Header("Score Hoop Settings")]
     [SerializeField]
-    private float force;
-    [SerializeField]
-    private float minDistance;
-    [SerializeField]
-    private float _maxTouchTime;
+    private int scoreValue;
     [SerializeField, Tag]
     private string _tag;
+    [SerializeField, Tag]
+    private string[] targetTags;
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
         var gameEty = contexts.game.CreateEntity();
-        gameEty.AddCanThrow(force, minDistance);
-        gameEty.AddTouchTimeGap(_maxTouchTime);
         gameEty.AddTag(_tag);
+        gameEty.AddChangeScore(scoreValue, OperationType.ADD);
         gameEty.isCollidable = true;
+        gameEty.AddTargetTag(targetTags);
 
         return gameEty;
     }

@@ -8,6 +8,7 @@ public class ScoreSystems : Feature
     public ScoreSystems (Contexts contexts) : base("Score Systems")
     {
         //Add(system here);
+        Add(new ScoreCollideReactiveSystem(contexts));
         Add(new ScoreInputReactiveSystem(contexts));
         Add(new ScoreOverallInputReactiveSystem(contexts));
 

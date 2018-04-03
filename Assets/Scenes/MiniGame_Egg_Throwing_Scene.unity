@@ -784,7 +784,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1591402157130820, guid: 677058ee3eda2464baed88696157e095, type: 2}
       propertyPath: m_Name
-      value: ScoreTrigger
+      value: ScoreHoopView
       objectReference: {fileID: 0}
     - target: {fileID: 4981963515658538, guid: 677058ee3eda2464baed88696157e095, type: 2}
       propertyPath: m_LocalScale.x
@@ -840,11 +840,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1008828710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b57c97e53367974cb96c26c8a80fd2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c76e2367a3d04045a3b30dcfaf3c28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
-  target: Ball
 --- !u!1 &1018246520
 GameObject:
   m_ObjectHideFlags: 0

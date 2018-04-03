@@ -16,115 +16,118 @@ public static class GameComponentsLookup {
     public const int Cancel = 5;
     public const int CanThrow = 6;
     public const int ChangeScore = 7;
-    public const int Collidable = 8;
-    public const int Consumed = 9;
-    public const int Consuming = 10;
-    public const int Current = 11;
-    public const int CurrentID = 12;
-    public const int Debug = 13;
-    public const int DelayDestroy = 14;
-    public const int Deplete = 15;
-    public const int DoNotDestroyOnSceneChange = 16;
-    public const int EntityConfigID = 17;
-    public const int Equipped = 18;
-    public const int EquippedItems = 19;
-    public const int FollowTarget = 20;
-    public const int Food = 21;
-    public const int GameAccessoryListener = 22;
-    public const int GameActionListener = 23;
-    public const int GameAffordListener = 24;
-    public const int GameConsumingListener = 25;
-    public const int GameConsumingRemovedListener = 26;
-    public const int GameCurrentListener = 27;
-    public const int GameDebugListener = 28;
-    public const int GameEquippedListener = 29;
-    public const int GameEquippedRemovedListener = 30;
-    public const int GameFoodListener = 31;
-    public const int GameGameStateListener = 32;
-    public const int GameLoadedViewsCompleteListener = 33;
-    public const int GameLoadedViewsCompleteRemovedListener = 34;
-    public const int GameLoadSceneCompleteListener = 35;
-    public const int GameLoadSceneListener = 36;
-    public const int GameLoadSceneRemovedListener = 37;
-    public const int GameLoadViewsListener = 38;
-    public const int GameLoadViewsRemovedListener = 39;
-    public const int GameMoveableListener = 40;
-    public const int GameNeedListener = 41;
-    public const int GameOnCollisionListener = 42;
-    public const int GamePauseListener = 43;
-    public const int GamePauseRemovedListener = 44;
-    public const int GamePrePurchaseListener = 45;
-    public const int GamePreviewListener = 46;
-    public const int GamePreviewRemovedListener = 47;
-    public const int GamePriceListener = 48;
-    public const int GamePurchasedListener = 49;
-    public const int GameRemoveFromStorageListener = 50;
-    public const int GameRemoveFromStorageRemovedListener = 51;
-    public const int GameState = 52;
-    public const int GameTargetMoveListener = 53;
-    public const int GameToDestroyListener = 54;
-    public const int GameToDestroyRemovedListener = 55;
-    public const int GameTriggerListener = 56;
-    public const int GameWalletListener = 57;
-    public const int ID = 58;
-    public const int InCart = 59;
-    public const int Interval = 60;
-    public const int LoadedViewsComplete = 61;
-    public const int LoadEntitiesComplete = 62;
-    public const int LoadEntitiesCompleteListener = 63;
-    public const int LoadEntitiesCompleteRemovedListener = 64;
-    public const int Loading = 65;
-    public const int LoadingListener = 66;
-    public const int LoadingRemovedListener = 67;
-    public const int LoadSceneComplete = 68;
-    public const int LoadScene = 69;
-    public const int LoadViews = 70;
-    public const int Max = 71;
-    public const int MinRequirement = 72;
-    public const int Moveable = 73;
-    public const int Moving = 74;
-    public const int Need = 75;
-    public const int NotificationMessage = 76;
-    public const int NotificationScheduled = 77;
-    public const int OnCollision = 78;
-    public const int Origin = 79;
-    public const int Pause = 80;
-    public const int Player = 81;
-    public const int Position = 82;
-    public const int PrePurchase = 83;
-    public const int Preview = 84;
-    public const int Price = 85;
-    public const int Purchased = 86;
-    public const int ReloadEquipment = 87;
-    public const int RemoveFromStorage = 88;
-    public const int Return = 89;
-    public const int SaveID = 90;
-    public const int Saving = 91;
-    public const int SavingListener = 92;
-    public const int SavingRemovedListener = 93;
-    public const int SceneInitConfig = 94;
-    public const int Score = 95;
-    public const int ScoreListener = 96;
-    public const int Spawn = 97;
-    public const int Targetable = 98;
-    public const int TargetEntityID = 99;
-    public const int TargetMove = 100;
-    public const int TargetNeed = 101;
-    public const int Timer = 102;
-    public const int TimerReset = 103;
-    public const int TimerState = 104;
-    public const int ToDestroy = 105;
-    public const int TouchData = 106;
-    public const int TouchTimeGap = 107;
-    public const int Trigger = 108;
-    public const int Velocity = 109;
-    public const int VelocityListener = 110;
-    public const int View = 111;
-    public const int ViewListener = 112;
-    public const int ViewRemovedListener = 113;
-    public const int Wallet = 114;
+    public const int Coin = 8;
+    public const int Collidable = 9;
+    public const int Consumed = 10;
+    public const int Consuming = 11;
+    public const int Current = 12;
+    public const int CurrentID = 13;
+    public const int Debug = 14;
+    public const int DelayDestroy = 15;
+    public const int Deplete = 16;
+    public const int DoNotDestroyOnSceneChange = 17;
+    public const int EntityConfigID = 18;
+    public const int Equipped = 19;
+    public const int EquippedItems = 20;
+    public const int FollowTarget = 21;
+    public const int Food = 22;
+    public const int GameAccessoryListener = 23;
+    public const int GameActionListener = 24;
+    public const int GameAffordListener = 25;
+    public const int GameConsumingListener = 26;
+    public const int GameConsumingRemovedListener = 27;
+    public const int GameCurrentListener = 28;
+    public const int GameDebugListener = 29;
+    public const int GameEquippedListener = 30;
+    public const int GameEquippedRemovedListener = 31;
+    public const int GameFoodListener = 32;
+    public const int GameGameStateListener = 33;
+    public const int GameLoadedViewsCompleteListener = 34;
+    public const int GameLoadedViewsCompleteRemovedListener = 35;
+    public const int GameLoadSceneCompleteListener = 36;
+    public const int GameLoadSceneListener = 37;
+    public const int GameLoadSceneRemovedListener = 38;
+    public const int GameLoadViewsListener = 39;
+    public const int GameLoadViewsRemovedListener = 40;
+    public const int GameMoveableListener = 41;
+    public const int GameNeedListener = 42;
+    public const int GameOnCollisionListener = 43;
+    public const int GamePauseListener = 44;
+    public const int GamePauseRemovedListener = 45;
+    public const int GamePrePurchaseListener = 46;
+    public const int GamePreviewListener = 47;
+    public const int GamePreviewRemovedListener = 48;
+    public const int GamePriceListener = 49;
+    public const int GamePurchasedListener = 50;
+    public const int GameRemoveFromStorageListener = 51;
+    public const int GameRemoveFromStorageRemovedListener = 52;
+    public const int GameState = 53;
+    public const int GameTargetMoveListener = 54;
+    public const int GameToDestroyListener = 55;
+    public const int GameToDestroyRemovedListener = 56;
+    public const int GameTriggerListener = 57;
+    public const int GameWalletListener = 58;
+    public const int ID = 59;
+    public const int InCart = 60;
+    public const int Interval = 61;
+    public const int LoadedViewsComplete = 62;
+    public const int LoadEntitiesComplete = 63;
+    public const int LoadEntitiesCompleteListener = 64;
+    public const int LoadEntitiesCompleteRemovedListener = 65;
+    public const int Loading = 66;
+    public const int LoadingListener = 67;
+    public const int LoadingRemovedListener = 68;
+    public const int LoadSceneComplete = 69;
+    public const int LoadScene = 70;
+    public const int LoadViews = 71;
+    public const int Max = 72;
+    public const int MinRequirement = 73;
+    public const int Moveable = 74;
+    public const int Moving = 75;
+    public const int Need = 76;
+    public const int NotificationMessage = 77;
+    public const int NotificationScheduled = 78;
+    public const int OnCollision = 79;
+    public const int Origin = 80;
+    public const int Pause = 81;
+    public const int Player = 82;
+    public const int Position = 83;
+    public const int PrePurchase = 84;
+    public const int Preview = 85;
+    public const int Price = 86;
+    public const int Purchased = 87;
+    public const int ReloadEquipment = 88;
+    public const int RemoveFromStorage = 89;
+    public const int Return = 90;
+    public const int SaveID = 91;
+    public const int Saving = 92;
+    public const int SavingListener = 93;
+    public const int SavingRemovedListener = 94;
+    public const int SceneInitConfig = 95;
+    public const int Score = 96;
+    public const int ScoreListener = 97;
+    public const int Spawn = 98;
+    public const int Tag = 99;
+    public const int Targetable = 100;
+    public const int TargetEntityID = 101;
+    public const int TargetMove = 102;
+    public const int TargetNeed = 103;
+    public const int TargetTag = 104;
+    public const int Timer = 105;
+    public const int TimerReset = 106;
+    public const int TimerState = 107;
+    public const int ToDestroy = 108;
+    public const int TouchData = 109;
+    public const int TouchTimeGap = 110;
+    public const int Trigger = 111;
+    public const int Velocity = 112;
+    public const int VelocityListener = 113;
+    public const int View = 114;
+    public const int ViewListener = 115;
+    public const int ViewRemovedListener = 116;
+    public const int Wallet = 117;
 
-    public const int TotalComponents = 115;
+    public const int TotalComponents = 118;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -135,6 +138,7 @@ public static class GameComponentsLookup {
         "Cancel",
         "CanThrow",
         "ChangeScore",
+        "Coin",
         "Collidable",
         "Consumed",
         "Consuming",
@@ -225,10 +229,12 @@ public static class GameComponentsLookup {
         "Score",
         "ScoreListener",
         "Spawn",
+        "Tag",
         "Targetable",
         "TargetEntityID",
         "TargetMove",
         "TargetNeed",
+        "TargetTag",
         "Timer",
         "TimerReset",
         "TimerState",
@@ -253,6 +259,7 @@ public static class GameComponentsLookup {
         typeof(CancelComponent),
         typeof(CanThrowComponent),
         typeof(ChangeScoreComponent),
+        typeof(CoinComponent),
         typeof(CollidableComponent),
         typeof(ConsumedComponent),
         typeof(ConsumingComponent),
@@ -343,10 +350,12 @@ public static class GameComponentsLookup {
         typeof(ScoreComponent),
         typeof(ScoreListenerComponent),
         typeof(SpawnComponent),
+        typeof(TagComponent),
         typeof(TargetableComponent),
         typeof(TargetEntityIDComponent),
         typeof(TargetMoveComponent),
         typeof(TargetNeedComponent),
+        typeof(TargetTagComponent),
         typeof(TimerComponent),
         typeof(TimerResetComponent),
         typeof(TimerStateComponent),

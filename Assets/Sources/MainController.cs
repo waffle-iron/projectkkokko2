@@ -74,6 +74,7 @@ public class MainController : MonoBehaviour
             .Add(new MoveSystems(contexts))
             .Add(new CollisionSystems(contexts))
             .Add(new ScoreSystems(contexts))
+            .Add(new CoinSystems(contexts))
 
             .Add(new GeneralSystems(contexts)) //executed after all custom systems para ma pick up before cleanup sa destroy systems
             .Add(new EventSystems(contexts));

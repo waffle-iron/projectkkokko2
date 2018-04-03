@@ -8,10 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab905077ea3b59749af6941785c7073b, type: 3}
-  m_Name: SpawnConfig
+  m_Script: {fileID: 11500000, guid: db611002d6764b049ac7687c622c181e, type: 3}
+  m_Name: MiniGame_Egg_ScoreHoopConfig
   m_EditorClassIdentifier: 
-  _viewName: 
+  _viewName: ScoreHoopView
   _isDestroyOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
@@ -19,8 +19,8 @@ MonoBehaviour:
     inited: 1
     fakeValue: 
     fakeValueActive: 0
-  _loadOnStart: 0
-  entities: []
-  interval:
-    length: 0
-    unit: 0
+  _loadOnStart: 1
+  scoreValue: 1
+  _tag: Hoop
+  targetTags:
+  - Ball
