@@ -105,25 +105,26 @@ public static class GameComponentsLookup {
     public const int SceneInitConfig = 94;
     public const int Score = 95;
     public const int ScoreListener = 96;
-    public const int Targetable = 97;
-    public const int TargetEntityID = 98;
-    public const int TargetMove = 99;
-    public const int TargetNeed = 100;
-    public const int Timer = 101;
-    public const int TimerReset = 102;
-    public const int TimerState = 103;
-    public const int ToDestroy = 104;
-    public const int TouchData = 105;
-    public const int TouchTimeGap = 106;
-    public const int Trigger = 107;
-    public const int Velocity = 108;
-    public const int VelocityListener = 109;
-    public const int View = 110;
-    public const int ViewListener = 111;
-    public const int ViewRemovedListener = 112;
-    public const int Wallet = 113;
+    public const int Spawn = 97;
+    public const int Targetable = 98;
+    public const int TargetEntityID = 99;
+    public const int TargetMove = 100;
+    public const int TargetNeed = 101;
+    public const int Timer = 102;
+    public const int TimerReset = 103;
+    public const int TimerState = 104;
+    public const int ToDestroy = 105;
+    public const int TouchData = 106;
+    public const int TouchTimeGap = 107;
+    public const int Trigger = 108;
+    public const int Velocity = 109;
+    public const int VelocityListener = 110;
+    public const int View = 111;
+    public const int ViewListener = 112;
+    public const int ViewRemovedListener = 113;
+    public const int Wallet = 114;
 
-    public const int TotalComponents = 114;
+    public const int TotalComponents = 115;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -223,6 +224,7 @@ public static class GameComponentsLookup {
         "SceneInitConfig",
         "Score",
         "ScoreListener",
+        "Spawn",
         "Targetable",
         "TargetEntityID",
         "TargetMove",
@@ -340,6 +342,7 @@ public static class GameComponentsLookup {
         typeof(SceneInitConfigComponent),
         typeof(ScoreComponent),
         typeof(ScoreListenerComponent),
+        typeof(SpawnComponent),
         typeof(TargetableComponent),
         typeof(TargetEntityIDComponent),
         typeof(TargetMoveComponent),
