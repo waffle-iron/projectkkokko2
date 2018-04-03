@@ -105,6 +105,7 @@ public sealed class EventSystems : Feature {
         Add(new CommandRemoveFromStorageRemovedEventSystem(contexts)); // priority: 0
         Add(new SavingEventSystem(contexts)); // priority: 0
         Add(new SavingRemovedEventSystem(contexts)); // priority: 0
+        Add(new ScoreEventSystem(contexts)); // priority: 0
         Add(new GameTargetMoveEventSystem(contexts)); // priority: 0
         Add(new InputTargetMoveEventSystem(contexts)); // priority: 0
         Add(new CommandTargetMoveEventSystem(contexts)); // priority: 0

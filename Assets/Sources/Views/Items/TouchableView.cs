@@ -44,7 +44,7 @@ public class TouchableView : View
                 inputEty.AddTargetEntityID(this.ID);
                 inputEty.AddTouchData(_service.touch[0]);
             }
-            else if (_service.touch[0].Phase == TouchPhase.Ended)
+            else if (_service.touch[0].Phase == TouchPhase.Ended && _touch == true)
             {
                 _touch = false;
                 //create input entity
