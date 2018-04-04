@@ -23,13 +23,13 @@ public class ScoreView : View, IScoreListener
     protected override void RegisterListeners (IEntity entity, IContext context)
     {
         var gameEty = (GameEntity)entity;
-
+        gameEty.AddScoreListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
     {
         var gameEty = (GameEntity)entity;
-
+        gameEty.RemoveScoreListener(this);
     }
 }
 

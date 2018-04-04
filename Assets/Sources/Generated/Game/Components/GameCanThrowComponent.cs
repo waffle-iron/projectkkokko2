@@ -11,19 +11,21 @@ public partial class GameEntity {
     public CanThrowComponent canThrow { get { return (CanThrowComponent)GetComponent(GameComponentsLookup.CanThrow); } }
     public bool hasCanThrow { get { return HasComponent(GameComponentsLookup.CanThrow); } }
 
-    public void AddCanThrow(float newForce, float newMinDistance) {
+    public void AddCanThrow(float newForce, float newMinDistance, bool newIsEnabled) {
         var index = GameComponentsLookup.CanThrow;
         var component = CreateComponent<CanThrowComponent>(index);
         component.force = newForce;
         component.minDistance = newMinDistance;
+        component.isEnabled = newIsEnabled;
         AddComponent(index, component);
     }
 
-    public void ReplaceCanThrow(float newForce, float newMinDistance) {
+    public void ReplaceCanThrow(float newForce, float newMinDistance, bool newIsEnabled) {
         var index = GameComponentsLookup.CanThrow;
         var component = CreateComponent<CanThrowComponent>(index);
         component.force = newForce;
         component.minDistance = newMinDistance;
+        component.isEnabled = newIsEnabled;
         ReplaceComponent(index, component);
     }
 

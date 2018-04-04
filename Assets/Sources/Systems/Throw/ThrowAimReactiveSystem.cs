@@ -21,7 +21,8 @@ public class ThrowAimReactiveSystem : ReactiveSystem<GameEntity>
         // check for required components
         return entity.hasTouchData && 
             entity.touchData.current.Phase == TouchPhase.Began &&
-            entity.hasCanThrow;
+            entity.hasCanThrow &&
+            entity.canThrow.isEnabled;
     }
 
     protected override void Execute (List<GameEntity> entities)

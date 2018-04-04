@@ -19,10 +19,12 @@ public class EggView : View, IVelocityListener, IGameGameStateListener
 
     public void OnVelocity (GameEntity entity, Vector3 current)
     {
-        //do unity logic here
-        var curr = current;
-        //curr.y = clampForce;
-        _rigidbody.AddForce(curr, ForceMode2D.Impulse);
+        _rigidbody.AddForce(current, ForceMode2D.Impulse);
+
+        //change game state
+        var inputety = contexts.input.CreateEntity();
+        inputety.AddGameState(new GameState(MiniGameEggState.SHOOT));
+        inputety.AddDelayDestroy(1);
 
     }
 
@@ -48,9 +50,10 @@ public class EggView : View, IVelocityListener, IGameGameStateListener
 
     public void OnGameState (GameEntity entity, GameState current)
     {
-        if (current.Equals(MiniGameEggState.SETUP_GAME))
+        if (current.IsEqualTo(MiniGameEggState.SETUP_GAME))
         {
-
+            //set ball in starting position
+            this.transform.position = PositionsReference.Instance.startBall.position;
         }
     }
 }

@@ -64,6 +64,7 @@ public class MainController : MonoBehaviour
             .Add(new ServiceSystems(contexts, services))
             .Add(new InitializeGeneralSystems(contexts)) //all initialization sa general diri para walay null reference if accessed by custom systems
 
+            .Add(new MiniGame_Egg_Systems(contexts))
             .Add(new SpawnSystems(contexts))
             .Add(new FoodSystems(contexts))
             .Add(new ItemSystems(contexts))
@@ -75,7 +76,6 @@ public class MainController : MonoBehaviour
             .Add(new CollisionSystems(contexts))
             .Add(new ScoreSystems(contexts))
             .Add(new CoinSystems(contexts))
-            .Add(new MiniGame_Egg_Systems(contexts))
 
             .Add(new GeneralSystems(contexts)) //executed after all custom systems para ma pick up before cleanup sa destroy systems
             .Add(new EventSystems(contexts));

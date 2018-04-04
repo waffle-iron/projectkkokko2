@@ -2,9 +2,9 @@
 
 public static class GameStateExtensions
 {
-    public static bool Equals (this GameState state, ValueType Enum)
+    public static bool IsEqualTo (this GameState state, ValueType Enum)
     {
-        return state.type == typeof(Enum) && state.state == (int)Enum;
+        return state.type == Enum.GetType() && state.state == (int)Enum;
     }
 }
 

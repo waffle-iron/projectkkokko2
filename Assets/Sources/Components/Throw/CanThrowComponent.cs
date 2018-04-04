@@ -9,4 +9,5 @@ public sealed class CanThrowComponent : IComponent
 {
     public float force;
     public float minDistance;
+    public bool isEnabled;
 }

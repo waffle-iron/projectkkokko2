@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5ec701c7ef68724a899226bf2d2aa37, type: 3}
-  m_Name: MiniGameEggStateConfig
+  m_Name: MINIGAME_EGG_GAMESTATE
   m_EditorClassIdentifier: 
   _viewName: 
   _isDestroyOnSceneChange: 1

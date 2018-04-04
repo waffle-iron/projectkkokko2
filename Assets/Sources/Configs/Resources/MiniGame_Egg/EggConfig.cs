@@ -12,13 +12,15 @@ public class EggConfig : UnityEntityConfig
     private float minDistance;
     [SerializeField]
     private float _maxTouchTime;
+    [SerializeField]
+    private bool _canThrowByDefault = false;
     [SerializeField, Tag]
     private string _tag;
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
         var gameEty = contexts.game.CreateEntity();
-        gameEty.AddCanThrow(force, minDistance);
+        gameEty.AddCanThrow(force, minDistance, _canThrowByDefault);
         gameEty.AddTouchTimeGap(_maxTouchTime);
         gameEty.AddTag(_tag);
         gameEty.isCollidable = true;

@@ -10,5 +10,7 @@ public class MiniGame_Egg_Systems : Feature
         //Add(system here);
         Add(new MiniGameEgg_ResetReactiveSystem(contexts));
         Add(new MiniGameEgg_SetupGameReactiveSystem(contexts));
+        Add(new Minigame_Egg_StartGameReactiveSystem(contexts));
+        Add(new Minigame_Egg_ShootReactiveSystem(contexts));
     }
 }

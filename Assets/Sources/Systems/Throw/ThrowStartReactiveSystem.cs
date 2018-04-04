@@ -23,7 +23,8 @@ public class ThrowStartReactiveSystem : ReactiveSystem<GameEntity>
         // check for required components
         return entity.hasTouchData &&
             entity.touchData.current.Phase == TouchPhase.Ended &&
-            entity.hasCanThrow && 
+            entity.hasCanThrow &&
+            entity.canThrow.isEnabled &&
             entity.hasOrigin;
     }
 

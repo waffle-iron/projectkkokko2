@@ -24,8 +24,7 @@ public class MiniGameEgg_ResetReactiveSystem : ReactiveSystem<GameEntity>
     {
         // check for required components
         return entity.hasGameState &&
-                entity.gameState.current.type == typeof(MiniGameEggState) &&
-                entity.gameState.current.state == (int)MiniGameEggState.RESET_GAME;
+                entity.gameState.current.IsEqualTo(MiniGameEggState.RESET_GAME);
     }
 
     protected override void Execute (List<GameEntity> entities)

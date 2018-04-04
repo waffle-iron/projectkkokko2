@@ -22,7 +22,7 @@ public class ScoreOverallInputReactiveSystem : ReactiveSystem<InputEntity>
     protected override ICollector<InputEntity> GetTrigger (IContext<InputEntity> context)
     {
         //return collector
-        return context.CreateCollector(InputMatcher.AllOf(InputMatcher.ChangeScore).NoneOf(InputMatcher.TargetEntityID));
+        return context.CreateCollector(InputMatcher.AnyOf(InputMatcher.ChangeScore).NoneOf(InputMatcher.TargetEntityID));
     }
 
     protected override bool Filter (InputEntity entity)

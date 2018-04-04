@@ -22,8 +22,7 @@ public class MiniGameEgg_SetupGameReactiveSystem : ReactiveSystem<GameEntity>
     {
         // check for required components
         return entity.hasGameState &&
-            entity.gameState.current.type == typeof(MiniGameEggState) &&
-            entity.gameState.current.state == (int)MiniGameEggState.SETUP_GAME;
+            entity.gameState.current.IsEqualTo(MiniGameEggState.SETUP_GAME);
     }
 
     protected override void Execute (List<GameEntity> entities)
