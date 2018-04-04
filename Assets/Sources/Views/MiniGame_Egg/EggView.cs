@@ -54,6 +54,8 @@ public class EggView : View, IVelocityListener, IGameGameStateListener
         {
             //set ball in starting position
             this.transform.position = PositionsReference.Instance.startBall.position;
+            _rigidbody.velocity = Vector2.zero;
+            _rigidbody.angularVelocity = 0f;
         }
     }
 }

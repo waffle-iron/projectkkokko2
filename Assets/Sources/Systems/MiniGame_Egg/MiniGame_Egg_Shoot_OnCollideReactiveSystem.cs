@@ -26,7 +26,9 @@ public class MiniGame_Egg_Shoot_OnCollideReactiveSystem : ReactiveSystem<GameEnt
         return
             _game.hasGameState &&
             _game.gameState.current.IsEqualTo(MiniGameEggState.SHOOT) &&
-            entity.hasOnCollision && entity.isObstacle;
+            entity.hasOnCollision && 
+            entity.onCollision.type == CollisionType.ENTER &&
+            entity.isObstacle;
     }
 
     protected override void Execute (List<GameEntity> entities)

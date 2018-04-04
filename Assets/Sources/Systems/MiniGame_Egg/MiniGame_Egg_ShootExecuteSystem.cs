@@ -22,6 +22,7 @@ public class MiniGame_Egg_ShootExecuteSystem : IExecuteSystem
         if (_game.hasGameState && _game.gameState.current.IsEqualTo(MiniGameEggState.SHOOT))
         {
             var scored = _scoredHoops?.GetEntities()
+                .Where(hoop => hoop.onCollision.type == CollisionType.ENTER)
                 .Select(hoop =>
                 {
                     var target = _game.GetEntityWithID(hoop.onCollision.otherID);
