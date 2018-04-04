@@ -7,11 +7,10 @@ using System.Linq;
 public class Minigame_Egg_ShootReactiveSystem : ReactiveSystem<GameEntity>
 {
     private readonly IGroup<GameEntity> _ball;
-    private const string BALL_TAG = "Ball";
 
     public Minigame_Egg_ShootReactiveSystem (Contexts contexts) : base(contexts.game)
     {
-        _ball = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Tag, GameMatcher.Collidable, GameMatcher.CanThrow));
+        _ball = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Ball, GameMatcher.Tag, GameMatcher.Collidable, GameMatcher.CanThrow));
     }
 
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)
@@ -33,7 +32,7 @@ public class Minigame_Egg_ShootReactiveSystem : ReactiveSystem<GameEntity>
         {
             // do stuff to the matched entities
             //disable ball throwing
-            foreach (var ball in _ball.AsEnumerable().Where(ball => ball.tag.current.Equals(BALL_TAG)))
+            foreach (var ball in _ball.AsEnumerable())
             {
                 ball.ReplaceCanThrow(ball.canThrow.force, ball.canThrow.minDistance, false);
             }

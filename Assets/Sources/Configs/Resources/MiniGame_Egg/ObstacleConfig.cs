@@ -23,6 +23,7 @@ public class ObstacleConfig : UnityEntityConfig
         gameEty.isCollidable = true;
         gameEty.AddMoveable(_speed);
         gameEty.AddTargetTag(_targets);
+        gameEty.isObstacle = true;
 
         return gameEty;
     }

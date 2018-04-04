@@ -21,6 +21,7 @@ public class ScoreHoopConfig : UnityEntityConfig
         gameEty.AddTag(_tag);
         gameEty.AddChangeScore(scoreValue, OperationType.ADD);
         gameEty.isCollidable = true;
+        gameEty.isBasket = true;
         gameEty.AddTargetTag(targetTags);
 
         return gameEty;

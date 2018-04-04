@@ -24,6 +24,7 @@ public class EggConfig : UnityEntityConfig
         gameEty.AddTouchTimeGap(_maxTouchTime);
         gameEty.AddTag(_tag);
         gameEty.isCollidable = true;
+        gameEty.isBall = true;
 
         return gameEty;
     }

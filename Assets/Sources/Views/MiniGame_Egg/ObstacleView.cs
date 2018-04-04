@@ -14,6 +14,12 @@ public class ObstacleView : View
         collision.CreateCollisionEntity(contexts, this.ID, CollisionType.ENTER);
     }
 
+    protected override void OnTriggerEnter2D (Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        collision.CreateCollisionEntity(contexts, this.ID, CollisionType.ENTER);
+    }
+
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         return Observable.Return(true);

@@ -7,7 +7,6 @@ using Entitas;
 public class MiniGame_Egg_ShootExecuteSystem : IExecuteSystem
 {
     private readonly IGroup<GameEntity> _scoredHoops;
-    private readonly IGroup<GameEntity> _balls;
     private readonly GameContext _game;
     private readonly InputContext _input;
 
@@ -15,7 +14,7 @@ public class MiniGame_Egg_ShootExecuteSystem : IExecuteSystem
     {
         _game = contexts.game;
         _input = contexts.input;
-        _scoredHoops = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Tag, GameMatcher.TargetTag, GameMatcher.Collidable, GameMatcher.OnCollision));
+        _scoredHoops = contexts.game.GetGroup(GameMatcher.AllOf(GameMatcher.Basket, GameMatcher.Tag, GameMatcher.TargetTag, GameMatcher.Collidable, GameMatcher.OnCollision));
     }
 
     public void Execute ()
