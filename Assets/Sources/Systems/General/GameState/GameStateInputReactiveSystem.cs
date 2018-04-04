@@ -32,7 +32,9 @@ public class GameStateInputReactiveSystem : ReactiveSystem<InputEntity>
     {
         foreach (var e in entities)
         {
-            if (_game.hasGameState && _game.gameState.current.state != e.gameState.current.state)
+            if (_game.hasGameState &&
+                e.gameState.current.type == _game.gameState.current.type &&
+                _game.gameState.current.state != e.gameState.current.state)
             {
                 var cmd = _cmd.CreateEntity();
                 cmd.AddGameState(new GameState(e.gameState.current.state, e.gameState.current.type));

@@ -5,15 +5,10 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreView : View, IScoreListener, IGameGameStateListener
+public class ScoreView : View, IScoreListener
 {
     [SerializeField]
     private Text _scoreText;
-
-    public void OnGameState (GameEntity entity, GameState current)
-    {
-        
-    }
 
     public void OnScore (GameEntity entity, int value)
     {
@@ -28,13 +23,13 @@ public class ScoreView : View, IScoreListener, IGameGameStateListener
     protected override void RegisterListeners (IEntity entity, IContext context)
     {
         var gameEty = (GameEntity)entity;
-        gameEty.AddScoreListener(this);
+
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
     {
         var gameEty = (GameEntity)entity;
-        gameEty.RemoveScoreListener(this);
+
     }
 }
 

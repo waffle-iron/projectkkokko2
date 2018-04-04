@@ -4,7 +4,7 @@ using Entitas;
 using System;
 using UniRx;
 
-public class EggView : View, IVelocityListener
+public class EggView : View, IVelocityListener, IGameGameStateListener
 {
     [SerializeField]
     private Rigidbody2D _rigidbody;
@@ -35,12 +35,22 @@ public class EggView : View, IVelocityListener
     {
         var gameety = (GameEntity)entity;
         gameety.AddVelocityListener(this);
+        gameety.AddGameGameStateListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
     {
         var gameety = (GameEntity)entity;
         gameety.RemoveVelocityListener(this);
-        
+        gameety.RemoveGameGameStateListener(this);
+
+    }
+
+    public void OnGameState (GameEntity entity, GameState current)
+    {
+        if (current.Equals(MiniGameEggState.SETUP_GAME))
+        {
+
+        }
     }
 }

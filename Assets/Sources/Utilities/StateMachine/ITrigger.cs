@@ -2,6 +2,6 @@
 
 public interface ITrigger
 {
-    bool Check (IEntity entity, IContext context);
+    bool Check (IEntity entity, Contexts contexts);
 }
 
