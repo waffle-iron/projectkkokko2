@@ -115,25 +115,29 @@ public static class GameComponentsLookup {
     public const int StateMachine = 104;
     public const int Tag = 105;
     public const int Targetable = 106;
-    public const int TargetEntityID = 107;
-    public const int TargetMove = 108;
-    public const int TargetNeed = 109;
-    public const int TargetTag = 110;
-    public const int Timer = 111;
-    public const int TimerReset = 112;
-    public const int TimerState = 113;
-    public const int ToDestroy = 114;
-    public const int TouchData = 115;
-    public const int TouchTimeGap = 116;
-    public const int Trigger = 117;
-    public const int Velocity = 118;
-    public const int VelocityListener = 119;
-    public const int View = 120;
-    public const int ViewListener = 121;
-    public const int ViewRemovedListener = 122;
-    public const int Wallet = 123;
+    public const int TargetDirectionChecker = 107;
+    public const int TargetDirectionCheckResult = 108;
+    public const int TargetDirectionCheckResultListener = 109;
+    public const int TargetEntityID = 110;
+    public const int TargetMove = 111;
+    public const int TargetNeed = 112;
+    public const int TargetPosition = 113;
+    public const int TargetTag = 114;
+    public const int Timer = 115;
+    public const int TimerReset = 116;
+    public const int TimerState = 117;
+    public const int ToDestroy = 118;
+    public const int TouchData = 119;
+    public const int TouchTimeGap = 120;
+    public const int Trigger = 121;
+    public const int Velocity = 122;
+    public const int VelocityListener = 123;
+    public const int View = 124;
+    public const int ViewListener = 125;
+    public const int ViewRemovedListener = 126;
+    public const int Wallet = 127;
 
-    public const int TotalComponents = 124;
+    public const int TotalComponents = 128;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -243,9 +247,13 @@ public static class GameComponentsLookup {
         "StateMachine",
         "Tag",
         "Targetable",
+        "TargetDirectionChecker",
+        "TargetDirectionCheckResult",
+        "TargetDirectionCheckResultListener",
         "TargetEntityID",
         "TargetMove",
         "TargetNeed",
+        "TargetPosition",
         "TargetTag",
         "Timer",
         "TimerReset",
@@ -370,9 +378,13 @@ public static class GameComponentsLookup {
         typeof(StateMachineComponent),
         typeof(TagComponent),
         typeof(TargetableComponent),
+        typeof(TargetDirectionCheckerComponent),
+        typeof(TargetDirectionCheckResultComponent),
+        typeof(TargetDirectionCheckResultListenerComponent),
         typeof(TargetEntityIDComponent),
         typeof(TargetMoveComponent),
         typeof(TargetNeedComponent),
+        typeof(TargetPositionComponent),
         typeof(TargetTagComponent),
         typeof(TimerComponent),
         typeof(TimerResetComponent),

@@ -10,11 +10,23 @@ public class EggView : View, IVelocityListener, IGameGameStateListener
     private Rigidbody2D _rigidbody;
     [SerializeField]
     private float clampForce;
+    [SerializeField, Tag]
+    private string _targetBasket;
+
+    private Transform _basket;
 
     protected override void Awake ()
     {
         base.Awake();
         if (_rigidbody == null) { _rigidbody = GetComponentInChildren<Rigidbody2D>(); }
+        _basket = GameObject.FindGameObjectWithTag(_targetBasket).transform;
+    }
+
+    protected override void Update ()
+    {
+        base.Update();
+        this.transform.CreatePositionEntity(contexts, this.ID);
+        _basket.transform.CreateTargetPositionEntity(contexts, this.ID);
     }
 
     public void OnVelocity (GameEntity entity, Vector3 current)

@@ -16,6 +16,9 @@ public class EggConfig : UnityEntityConfig
     private bool _canThrowByDefault = false;
     [SerializeField, Tag]
     private string _tag;
+    [SerializeField]
+    [Range(0f, 180f)]
+    private float _angleThreshold = 15f;
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
@@ -25,6 +28,8 @@ public class EggConfig : UnityEntityConfig
         gameEty.AddTag(_tag);
         gameEty.isCollidable = true;
         gameEty.isBall = true;
+        gameEty.AddMoveable(0f);
+        gameEty.AddTargetDirectionChecker(_angleThreshold);
 
         return gameEty;
     }

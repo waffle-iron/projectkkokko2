@@ -88,14 +88,15 @@ public static class CommandComponentsLookup {
     public const int TargetEntityID = 77;
     public const int TargetMove = 78;
     public const int TargetNeed = 79;
-    public const int TimerReset = 80;
-    public const int TimerState = 81;
-    public const int ToDestroy = 82;
-    public const int TouchData = 83;
-    public const int Trigger = 84;
-    public const int Wallet = 85;
+    public const int TargetPosition = 80;
+    public const int TimerReset = 81;
+    public const int TimerState = 82;
+    public const int ToDestroy = 83;
+    public const int TouchData = 84;
+    public const int Trigger = 85;
+    public const int Wallet = 86;
 
-    public const int TotalComponents = 86;
+    public const int TotalComponents = 87;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -178,6 +179,7 @@ public static class CommandComponentsLookup {
         "TargetEntityID",
         "TargetMove",
         "TargetNeed",
+        "TargetPosition",
         "TimerReset",
         "TimerState",
         "ToDestroy",
@@ -267,6 +269,7 @@ public static class CommandComponentsLookup {
         typeof(TargetEntityIDComponent),
         typeof(TargetMoveComponent),
         typeof(TargetNeedComponent),
+        typeof(TargetPositionComponent),
         typeof(TimerResetComponent),
         typeof(TimerStateComponent),
         typeof(ToDestroyComponent),
