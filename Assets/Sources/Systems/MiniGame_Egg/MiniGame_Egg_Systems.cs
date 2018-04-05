@@ -16,5 +16,6 @@ public class MiniGame_Egg_Systems : Feature
         Add(new MiniGame_Egg_Shoot_OnCollideReactiveSystem(contexts));
         Add(new MiniGame_Egg_MissedReactiveSystem(contexts));
         Add(new MiniGame_Egg_ScoredReactiveSystem(contexts));
+        Add(new MiniGame_Egg_PausedReactiveSystem(contexts));
     }
 }

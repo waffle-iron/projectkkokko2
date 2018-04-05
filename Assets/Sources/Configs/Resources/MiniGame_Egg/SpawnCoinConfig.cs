@@ -1,8 +1,10 @@
-﻿using System;
-using Entitas;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Entitas;
+using UniRx;
 
-public class SpawnConfig : UnityEntityConfig
+public class SpawnCoinConfig : UnityEntityConfig
 {
     [Header("Spawn Settings")]
     [SerializeField, Tag]
@@ -24,6 +26,8 @@ public class SpawnConfig : UnityEntityConfig
         gameEty.AddTimer(0f);
         gameEty.AddTimerState(false);
         gameEty.AddTag(_tag);
+        gameEty.AddScore(0);
+        gameEty.AddCoin(1, OperationType.ADD);
 
         return gameEty;
     }

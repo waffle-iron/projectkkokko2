@@ -9,6 +9,9 @@ TagManager:
   - Coin
   - Hoop
   - Obstacle
+  - Destroy
+  - CoinSpawner
+  - ObstacleSpawner
   layers:
   - Default
   - TransparentFX

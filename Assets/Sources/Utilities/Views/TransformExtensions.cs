@@ -51,4 +51,12 @@ public static class TransformExtensions
         newPos.z = newZ;
         trans.position = newPos;
     }
+
+    public static void CreatePositionEntity (this Transform transform, Contexts contexts, uint myID)
+    {
+        var newEty = contexts.input.CreateEntity();
+        newEty.AddTargetEntityID(myID);
+        newEty.AddPosition(transform.position);
+        newEty.AddDelayDestroy(1);
+    }
 }

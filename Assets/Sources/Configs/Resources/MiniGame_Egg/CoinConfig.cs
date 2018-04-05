@@ -12,6 +12,8 @@ public class CoinConfig : UnityEntityConfig
     private int value;
     [SerializeField]
     private OperationType type;
+    [SerializeField]
+    private float speed;
     [SerializeField, Tag]
     private string _tag;
     [SerializeField, Tag]
@@ -25,6 +27,7 @@ public class CoinConfig : UnityEntityConfig
         gameEty.isCollidable = true;
         gameEty.AddTag(_tag);
         gameEty.AddTargetTag(_targetTags);
+        gameEty.AddMoveable(speed);
 
         return gameEty;
     }

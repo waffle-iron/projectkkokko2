@@ -64,7 +64,8 @@ public class MainController : MonoBehaviour
             .Add(new ServiceSystems(contexts, services))
             .Add(new InitializeGeneralSystems(contexts)) //all initialization sa general diri para walay null reference if accessed by custom systems
 
-            .Add(new MiniGame_Egg_Systems(contexts))
+            .Add(new MiniGame_Egg_Systems(contexts)) //mini game state machine
+
             .Add(new SpawnSystems(contexts))
             .Add(new FoodSystems(contexts))
             .Add(new ItemSystems(contexts))

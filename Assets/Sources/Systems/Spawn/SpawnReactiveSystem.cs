@@ -40,10 +40,19 @@ public class SpawnReactiveSystem : ReactiveSystem<GameEntity>
 
             if (e.timer.current >= e.interval.duration.GetInSeconds())
             {
-                foreach (var id in e.spawn.entityID)
+                if (e.spawn.isRandomized)
                 {
+                    var id = e.spawn.entityID[Random.Range(0, e.spawn.entityID.Length)];
                     _meta.entityService.instance.Get(id);
                 }
+                else
+                {
+                    foreach (var id in e.spawn.entityID)
+                    {
+                        _meta.entityService.instance.Get(id);
+                    }
+                }
+
 
                 //reset
                 var inputEty = _input.CreateEntity();

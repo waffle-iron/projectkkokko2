@@ -11,19 +11,21 @@ public partial class GameEntity {
     public SpawnComponent spawn { get { return (SpawnComponent)GetComponent(GameComponentsLookup.Spawn); } }
     public bool hasSpawn { get { return HasComponent(GameComponentsLookup.Spawn); } }
 
-    public void AddSpawn(string[] newEntityID, DurationType newMinInterval, DurationType newMaxInterval) {
+    public void AddSpawn(string[] newEntityID, bool newIsRandomized, DurationType newMinInterval, DurationType newMaxInterval) {
         var index = GameComponentsLookup.Spawn;
         var component = CreateComponent<SpawnComponent>(index);
         component.entityID = newEntityID;
+        component.isRandomized = newIsRandomized;
         component.minInterval = newMinInterval;
         component.maxInterval = newMaxInterval;
         AddComponent(index, component);
     }
 
-    public void ReplaceSpawn(string[] newEntityID, DurationType newMinInterval, DurationType newMaxInterval) {
+    public void ReplaceSpawn(string[] newEntityID, bool newIsRandomized, DurationType newMinInterval, DurationType newMaxInterval) {
         var index = GameComponentsLookup.Spawn;
         var component = CreateComponent<SpawnComponent>(index);
         component.entityID = newEntityID;
+        component.isRandomized = newIsRandomized;
         component.minInterval = newMinInterval;
         component.maxInterval = newMaxInterval;
         ReplaceComponent(index, component);

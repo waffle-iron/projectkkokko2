@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00ea312eced50f0428a3f74f3f3c2d61, type: 3}
-  m_Name: MiniGame_Egg_CoinConfig
+  m_Name: MiniGame_Egg_Coin_Left_Config
   m_EditorClassIdentifier: 
   _viewName: CoinView
   _isDestroyOnSceneChange: 1
@@ -22,6 +22,7 @@ MonoBehaviour:
   _loadOnStart: 0
   value: 1
   type: 0
+  speed: -5
   _tag: Coin
   _targetTags:
   - Ball

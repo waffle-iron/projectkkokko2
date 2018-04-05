@@ -8,8 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd899a003ff202b4c8e6ffe0dee3fb8c, type: 3}
-  m_Name: Minigame_Egg_ObstacleConfig
+  m_Script: {fileID: 11500000, guid: 9204b035db152744b8929522c1d61b6f, type: 3}
+  m_Name: MiniGame_Egg_CoinSpawningConfig
   m_EditorClassIdentifier: 
   _viewName: 
   _isDestroyOnSceneChange: 1
@@ -20,7 +20,14 @@ MonoBehaviour:
     fakeValue: 
     fakeValueActive: 0
   _loadOnStart: 0
-  _tag: Obstacle
-  _speed: 5
-  _targets:
-  - Ball
+  _tag: CoinSpawner
+  entities:
+  - MiniGame_Egg_Coin_Right_Config
+  - MiniGame_Egg_Coin_Left_Config
+  isRandomized: 1
+  minInterval:
+    length: 1
+    unit: 1
+  maxInterval:
+    length: 5
+    unit: 1
