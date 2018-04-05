@@ -25,3 +25,4 @@ MonoBehaviour:
   _maxTouchTime: 0.25
   _canThrowByDefault: 0
   _tag: Ball
+  _angleThreshold: 7

@@ -38,7 +38,7 @@ public class ScoreInputReactiveSystem : ReactiveSystem<InputEntity>
             if (target != null && target.hasScore)
             {
                 var cmdEty = _cmd.CreateEntity();
-                cmdEty.AddTargetEntityID(target.targetEntityID.value);
+                cmdEty.AddTargetEntityID(e.targetEntityID.value);
                 cmdEty.AddChangeScore(e.changeScore.value, e.changeScore.operation);
             }
         }

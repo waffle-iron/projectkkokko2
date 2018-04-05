@@ -36,7 +36,7 @@ public class ThrowStartReactiveSystem : ReactiveSystem<GameEntity>
             //filter min distance
             //if it passes, calculate for velocity and add
             var endPos = e.touchData.current.WorldPosition;
-            _meta.debugService.instance.Log(Vector2.Distance(endPos, e.origin.current));
+            //_meta.debugService.instance.Log(Vector2.Distance(endPos, e.origin.current));
             if (Vector2.Distance(endPos, e.origin.current) > e.canThrow.minDistance)
             {
                 var direction = endPos - e.origin.current;

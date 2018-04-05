@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344174943618208}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 0.362, z: 0.099564575}
+  m_LocalPosition: {x: 0.02, y: 0.62, z: 0.099564575}
   m_LocalScale: {x: 0.5946837, y: 0.5946837, z: 0.5946837}
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,7 +102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 0}
+  _col: {fileID: 0}
+  _animTime: 1
+  _ease: 0
   clampForce: 40
+  _targetBasket: Hoop
 --- !u!212 &212137499501362434
 SpriteRenderer:
   m_ObjectHideFlags: 1
