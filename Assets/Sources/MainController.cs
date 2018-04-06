@@ -11,6 +11,9 @@ public class MainController : MonoBehaviour
     [SerializeField]
     private bool _isSimulationMode = false;
 
+    [SerializeField]
+    private List<Feature> _additionalSystems = new List<Feature>();
+
     private Contexts _contexts;
     private Systems _systems;
 
@@ -61,13 +64,20 @@ public class MainController : MonoBehaviour
             .Add(new ServiceSystems(contexts, services))
             .Add(new InitializeGeneralSystems(contexts)) //all initialization sa general diri para walay null reference if accessed by custom systems
 
+            .Add(new MiniGame_Egg_Systems(contexts)) //mini game state machine
+
+            .Add(new SpawnSystems(contexts))
             .Add(new FoodSystems(contexts))
             .Add(new ItemSystems(contexts))
             .Add(new NeedSystems(contexts))
             .Add(new TouchSystems(contexts))
+            .Add(new ThrowSystems(contexts))
             .Add(new TargetSystems(contexts))
             .Add(new MoveSystems(contexts))
             .Add(new CollisionSystems(contexts))
+            .Add(new ScoreSystems(contexts))
+            .Add(new CoinSystems(contexts))
+            .Add(new UISystems(contexts))
 
             .Add(new GeneralSystems(contexts)) //executed after all custom systems para ma pick up before cleanup sa destroy systems
             .Add(new EventSystems(contexts));

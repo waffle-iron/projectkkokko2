@@ -12,22 +12,22 @@ public partial class CommandContext {
     public GameStateComponent gameState { get { return gameStateEntity.gameState; } }
     public bool hasGameState { get { return gameStateEntity != null; } }
 
-    public CommandEntity SetGameState(GameState newState) {
+    public CommandEntity SetGameState(GameState newCurrent) {
         if (hasGameState) {
             throw new Entitas.EntitasException("Could not set GameState!\n" + this + " already has an entity with GameStateComponent!",
                 "You should check if the context already has a gameStateEntity before setting it or use context.ReplaceGameState().");
         }
         var entity = CreateEntity();
-        entity.AddGameState(newState);
+        entity.AddGameState(newCurrent);
         return entity;
     }
 
-    public void ReplaceGameState(GameState newState) {
+    public void ReplaceGameState(GameState newCurrent) {
         var entity = gameStateEntity;
         if (entity == null) {
-            entity = SetGameState(newState);
+            entity = SetGameState(newCurrent);
         } else {
-            entity.ReplaceGameState(newState);
+            entity.ReplaceGameState(newCurrent);
         }
     }
 
@@ -49,17 +49,17 @@ public partial class CommandEntity {
     public GameStateComponent gameState { get { return (GameStateComponent)GetComponent(CommandComponentsLookup.GameState); } }
     public bool hasGameState { get { return HasComponent(CommandComponentsLookup.GameState); } }
 
-    public void AddGameState(GameState newState) {
+    public void AddGameState(GameState newCurrent) {
         var index = CommandComponentsLookup.GameState;
         var component = CreateComponent<GameStateComponent>(index);
-        component.state = newState;
+        component.current = newCurrent;
         AddComponent(index, component);
     }
 
-    public void ReplaceGameState(GameState newState) {
+    public void ReplaceGameState(GameState newCurrent) {
         var index = CommandComponentsLookup.GameState;
         var component = CreateComponent<GameStateComponent>(index);
-        component.state = newState;
+        component.current = newCurrent;
         ReplaceComponent(index, component);
     }
 

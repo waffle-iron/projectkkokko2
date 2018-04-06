@@ -11,7 +11,11 @@ public class TargetSystems : Feature
         Add(new InputTargetableSystem(contexts));
         Add(new InputTouchTargetMovePlayerReactiveSystem(contexts));
         Add(new InputTargetMoveReactiveSystem(contexts));
+        Add(new TargetPositionInputReactiveSystem(contexts));
 
         Add(new CommandTargetMoveReactiveSystem(contexts));
+        Add(new TargetPositionCommandReactiveSystem(contexts));
+
+        Add(new CalculateTargetDirectionResultReactiveSystem(contexts));
     }
 }

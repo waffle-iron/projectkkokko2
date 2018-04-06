@@ -21,7 +21,10 @@ public class ObjectPool
         _name = name;
         _type = type;
         type.SetActive(false);
-        //_objs.Add(_type);
+        if (type.scene.name != null)
+        {
+            _objs.Add(_type);
+        }
 
         //pool instances
         for (int ctr = 0; ctr < initInstances; ctr++)
@@ -57,4 +60,3 @@ public class ObjectPool
         _objs.RemoveAll(obj => obj == null);
     }
 }
-

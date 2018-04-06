@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd899a003ff202b4c8e6ffe0dee3fb8c, type: 3}
+  m_Name: Minigame_Egg_Obstacle_Left_Config
+  m_EditorClassIdentifier: 
+  _viewName: ObstacleView
+  _isDestroyOnSceneChange: 1
+  saveID:
+    currentCryptoKey: 4441
+    hiddenValue: 
+    inited: 1
+    fakeValue: 
+    fakeValueActive: 0
+  _loadOnStart: 0
+  _tag: Obstacle
+  _speed: -5
+  _targets:
+  - Ball

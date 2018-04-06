@@ -10,5 +10,8 @@ public class CollisionSystems : Feature
         //Add(system here);
         Add(new InputCollisionReactiveSystem(contexts));
         Add(new CommandCollisionReactiveSystem(contexts));
+
+        Add(new ObstacleCollisionDestroyReactiveSystem(contexts));
+        //Add(new OnCollisionCleanupSystem(contexts));
     }
 }

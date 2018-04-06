@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3ef322c72cd0341b2944c9ecc82e1e, type: 3}
+  m_Name: MiniGame_Egg_Results
+  m_EditorClassIdentifier: 
+  _viewName: ResultsView
+  _isDestroyOnSceneChange: 1
+  saveID:
+    currentCryptoKey: 4441
+    hiddenValue: 
+    inited: 1
+    fakeValue: 
+    fakeValueActive: 0
+  _loadOnStart: 0
+  _id: minigame_egg_results
+  _title: Game Over
+  _isPause: 0
+  _okAction: {fileID: 11400000, guid: 1c69f83169b67b14384a0e876416e9d7, type: 2}
+  _cancelAction: {fileID: 11400000, guid: 7b29174ea7efc8341b895968bba7d275, type: 2}

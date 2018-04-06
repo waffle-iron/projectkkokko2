@@ -24,7 +24,8 @@ public class InputTouchTargetMovePlayerReactiveSystem : IExecuteSystem
         if (_meta.touchService.instance.touch != null)
         {
             //do filter checks then add to command touch service
-            if (_game.gameState.state == GameState.PLAYING)
+            if (_game.hasGameState && _game.gameState.current.type == typeof(MainGameState) &&
+                _game.gameState.current.state == (int)MainGameState.PLAYING)
             {
                 foreach (var player in _players.GetEntities())
                 {

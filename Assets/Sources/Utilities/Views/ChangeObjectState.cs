@@ -6,7 +6,7 @@ public class ChangeObjectState : MonoBehaviour
     [SerializeField]
     private GameObject _target;
     [SerializeField]
-    private GameState _newState;
+    private MainGameState _newState;
 
     [SerializeField]
     private bool _activate = true;
@@ -15,10 +15,10 @@ public class ChangeObjectState : MonoBehaviour
     {
         _target.SetActive(_activate);
 
-        if (_newState != GameState.NONE)
+        if (_newState != MainGameState.NONE)
         {
             var input = Contexts.sharedInstance.input.CreateEntity();
-            input.AddGameState(_newState);
+            input.AddGameState(new GameState((int)_newState, typeof(MainGameState)));
         }
     }
 }

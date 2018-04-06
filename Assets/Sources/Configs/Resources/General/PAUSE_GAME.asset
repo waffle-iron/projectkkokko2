@@ -11,8 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38079b2a65b6edd4eb5e40f8c731ddc3, type: 3}
   m_Name: PAUSE_GAME
   m_EditorClassIdentifier: 
-  _name: 1
-  _viewName: 
+  _viewName: PauseMainView
   _isDestroyOnSceneChange: 0
   saveID:
     currentCryptoKey: 4441

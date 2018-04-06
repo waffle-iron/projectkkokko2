@@ -8,7 +8,7 @@ using System.Linq;
 public class EnumGenerator
 {
 
-    [MenuItem("Project/Create/Refresh Entity Config List")]
+    //[MenuItem("Project/Create/Refresh Entity Config List")]
     public static void GenEntitylist ()
     {
         string enumFileName = "EntityConfigList";

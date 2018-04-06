@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ec701c7ef68724a899226bf2d2aa37, type: 3}
+  m_Name: MINIGAME_EGG_GAMESTATE
+  m_EditorClassIdentifier: 
+  _viewName: 
+  _isDestroyOnSceneChange: 1
+  saveID:
+    currentCryptoKey: 4441
+    hiddenValue: 
+    inited: 1
+    fakeValue: 
+    fakeValueActive: 0
+  _loadOnStart: 0
+  _startState: 6

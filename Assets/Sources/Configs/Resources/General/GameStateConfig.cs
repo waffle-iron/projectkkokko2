@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameStateConfig : UnityEntityConfig
 {
     [SerializeField]
-    private GameState state;
+    private MainGameState state;
     [SerializeField]
     private bool _isInput = false;
 
@@ -15,15 +15,15 @@ public class GameStateConfig : UnityEntityConfig
         if (_isInput == false)
         {
             var gameEty = contexts.game.CreateEntity();
-            gameEty.AddGameState(state);
-            gameEty.isDoNotDestroyOnSceneChange = true;
+            gameEty.AddGameState(new GameState(state));
+            //gameEty.isDoNotDestroyOnSceneChange = true;
 
             return gameEty;
         }
         else
         {
             var inputEty = contexts.input.CreateEntity();
-            inputEty.AddGameState(state);
+            inputEty.AddGameState(new GameState(state));
             return inputEty;
         }
     }

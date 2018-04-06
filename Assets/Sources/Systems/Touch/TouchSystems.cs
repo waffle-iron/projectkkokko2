@@ -8,7 +8,7 @@ public class TouchSystems : Feature
     public TouchSystems (Contexts contexts) : base("Touch Systems")
     {
         //Add(system here);
-        Add(new TouchPhaseInputReactiveSystem(contexts));
-        Add(new TouchPhaseCommandReactiveSystem(contexts));
+        Add(new TouchdataInputReactiveSystem(contexts));
+        Add(new TouchdataCommandReactiveSystem(contexts));
     }
 }

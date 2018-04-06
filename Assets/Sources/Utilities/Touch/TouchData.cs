@@ -10,20 +10,22 @@ public struct TouchData
     public Vector3 WorldPosition { get; private set; }
     public TouchPhase Phase { get; private set; }
     public RaycastHit2D[] Hits { get; private set; }
+    public double TouchTime { get; private set; }
 
     public static TouchData Empty
     {
         get {
-            return new TouchData(-1, Vector3.zero, Vector3.zero, TouchPhase.Canceled, null);
+            return new TouchData(-1, Vector3.zero, Vector3.zero, TouchPhase.Canceled, 0, null);
         }
     }
 
-    public TouchData (int id, Vector3 screenPos, Vector3 worldPos, TouchPhase phase, RaycastHit2D[] hits)
+    public TouchData (int id, Vector3 screenPos, Vector3 worldPos, TouchPhase phase, double touchTime, RaycastHit2D[] hits)
     {
         this.Id = id;
         this.ScreenPosition = screenPos;
         this.WorldPosition = worldPos;
         this.Phase = phase;
+        this.TouchTime = touchTime;
         this.Hits = hits;
     }
 }

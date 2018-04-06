@@ -45,7 +45,7 @@ public class DraggableView : View
                 //create input entity 
                 var inputEty = contexts.input.CreateEntity();
                 inputEty.AddTargetEntityID(this.ID);
-                inputEty.AddTouchPhase(_service.touch[0].Phase);
+                inputEty.AddTouchData(_service.touch[0]);
             }
             else if (_service.touch[0].Phase == TouchPhase.Ended)
             {
@@ -53,7 +53,7 @@ public class DraggableView : View
                 //create input entity
                 var inputEty = contexts.input.CreateEntity();
                 inputEty.AddTargetEntityID(this.ID);
-                inputEty.AddTouchPhase(_service.touch[0].Phase);
+                inputEty.AddTouchData(_service.touch[0]);
             }
 
             if (_drag)

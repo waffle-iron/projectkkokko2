@@ -36,6 +36,8 @@ public class InputMoveReactiveSystem : ReactiveSystem<InputEntity>
 
             if (target != null && target.hasMoveable)
             {
+                if (target.hasPosition && target.position.current.magnitude == e.position.current.magnitude) { continue; }
+
                 var commandEntity = _cmd.CreateEntity();
                 commandEntity.AddTargetEntityID(e.targetEntityID.value);
                 commandEntity.AddPosition(e.position.current);

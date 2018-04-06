@@ -14,12 +14,16 @@ public class PauseView : View, IGamePauseListener, IGamePauseRemovedListener
 
     public void OnPause (GameEntity entity, bool state)
     {
-        
+        if (state == true)
+        {
+            Time.timeScale = 0f;
+        }
+        else { Time.timeScale = 1f; }
     }
 
     public void OnPauseRemoved (GameEntity entity)
     {
-        
+
     }
 
     protected override void RegisterListeners (IEntity entity, IContext context)

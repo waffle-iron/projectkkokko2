@@ -75,7 +75,7 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
         worldPos = camera.ScreenToWorldPoint(worldPos);
 
         var results = Physics2D.RaycastAll(worldPos, Vector2.zero, Mathf.Infinity, _layerMask);
-        newTouches[0] = new TouchData(1, screenPos, worldPos, phase, results);
+        newTouches[0] = new TouchData(1, screenPos, worldPos, phase, Time.time, results);
 
         return newTouches;
     }
@@ -91,7 +91,7 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
             worldPos.z = camera.transform.position.z;
             worldPos = camera.ScreenToWorldPoint(worldPos);
             var results = Physics2D.RaycastAll(worldPos, Vector2.zero, Mathf.Infinity, _layerMask);
-            newTouches[ctr] = new TouchData(touch.fingerId, screenPos, worldPos, touch.phase, results);
+            newTouches[ctr] = new TouchData(touch.fingerId, screenPos, worldPos, touch.phase, Time.time, results);
         }
 
         return newTouches;

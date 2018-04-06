@@ -15,6 +15,12 @@ public sealed class EventSystems : Feature {
         Add(new GameActionEventSystem(contexts)); // priority: 0
         Add(new CommandActionEventSystem(contexts)); // priority: 0
         Add(new InputActionEventSystem(contexts)); // priority: 0
+        Add(new GameActiveDialogEventSystem(contexts)); // priority: 0
+        Add(new CommandActiveDialogEventSystem(contexts)); // priority: 0
+        Add(new InputActiveDialogEventSystem(contexts)); // priority: 0
+        Add(new GameActiveDialogRemovedEventSystem(contexts)); // priority: 0
+        Add(new CommandActiveDialogRemovedEventSystem(contexts)); // priority: 0
+        Add(new InputActiveDialogRemovedEventSystem(contexts)); // priority: 0
         Add(new GameAffordEventSystem(contexts)); // priority: 0
         Add(new InputAffordEventSystem(contexts)); // priority: 0
         Add(new CommandAffordEventSystem(contexts)); // priority: 0
@@ -105,6 +111,8 @@ public sealed class EventSystems : Feature {
         Add(new CommandRemoveFromStorageRemovedEventSystem(contexts)); // priority: 0
         Add(new SavingEventSystem(contexts)); // priority: 0
         Add(new SavingRemovedEventSystem(contexts)); // priority: 0
+        Add(new ScoreEventSystem(contexts)); // priority: 0
+        Add(new TargetDirectionCheckResultEventSystem(contexts)); // priority: 0
         Add(new GameTargetMoveEventSystem(contexts)); // priority: 0
         Add(new InputTargetMoveEventSystem(contexts)); // priority: 0
         Add(new CommandTargetMoveEventSystem(contexts)); // priority: 0
@@ -116,9 +124,11 @@ public sealed class EventSystems : Feature {
         Add(new InputToDestroyRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandToDestroyRemovedEventSystem(contexts)); // priority: 0
         Add(new MetaToDestroyRemovedEventSystem(contexts)); // priority: 0
+        Add(new TopScoreEventSystem(contexts)); // priority: 0
         Add(new GameTriggerEventSystem(contexts)); // priority: 0
         Add(new CommandTriggerEventSystem(contexts)); // priority: 0
         Add(new InputTriggerEventSystem(contexts)); // priority: 0
+        Add(new VelocityEventSystem(contexts)); // priority: 0
         Add(new ViewEventSystem(contexts)); // priority: 0
         Add(new ViewRemovedEventSystem(contexts)); // priority: 0
         Add(new GameWalletEventSystem(contexts)); // priority: 0

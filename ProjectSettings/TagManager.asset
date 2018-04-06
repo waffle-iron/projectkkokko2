@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Prompt_YesNo
+  - Ball
+  - Coin
+  - Hoop
+  - Obstacle
+  - Destroy
+  - CoinSpawner
+  - ObstacleSpawner
+  - Score
   layers:
   - Default
   - TransparentFX
