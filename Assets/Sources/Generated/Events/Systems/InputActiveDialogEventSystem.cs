@@ -8,10 +8,7 @@
 //------------------------------------------------------------------------------
 public sealed class InputActiveDialogEventSystem : Entitas.ReactiveSystem<InputEntity> {
 
-    readonly Entitas.IGroup<InputEntity> _listeners;
-
     public InputActiveDialogEventSystem(Contexts contexts) : base(contexts.input) {
-        _listeners = contexts.input.GetGroup(InputMatcher.InputActiveDialogListener);
     }
 
     protected override Entitas.ICollector<InputEntity> GetTrigger(Entitas.IContext<InputEntity> context) {
@@ -21,16 +18,14 @@ public sealed class InputActiveDialogEventSystem : Entitas.ReactiveSystem<InputE
     }
 
     protected override bool Filter(InputEntity entity) {
-        return entity.hasActiveDialog;
+        return entity.hasActiveDialog && entity.hasInputActiveDialogListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<InputEntity> entities) {
         foreach (var e in entities) {
             var component = e.activeDialog;
-            foreach (var listenerEntity in _listeners) {
-                foreach (var listener in listenerEntity.inputActiveDialogListener.value) {
-                    listener.OnActiveDialog(e, component.id);
-                }
+            foreach (var listener in e.inputActiveDialogListener.value) {
+                listener.OnActiveDialog(e, component.id);
             }
         }
     }

@@ -23,5 +23,5 @@ MonoBehaviour:
   _id: minigame_egg_results
   _title: Game Over
   _isPause: 0
-  _okAction: {fileID: 11400000, guid: 1e3153ec6e2ce09429472f6279d714c8, type: 2}
-  _cancelAction: {fileID: 0}
+  _okAction: {fileID: 11400000, guid: 1c69f83169b67b14384a0e876416e9d7, type: 2}
+  _cancelAction: {fileID: 11400000, guid: 7b29174ea7efc8341b895968bba7d275, type: 2}

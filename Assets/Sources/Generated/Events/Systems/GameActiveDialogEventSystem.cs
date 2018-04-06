@@ -8,10 +8,7 @@
 //------------------------------------------------------------------------------
 public sealed class GameActiveDialogEventSystem : Entitas.ReactiveSystem<GameEntity> {
 
-    readonly Entitas.IGroup<GameEntity> _listeners;
-
     public GameActiveDialogEventSystem(Contexts contexts) : base(contexts.game) {
-        _listeners = contexts.game.GetGroup(GameMatcher.GameActiveDialogListener);
     }
 
     protected override Entitas.ICollector<GameEntity> GetTrigger(Entitas.IContext<GameEntity> context) {
@@ -21,16 +18,14 @@ public sealed class GameActiveDialogEventSystem : Entitas.ReactiveSystem<GameEnt
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.hasActiveDialog;
+        return entity.hasActiveDialog && entity.hasGameActiveDialogListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
             var component = e.activeDialog;
-            foreach (var listenerEntity in _listeners) {
-                foreach (var listener in listenerEntity.gameActiveDialogListener.value) {
-                    listener.OnActiveDialog(e, component.id);
-                }
+            foreach (var listener in e.gameActiveDialogListener.value) {
+                listener.OnActiveDialog(e, component.id);
             }
         }
     }

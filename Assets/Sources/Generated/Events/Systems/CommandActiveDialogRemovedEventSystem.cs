@@ -8,10 +8,7 @@
 //------------------------------------------------------------------------------
 public sealed class CommandActiveDialogRemovedEventSystem : Entitas.ReactiveSystem<CommandEntity> {
 
-    readonly Entitas.IGroup<CommandEntity> _listeners;
-
     public CommandActiveDialogRemovedEventSystem(Contexts contexts) : base(contexts.command) {
-        _listeners = contexts.command.GetGroup(CommandMatcher.CommandActiveDialogRemovedListener);
     }
 
     protected override Entitas.ICollector<CommandEntity> GetTrigger(Entitas.IContext<CommandEntity> context) {
@@ -21,16 +18,14 @@ public sealed class CommandActiveDialogRemovedEventSystem : Entitas.ReactiveSyst
     }
 
     protected override bool Filter(CommandEntity entity) {
-        return !entity.hasActiveDialog;
+        return !entity.hasActiveDialog && entity.hasCommandActiveDialogRemovedListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<CommandEntity> entities) {
         foreach (var e in entities) {
             
-            foreach (var listenerEntity in _listeners) {
-                foreach (var listener in listenerEntity.commandActiveDialogRemovedListener.value) {
-                    listener.OnActiveDialogRemoved(e);
-                }
+            foreach (var listener in e.commandActiveDialogRemovedListener.value) {
+                listener.OnActiveDialogRemoved(e);
             }
         }
     }

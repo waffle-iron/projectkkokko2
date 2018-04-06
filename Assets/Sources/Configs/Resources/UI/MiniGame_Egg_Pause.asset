@@ -24,5 +24,5 @@ MonoBehaviour:
   _title: Pause
   _message: Are you sure you want to quit?
   _isPause: 1
-  _okAction: {fileID: 11400000, guid: 77821bebc3e069a4b80f92a813fae916, type: 2}
+  _okAction: {fileID: 11400000, guid: 7b29174ea7efc8341b895968bba7d275, type: 2}
   _cancelAction: {fileID: 11400000, guid: d0197b921ac6a33478620601aea5abe8, type: 2}
