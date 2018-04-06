@@ -33,7 +33,7 @@ public class CalculateTargetDirectionResultReactiveSystem : ReactiveSystem<GameE
 
             var angle = Vector2.Angle(myDirection, idealDirection);
 
-            e.ReplaceTargetDirectionCheckResult(angle <= e.targetDirectionChecker.angle);
+            e.ReplaceTargetDirectionCheckResult(angle <= e.targetDirectionChecker.angle, idealDirection);
         }
     }
 }

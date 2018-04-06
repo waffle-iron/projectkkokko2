@@ -25,7 +25,7 @@ public sealed class TargetDirectionCheckResultEventSystem : Entitas.ReactiveSyst
         foreach (var e in entities) {
             var component = e.targetDirectionCheckResult;
             foreach (var listener in e.targetDirectionCheckResultListener.value) {
-                listener.OnTargetDirectionCheckResult(e, component.isInFOV);
+                listener.OnTargetDirectionCheckResult(e, component.isInFOV, component.idealDirection);
             }
         }
     }

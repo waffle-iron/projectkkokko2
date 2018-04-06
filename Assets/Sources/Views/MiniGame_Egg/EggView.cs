@@ -9,20 +9,11 @@ public class EggView : View, IVelocityListener, IGameGameStateListener, ITargetD
 {
     [SerializeField]
     private Rigidbody2D _rigidbody;
-    [SerializeField]
-    private Collider2D _col;
-    [SerializeField]
-    private float _animTime = 1f;
-    [SerializeField]
-    private Ease _ease;
-    [SerializeField]
-    private float clampForce;
+
     [SerializeField, Tag]
     private string _targetBasket;
 
     private Transform _basket;
-
-    private Tween _tween;
 
     protected override void Awake ()
     {
@@ -35,17 +26,17 @@ public class EggView : View, IVelocityListener, IGameGameStateListener, ITargetD
     {
         base.Update();
         this.transform.CreatePositionEntity(contexts, this.ID);
+
         _basket.transform.CreateTargetPositionEntity(contexts, this.ID);
     }
 
     public void OnVelocity (GameEntity entity, Vector3 current)
     {
-        //_rigidbody.AddForce(current, ForceMode2D.Impulse);
+        _rigidbody.AddForce(entity.velocity.current, ForceMode2D.Impulse);
 
-        //change game state
-        //var inputety = contexts.input.CreateEntity();
-        //inputety.AddGameState(new GameState(MiniGameEggState.SHOOT));
-        //inputety.AddDelayDestroy(1);
+        var inputety = contexts.input.CreateEntity();
+        inputety.AddGameState(new GameState(MiniGameEggState.SHOOT));
+        inputety.AddDelayDestroy(1);
     }
 
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
@@ -80,32 +71,24 @@ public class EggView : View, IVelocityListener, IGameGameStateListener, ITargetD
         }
     }
 
-    public void OnTargetDirectionCheckResult (GameEntity entity, bool isInFOV)
+    public void OnTargetDirectionCheckResult (GameEntity entity, bool isInFOV, Vector3 idealDirection)
     {
-        if (isInFOV)
-        {
-            var targetPos = _basket.position;
-            targetPos.z = this.transform.position.z;
-            targetPos.x += UnityEngine.Random.Range(-0.5f, .5f);
-            this.transform.DOMove(targetPos, _animTime).SetAutoKill(true)
-                .SetEase(_ease)
-                .SetRecyclable(true)
-                //.OnPlay(() => { this._col.enabled = false; })
-                .OnComplete(() => { _rigidbody.velocity = new Vector2(0f, _rigidbody.velocity.y); })
-                .Play();
+        //if (isInFOV)
+        //{
+        //    _rigidbody.AddForce(idealDirection * entity.velocity.current.magnitude, ForceMode2D.Impulse);
 
-            var inputety = contexts.input.CreateEntity();
-            inputety.AddGameState(new GameState(MiniGameEggState.SHOOT));
-            inputety.AddDelayDestroy(1);
-        }
-        else if (isInFOV == false && entity.hasVelocity)
-        {
-            _rigidbody.AddForce(entity.velocity.current, ForceMode2D.Impulse);
+        //    var inputety = contexts.input.CreateEntity();
+        //    inputety.AddGameState(new GameState(MiniGameEggState.SHOOT));
+        //    inputety.AddDelayDestroy(1);
+        //}
+        //else if (isInFOV == false && entity.hasVelocity)
+        //{
+        //    _rigidbody.AddForce(entity.velocity.current, ForceMode2D.Impulse);
 
-            var inputety = contexts.input.CreateEntity();
-            inputety.AddGameState(new GameState(MiniGameEggState.SHOOT));
-            inputety.AddDelayDestroy(1);
-        }
+        //    var inputety = contexts.input.CreateEntity();
+        //    inputety.AddGameState(new GameState(MiniGameEggState.SHOOT));
+        //    inputety.AddDelayDestroy(1);
+        //}
 
     }
 }

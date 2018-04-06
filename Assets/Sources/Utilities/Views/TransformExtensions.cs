@@ -67,4 +67,20 @@ public static class TransformExtensions
         newEty.AddTargetPosition(transform.position);
         newEty.AddDelayDestroy(1);
     }
+
+    public static IEnumerator Move (this Transform me, Vector3 destination, AnimationCurve easing, float duration)
+    {
+        float timer = 0.0f;
+        while (timer <= duration)
+        {
+            me.position = Vector3.Lerp(me.position, destination, easing.Evaluate(timer / duration));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    public static IEnumerator Move (this Transform me, Transform destination, AnimationCurve easing, float duration)
+    {
+        return (Move(me, destination.position, easing, duration));
+    }
 }

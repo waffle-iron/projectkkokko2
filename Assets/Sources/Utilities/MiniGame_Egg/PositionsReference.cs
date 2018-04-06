@@ -30,6 +30,10 @@ public class PositionsReference : MonoBehaviour
 
     public Transform cointSpawnLeftPos;
 
+    public Transform ballTargetLeftPos;
+    public Transform ballTargetCenterPos;
+    public Transform ballTargetRightPos;
+
     private void Awake ()
     {
         if (_instance == null)

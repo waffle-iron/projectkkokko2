@@ -11,17 +11,19 @@ public partial class GameEntity {
     public TargetDirectionCheckResultComponent targetDirectionCheckResult { get { return (TargetDirectionCheckResultComponent)GetComponent(GameComponentsLookup.TargetDirectionCheckResult); } }
     public bool hasTargetDirectionCheckResult { get { return HasComponent(GameComponentsLookup.TargetDirectionCheckResult); } }
 
-    public void AddTargetDirectionCheckResult(bool newIsInFOV) {
+    public void AddTargetDirectionCheckResult(bool newIsInFOV, UnityEngine.Vector3 newIdealDirection) {
         var index = GameComponentsLookup.TargetDirectionCheckResult;
         var component = CreateComponent<TargetDirectionCheckResultComponent>(index);
         component.isInFOV = newIsInFOV;
+        component.idealDirection = newIdealDirection;
         AddComponent(index, component);
     }
 
-    public void ReplaceTargetDirectionCheckResult(bool newIsInFOV) {
+    public void ReplaceTargetDirectionCheckResult(bool newIsInFOV, UnityEngine.Vector3 newIdealDirection) {
         var index = GameComponentsLookup.TargetDirectionCheckResult;
         var component = CreateComponent<TargetDirectionCheckResultComponent>(index);
         component.isInFOV = newIsInFOV;
+        component.idealDirection = newIdealDirection;
         ReplaceComponent(index, component);
     }
 

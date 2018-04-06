@@ -261,3 +261,6 @@ MonoBehaviour:
   obstacleSpawnLeftPos: {fileID: 4823306732010752}
   cointSpawnRightPos: {fileID: 4511520773721948}
   cointSpawnLeftPos: {fileID: 4446662867671516}
+  ballTargetLeftPos: {fileID: 0}
+  ballTargetCenterPos: {fileID: 0}
+  ballTargetRightPos: {fileID: 0}

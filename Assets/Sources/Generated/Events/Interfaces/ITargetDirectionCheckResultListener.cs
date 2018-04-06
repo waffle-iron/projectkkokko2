@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface ITargetDirectionCheckResultListener {
-    void OnTargetDirectionCheckResult(GameEntity entity, bool isInFOV);
+    void OnTargetDirectionCheckResult(GameEntity entity, bool isInFOV, UnityEngine.Vector3 idealDirection);
 }

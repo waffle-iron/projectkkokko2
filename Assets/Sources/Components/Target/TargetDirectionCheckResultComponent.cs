@@ -9,4 +9,5 @@ using Entitas.CodeGeneration.Attributes;
 public sealed class TargetDirectionCheckResultComponent : IComponent
 {
     public bool isInFOV;
+    public Vector3 idealDirection;
 }
