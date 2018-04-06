@@ -5,6 +5,6 @@ using UnityEngine;
 
 public abstract class UIAction : ScriptableObject
 {
-    public abstract void Execute (IEntity entity, Contexts contexts);
+    public abstract void Execute (IEntity myDialogEntity, Contexts contexts);
 }
 

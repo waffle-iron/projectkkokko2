@@ -12,6 +12,7 @@ TagManager:
   - Destroy
   - CoinSpawner
   - ObstacleSpawner
+  - Score
   layers:
   - Default
   - TransparentFX

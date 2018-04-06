@@ -134,17 +134,19 @@ public static class GameComponentsLookup {
     public const int TimerReset = 123;
     public const int TimerState = 124;
     public const int ToDestroy = 125;
-    public const int TouchData = 126;
-    public const int TouchTimeGap = 127;
-    public const int Trigger = 128;
-    public const int Velocity = 129;
-    public const int VelocityListener = 130;
-    public const int View = 131;
-    public const int ViewListener = 132;
-    public const int ViewRemovedListener = 133;
-    public const int Wallet = 134;
+    public const int TopScore = 126;
+    public const int TopScoreListener = 127;
+    public const int TouchData = 128;
+    public const int TouchTimeGap = 129;
+    public const int Trigger = 130;
+    public const int Velocity = 131;
+    public const int VelocityListener = 132;
+    public const int View = 133;
+    public const int ViewListener = 134;
+    public const int ViewRemovedListener = 135;
+    public const int Wallet = 136;
 
-    public const int TotalComponents = 135;
+    public const int TotalComponents = 137;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -273,6 +275,8 @@ public static class GameComponentsLookup {
         "TimerReset",
         "TimerState",
         "ToDestroy",
+        "TopScore",
+        "TopScoreListener",
         "TouchData",
         "TouchTimeGap",
         "Trigger",
@@ -411,6 +415,8 @@ public static class GameComponentsLookup {
         typeof(TimerResetComponent),
         typeof(TimerStateComponent),
         typeof(ToDestroyComponent),
+        typeof(TopScoreComponent),
+        typeof(TopScoreListenerComponent),
         typeof(TouchDataComponent),
         typeof(TouchTimeGapComponent),
         typeof(TriggerComponent),

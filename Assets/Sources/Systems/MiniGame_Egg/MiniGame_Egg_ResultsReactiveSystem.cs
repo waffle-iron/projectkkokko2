@@ -3,12 +3,15 @@ using System.Collections;
 using UnityEngine;
 using Entitas;
 
-public class MiniGame_Egg_MissedReactiveSystem : ReactiveSystem<GameEntity>
+public class MiniGame_Egg_ResultsReactiveSystem : ReactiveSystem<GameEntity>
 {
+    private const string RESULTS_DIALOG = "minigame_egg_results";
+    private readonly GameContext _game;
     private readonly InputContext _input;
 
-    public MiniGame_Egg_MissedReactiveSystem (Contexts contexts) : base(contexts.game)
+    public MiniGame_Egg_ResultsReactiveSystem (Contexts contexts) : base(contexts.game)
     {
+        _game = contexts.game;
         _input = contexts.input;
     }
 
@@ -21,17 +24,17 @@ public class MiniGame_Egg_MissedReactiveSystem : ReactiveSystem<GameEntity>
     protected override bool Filter (GameEntity entity)
     {
         // check for required components
-        return entity.hasGameState &&
-            entity.gameState.current.IsEqualTo(MiniGameEggState.MISSED);
+        return entity.hasGameState && entity.gameState.current.IsEqualTo(MiniGameEggState.RESULTS);
     }
 
     protected override void Execute (List<GameEntity> entities)
     {
         foreach (var e in entities)
         {
-            // do stuff to the matched entities
-            var inputety = _input.CreateEntity();
-            inputety.AddGameState(new GameState(MiniGameEggState.RESULTS));
+            //open results dialog
+            var inputEty = _input.CreateEntity();
+            inputEty.AddActiveDialog(RESULTS_DIALOG);
+
         }
     }
 }

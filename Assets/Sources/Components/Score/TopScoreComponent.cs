@@ -6,7 +6,7 @@ using Entitas.CodeGeneration.Attributes;
 
 //[Entitas.CodeGenerator.SingleEntity]
 [Game, Event(true), Unique]
-public sealed class ScoreComponent : IComponent
+public sealed class TopScoreComponent : IComponent
 {
     public int value;
 }

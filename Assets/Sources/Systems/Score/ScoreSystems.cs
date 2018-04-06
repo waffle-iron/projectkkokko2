@@ -13,5 +13,7 @@ public class ScoreSystems : Feature
         Add(new ScoreOverallInputReactiveSystem(contexts));
 
         Add(new ScoreCommandReactiveSystem(contexts));
+
+        Add(new UpdateHighScoreReactiveSystem(contexts));
     }
 }

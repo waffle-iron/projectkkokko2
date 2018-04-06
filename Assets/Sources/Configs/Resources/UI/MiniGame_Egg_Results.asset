@@ -8,10 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4f177f868082d24f968b3631afb2bb1, type: 3}
-  m_Name: MiniGame_Egg_ScoreConfig
+  m_Script: {fileID: 11500000, guid: ad3ef322c72cd0341b2944c9ecc82e1e, type: 3}
+  m_Name: MiniGame_Egg_Results
   m_EditorClassIdentifier: 
-  _viewName: ScoreView
+  _viewName: ResultsView
   _isDestroyOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
@@ -20,5 +20,8 @@ MonoBehaviour:
     fakeValue: 
     fakeValueActive: 0
   _loadOnStart: 0
-  _initValue: 0
-  _tag: Score
+  _id: minigame_egg_results
+  _title: Game Over
+  _isPause: 0
+  _okAction: {fileID: 11400000, guid: 1e3153ec6e2ce09429472f6279d714c8, type: 2}
+  _cancelAction: {fileID: 0}

@@ -124,6 +124,7 @@ public sealed class EventSystems : Feature {
         Add(new InputToDestroyRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandToDestroyRemovedEventSystem(contexts)); // priority: 0
         Add(new MetaToDestroyRemovedEventSystem(contexts)); // priority: 0
+        Add(new TopScoreEventSystem(contexts)); // priority: 0
         Add(new GameTriggerEventSystem(contexts)); // priority: 0
         Add(new CommandTriggerEventSystem(contexts)); // priority: 0
         Add(new InputTriggerEventSystem(contexts)); // priority: 0
