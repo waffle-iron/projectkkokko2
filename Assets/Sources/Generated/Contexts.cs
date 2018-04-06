@@ -63,6 +63,8 @@ public partial class Contexts : Entitas.IContexts {
 public partial class Contexts {
 
     public const string Accessory = "Accessory";
+    public const string DialogId = "DialogId";
+    public const string DialogType = "DialogType";
     public const string EntityConfigID = "EntityConfigID";
     public const string Food = "Food";
     public const string ID = "ID";
@@ -84,6 +86,16 @@ public partial class Contexts {
             Accessory,
             command.GetGroup(CommandMatcher.Accessory),
             (e, c) => ((AccessoryComponent)c).id));
+
+        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, string>(
+            DialogId,
+            game.GetGroup(GameMatcher.Dialog),
+            (e, c) => ((DialogComponent)c).id));
+
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, DialogType>(
+            DialogType,
+            game.GetGroup(GameMatcher.Dialog),
+            (e, c) => ((DialogComponent)c).type));
 
         game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, EntityCfgID>(
             EntityConfigID,
@@ -161,6 +173,14 @@ public static class ContextsExtensions {
 
     public static CommandEntity GetEntityWithAccessory(this CommandContext context, string id) {
         return ((Entitas.PrimaryEntityIndex<CommandEntity, string>)context.GetEntityIndex(Contexts.Accessory)).GetEntity(id);
+    }
+
+    public static GameEntity GetEntityWithDialogId(this GameContext context, string id) {
+        return ((Entitas.PrimaryEntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.DialogId)).GetEntity(id);
+    }
+
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithDialogType(this GameContext context, DialogType type) {
+        return ((Entitas.EntityIndex<GameEntity, DialogType>)context.GetEntityIndex(Contexts.DialogType)).GetEntities(type);
     }
 
     public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithEntityConfigID(this GameContext context, EntityCfgID value) {

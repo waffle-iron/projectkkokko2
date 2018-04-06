@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251924eb9aba9154b9220e0cd08b674c, type: 3}
+  m_Name: MiniGame_Egg_Pause
+  m_EditorClassIdentifier: 
+  _viewName: PauseView
+  _isDestroyOnSceneChange: 1
+  saveID:
+    currentCryptoKey: 4441
+    hiddenValue: 
+    inited: 1
+    fakeValue: 
+    fakeValueActive: 0
+  _loadOnStart: 0
+  _id: minigame_egg_pause
+  _title: Pause
+  _message: Are you sure you want to quit?
+  _isPause: 1
+  _okAction: {fileID: 11400000, guid: 77821bebc3e069a4b80f92a813fae916, type: 2}
+  _cancelAction: {fileID: 11400000, guid: d0197b921ac6a33478620601aea5abe8, type: 2}

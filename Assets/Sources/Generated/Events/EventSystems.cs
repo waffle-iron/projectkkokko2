@@ -15,6 +15,12 @@ public sealed class EventSystems : Feature {
         Add(new GameActionEventSystem(contexts)); // priority: 0
         Add(new CommandActionEventSystem(contexts)); // priority: 0
         Add(new InputActionEventSystem(contexts)); // priority: 0
+        Add(new GameActiveDialogEventSystem(contexts)); // priority: 0
+        Add(new CommandActiveDialogEventSystem(contexts)); // priority: 0
+        Add(new InputActiveDialogEventSystem(contexts)); // priority: 0
+        Add(new GameActiveDialogRemovedEventSystem(contexts)); // priority: 0
+        Add(new CommandActiveDialogRemovedEventSystem(contexts)); // priority: 0
+        Add(new InputActiveDialogRemovedEventSystem(contexts)); // priority: 0
         Add(new GameAffordEventSystem(contexts)); // priority: 0
         Add(new InputAffordEventSystem(contexts)); // priority: 0
         Add(new CommandAffordEventSystem(contexts)); // priority: 0
