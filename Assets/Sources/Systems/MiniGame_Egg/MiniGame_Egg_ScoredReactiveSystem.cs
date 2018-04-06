@@ -34,13 +34,13 @@ public class MiniGame_Egg_ScoredReactiveSystem : ReactiveSystem<GameEntity>
         {
             //add counter
             //update spawn coin score counter
-            foreach (var spawn in _coinSpawner.GetEntities())
-            {
-                var inputEty = _input.CreateEntity();
+            //foreach (var spawn in _coinSpawner.GetEntities())
+            //{
+            //    var inputEty = _input.CreateEntity();
 
-                inputEty.AddTargetEntityID(spawn.iD.value);
-                inputEty.AddChangeScore(spawn.coin.value, spawn.coin.operation);
-            }
+            //    inputEty.AddTargetEntityID(spawn.iD.value);
+            //    inputEty.AddChangeScore(spawn.coin.value, spawn.coin.operation);
+            //}
 
             // do stuff to the matched entities
             var inputety = _input.CreateEntity();
