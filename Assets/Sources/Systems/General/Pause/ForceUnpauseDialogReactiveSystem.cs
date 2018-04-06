@@ -11,6 +11,7 @@ public class ForceUnpauseDialogReactiveSystem : ReactiveSystem<GameEntity>
     public ForceUnpauseDialogReactiveSystem (Contexts contexts) : base(contexts.game)
     {
         _game = contexts.game;
+        _input = contexts.input;
     }
 
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)

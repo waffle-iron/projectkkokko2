@@ -7,10 +7,11 @@ public class PauseSystems : Feature
 {
     public PauseSystems (Contexts contexts) : base("Pause Systems")
     {
-        Add(new InputPauseSystem(contexts));
+        //Add(new InputPauseSystem(contexts));
+        Add(new ForceUnpauseDialogReactiveSystem(contexts));
+        Add(new InputPauseFromViewReactiveSystem(contexts));
 
         Add(new CommandPauseReactiveSystem(contexts));
 
-        Add(new ForceUnpauseDialogReactiveSystem(contexts));
     }
 }
