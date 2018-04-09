@@ -16,7 +16,7 @@ class DefaultTouchDataInstanceCreator : IDefaultInstanceCreator, ITypeDrawer
     public object CreateDefault (Type type)
     {
         // TODO return an instance of type CodeStage.AntiCheat.ObscuredTypes.ObscuredInt
-        var data = new TouchData(-1, Vector3.zero, Vector3.zero, TouchPhase.Canceled, 0, null);
+        var data = new TouchData(-1, Vector3.zero, Vector3.zero, Vector3.zero, Vector3.zero, TouchPhase.Canceled, 0, null);
         return data;
     }
 
@@ -27,6 +27,8 @@ class DefaultTouchDataInstanceCreator : IDefaultInstanceCreator, ITypeDrawer
         var newID = EditorGUILayout.IntField("ID", obj.Id);
         var newScreenPos = EditorGUILayout.Vector3Field("ScreenPos", obj.ScreenPosition);
         var newWorldPos = EditorGUILayout.Vector3Field("WorldPos", obj.WorldPosition);
+        var newScreenDelta = EditorGUILayout.Vector3Field("Delta ScreenPos", obj.DeltaScreenPosition);
+        var newWorldDelta = EditorGUILayout.Vector3Field("Delta WorldPos", obj.DeltaWorldPosition);
         var newPhase = EditorGUILayout.EnumPopup("Phase", obj.Phase);
         var newTime = EditorGUILayout.DoubleField("Touch Time", obj.TouchTime);
         if (obj.Hits == null || obj.Hits.Length == 0)
@@ -43,7 +45,7 @@ class DefaultTouchDataInstanceCreator : IDefaultInstanceCreator, ITypeDrawer
             EditorGUILayout.LabelField("Raycasts", $"{list}");
         }
 
-        var newObj = new TouchData(newID, newScreenPos, newWorldPos, (TouchPhase)newPhase, newTime, obj.Hits);
+        var newObj = new TouchData(newID, newScreenPos, newWorldPos, newScreenDelta, newWorldDelta, (TouchPhase)newPhase, newTime, obj.Hits);
 
         return newObj;
     }

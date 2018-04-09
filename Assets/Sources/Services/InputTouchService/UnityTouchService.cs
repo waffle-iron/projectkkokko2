@@ -21,6 +21,11 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
 
     private TouchData[] _touchData = null;
 
+#if UNITY_EDITOR
+    private Vector3 _prevScreenPos = Vector3.zero;
+    private Vector3 _prevWorldPos = Vector3.zero;
+#endif
+
     // Use this for initialization
     void Start ()
     {
@@ -35,23 +40,29 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
     void Update ()
     {
 #if UNITY_EDITOR
+        if (_prevScreenPos == Vector3.zero) { _prevScreenPos = Input.mousePosition; }
+        var currPos = Input.mousePosition;
+        var delta = currPos - _prevScreenPos;
+        delta.x = Mathf.Abs(delta.x);
+        delta.y = Mathf.Abs(delta.y);
+        _prevScreenPos = currPos;
+
         if (Input.GetMouseButtonDown(0))
         {
-            _touchData = PollMouseTouch(Input.mousePosition, TouchPhase.Began, _camera);
+            _touchData = PollMouseTouch(currPos, delta, TouchPhase.Began, _camera);
             if (OnTouch != null) { OnTouch(_touchData); }
         }
         else if (Input.GetMouseButton(0))
         {
-            _touchData = PollMouseTouch(Input.mousePosition, Input.mouseScrollDelta.magnitude > 0f ? TouchPhase.Moved : TouchPhase.Stationary, _camera);
+            _touchData = PollMouseTouch(currPos, delta, delta.magnitude > 0f ? TouchPhase.Moved : TouchPhase.Stationary, _camera);
+            //Debug.Log(_touchData[0].Phase);
             if (OnTouch != null) { OnTouch(_touchData); }
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            _touchData = PollMouseTouch(Input.mousePosition, TouchPhase.Ended, _camera);
+            _touchData = PollMouseTouch(currPos, delta, TouchPhase.Ended, _camera);
             if (OnTouch != null) { OnTouch(_touchData); }
         }
-
-
 
 #elif UNITY_ANDROID || UNITY_IOS
         if (Input.touchCount > 0)
@@ -65,17 +76,24 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
         {
             _touchData = null;
         }
+
     }
 
-    private TouchData[] PollMouseTouch (Vector2 screenPos, TouchPhase phase, Camera camera)
+    private TouchData[] PollMouseTouch (Vector2 screenPos, Vector2 screenDelta, TouchPhase phase, Camera camera)
     {
         var newTouches = new TouchData[1];
         var worldPos = (Vector3)screenPos;
         worldPos.z = camera.transform.position.z;
         worldPos = camera.ScreenToWorldPoint(worldPos);
+        if (_prevWorldPos == Vector3.zero) { _prevWorldPos = worldPos; }
+        var deltaWorldPos = worldPos - _prevWorldPos;
+        deltaWorldPos.x = Mathf.Abs(deltaWorldPos.x);
+        deltaWorldPos.y = Mathf.Abs(deltaWorldPos.y);
+        deltaWorldPos.z = Mathf.Abs(deltaWorldPos.z);
+        _prevWorldPos = worldPos;
 
         var results = Physics2D.RaycastAll(worldPos, Vector2.zero, Mathf.Infinity, _layerMask);
-        newTouches[0] = new TouchData(1, screenPos, worldPos, phase, Time.time, results);
+        newTouches[0] = new TouchData(1, screenPos, worldPos, screenDelta, deltaWorldPos, phase, Time.time, results);
 
         return newTouches;
     }
@@ -90,8 +108,15 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
             var worldPos = (Vector3)screenPos;
             worldPos.z = camera.transform.position.z;
             worldPos = camera.ScreenToWorldPoint(worldPos);
+            if (_prevWorldPos == Vector3.zero) { _prevWorldPos = worldPos; }
+            var deltaWorldPos = worldPos - _prevWorldPos;
+            deltaWorldPos.x = Mathf.Abs(deltaWorldPos.x);
+            deltaWorldPos.y = Mathf.Abs(deltaWorldPos.y);
+            deltaWorldPos.z = Mathf.Abs(deltaWorldPos.z);
+            _prevWorldPos = worldPos;
+
             var results = Physics2D.RaycastAll(worldPos, Vector2.zero, Mathf.Infinity, _layerMask);
-            newTouches[ctr] = new TouchData(touch.fingerId, screenPos, worldPos, touch.phase, Time.time, results);
+            newTouches[ctr] = new TouchData(touch.fingerId, screenPos, worldPos, touch.deltaPosition, deltaWorldPos, touch.phase, Time.time, results);
         }
 
         return newTouches;

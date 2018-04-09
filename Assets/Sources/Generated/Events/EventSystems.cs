@@ -112,6 +112,9 @@ public sealed class EventSystems : Feature {
         Add(new SavingEventSystem(contexts)); // priority: 0
         Add(new SavingRemovedEventSystem(contexts)); // priority: 0
         Add(new ScoreEventSystem(contexts)); // priority: 0
+        Add(new GameSoapEventSystem(contexts)); // priority: 0
+        Add(new CommandSoapEventSystem(contexts)); // priority: 0
+        Add(new InputSoapEventSystem(contexts)); // priority: 0
         Add(new TargetDirectionCheckResultEventSystem(contexts)); // priority: 0
         Add(new GameTargetMoveEventSystem(contexts)); // priority: 0
         Add(new InputTargetMoveEventSystem(contexts)); // priority: 0
@@ -134,5 +137,6 @@ public sealed class EventSystems : Feature {
         Add(new GameWalletEventSystem(contexts)); // priority: 0
         Add(new InputWalletEventSystem(contexts)); // priority: 0
         Add(new CommandWalletEventSystem(contexts)); // priority: 0
+        Add(new WipeEventSystem(contexts)); // priority: 0
     }
 }

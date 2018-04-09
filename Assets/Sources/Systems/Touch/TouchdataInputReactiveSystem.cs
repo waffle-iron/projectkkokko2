@@ -46,6 +46,7 @@ public class TouchdataInputReactiveSystem : ReactiveSystem<InputEntity>
 
                 var cmdEty = _cmd.CreateEntity();
                 cmdEty.AddTargetEntityID(e.targetEntityID.value);
+                //Debug.Log(e.touchData.current.Phase);
                 cmdEty.AddTouchData(e.touchData.current);
             }
         }

@@ -70,6 +70,7 @@ public partial class Contexts {
     public const string ID = "ID";
     public const string Need = "Need";
     public const string SceneInitConfig = "SceneInitConfig";
+    public const string Soap = "Soap";
     public const string Tag = "Tag";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
@@ -155,6 +156,19 @@ public partial class Contexts {
             (e, c) => ((SceneInitConfigComponent)c).sceneName));
 
         game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, string>(
+            Soap,
+            game.GetGroup(GameMatcher.Soap),
+            (e, c) => ((SoapComponent)c).id));
+        command.AddEntityIndex(new Entitas.EntityIndex<CommandEntity, string>(
+            Soap,
+            command.GetGroup(CommandMatcher.Soap),
+            (e, c) => ((SoapComponent)c).id));
+        input.AddEntityIndex(new Entitas.EntityIndex<InputEntity, string>(
+            Soap,
+            input.GetGroup(InputMatcher.Soap),
+            (e, c) => ((SoapComponent)c).id));
+
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, string>(
             Tag,
             game.GetGroup(GameMatcher.Tag),
             (e, c) => ((TagComponent)c).current));
@@ -233,6 +247,18 @@ public static class ContextsExtensions {
 
     public static GameEntity GetEntityWithSceneInitConfig(this GameContext context, string sceneName) {
         return ((Entitas.PrimaryEntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.SceneInitConfig)).GetEntity(sceneName);
+    }
+
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithSoap(this GameContext context, string id) {
+        return ((Entitas.EntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.Soap)).GetEntities(id);
+    }
+
+    public static System.Collections.Generic.HashSet<CommandEntity> GetEntitiesWithSoap(this CommandContext context, string id) {
+        return ((Entitas.EntityIndex<CommandEntity, string>)context.GetEntityIndex(Contexts.Soap)).GetEntities(id);
+    }
+
+    public static System.Collections.Generic.HashSet<InputEntity> GetEntitiesWithSoap(this InputContext context, string id) {
+        return ((Entitas.EntityIndex<InputEntity, string>)context.GetEntityIndex(Contexts.Soap)).GetEntities(id);
     }
 
     public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithTag(this GameContext context, string current) {

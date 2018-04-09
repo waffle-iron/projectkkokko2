@@ -36,15 +36,21 @@ public class TouchableView : View
     {
         if (_service != null && _service.touch != null)
         {
-            if (_service.touch[0].Phase == TouchPhase.Began && _service.touch[0].Hits.Select(raycast => raycast.transform).Contains(this.transform))
+            if (_service.touch[0].Phase == TouchPhase.Began ||
+                _service.touch[0].Phase == TouchPhase.Moved ||
+                _service.touch[0].Phase == TouchPhase.Stationary &&
+                _service.touch[0].Hits.Select(raycast => raycast.transform).Contains(this.transform))
             {
                 _touch = true;
                 //create input entity 
                 var inputEty = contexts.input.CreateEntity();
                 inputEty.AddTargetEntityID(this.ID);
                 inputEty.AddTouchData(_service.touch[0]);
+                Debug.Log(_service.touch[0].Phase);
             }
-            else if (_service.touch[0].Phase == TouchPhase.Ended && _touch == true)
+            else if (_service.touch[0].Phase == TouchPhase.Ended ||
+                _service.touch[0].Phase == TouchPhase.Canceled &&
+                _touch == true)
             {
                 _touch = false;
                 //create input entity

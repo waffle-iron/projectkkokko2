@@ -39,7 +39,10 @@ public class DraggableView : View
     {
         if (_service != null && _service.touch != null)
         {
-            if (_service.touch[0].Phase == TouchPhase.Began && _service.touch[0].Hits.Select(raycast => raycast.transform).Contains(this.transform))
+            if (_service.touch[0].Phase == TouchPhase.Began ||
+                _service.touch[0].Phase == TouchPhase.Moved ||
+                _service.touch[0].Phase == TouchPhase.Stationary &&
+                _service.touch[0].Hits.Select(raycast => raycast.transform).Contains(this.transform))
             {
                 _drag = true;
                 //create input entity 

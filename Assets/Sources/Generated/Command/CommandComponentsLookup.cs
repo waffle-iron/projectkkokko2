@@ -49,58 +49,60 @@ public static class CommandComponentsLookup {
     public const int CommandPurchasedListener = 38;
     public const int CommandRemoveFromStorageListener = 39;
     public const int CommandRemoveFromStorageRemovedListener = 40;
-    public const int CommandTargetMoveListener = 41;
-    public const int CommandToDestroyListener = 42;
-    public const int CommandToDestroyRemovedListener = 43;
-    public const int CommandTriggerListener = 44;
-    public const int CommandWalletListener = 45;
-    public const int Consumed = 46;
-    public const int Consuming = 47;
-    public const int CreateEntity = 48;
-    public const int Current = 49;
-    public const int DeactivateDialog = 50;
-    public const int Debug = 51;
-    public const int DelayDestroy = 52;
-    public const int Deplete = 53;
-    public const int EntityConfigID = 54;
-    public const int Equipped = 55;
-    public const int Food = 56;
-    public const int GameState = 57;
-    public const int ID = 58;
-    public const int InCart = 59;
-    public const int Interval = 60;
-    public const int Load = 61;
-    public const int LoadedViewsComplete = 62;
-    public const int LoadSceneComplete = 63;
-    public const int LoadScene = 64;
-    public const int LoadViews = 65;
-    public const int Max = 66;
-    public const int Moveable = 67;
-    public const int Moving = 68;
-    public const int Need = 69;
-    public const int OnCollision = 70;
-    public const int Pause = 71;
-    public const int Position = 72;
-    public const int PrePurchase = 73;
-    public const int Preview = 74;
-    public const int Price = 75;
-    public const int Purchased = 76;
-    public const int RemoveFromStorage = 77;
-    public const int Reset = 78;
-    public const int Save = 79;
-    public const int Targetable = 80;
-    public const int TargetEntityID = 81;
-    public const int TargetMove = 82;
-    public const int TargetNeed = 83;
-    public const int TargetPosition = 84;
-    public const int TimerReset = 85;
-    public const int TimerState = 86;
-    public const int ToDestroy = 87;
-    public const int TouchData = 88;
-    public const int Trigger = 89;
-    public const int Wallet = 90;
+    public const int CommandSoapListener = 41;
+    public const int CommandTargetMoveListener = 42;
+    public const int CommandToDestroyListener = 43;
+    public const int CommandToDestroyRemovedListener = 44;
+    public const int CommandTriggerListener = 45;
+    public const int CommandWalletListener = 46;
+    public const int Consumed = 47;
+    public const int Consuming = 48;
+    public const int CreateEntity = 49;
+    public const int Current = 50;
+    public const int DeactivateDialog = 51;
+    public const int Debug = 52;
+    public const int DelayDestroy = 53;
+    public const int Deplete = 54;
+    public const int EntityConfigID = 55;
+    public const int Equipped = 56;
+    public const int Food = 57;
+    public const int GameState = 58;
+    public const int ID = 59;
+    public const int InCart = 60;
+    public const int Interval = 61;
+    public const int Load = 62;
+    public const int LoadedViewsComplete = 63;
+    public const int LoadSceneComplete = 64;
+    public const int LoadScene = 65;
+    public const int LoadViews = 66;
+    public const int Max = 67;
+    public const int Moveable = 68;
+    public const int Moving = 69;
+    public const int Need = 70;
+    public const int OnCollision = 71;
+    public const int Pause = 72;
+    public const int Position = 73;
+    public const int PrePurchase = 74;
+    public const int Preview = 75;
+    public const int Price = 76;
+    public const int Purchased = 77;
+    public const int RemoveFromStorage = 78;
+    public const int Reset = 79;
+    public const int Save = 80;
+    public const int Soap = 81;
+    public const int Targetable = 82;
+    public const int TargetEntityID = 83;
+    public const int TargetMove = 84;
+    public const int TargetNeed = 85;
+    public const int TargetPosition = 86;
+    public const int TimerReset = 87;
+    public const int TimerState = 88;
+    public const int ToDestroy = 89;
+    public const int TouchData = 90;
+    public const int Trigger = 91;
+    public const int Wallet = 92;
 
-    public const int TotalComponents = 91;
+    public const int TotalComponents = 93;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -144,6 +146,7 @@ public static class CommandComponentsLookup {
         "CommandPurchasedListener",
         "CommandRemoveFromStorageListener",
         "CommandRemoveFromStorageRemovedListener",
+        "CommandSoapListener",
         "CommandTargetMoveListener",
         "CommandToDestroyListener",
         "CommandToDestroyRemovedListener",
@@ -183,6 +186,7 @@ public static class CommandComponentsLookup {
         "RemoveFromStorage",
         "Reset",
         "Save",
+        "Soap",
         "Targetable",
         "TargetEntityID",
         "TargetMove",
@@ -238,6 +242,7 @@ public static class CommandComponentsLookup {
         typeof(CommandPurchasedListenerComponent),
         typeof(CommandRemoveFromStorageListenerComponent),
         typeof(CommandRemoveFromStorageRemovedListenerComponent),
+        typeof(CommandSoapListenerComponent),
         typeof(CommandTargetMoveListenerComponent),
         typeof(CommandToDestroyListenerComponent),
         typeof(CommandToDestroyRemovedListenerComponent),
@@ -277,6 +282,7 @@ public static class CommandComponentsLookup {
         typeof(RemoveFromStorageComponent),
         typeof(ResetComponent),
         typeof(SaveComponent),
+        typeof(SoapComponent),
         typeof(TargetableComponent),
         typeof(TargetEntityIDComponent),
         typeof(TargetMoveComponent),
