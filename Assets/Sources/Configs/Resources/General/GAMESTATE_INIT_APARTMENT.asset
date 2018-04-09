@@ -21,4 +21,4 @@ MonoBehaviour:
     fakeValueActive: 0
   _loadOnStart: 0
   state: 1
-  _isInput: 1
+  _isInput: 0

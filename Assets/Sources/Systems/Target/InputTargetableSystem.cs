@@ -24,8 +24,8 @@ public class InputTargetableSystem : IExecuteSystem
     public void Execute ()
     {
         if (_targets.GetEntities(_buffer).Count > 0 &&
-            _game.gameState.current.type == typeof(MainGameState) &&
-                _game.gameState.current.state == (int)MainGameState.PLAYING)
+            _game.hasGameState && 
+            _game.gameState.current.IsEqualTo(MainGameState.PLAYING))
         {
             foreach (var player in _player.GetEntities())
             {
