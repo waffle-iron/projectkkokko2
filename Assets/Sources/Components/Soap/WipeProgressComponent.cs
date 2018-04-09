@@ -8,5 +8,5 @@ using Entitas.CodeGeneration.Attributes;
 [Game]
 public sealed class WipeProgressComponent : IComponent
 {
-    public float progress;
+    public float value;
 }

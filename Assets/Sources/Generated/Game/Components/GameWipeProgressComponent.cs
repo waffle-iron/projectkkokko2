@@ -11,17 +11,17 @@ public partial class GameEntity {
     public WipeProgressComponent wipeProgress { get { return (WipeProgressComponent)GetComponent(GameComponentsLookup.WipeProgress); } }
     public bool hasWipeProgress { get { return HasComponent(GameComponentsLookup.WipeProgress); } }
 
-    public void AddWipeProgress(float newProgress) {
+    public void AddWipeProgress(float newValue) {
         var index = GameComponentsLookup.WipeProgress;
         var component = CreateComponent<WipeProgressComponent>(index);
-        component.progress = newProgress;
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceWipeProgress(float newProgress) {
+    public void ReplaceWipeProgress(float newValue) {
         var index = GameComponentsLookup.WipeProgress;
         var component = CreateComponent<WipeProgressComponent>(index);
-        component.progress = newProgress;
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

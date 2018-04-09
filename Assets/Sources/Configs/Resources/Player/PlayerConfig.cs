@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class PlayerConfig : UnityEntityConfig
 {
+    [Header("Player Setting")]
+    [SerializeField, Tag]
+    private string _tag;
+
     [Header("Moveable Settings")]
     [SerializeField]
     private float _speed;
@@ -21,6 +25,7 @@ public class PlayerConfig : UnityEntityConfig
         gameEty.AddMoveable(_speed);
         gameEty.AddFollowTarget(_stopDistance);
         gameEty.isCollidable = true;
+        gameEty.AddTag(_tag);
 
         return gameEty;
     }

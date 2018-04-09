@@ -8,10 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b499a708d42cd441a29d7d960ce3d4f, type: 3}
-  m_Name: PLAYER_GAME
+  m_Script: {fileID: 11500000, guid: 8a38066b655df6042bdd770be684418c, type: 3}
+  m_Name: SoapEntityConfig
   m_EditorClassIdentifier: 
-  _viewName: PlayerView
+  _viewName: SoapActualView
   _isDestroyOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
@@ -20,6 +20,9 @@ MonoBehaviour:
     fakeValue: 
     fakeValueActive: 0
   _loadOnStart: 0
-  _tag: Player
-  _speed: 1
-  _stopDistance: 0.5
+  id: soap
+  target:
+  - Player
+  speed: 1
+  recoveryValue: 1
+  deltaAmountToComplete: 50
