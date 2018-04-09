@@ -9,5 +9,7 @@ public class SoapSystems : Feature
     {
         //Add(system here);
         Add(new WipeReactiveSystem(contexts));
+        Add(new WipeCompleteReactiveSystem(contexts));
+        Add(new LimitSoapExecuteSystem(contexts));
     }
 }

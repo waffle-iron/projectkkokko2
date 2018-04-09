@@ -25,4 +25,4 @@ MonoBehaviour:
   - Player
   speed: 1
   recoveryValue: 1
-  deltaAmountToComplete: 50
+  deltaAmountToComplete: 25

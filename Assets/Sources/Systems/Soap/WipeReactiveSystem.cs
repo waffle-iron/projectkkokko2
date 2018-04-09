@@ -38,11 +38,7 @@ public class WipeReactiveSystem : ReactiveSystem<GameEntity>
             if (target == null || target.hasTag == false || e.targetTag.current.Any(tag => target.tag.current == tag) == false) { continue; }
 
             var wipeProg = e.hasWipeProgress ? e.wipeProgress.value : 0f;
-
-            Debug.Log(e.touchData.current.DeltaWorldPosition.magnitude);
-
             wipeProg += e.touchData.current.DeltaWorldPosition.magnitude / e.wipe.deltaAmountToComplete;
-
             wipeProg = Mathf.Clamp(wipeProg, 0f, 1f);
 
             e.ReplaceWipeProgress(wipeProg);

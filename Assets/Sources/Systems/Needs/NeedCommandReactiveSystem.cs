@@ -36,10 +36,10 @@ public class NeedCommandReactiveSystem : ReactiveSystem<CommandEntity>
             //reset triggered need and timer
             target.ReplaceTrigger(target.trigger.duration, false);
 
-            if (e.hasFood)
+            if (e.hasNeedRecoveryModifier)
             {
-                Debug.Log($"reduced timer {target.timer.current} by {(target.trigger.duration.GetInSeconds() * e.food.recovery)} ");
-                target.ReplaceTimer(target.timer.current - (target.trigger.duration.GetInSeconds() * e.food.recovery));
+                Debug.Log($"reduced timer {target.timer.current} by {(target.trigger.duration.GetInSeconds() * e.needRecoveryModifier.value)} ");
+                target.ReplaceTimer(target.timer.current - (target.trigger.duration.GetInSeconds() * e.needRecoveryModifier.value));
                 Debug.Log($"current timer {target.timer.current} ");
             }
             else

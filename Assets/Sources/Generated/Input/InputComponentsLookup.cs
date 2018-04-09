@@ -79,30 +79,31 @@ public static class InputComponentsLookup {
     public const int Moveable = 68;
     public const int Moving = 69;
     public const int Need = 70;
-    public const int OnCollision = 71;
-    public const int Pause = 72;
-    public const int Position = 73;
-    public const int PrePurchase = 74;
-    public const int Preview = 75;
-    public const int Price = 76;
-    public const int Purchased = 77;
-    public const int RemoveFromStorage = 78;
-    public const int Reset = 79;
-    public const int Save = 80;
-    public const int Soap = 81;
-    public const int Targetable = 82;
-    public const int TargetEntityID = 83;
-    public const int TargetMove = 84;
-    public const int TargetNeed = 85;
-    public const int TargetPosition = 86;
-    public const int TimerReset = 87;
-    public const int TimerState = 88;
-    public const int ToDestroy = 89;
-    public const int TouchData = 90;
-    public const int Trigger = 91;
-    public const int Wallet = 92;
+    public const int NeedRecoveryModifier = 71;
+    public const int OnCollision = 72;
+    public const int Pause = 73;
+    public const int Position = 74;
+    public const int PrePurchase = 75;
+    public const int Preview = 76;
+    public const int Price = 77;
+    public const int Purchased = 78;
+    public const int RemoveFromStorage = 79;
+    public const int Reset = 80;
+    public const int Save = 81;
+    public const int Soap = 82;
+    public const int Targetable = 83;
+    public const int TargetEntityID = 84;
+    public const int TargetMove = 85;
+    public const int TargetNeed = 86;
+    public const int TargetPosition = 87;
+    public const int TimerReset = 88;
+    public const int TimerState = 89;
+    public const int ToDestroy = 90;
+    public const int TouchData = 91;
+    public const int Trigger = 92;
+    public const int Wallet = 93;
 
-    public const int TotalComponents = 93;
+    public const int TotalComponents = 94;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -176,6 +177,7 @@ public static class InputComponentsLookup {
         "Moveable",
         "Moving",
         "Need",
+        "NeedRecoveryModifier",
         "OnCollision",
         "Pause",
         "Position",
@@ -272,6 +274,7 @@ public static class InputComponentsLookup {
         typeof(MoveableComponent),
         typeof(MovingComponent),
         typeof(NeedComponent),
+        typeof(NeedRecoveryModifierComponent),
         typeof(OnCollisionComponent),
         typeof(PauseComponent),
         typeof(PositionComponent),
