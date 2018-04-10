@@ -7,5 +7,5 @@ using Entitas;
 [Game]
 public sealed class PoopComponent : IComponent
 {
-    public DurationType deduction;
+    public DurationType add;
 }

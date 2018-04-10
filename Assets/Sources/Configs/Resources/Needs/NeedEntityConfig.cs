@@ -18,7 +18,7 @@ public class NeedEntityConfig : UnityEntityConfig
     private int _max;
     [SerializeField, Range(0, 10)]
     private int _minRequirement;
-    [SerializeField, Range(1, 10)]
+    [SerializeField, Range(0, 10)]
     private int _depletion;
     [SerializeField]
     private NeedType _target;

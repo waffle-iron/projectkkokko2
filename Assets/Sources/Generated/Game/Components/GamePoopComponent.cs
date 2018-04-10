@@ -11,17 +11,17 @@ public partial class GameEntity {
     public PoopComponent poop { get { return (PoopComponent)GetComponent(GameComponentsLookup.Poop); } }
     public bool hasPoop { get { return HasComponent(GameComponentsLookup.Poop); } }
 
-    public void AddPoop(DurationType newDeduction) {
+    public void AddPoop(DurationType newAdd) {
         var index = GameComponentsLookup.Poop;
         var component = CreateComponent<PoopComponent>(index);
-        component.deduction = newDeduction;
+        component.add = newAdd;
         AddComponent(index, component);
     }
 
-    public void ReplacePoop(DurationType newDeduction) {
+    public void ReplacePoop(DurationType newAdd) {
         var index = GameComponentsLookup.Poop;
         var component = CreateComponent<PoopComponent>(index);
-        component.deduction = newDeduction;
+        component.add = newAdd;
         ReplaceComponent(index, component);
     }
 
