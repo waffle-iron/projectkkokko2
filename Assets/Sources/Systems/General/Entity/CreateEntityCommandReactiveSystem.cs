@@ -32,8 +32,8 @@ public class CreateEntityCommandReactiveSystem : ReactiveSystem<CommandEntity>
         {
             // do stuff to the matched entities
             //IEntity newEntity;
-            //_meta.entityService.instance.Get(e.createEntity.id, out newEntity);
-            e.createEntity.config.Create(_contexts);
+            _meta.entityService.instance.Get(e.createEntity.configName);
+            //e.createEntity.config.Create(_contexts);
         }
     }
 }

@@ -11,17 +11,17 @@ public partial class InputEntity {
     public CreateEntityComponent createEntity { get { return (CreateEntityComponent)GetComponent(InputComponentsLookup.CreateEntity); } }
     public bool hasCreateEntity { get { return HasComponent(InputComponentsLookup.CreateEntity); } }
 
-    public void AddCreateEntity(IEntityConfig newConfig) {
+    public void AddCreateEntity(string newConfigName) {
         var index = InputComponentsLookup.CreateEntity;
         var component = CreateComponent<CreateEntityComponent>(index);
-        component.config = newConfig;
+        component.configName = newConfigName;
         AddComponent(index, component);
     }
 
-    public void ReplaceCreateEntity(IEntityConfig newConfig) {
+    public void ReplaceCreateEntity(string newConfigName) {
         var index = InputComponentsLookup.CreateEntity;
         var component = CreateComponent<CreateEntityComponent>(index);
-        component.config = newConfig;
+        component.configName = newConfigName;
         ReplaceComponent(index, component);
     }
 

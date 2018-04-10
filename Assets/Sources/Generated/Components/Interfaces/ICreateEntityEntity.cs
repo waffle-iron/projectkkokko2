@@ -11,7 +11,7 @@ public partial interface ICreateEntityEntity {
     CreateEntityComponent createEntity { get; }
     bool hasCreateEntity { get; }
 
-    void AddCreateEntity(IEntityConfig newConfig);
-    void ReplaceCreateEntity(IEntityConfig newConfig);
+    void AddCreateEntity(string newConfigName);
+    void ReplaceCreateEntity(string newConfigName);
     void RemoveCreateEntity();
 }

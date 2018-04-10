@@ -4,8 +4,8 @@ using UnityEngine;
 using Entitas;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Input, Command]
-public sealed class CreateEntityComponent : IComponent
+[Game]
+public sealed class PoopComponent : IComponent
 {
-    public string configName;
+    public DurationType deduction;
 }

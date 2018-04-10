@@ -26,7 +26,7 @@ public class CreateEntityInputReactiveSystem : IExecuteSystem
             foreach (var e in _inputs.GetEntities(_buffer))
             {
                 var ety = _cmd.CreateEntity();
-                ety.AddCreateEntity(e.createEntity.config);
+                ety.AddCreateEntity(e.createEntity.configName);
             }
         }
     }
