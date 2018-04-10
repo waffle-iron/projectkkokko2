@@ -5,7 +5,7 @@ using Spine.Unity;
 using UnityEngine;
 using UniRx;
 
-public class PlayerView : View, IGameTargetMoveListener
+public class PlayerView : View, IGameTargetMoveListener, ISleepListener, ISleepRemovedListener
 {
     public SpineSkeleton _player;
     [SerializeField]
@@ -69,12 +69,16 @@ public class PlayerView : View, IGameTargetMoveListener
     {
         var gameEty = (GameEntity)entity;
         gameEty.AddGameTargetMoveListener(this);
+        gameEty.AddSleepListener(this);
+        gameEty.AddSleepRemovedListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
     {
         var gameEty = (GameEntity)entity;
         gameEty.RemoveGameTargetMoveListener(this);
+        gameEty.RemoveSleepListener(this);
+        gameEty.RemoveSleepRemovedListener(this);
     }
 
     protected override void Cleanup ()
@@ -83,5 +87,14 @@ public class PlayerView : View, IGameTargetMoveListener
         _movement?.Dispose();
     }
 
+    public void OnSleep (GameEntity entity)
+    {
+        Debug.Log("player sleep");
+    }
+
+    public void OnSleepRemoved (GameEntity entity)
+    {
+        Debug.Log("player wake up");
+    }
 }
 
