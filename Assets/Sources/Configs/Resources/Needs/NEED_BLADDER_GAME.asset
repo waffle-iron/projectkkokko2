@@ -11,7 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43626b46a868d5a47a7c16271c084a57, type: 3}
   m_Name: NEED_BLADDER_GAME
   m_EditorClassIdentifier: 
-  _name: 24
   _viewName: BladderView
   _isDestroyOnSceneChange: 1
   saveID:
@@ -25,7 +24,7 @@ MonoBehaviour:
   _matchingAction: 2
   _max: 0
   _minRequirement: 0
-  _depletion: 1
+  _depletion: 0
   _target: 1
   _interval:
     length: 5

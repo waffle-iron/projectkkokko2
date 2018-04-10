@@ -42,9 +42,9 @@ public class NeedInputReactiveSystem : ReactiveSystem<InputEntity>
                     var cmdEntity = _cmd.CreateEntity();
                     cmdEntity.AddTargetNeed(e.targetNeed.type);
                     cmdEntity.AddReset(e.reset.restoreAmount);
-                    if (e.hasFood)
+                    if (e.hasNeedRecoveryModifier)
                     {
-                        cmdEntity.AddFood(e.food.id, e.food.recovery);
+                        cmdEntity.AddNeedRecoveryModifier(e.needRecoveryModifier.value);
                     }
                 }
             }

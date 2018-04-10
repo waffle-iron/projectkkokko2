@@ -19,7 +19,5 @@ public class FoodSystems : Feature
         Add(new FoodTriggeredReactiveSystem(contexts));
 
         Add(new FoodConsumingOnPlayerCollisionReactiveSystem(contexts));
-        Add(new FoodCollisionReturnReactiveSystem(contexts));
-        Add(new FoodReturnReactiveSystem(contexts));
     }
 }

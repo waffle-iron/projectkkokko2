@@ -16,6 +16,7 @@ public class FoodInteractableConfig : UnityEntityConfig
         gameEty.isCollidable = true;
         gameEty.AddMoveable(speed);
         gameEty.isTargetable = true;
+        gameEty.isReturnable = true;
         gameEty.AddTimer(0f);
         gameEty.AddTrigger(eatTime, false);
 

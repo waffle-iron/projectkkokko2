@@ -8,10 +8,6 @@ public class FoodActualView : View, IGameTriggerListener
 {
     [SerializeField]
     private SpriteRenderer _sprite;
-    [SerializeField]
-    private Transform _leftBound;
-    [SerializeField]
-    private Transform _rightBound;
 
     protected override void Update ()
     {
@@ -54,10 +50,8 @@ public class FoodActualView : View, IGameTriggerListener
         {
             _sprite.sprite = sprite;
             _sprite.enabled = true;
-            var xPos = UnityEngine.Random.Range(_leftBound.position.x, _rightBound.position.y);
-            var newPos = _sprite.transform.position;
-            newPos.x = xPos;
-            _sprite.transform.position = newPos;
+            var spawnPos = ApartmentPositionsReference.Instance.LEFT_SPAWN_BOUNDS.RandomXPosition(ApartmentPositionsReference.Instance.RIGHT_SPAWN_BOUNDS);
+            this.transform.position = spawnPos;
         });
     }
 

@@ -35,16 +35,20 @@ public class ConsumedCompleteCommandReactiveSystem : ReactiveSystem<CommandEntit
             // do stuff to the matched entities
             var target = _game.GetEntityWithID(e.targetEntityID.value);
 
-            IEntity hungerReset;
-            _meta.entityService.instance.Get(HUNGER_ACTION_ENTITY, out hungerReset);
-            ((IFoodEntity)hungerReset).AddFood(target.food.id, target.food.recovery);
+            if (target != null && target.hasFood)
+            {
+                IEntity hungerReset;
+                _meta.entityService.instance.Get(HUNGER_ACTION_ENTITY, out hungerReset);
+                ((INeedRecoveryModifierEntity)hungerReset).AddNeedRecoveryModifier(target.food.recovery);
 
-            var consumer = _game.GetEntityWithID(target.consuming.consumerID);
-            consumer?.RemoveConsuming();
+                var consumer = _game.GetEntityWithID(target.consuming.consumerID);
+                consumer?.RemoveConsuming();
 
-            var uiFood = _game.GetEntityWithID(target.targetEntityID.value);
-            uiFood.isToDestroy = true;
-            target.isToDestroy = true;
+                var uiFood = _game.GetEntityWithID(target.targetEntityID.value);
+                uiFood.isToDestroy = true;
+                target.isToDestroy = true;
+            }
+
         }
     }
 }

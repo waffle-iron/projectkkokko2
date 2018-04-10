@@ -20,5 +20,6 @@ MonoBehaviour:
     fakeValue: 
     fakeValueActive: 0
   _loadOnStart: 0
+  _tag: Player
   _speed: 1
   _stopDistance: 0.5

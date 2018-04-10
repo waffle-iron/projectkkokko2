@@ -109,9 +109,13 @@ public sealed class EventSystems : Feature {
         Add(new GameRemoveFromStorageRemovedEventSystem(contexts)); // priority: 0
         Add(new InputRemoveFromStorageRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandRemoveFromStorageRemovedEventSystem(contexts)); // priority: 0
+        Add(new ReturnableEventSystem(contexts)); // priority: 0
+        Add(new ReturnableRemovedEventSystem(contexts)); // priority: 0
         Add(new SavingEventSystem(contexts)); // priority: 0
         Add(new SavingRemovedEventSystem(contexts)); // priority: 0
         Add(new ScoreEventSystem(contexts)); // priority: 0
+        Add(new SleepEventSystem(contexts)); // priority: 0
+        Add(new SleepRemovedEventSystem(contexts)); // priority: 0
         Add(new GameSoapEventSystem(contexts)); // priority: 0
         Add(new CommandSoapEventSystem(contexts)); // priority: 0
         Add(new InputSoapEventSystem(contexts)); // priority: 0

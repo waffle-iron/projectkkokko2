@@ -69,7 +69,6 @@ public class MainController : MonoBehaviour
             .Add(new SpawnSystems(contexts))
             .Add(new FoodSystems(contexts))
             .Add(new ItemSystems(contexts))
-            .Add(new NeedSystems(contexts))
             .Add(new TouchSystems(contexts))
             .Add(new ThrowSystems(contexts))
             .Add(new TargetSystems(contexts))
@@ -77,7 +76,10 @@ public class MainController : MonoBehaviour
             .Add(new CollisionSystems(contexts))
             .Add(new ScoreSystems(contexts))
             .Add(new CoinSystems(contexts))
+            .Add(new SoapSystems(contexts))
             .Add(new UISystems(contexts))
+            .Add(new NeedSystems(contexts))
+            .Add(new ReturnableSystems(contexts))
 
             .Add(new GeneralSystems(contexts)) //executed after all custom systems para ma pick up before cleanup sa destroy systems
             .Add(new EventSystems(contexts));
