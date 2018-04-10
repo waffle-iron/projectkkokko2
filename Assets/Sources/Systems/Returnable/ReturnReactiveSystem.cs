@@ -4,30 +4,30 @@ using System.Linq;
 using UnityEngine;
 using Entitas;
 
-public class FoodReturnReactiveSystem : ReactiveSystem<GameEntity>
+public class ReturnReactiveSystem : ReactiveSystem<GameEntity>
 {
     private readonly GameContext _game;
     private readonly MetaContext _meta;
     private const string RETURN_ENTITY = "FOOD_RETURN_GAME";
     private readonly IGroup<GameEntity> _returners;
 
-    public FoodReturnReactiveSystem (Contexts contexts) : base(contexts.game)
+    public ReturnReactiveSystem (Contexts contexts) : base(contexts.game)
     {
         _game = contexts.game;
         _meta = contexts.meta;
-        _returners = _game.GetGroup(GameMatcher.AllOf(GameMatcher.Food, GameMatcher.RemoveFromStorage));
+        _returners = _game.GetGroup(GameMatcher.AllOf(GameMatcher.Returnable));
     }
 
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)
     {
         //return collector
-        return context.CreateCollector(GameMatcher.RemoveFromStorage.AddedOrRemoved());
+        return context.CreateCollector(GameMatcher.Returnable.AddedOrRemoved());
     }
 
     protected override bool Filter (GameEntity entity)
     {
         // check for required components
-        return entity.hasFood;
+        return true;
     }
 
     protected override void Execute (List<GameEntity> entities)

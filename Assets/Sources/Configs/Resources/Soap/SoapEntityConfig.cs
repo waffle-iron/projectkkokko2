@@ -26,6 +26,7 @@ public class SoapEntityConfig : UnityEntityConfig
         gameEty.AddWipe(deltaAmountToComplete);
         gameEty.AddTargetTag(target);
         gameEty.isCollidable = true;
+        gameEty.isReturnable = true;
         gameEty.AddMoveable(speed);
 
         return gameEty;

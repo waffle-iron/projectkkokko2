@@ -3,11 +3,11 @@ using System.Collections;
 using UnityEngine;
 using Entitas;
 
-public class FoodCollisionReturnReactiveSystem : ReactiveSystem<GameEntity>
+public class CollisionReturnReactiveSystem : ReactiveSystem<GameEntity>
 {
     private readonly GameContext _game;
 
-    public FoodCollisionReturnReactiveSystem (Contexts contexts) : base(contexts.game)
+    public CollisionReturnReactiveSystem (Contexts contexts) : base(contexts.game)
     {
         _game = contexts.game;
     }
@@ -15,18 +15,17 @@ public class FoodCollisionReturnReactiveSystem : ReactiveSystem<GameEntity>
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)
     {
         //return collector
-        return context.CreateCollector(GameMatcher.AllOf(GameMatcher.OnCollision, GameMatcher.TouchData, GameMatcher.Food));
+        return context.CreateCollector(GameMatcher.AllOf(GameMatcher.OnCollision, GameMatcher.TouchData, GameMatcher.Returnable));
     }
 
     protected override bool Filter (GameEntity entity)
     {
         // check for required components
         return entity.hasOnCollision &&
-            entity.onCollision.type == CollisionType.ENTER &&
+            (entity.onCollision.type == CollisionType.ENTER || entity.onCollision.type == CollisionType.STAY) &&
             entity.hasTouchData &&
             entity.touchData.current.Phase == TouchPhase.Ended &&
-            entity.hasFood &&
-            entity.hasTargetEntityID;
+            entity.isReturnable;
     }
 
     protected override void Execute (List<GameEntity> entities)
@@ -36,8 +35,12 @@ public class FoodCollisionReturnReactiveSystem : ReactiveSystem<GameEntity>
             var collisionEntity = _game.GetEntityWithID(e.onCollision.otherID);
             if (collisionEntity != null && collisionEntity.isReturn)
             {
-                var food = _game.GetEntityWithID(e.targetEntityID.value);
-                if (food != null) { food.isRemoveFromStorage = false; }
+                //food conditions
+                if (e.hasFood && e.hasTargetEntityID)
+                {
+                    var food = _game.GetEntityWithID(e.targetEntityID.value);
+                    if (food != null) { food.isRemoveFromStorage = false; }
+                }
 
                 e.isToDestroy = true;
             }

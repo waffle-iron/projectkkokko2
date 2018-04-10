@@ -15,6 +15,12 @@ public class SoapView : View
         collision.CreateCollisionEntity(this.contexts, this.ID, CollisionType.STAY);
     }
 
+    protected override void OnTriggerExit2D (Collider2D collision)
+    {
+        base.OnTriggerExit2D(collision);
+        collision.CreateCollisionEntity(this.contexts, this.ID, CollisionType.EXIT);
+    }
+
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         return Observable.Return(true);

@@ -112,47 +112,50 @@ public static class GameComponentsLookup {
     public const int Purchased = 101;
     public const int ReloadEquipment = 102;
     public const int RemoveFromStorage = 103;
-    public const int Return = 104;
-    public const int SaveID = 105;
-    public const int Saving = 106;
-    public const int SavingListener = 107;
-    public const int SavingRemovedListener = 108;
-    public const int SceneInitConfig = 109;
-    public const int Score = 110;
-    public const int ScoreListener = 111;
-    public const int Soap = 112;
-    public const int Spawn = 113;
-    public const int StateMachine = 114;
-    public const int Tag = 115;
-    public const int Targetable = 116;
-    public const int TargetDirectionChecker = 117;
-    public const int TargetDirectionCheckResult = 118;
-    public const int TargetDirectionCheckResultListener = 119;
-    public const int TargetEntityID = 120;
-    public const int TargetMove = 121;
-    public const int TargetNeed = 122;
-    public const int TargetPosition = 123;
-    public const int TargetTag = 124;
-    public const int Timer = 125;
-    public const int TimerReset = 126;
-    public const int TimerState = 127;
-    public const int ToDestroy = 128;
-    public const int TopScore = 129;
-    public const int TopScoreListener = 130;
-    public const int TouchData = 131;
-    public const int TouchTimeGap = 132;
-    public const int Trigger = 133;
-    public const int Velocity = 134;
-    public const int VelocityListener = 135;
-    public const int View = 136;
-    public const int ViewListener = 137;
-    public const int ViewRemovedListener = 138;
-    public const int Wallet = 139;
-    public const int Wipe = 140;
-    public const int WipeListener = 141;
-    public const int WipeProgress = 142;
+    public const int Returnable = 104;
+    public const int ReturnableListener = 105;
+    public const int ReturnableRemovedListener = 106;
+    public const int Return = 107;
+    public const int SaveID = 108;
+    public const int Saving = 109;
+    public const int SavingListener = 110;
+    public const int SavingRemovedListener = 111;
+    public const int SceneInitConfig = 112;
+    public const int Score = 113;
+    public const int ScoreListener = 114;
+    public const int Soap = 115;
+    public const int Spawn = 116;
+    public const int StateMachine = 117;
+    public const int Tag = 118;
+    public const int Targetable = 119;
+    public const int TargetDirectionChecker = 120;
+    public const int TargetDirectionCheckResult = 121;
+    public const int TargetDirectionCheckResultListener = 122;
+    public const int TargetEntityID = 123;
+    public const int TargetMove = 124;
+    public const int TargetNeed = 125;
+    public const int TargetPosition = 126;
+    public const int TargetTag = 127;
+    public const int Timer = 128;
+    public const int TimerReset = 129;
+    public const int TimerState = 130;
+    public const int ToDestroy = 131;
+    public const int TopScore = 132;
+    public const int TopScoreListener = 133;
+    public const int TouchData = 134;
+    public const int TouchTimeGap = 135;
+    public const int Trigger = 136;
+    public const int Velocity = 137;
+    public const int VelocityListener = 138;
+    public const int View = 139;
+    public const int ViewListener = 140;
+    public const int ViewRemovedListener = 141;
+    public const int Wallet = 142;
+    public const int Wipe = 143;
+    public const int WipeListener = 144;
+    public const int WipeProgress = 145;
 
-    public const int TotalComponents = 143;
+    public const int TotalComponents = 146;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -259,6 +262,9 @@ public static class GameComponentsLookup {
         "Purchased",
         "ReloadEquipment",
         "RemoveFromStorage",
+        "Returnable",
+        "ReturnableListener",
+        "ReturnableRemovedListener",
         "Return",
         "SaveID",
         "Saving",
@@ -405,6 +411,9 @@ public static class GameComponentsLookup {
         typeof(PurchasedComponent),
         typeof(ReloadEquipmentComponent),
         typeof(RemoveFromStorageComponent),
+        typeof(ReturnableComponent),
+        typeof(ReturnableListenerComponent),
+        typeof(ReturnableRemovedListenerComponent),
         typeof(ReturnComponent),
         typeof(SaveIDComponent),
         typeof(SavingComponent),
