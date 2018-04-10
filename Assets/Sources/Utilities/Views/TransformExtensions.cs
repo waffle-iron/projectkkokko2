@@ -12,6 +12,7 @@ public static class TransformExtensions
     public static Vector3 RandomXPosition (this Transform left, Transform right, int seed = 0)
     {
         if (seed != 0) { Random.InitState(seed); }
+        else { Random.InitState((int)System.DateTime.Now.Ticks); }
         var leftPos = left.position;
         var newX = Random.Range(left.position.x, right.position.x);
         return new Vector3(newX, leftPos.y, leftPos.z);
