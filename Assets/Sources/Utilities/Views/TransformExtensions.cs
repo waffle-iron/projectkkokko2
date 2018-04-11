@@ -32,6 +32,17 @@ public static class TransformExtensions
         return new Vector3(leftPos.x, newY, leftPos.z);
     }
 
+    public static Vector2 RandomXYPosition (Vector2 xRange, Vector2 yRange, int seed = 0)
+    {
+        if (seed != 0) { Random.InitState(seed); }
+        var newPos = Vector2.zero;
+
+        newPos.x = Random.Range(xRange.x, xRange.y);
+        newPos.y = Random.Range(yRange.y, yRange.y);
+
+        return newPos;
+    }
+
     public static void ReplaceXPos (this Transform trans, float newX)
     {
         var newPos = trans.position;

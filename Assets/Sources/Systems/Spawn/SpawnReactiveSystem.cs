@@ -33,6 +33,11 @@ public class SpawnReactiveSystem : ReactiveSystem<GameEntity>
     {
         foreach (var e in entities)
         {
+            if (e.hasSpawnLimit && e.hasSpawnCounter && e.spawnCounter.current >= e.spawnLimit.count)
+            {
+                continue;
+            }
+
             if (e.hasInterval == false)
             {
                 AddNewRandomInterval(e);
@@ -53,6 +58,7 @@ public class SpawnReactiveSystem : ReactiveSystem<GameEntity>
                     }
                 }
 
+                if (e.hasSpawnLimit) { e.ReplaceSpawnCounter(e.hasSpawnCounter ? e.spawnCounter.current + 1 : 1); }
 
                 //reset
                 var inputEty = _input.CreateEntity();
