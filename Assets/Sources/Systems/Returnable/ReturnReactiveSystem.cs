@@ -36,12 +36,9 @@ public class ReturnReactiveSystem : ReactiveSystem<GameEntity>
         {
             _game.returnEntity.isToDestroy = true;
         }
-        else
+        else if (_game.isReturn == false && _returners.count > 0)
         {
-            if (_game.isReturn == false)
-            {
-                _meta.entityService.instance.Get(RETURN_ENTITY);
-            }
+            _meta.entityService.instance.Get(RETURN_ENTITY);
         }
     }
 }
