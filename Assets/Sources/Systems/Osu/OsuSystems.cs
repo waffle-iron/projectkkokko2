@@ -11,6 +11,6 @@ public class OsuSystems : Feature
         Add(new UpdateRangeReactiveSystem(contexts));
         Add(new CheckRangeReactiveSystem(contexts));
         Add(new RemoveRangeReactiveSystem(contexts));
-
+        Add(new OverallOsuCheckerReactiveSystem(contexts));
     }
 }

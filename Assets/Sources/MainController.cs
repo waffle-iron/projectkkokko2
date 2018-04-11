@@ -80,6 +80,7 @@ public class MainController : MonoBehaviour
             .Add(new UISystems(contexts))
             .Add(new NeedSystems(contexts))
             .Add(new ReturnableSystems(contexts))
+            .Add(new OsuSystems(contexts))
 
             .Add(new GeneralSystems(contexts)) //executed after all custom systems para ma pick up before cleanup sa destroy systems
             .Add(new EventSystems(contexts));
