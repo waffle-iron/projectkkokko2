@@ -48,6 +48,7 @@ public sealed class EventSystems : Feature {
         Add(new GameGameStateEventSystem(contexts)); // priority: 0
         Add(new CommandGameStateEventSystem(contexts)); // priority: 0
         Add(new InputGameStateEventSystem(contexts)); // priority: 0
+        Add(new HudEventSystem(contexts)); // priority: 0
         Add(new GameLoadedViewsCompleteEventSystem(contexts)); // priority: 0
         Add(new InputLoadedViewsCompleteEventSystem(contexts)); // priority: 0
         Add(new CommandLoadedViewsCompleteEventSystem(contexts)); // priority: 0

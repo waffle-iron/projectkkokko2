@@ -67,43 +67,44 @@ public static class CommandComponentsLookup {
     public const int Equipped = 56;
     public const int Food = 57;
     public const int GameState = 58;
-    public const int ID = 59;
-    public const int InCart = 60;
-    public const int Interval = 61;
-    public const int Load = 62;
-    public const int LoadedViewsComplete = 63;
-    public const int LoadSceneComplete = 64;
-    public const int LoadScene = 65;
-    public const int LoadViews = 66;
-    public const int Max = 67;
-    public const int Moveable = 68;
-    public const int Moving = 69;
-    public const int Need = 70;
-    public const int NeedRecoveryModifier = 71;
-    public const int OnCollision = 72;
-    public const int Pause = 73;
-    public const int Position = 74;
-    public const int PrePurchase = 75;
-    public const int Preview = 76;
-    public const int Price = 77;
-    public const int Purchased = 78;
-    public const int RemoveFromStorage = 79;
-    public const int Reset = 80;
-    public const int Save = 81;
-    public const int Soap = 82;
-    public const int Targetable = 83;
-    public const int TargetEntityID = 84;
-    public const int TargetMove = 85;
-    public const int TargetNeed = 86;
-    public const int TargetPosition = 87;
-    public const int TimerReset = 88;
-    public const int TimerState = 89;
-    public const int ToDestroy = 90;
-    public const int TouchData = 91;
-    public const int Trigger = 92;
-    public const int Wallet = 93;
+    public const int HudChangeState = 59;
+    public const int ID = 60;
+    public const int InCart = 61;
+    public const int Interval = 62;
+    public const int Load = 63;
+    public const int LoadedViewsComplete = 64;
+    public const int LoadSceneComplete = 65;
+    public const int LoadScene = 66;
+    public const int LoadViews = 67;
+    public const int Max = 68;
+    public const int Moveable = 69;
+    public const int Moving = 70;
+    public const int Need = 71;
+    public const int NeedRecoveryModifier = 72;
+    public const int OnCollision = 73;
+    public const int Pause = 74;
+    public const int Position = 75;
+    public const int PrePurchase = 76;
+    public const int Preview = 77;
+    public const int Price = 78;
+    public const int Purchased = 79;
+    public const int RemoveFromStorage = 80;
+    public const int Reset = 81;
+    public const int Save = 82;
+    public const int Soap = 83;
+    public const int Targetable = 84;
+    public const int TargetEntityID = 85;
+    public const int TargetMove = 86;
+    public const int TargetNeed = 87;
+    public const int TargetPosition = 88;
+    public const int TimerReset = 89;
+    public const int TimerState = 90;
+    public const int ToDestroy = 91;
+    public const int TouchData = 92;
+    public const int Trigger = 93;
+    public const int Wallet = 94;
 
-    public const int TotalComponents = 94;
+    public const int TotalComponents = 95;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -165,6 +166,7 @@ public static class CommandComponentsLookup {
         "Equipped",
         "Food",
         "GameState",
+        "HudChangeState",
         "ID",
         "InCart",
         "Interval",
@@ -262,6 +264,7 @@ public static class CommandComponentsLookup {
         typeof(EquippedComponent),
         typeof(FoodComponent),
         typeof(GameStateComponent),
+        typeof(HudChangeStateComponent),
         typeof(IDComponent),
         typeof(InCartComponent),
         typeof(IntervalComponent),

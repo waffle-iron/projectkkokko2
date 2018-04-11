@@ -29,81 +29,82 @@ public static class InputComponentsLookup {
     public const int Equipped = 18;
     public const int Food = 19;
     public const int GameState = 20;
-    public const int ID = 21;
-    public const int InCart = 22;
-    public const int InputAccessoryListener = 23;
-    public const int InputActionListener = 24;
-    public const int InputActiveDialogListener = 25;
-    public const int InputActiveDialogRemovedListener = 26;
-    public const int InputAffordListener = 27;
-    public const int InputConsumingListener = 28;
-    public const int InputConsumingRemovedListener = 29;
-    public const int InputCurrentListener = 30;
-    public const int InputDebugListener = 31;
-    public const int InputEquippedListener = 32;
-    public const int InputEquippedRemovedListener = 33;
-    public const int InputFoodListener = 34;
-    public const int InputGameStateListener = 35;
-    public const int InputLoadedViewsCompleteListener = 36;
-    public const int InputLoadedViewsCompleteRemovedListener = 37;
-    public const int InputLoadSceneCompleteListener = 38;
-    public const int InputLoadSceneListener = 39;
-    public const int InputLoadSceneRemovedListener = 40;
-    public const int InputLoadViewsListener = 41;
-    public const int InputLoadViewsRemovedListener = 42;
-    public const int InputMoveableListener = 43;
-    public const int InputNeedListener = 44;
-    public const int InputOnCollisionListener = 45;
-    public const int InputPauseListener = 46;
-    public const int InputPauseRemovedListener = 47;
-    public const int InputPrePurchaseListener = 48;
-    public const int InputPreviewListener = 49;
-    public const int InputPreviewRemovedListener = 50;
-    public const int InputPriceListener = 51;
-    public const int InputPurchasedListener = 52;
-    public const int InputRemoveFromStorageListener = 53;
-    public const int InputRemoveFromStorageRemovedListener = 54;
-    public const int InputSoapListener = 55;
-    public const int InputTargetMoveListener = 56;
-    public const int InputToDestroyListener = 57;
-    public const int InputToDestroyRemovedListener = 58;
-    public const int InputTriggerListener = 59;
-    public const int InputWalletListener = 60;
-    public const int Interval = 61;
-    public const int Load = 62;
-    public const int LoadedViewsComplete = 63;
-    public const int LoadSceneComplete = 64;
-    public const int LoadScene = 65;
-    public const int LoadViews = 66;
-    public const int Max = 67;
-    public const int Moveable = 68;
-    public const int Moving = 69;
-    public const int Need = 70;
-    public const int NeedRecoveryModifier = 71;
-    public const int OnCollision = 72;
-    public const int Pause = 73;
-    public const int Position = 74;
-    public const int PrePurchase = 75;
-    public const int Preview = 76;
-    public const int Price = 77;
-    public const int Purchased = 78;
-    public const int RemoveFromStorage = 79;
-    public const int Reset = 80;
-    public const int Save = 81;
-    public const int Soap = 82;
-    public const int Targetable = 83;
-    public const int TargetEntityID = 84;
-    public const int TargetMove = 85;
-    public const int TargetNeed = 86;
-    public const int TargetPosition = 87;
-    public const int TimerReset = 88;
-    public const int TimerState = 89;
-    public const int ToDestroy = 90;
-    public const int TouchData = 91;
-    public const int Trigger = 92;
-    public const int Wallet = 93;
+    public const int HudChangeState = 21;
+    public const int ID = 22;
+    public const int InCart = 23;
+    public const int InputAccessoryListener = 24;
+    public const int InputActionListener = 25;
+    public const int InputActiveDialogListener = 26;
+    public const int InputActiveDialogRemovedListener = 27;
+    public const int InputAffordListener = 28;
+    public const int InputConsumingListener = 29;
+    public const int InputConsumingRemovedListener = 30;
+    public const int InputCurrentListener = 31;
+    public const int InputDebugListener = 32;
+    public const int InputEquippedListener = 33;
+    public const int InputEquippedRemovedListener = 34;
+    public const int InputFoodListener = 35;
+    public const int InputGameStateListener = 36;
+    public const int InputLoadedViewsCompleteListener = 37;
+    public const int InputLoadedViewsCompleteRemovedListener = 38;
+    public const int InputLoadSceneCompleteListener = 39;
+    public const int InputLoadSceneListener = 40;
+    public const int InputLoadSceneRemovedListener = 41;
+    public const int InputLoadViewsListener = 42;
+    public const int InputLoadViewsRemovedListener = 43;
+    public const int InputMoveableListener = 44;
+    public const int InputNeedListener = 45;
+    public const int InputOnCollisionListener = 46;
+    public const int InputPauseListener = 47;
+    public const int InputPauseRemovedListener = 48;
+    public const int InputPrePurchaseListener = 49;
+    public const int InputPreviewListener = 50;
+    public const int InputPreviewRemovedListener = 51;
+    public const int InputPriceListener = 52;
+    public const int InputPurchasedListener = 53;
+    public const int InputRemoveFromStorageListener = 54;
+    public const int InputRemoveFromStorageRemovedListener = 55;
+    public const int InputSoapListener = 56;
+    public const int InputTargetMoveListener = 57;
+    public const int InputToDestroyListener = 58;
+    public const int InputToDestroyRemovedListener = 59;
+    public const int InputTriggerListener = 60;
+    public const int InputWalletListener = 61;
+    public const int Interval = 62;
+    public const int Load = 63;
+    public const int LoadedViewsComplete = 64;
+    public const int LoadSceneComplete = 65;
+    public const int LoadScene = 66;
+    public const int LoadViews = 67;
+    public const int Max = 68;
+    public const int Moveable = 69;
+    public const int Moving = 70;
+    public const int Need = 71;
+    public const int NeedRecoveryModifier = 72;
+    public const int OnCollision = 73;
+    public const int Pause = 74;
+    public const int Position = 75;
+    public const int PrePurchase = 76;
+    public const int Preview = 77;
+    public const int Price = 78;
+    public const int Purchased = 79;
+    public const int RemoveFromStorage = 80;
+    public const int Reset = 81;
+    public const int Save = 82;
+    public const int Soap = 83;
+    public const int Targetable = 84;
+    public const int TargetEntityID = 85;
+    public const int TargetMove = 86;
+    public const int TargetNeed = 87;
+    public const int TargetPosition = 88;
+    public const int TimerReset = 89;
+    public const int TimerState = 90;
+    public const int ToDestroy = 91;
+    public const int TouchData = 92;
+    public const int Trigger = 93;
+    public const int Wallet = 94;
 
-    public const int TotalComponents = 94;
+    public const int TotalComponents = 95;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -127,6 +128,7 @@ public static class InputComponentsLookup {
         "Equipped",
         "Food",
         "GameState",
+        "HudChangeState",
         "ID",
         "InCart",
         "InputAccessoryListener",
@@ -224,6 +226,7 @@ public static class InputComponentsLookup {
         typeof(EquippedComponent),
         typeof(FoodComponent),
         typeof(GameStateComponent),
+        typeof(HudChangeStateComponent),
         typeof(IDComponent),
         typeof(InCartComponent),
         typeof(InputAccessoryListenerComponent),
