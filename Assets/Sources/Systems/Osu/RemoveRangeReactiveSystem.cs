@@ -28,6 +28,7 @@ public class RemoveRangeReactiveSystem : ReactiveSystem<GameEntity>
             // do stuff to the matched entities
             if (e.currentRange.value == 0.0f)
             {
+                e.ReplaceHitRangeStatus(false);
                 e.isToDestroy = true;
             }
         }

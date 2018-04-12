@@ -33,7 +33,7 @@ public class OverallOsuCheckerReactiveSystem : ReactiveSystem<GameEntity>
             foreach (var e in entities)
             {
                 if (e.hitRangeStatus.state == true) { _game.osuEntity.ReplaceHit(_game.osuEntity.hit.count + 1); }
-                else if (e.hitRangeStatus.state == false) { _game.osuEntity.ReplaceMiss(_game.osuEntity.miss.count - 1); }
+                else if (e.hitRangeStatus.state == false) { _game.osuEntity.ReplaceMiss(_game.osuEntity.miss.count + 1); }
                 e.isToDestroy = true;
 
                 if (_game.osuEntity.hit.count == _game.osu.maxHits)
