@@ -33,6 +33,13 @@ public class CircleView : View, ICurrentRangeListener
         initDistance = _outerSize - _innerSize;
     }
 
+    public void OnTap ()
+    {
+        //create input entity 
+        var inputEty = contexts.input.CreateEntity();
+        inputEty.AddTargetEntityID(this.ID);
+        inputEty.AddTouchData(new TouchData(0, Vector3.zero, Vector3.zero, Vector3.zero, Vector3.zero, TouchPhase.Began,-1f, null));
+    }
 
     public void OnCurrentRange (GameEntity entity, float value)
     {
@@ -74,5 +81,7 @@ public class CircleView : View, ICurrentRangeListener
         image.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, value.x);
         image.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, value.y);
     }
+
+    
 }
 

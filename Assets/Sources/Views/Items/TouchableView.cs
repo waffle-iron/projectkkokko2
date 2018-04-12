@@ -8,11 +8,14 @@ using System.Linq;
 public class TouchableView : View
 {
     private bool _touch = false;
+    [SerializeField]
+    private bool _show = true;
 
     private IInputTouchService _service;
 
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
+        this.gameObject.SetActive(_show);
         _service = Contexts.sharedInstance.meta.touchService.instance;
         if (_service == null)
         {

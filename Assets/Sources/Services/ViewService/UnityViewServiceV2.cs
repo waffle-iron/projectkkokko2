@@ -108,7 +108,7 @@ public class UnityViewServiceV2 : IViewService
         {
             if (_pools.TryGetValue(name, out pool))
             {
-                var views = pool.Get()?.GetComponentsInChildren<IView>();
+                var views = pool.Get()?.GetComponentsInChildren<IView>(true);
 
                 foreach (var view in views)
                 {

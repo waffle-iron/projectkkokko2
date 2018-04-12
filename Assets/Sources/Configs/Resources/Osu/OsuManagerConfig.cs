@@ -36,6 +36,8 @@ public class OsuManagerConfig : UnityEntityConfig
         gameEty.AddSpawn(new string[] { osuCircleEntity }, false, minTime, maxTime);
         gameEty.AddSpawnCounter(0);
         gameEty.AddSpawnLimit(numCircles);
+        gameEty.AddTimer(0f);
+        gameEty.AddTimerState(true);
 
         return gameEty;
     }
