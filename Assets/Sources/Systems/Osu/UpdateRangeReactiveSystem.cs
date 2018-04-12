@@ -28,7 +28,7 @@ public class UpdateRangeReactiveSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             //calculate current range based on duration and timer current value
-            e.ReplaceCurrentRange(Mathf.Clamp(e.timer.current / e.duration.value, 0f, 1f));
+            e.ReplaceCurrentRange(Mathf.Clamp(1f - (e.timer.current / e.duration.value), 0f, 1f));
         }
     }
 }

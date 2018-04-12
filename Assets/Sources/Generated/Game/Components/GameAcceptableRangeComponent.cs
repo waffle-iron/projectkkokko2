@@ -11,17 +11,17 @@ public partial class GameEntity {
     public AcceptableRangeComponent acceptableRange { get { return (AcceptableRangeComponent)GetComponent(GameComponentsLookup.AcceptableRange); } }
     public bool hasAcceptableRange { get { return HasComponent(GameComponentsLookup.AcceptableRange); } }
 
-    public void AddAcceptableRange(UnityEngine.Vector2 newValues) {
+    public void AddAcceptableRange(float newValue) {
         var index = GameComponentsLookup.AcceptableRange;
         var component = CreateComponent<AcceptableRangeComponent>(index);
-        component.values = newValues;
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceAcceptableRange(UnityEngine.Vector2 newValues) {
+    public void ReplaceAcceptableRange(float newValue) {
         var index = GameComponentsLookup.AcceptableRange;
         var component = CreateComponent<AcceptableRangeComponent>(index);
-        component.values = newValues;
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

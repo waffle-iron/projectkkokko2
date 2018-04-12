@@ -8,5 +8,5 @@ using Entitas.CodeGeneration.Attributes;
 [Game, Event(true)]
 public sealed class AcceptableRangeComponent : IComponent
 {
-    public Vector2 values;
+    public float value;
 }

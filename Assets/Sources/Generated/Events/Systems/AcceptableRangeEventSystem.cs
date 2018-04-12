@@ -25,7 +25,7 @@ public sealed class AcceptableRangeEventSystem : Entitas.ReactiveSystem<GameEnti
         foreach (var e in entities) {
             var component = e.acceptableRange;
             foreach (var listener in e.acceptableRangeListener.value) {
-                listener.OnAcceptableRange(e, component.values);
+                listener.OnAcceptableRange(e, component.value);
             }
         }
     }

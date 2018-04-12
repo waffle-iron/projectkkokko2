@@ -26,7 +26,7 @@ public class RemoveRangeReactiveSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             // do stuff to the matched entities
-            if (e.currentRange.value == 1.0f)
+            if (e.currentRange.value == 0.0f)
             {
                 e.isToDestroy = true;
             }

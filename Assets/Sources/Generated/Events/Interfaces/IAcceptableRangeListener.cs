@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IAcceptableRangeListener {
-    void OnAcceptableRange(GameEntity entity, UnityEngine.Vector2 values);
+    void OnAcceptableRange(GameEntity entity, float value);
 }

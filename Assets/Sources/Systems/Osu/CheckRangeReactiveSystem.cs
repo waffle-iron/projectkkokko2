@@ -31,8 +31,7 @@ public class CheckRangeReactiveSystem : ReactiveSystem<GameEntity>
         {
             // do stuff to the matched entities
 
-            e.ReplaceHitRangeStatus(e.currentRange.value >= e.acceptableRange.values.x &&
-            e.currentRange.value <= e.acceptableRange.values.y);
+            e.ReplaceHitRangeStatus(e.currentRange.value <= e.acceptableRange.value);
 
         }
     }
