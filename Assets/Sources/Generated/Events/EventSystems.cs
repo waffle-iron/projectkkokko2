@@ -9,6 +9,7 @@
 public sealed class EventSystems : Feature {
 
     public EventSystems(Contexts contexts) {
+        Add(new AcceptableRangeEventSystem(contexts)); // priority: 0
         Add(new GameAccessoryEventSystem(contexts)); // priority: 0
         Add(new InputAccessoryEventSystem(contexts)); // priority: 0
         Add(new CommandAccessoryEventSystem(contexts)); // priority: 0
@@ -33,9 +34,11 @@ public sealed class EventSystems : Feature {
         Add(new GameCurrentEventSystem(contexts)); // priority: 0
         Add(new CommandCurrentEventSystem(contexts)); // priority: 0
         Add(new InputCurrentEventSystem(contexts)); // priority: 0
+        Add(new CurrentRangeEventSystem(contexts)); // priority: 0
         Add(new GameDebugEventSystem(contexts)); // priority: 0
         Add(new InputDebugEventSystem(contexts)); // priority: 0
         Add(new CommandDebugEventSystem(contexts)); // priority: 0
+        Add(new DurationEventSystem(contexts)); // priority: 0
         Add(new GameEquippedEventSystem(contexts)); // priority: 0
         Add(new InputEquippedEventSystem(contexts)); // priority: 0
         Add(new CommandEquippedEventSystem(contexts)); // priority: 0
@@ -48,6 +51,9 @@ public sealed class EventSystems : Feature {
         Add(new GameGameStateEventSystem(contexts)); // priority: 0
         Add(new CommandGameStateEventSystem(contexts)); // priority: 0
         Add(new InputGameStateEventSystem(contexts)); // priority: 0
+        Add(new HitEventSystem(contexts)); // priority: 0
+        Add(new HitRangeStatusEventSystem(contexts)); // priority: 0
+        Add(new HudEventSystem(contexts)); // priority: 0
         Add(new GameLoadedViewsCompleteEventSystem(contexts)); // priority: 0
         Add(new InputLoadedViewsCompleteEventSystem(contexts)); // priority: 0
         Add(new CommandLoadedViewsCompleteEventSystem(contexts)); // priority: 0
@@ -73,6 +79,7 @@ public sealed class EventSystems : Feature {
         Add(new InputLoadViewsRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandLoadViewsRemovedEventSystem(contexts)); // priority: 0
         Add(new GameLoadViewsRemovedEventSystem(contexts)); // priority: 0
+        Add(new MissEventSystem(contexts)); // priority: 0
         Add(new GameMoveableEventSystem(contexts)); // priority: 0
         Add(new CommandMoveableEventSystem(contexts)); // priority: 0
         Add(new InputMoveableEventSystem(contexts)); // priority: 0

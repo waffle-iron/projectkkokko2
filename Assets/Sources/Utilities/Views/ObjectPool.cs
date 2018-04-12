@@ -40,7 +40,7 @@ public class ObjectPool
     {
         foreach (var obj in _objs)
         {
-            if (obj.activeSelf == false)
+            if (obj != null && obj.activeSelf == false)
             {
                 obj.SetActive(true);
                 return obj;
@@ -48,11 +48,16 @@ public class ObjectPool
         }
 
         //if pool is empty
-        var newObj = GameObject.Instantiate(_type, _type.transform.position, _type.transform.rotation, _type.transform.parent);
-        newObj.name = _type.name;
-        newObj.SetActive(true);
-        _objs.Add(newObj);
-        return newObj;
+        if (_type != null)
+        {
+            var newObj = GameObject.Instantiate(_type, _type.transform.position, _type.transform.rotation, _type.transform.parent);
+            newObj.name = _type.name;
+            newObj.SetActive(true);
+            _objs.Add(newObj);
+            return newObj;
+        }
+
+        return null;
     }
 
     public void Cleanup ()

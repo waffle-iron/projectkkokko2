@@ -27,6 +27,7 @@ public class InputActionEntityConfig : UnityEntityConfig
         {
             inputEntity.AddTargetNeed(_targetNeed);
             inputEntity.AddReset(restoreAmount);
+            inputEntity.AddDelayDestroy(1);
         }
 
         return inputEntity;
