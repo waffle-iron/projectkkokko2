@@ -11,9 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dbd28487869a354aa43e0a4edb214b2, type: 3}
   m_Name: ACTION_JOBSCENE_INPUT
   m_EditorClassIdentifier: 
-  _name: 9
   _viewName: 
-  _isDestroyOnSceneChange: 1
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 
@@ -21,4 +20,4 @@ MonoBehaviour:
     fakeValue: 
     fakeValueActive: 0
   _loadOnStart: 0
-  _targetScene: Shop_Scene
+  _targetScene: MiniGame_Egg_Throwing_Scene
