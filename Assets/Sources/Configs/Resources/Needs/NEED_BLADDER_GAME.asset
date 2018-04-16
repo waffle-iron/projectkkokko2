@@ -33,4 +33,4 @@ MonoBehaviour:
     length: 10
     unit: 1
   _runOnStart: 1
-  _isFastForwardOnStart: 0
+  _isFastForwardOnStart: 1
