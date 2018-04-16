@@ -7,11 +7,13 @@ public class NeedDeductReactiveSystem : ReactiveSystem<GameEntity>
 {
     private readonly GameContext _game;
     private readonly InputContext _input;
+    private readonly MetaContext _meta;
 
     public NeedDeductReactiveSystem (Contexts contexts) : base(contexts.game)
     {
         _game = contexts.game;
         _input = contexts.input;
+        _meta = contexts.meta;
     }
 
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)
@@ -49,8 +51,12 @@ public class NeedDeductReactiveSystem : ReactiveSystem<GameEntity>
                 inputEntity.AddTargetEntityID(e.iD.value);
                 inputEntity.isTimerReset = true;
 
+                _meta.debugService.instance.Log($"{e.need.type} deducts {e.deplete.amount * (int)e.deductions.count} to {target.need.type}");
+
                 //reset deductions
                 e.ReplaceDeductions(0);
+
+                e.isNeedForceSave = true;
             }
         }
     }

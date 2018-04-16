@@ -18,14 +18,13 @@ public class SaveSecondaryNeedReactiveSystem : ReactiveSystem<GameEntity>
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)
     {
         //return collector
-        return context.CreateCollector(GameMatcher.AllOf(GameMatcher.Trigger, GameMatcher.Need));
+        return context.CreateCollector(GameMatcher.AllOf(GameMatcher.Need).AnyOf(GameMatcher.NeedForceSave, GameMatcher.Trigger));
     }
 
     protected override bool Filter (GameEntity entity)
     {
         // check for required components
         return entity.hasTrigger &&
-            entity.trigger.state == false && //hack para ma save tung after ma deduct ug na reset ang timer
             entity.hasNeed &&
             (entity.need.type != NeedType.HEALTH && entity.need.type != NeedType.MOOD) &&
             entity.hasTimer &&
@@ -37,7 +36,9 @@ public class SaveSecondaryNeedReactiveSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             var saveEntity = _game.CreateEntity();
-            saveEntity.AddTimer(e.timer.current);
+            if (e.isNeedForceSave) { saveEntity.AddTimer(0f); }
+            else { saveEntity.AddTimer(e.timer.current); }
+            
             saveEntity.AddSuspendedTime(DateTime.Now);
             saveEntity.AddSaveID(e.saveID.value);
             saveEntity.AddTrigger(e.trigger.duration, e.trigger.state);
@@ -46,6 +47,8 @@ public class SaveSecondaryNeedReactiveSystem : ReactiveSystem<GameEntity>
             var inputEty = _input.CreateEntity();
             inputEty.AddTargetEntityID(saveEntity.iD.value);
             inputEty.isSave = true;
+
+            e.isNeedForceSave = false;
         }
     }
 }

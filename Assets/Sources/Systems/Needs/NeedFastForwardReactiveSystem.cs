@@ -47,7 +47,7 @@ public class NeedFastForwardReactiveSystem : ReactiveSystem<GameEntity>
 
             e.isFastForward = false;
 
-            _meta.debugService.instance.Log($"fast forward by {elapsedSec}");
+            _meta.debugService.instance.Log($" {e.need.type} fast forward by {elapsedSec}");
         }
     }
 }

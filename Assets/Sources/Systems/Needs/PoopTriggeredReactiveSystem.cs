@@ -29,7 +29,8 @@ public class PoopTriggeredReactiveSystem : ReactiveSystem<GameEntity>
             entity.need.type == NeedType.BLADDER &&
             entity.hasTrigger &&
             entity.trigger.state == true &&
-            entity.hasTargetNeed;
+            entity.hasTargetNeed &&
+            entity.hasTimer;
     }
 
     protected override void Execute (List<GameEntity> entities)
@@ -38,11 +39,16 @@ public class PoopTriggeredReactiveSystem : ReactiveSystem<GameEntity>
         {
             //create poop
             IEntity poop;
-            _meta.entityService.instance.Get(POOP_ENTITY, out poop);
+            var poopCount = (uint)Mathf.FloorToInt((e.timer.current / e.trigger.duration.GetInSeconds())) + 1;
 
-            var inputStartTimer = _input.CreateEntity();
-            inputStartTimer.AddTargetEntityID(((IIDEntity)poop).iD.value);
-            inputStartTimer.AddTimerState(true);
+            for (int ctr = 0; ctr < poopCount; ctr++)
+            {
+                _meta.entityService.instance.Get(POOP_ENTITY, out poop);
+
+                var inputStartTimer = _input.CreateEntity();
+                inputStartTimer.AddTargetEntityID(((IIDEntity)poop).iD.value);
+                inputStartTimer.AddTimerState(true);
+            }
 
             //reset bladder
             _meta.entityService.instance.Get(POOP_ACTION);
