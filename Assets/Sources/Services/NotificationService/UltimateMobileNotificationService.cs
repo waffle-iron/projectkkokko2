@@ -21,7 +21,9 @@ public class UltimateMobileNotificationService : INotificationService
 
     public int Schedule (string title, string message, int seconds)
     {
-        return UM_NotificationController.Instance.ScheduleLocalNotification(title, message, seconds);
+        var id = UM_NotificationController.Instance.ScheduleLocalNotification(title, message, seconds);
+
+        return id;
     }
 }
 
