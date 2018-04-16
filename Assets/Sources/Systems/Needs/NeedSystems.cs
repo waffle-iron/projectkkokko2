@@ -18,6 +18,7 @@ public class NeedSystems : Feature
         Add(new NeedCommandReactiveSystem(contexts));
 
         Add(new NeedTriggerReactiveSystem(contexts));
+        Add(new NeedDeductionReactiveSystem(contexts));
         Add(new NeedDeductReactiveSystem(contexts));
 
 
