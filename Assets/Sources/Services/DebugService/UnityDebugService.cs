@@ -5,14 +5,18 @@ using UnityEngine;
 
 public class UnityDebugService : IDebugService
 {
-    public void Log(object message)
+    public void Log (object message)
     {
+#if !NO_DEBUG_SERVICE
         Debug.Log(message);
+#endif
     }
 
     public void LogError (object message)
     {
+#if !NO_DEBUG_SERVICE
         Debug.LogError(message);
+#endif
     }
 }
 

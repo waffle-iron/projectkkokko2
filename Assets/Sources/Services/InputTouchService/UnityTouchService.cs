@@ -24,10 +24,9 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
 
     private TouchData[] _touchData = null;
 
-#if UNITY_EDITOR
     private Vector3 _prevScreenPos = Vector3.zero;
     private Vector3 _prevWorldPos = Vector3.zero;
-#endif
+
 
     // Use this for initialization
     void Start ()
@@ -70,7 +69,7 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
 #elif UNITY_ANDROID || UNITY_IOS
         if (Input.touchCount > 0)
         {
-            _touchData = PollScreenTouch(Input.touchCount);
+            _touchData = PollScreenTouch(Input.touchCount, _camera);
 
             if (OnTouch != null) { OnTouch(_touchData); }
         }
@@ -82,6 +81,7 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
 
     }
 
+#if UNITY_EDITOR
     private TouchData[] PollMouseTouch (Vector2 screenPos, Vector2 screenDelta, TouchPhase phase, Camera camera)
     {
         var newTouches = new TouchData[1];
@@ -100,7 +100,9 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
 
         return newTouches;
     }
+#endif
 
+#if UNITY_ANDROID || UNITY_IOS
     private TouchData[] PollScreenTouch (int touchCount, Camera camera)
     {
         var newTouches = new TouchData[touchCount];
@@ -124,4 +126,6 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
 
         return newTouches;
     }
+#endif
+
 }

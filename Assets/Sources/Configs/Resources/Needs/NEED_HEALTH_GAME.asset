@@ -11,15 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43626b46a868d5a47a7c16271c084a57, type: 3}
   m_Name: NEED_HEALTH_GAME
   m_EditorClassIdentifier: 
-  _name: 26
   _viewName: HealthView
-  _isDestroyOnSceneChange: 1
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 
+    hiddenValue: 7a007100710075006b007c0071007000780060007c00
     inited: 1
-    fakeValue: 
-    fakeValueActive: 0
+    fakeValue: NEED_HEALTH
+    fakeValueActive: 1
   _loadOnStart: 1
   _type: 1
   _matchingAction: 0
@@ -34,3 +33,4 @@ MonoBehaviour:
     length: 10
     unit: 1
   _runOnStart: 0
+  _isFastForwardOnStart: 0

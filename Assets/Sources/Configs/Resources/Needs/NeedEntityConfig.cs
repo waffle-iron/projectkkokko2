@@ -30,6 +30,8 @@ public class NeedEntityConfig : UnityEntityConfig
     private DurationType _trigger;
     [SerializeField]
     private bool _runOnStart = false;
+    [SerializeField]
+    private bool _isFastForwardOnStart = false;
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
@@ -52,6 +54,10 @@ public class NeedEntityConfig : UnityEntityConfig
             entity.AddTrigger(_trigger, false);
             entity.AddTimer(0f);
             entity.AddTimerState(_runOnStart);
+        }
+        if (_isFastForwardOnStart)
+        {
+            entity.isFastForward = true;
         }
 
         return entity;

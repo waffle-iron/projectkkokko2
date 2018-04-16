@@ -26,7 +26,9 @@ public static class AssetBundleLoader
         if (asyncInit.Success == false) { observer.OnError(new Exception("initialization failed;")); }
         else
         {
+#if !NO_DEBUG_ASSETS
             Debug.Log("loaded manager");
+#endif
             observer.OnNext(manager);
             observer.OnCompleted();
         }
@@ -45,10 +47,17 @@ public static class AssetBundleLoader
 
             if (token.IsCancellationRequested) { yield break; }
 
-            if (loadedBundle.AssetBundle == null) { Debug.LogError($"bundle {bundle} not found"); }
+            if (loadedBundle.AssetBundle == null)
+            {
+#if !NO_DEBUG_ASSETS
+                Debug.LogError($"bundle {bundle} not found");
+#endif
+            }
             else
             {
+#if !NO_DEBUG_ASSETS
                 Debug.Log($"loaded bundle {loadedBundle.AssetBundle.name}");
+#endif
                 observer.OnNext(loadedBundle.AssetBundle);
             }
 

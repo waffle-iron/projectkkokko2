@@ -35,6 +35,13 @@ public class MiniGame_Egg_ResultsReactiveSystem : ReactiveSystem<GameEntity>
             var inputEty = _input.CreateEntity();
             inputEty.AddActiveDialog(RESULTS_DIALOG);
 
+            var saveWalletEntity = _input.CreateEntity();
+            saveWalletEntity.AddTargetEntityID(_game.walletEntity.iD.value);
+            saveWalletEntity.isSave = true;
+
+            var saveTopScoreEntity = _input.CreateEntity();
+            saveTopScoreEntity.AddTargetEntityID(_game.topScoreEntity.iD.value);
+            saveTopScoreEntity.isSave = true;
         }
     }
 }

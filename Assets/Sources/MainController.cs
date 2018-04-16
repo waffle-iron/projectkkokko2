@@ -41,7 +41,7 @@ public class MainController : MonoBehaviour
         //_systems.Cleanup();
 #if UNITY_IOS || UNITY_ANDROID
         var debug = _contexts.meta.hasDebugService ? _contexts.meta.debugService.instance : null;
-
+        debug?.Log("pausing game");
         List<LocalNotificationTemplate> scheduled = AndroidNotificationManager.Instance.LoadPendingNotifications();
         foreach (var sched in scheduled)
         {

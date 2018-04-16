@@ -7,6 +7,8 @@ public class NeedSystems : Feature
 {
     public NeedSystems (Contexts contexts) : base("Need Systems")
     {
+        Add(new NeedFastForwardReactiveSystem(contexts));
+
         Add(new PoopTriggeredReactiveSystem(contexts)); //custom need logic
         Add(new PoopModifyHygieneReactiveSystem(contexts));
 
@@ -18,8 +20,11 @@ public class NeedSystems : Feature
         Add(new NeedCommandReactiveSystem(contexts));
 
         Add(new NeedTriggerReactiveSystem(contexts));
+        Add(new NeedDeductionReactiveSystem(contexts));
         Add(new NeedDeductReactiveSystem(contexts));
 
+        Add(new SaveSecondaryNeedReactiveSystem(contexts));
+        Add(new SavePrimaryNeedReactiveSystem(contexts));
 
         Add(new NeedUnscheduleNotificationReactiveSystem(contexts));
         Add(new NeedScheduleNotificationReactiveSystem(contexts));

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: MiniGame_Egg_ScoreConfig
   m_EditorClassIdentifier: 
   _viewName: ScoreView
-  _isDestroyOnSceneChange: 1
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 
+    hiddenValue: 79007d007a0078006b00730075007c0071006b007100760073006b0060007e006400670077007e0066007100
     inited: 1
-    fakeValue: 
-    fakeValueActive: 0
-  _loadOnStart: 0
+    fakeValue: MINI_GAME_EGG_TOPSCORE
+    fakeValueActive: 1
+  _loadOnStart: 1
   _initValue: 0
   _tag: Score

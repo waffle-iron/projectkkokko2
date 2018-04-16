@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2645015747
+CRC: 503500858
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: aaf886e2bb3386c1beca95bb867d1c46
+    Hash: 7aebd0bd9be139dcb53b5b3adbf21f41
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 46e23bfcbf500339d3e6de9949c8c15b
+    Hash: 963e5768d43f6b6ffb83521bb23ea057
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -25,6 +25,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 49
   Script: {instanceID: 0}
+- Class: 60
+  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: e2f26350ccaa7384a8af43e33b3ccbb9, type: 3}
 - Class: 114
@@ -33,6 +35,8 @@ ClassTypes:
   Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 60a9eeb22d5dd4d45b81e98f6e921365, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f9af9a339aeda1b47b9b33d889a65a7e, type: 3}
 - Class: 114
@@ -65,4 +69,5 @@ Assets:
 - Assets/Prefabs/UI/Need.prefab
 - Assets/Prefabs/UI/Action.prefab
 - Assets/Prefabs/UI/ItemUIView.prefab
-Dependencies: []
+Dependencies:
+- C:/Users/Kevyn/Documents/Project_KkoKko_2/AssetBundles/Android/ui

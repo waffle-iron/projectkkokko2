@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: NEED_BLADDER_GAME
   m_EditorClassIdentifier: 
   _viewName: BladderView
-  _isDestroyOnSceneChange: 1
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 
+    hiddenValue: 7a007100710075006b007600780070007000700071006300
     inited: 1
-    fakeValue: 
-    fakeValueActive: 0
+    fakeValue: NEED_BLADDER
+    fakeValueActive: 1
   _loadOnStart: 1
   _type: 4
   _matchingAction: 2
@@ -33,3 +33,4 @@ MonoBehaviour:
     length: 10
     unit: 1
   _runOnStart: 1
+  _isFastForwardOnStart: 1

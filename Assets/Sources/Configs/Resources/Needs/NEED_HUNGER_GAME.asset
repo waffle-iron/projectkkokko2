@@ -11,15 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43626b46a868d5a47a7c16271c084a57, type: 3}
   m_Name: NEED_HUNGER_GAME
   m_EditorClassIdentifier: 
-  _name: 27
   _viewName: HungerView
-  _isDestroyOnSceneChange: 1
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 
+    hiddenValue: 7a007100710075006b007c0061007f00730071006600
     inited: 1
-    fakeValue: 
-    fakeValueActive: 0
+    fakeValue: NEED_HUNGER
+    fakeValueActive: 1
   _loadOnStart: 1
   _type: 3
   _matchingAction: 1
@@ -34,3 +33,4 @@ MonoBehaviour:
     length: 10
     unit: 1
   _runOnStart: 1
+  _isFastForwardOnStart: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 using Entitas;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game, Command, Input]
+[Game, Command, Input, IgnoreSave]
 public sealed class DelayDestroyComponent : IComponent
 {
     public uint frames;

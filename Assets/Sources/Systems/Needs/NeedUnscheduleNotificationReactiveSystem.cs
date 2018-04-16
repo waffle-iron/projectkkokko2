@@ -33,12 +33,12 @@ public class NeedUnscheduleNotificationReactiveSystem : ReactiveSystem<GameEntit
         {
             // do stuff to the matched entities
             //get notification data
-            var noti = _notiData.AsEnumerable().Where(n => n.targetNeed.type == e.need.type);
+            var noti = _notiData.AsEnumerable().FirstOrDefault(n => n.targetNeed.type == e.need.type);
 
             //do nothing if no noti message is found
-            if (noti == null || noti.Count() == 0) { continue; }
+            if (noti == null) { continue; }
 
-            var notiData = noti.Single().notificationMessage;
+            var notiData = noti.notificationMessage;
             var debug = _meta.debugService.instance;
 
             //cancel if it matches conditions
