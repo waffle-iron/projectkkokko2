@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Entitas;
+using System;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game, Command, Input, IgnoreSave]
-public sealed class DelayDestroyComponent : IComponent
+[Game]
+public sealed class SuspendedTimeComponent : IComponent
 {
-    public uint frames;
+    public DateTime current;
 }

@@ -36,10 +36,10 @@ public class NeedScheduleNotificationReactiveSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             //get notification data
-            var noti = _notiData.AsEnumerable().Where(n => n.targetNeed.type == e.need.type);
+            var noti = _notiData.AsEnumerable().FirstOrDefault(n => n.targetNeed.type == e.need.type);
 
             //do nothing if no noti message is found
-            if (noti == null || noti.Count() == 0) { continue; }
+            if (noti == null) { continue; }
 
             //calculate for scheduled seconds
             int seconds = 0;
@@ -53,7 +53,7 @@ public class NeedScheduleNotificationReactiveSystem : ReactiveSystem<GameEntity>
                 seconds += Mathf.CeilToInt(e.interval.duration.GetInSeconds() - e.timer.current);
             }
 
-            var notiData = noti.Single().notificationMessage;
+            var notiData = noti.notificationMessage;
             seconds += notiData.offset;
 
             //schedule notification service

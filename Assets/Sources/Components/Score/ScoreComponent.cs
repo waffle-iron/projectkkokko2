@@ -5,7 +5,7 @@ using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game, Event(true), Unique]
+[Game, Event(true), Unique, IgnoreSave]
 public sealed class ScoreComponent : IComponent
 {
     public int value;

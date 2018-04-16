@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _configPath: Scene
-  _isSimulationMode: 0
+  _isSimulationMode: 1
 --- !u!4 &1004094933
 Transform:
   m_ObjectHideFlags: 0

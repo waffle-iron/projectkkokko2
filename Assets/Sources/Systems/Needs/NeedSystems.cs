@@ -17,10 +17,13 @@ public class NeedSystems : Feature
         Add(new NeedInputSwitchReactiveSystem(contexts));
         Add(new NeedCommandReactiveSystem(contexts));
 
+        Add(new NeedFastForwardReactiveSystem(contexts));
         Add(new NeedTriggerReactiveSystem(contexts));
         Add(new NeedDeductionReactiveSystem(contexts));
         Add(new NeedDeductReactiveSystem(contexts));
 
+        Add(new SaveSecondaryNeedReactiveSystem(contexts));
+        Add(new SavePrimaryNeedReactiveSystem(contexts));
 
         Add(new NeedUnscheduleNotificationReactiveSystem(contexts));
         Add(new NeedScheduleNotificationReactiveSystem(contexts));

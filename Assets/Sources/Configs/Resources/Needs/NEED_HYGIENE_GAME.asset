@@ -11,15 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43626b46a868d5a47a7c16271c084a57, type: 3}
   m_Name: NEED_HYGIENE_GAME
   m_EditorClassIdentifier: 
-  _name: 28
   _viewName: HygieneView
-  _isDestroyOnSceneChange: 1
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 
+    hiddenValue: 7a007100710075006b007c006d0076007d0071007a007400
     inited: 1
-    fakeValue: 
-    fakeValueActive: 0
+    fakeValue: NEED_HYGIENE
+    fakeValueActive: 1
   _loadOnStart: 1
   _type: 5
   _matchingAction: 5
