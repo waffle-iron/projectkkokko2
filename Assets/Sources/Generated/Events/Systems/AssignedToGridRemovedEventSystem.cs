@@ -6,26 +6,26 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed class ValidGridRemovedEventSystem : Entitas.ReactiveSystem<GameEntity> {
+public sealed class AssignedToGridRemovedEventSystem : Entitas.ReactiveSystem<GameEntity> {
 
-    public ValidGridRemovedEventSystem(Contexts contexts) : base(contexts.game) {
+    public AssignedToGridRemovedEventSystem(Contexts contexts) : base(contexts.game) {
     }
 
     protected override Entitas.ICollector<GameEntity> GetTrigger(Entitas.IContext<GameEntity> context) {
         return Entitas.CollectorContextExtension.CreateCollector(
-            context, Entitas.TriggerOnEventMatcherExtension.Removed(GameMatcher.ValidGrid)
+            context, Entitas.TriggerOnEventMatcherExtension.Removed(GameMatcher.AssignedToGrid)
         );
     }
 
     protected override bool Filter(GameEntity entity) {
-        return !entity.hasValidGrid && entity.hasValidGridRemovedListener;
+        return !entity.hasAssignedToGrid && entity.hasAssignedToGridRemovedListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
             
-            foreach (var listener in e.validGridRemovedListener.value) {
-                listener.OnValidGridRemoved(e);
+            foreach (var listener in e.assignedToGridRemovedListener.value) {
+                listener.OnAssignedToGridRemoved(e);
             }
         }
     }

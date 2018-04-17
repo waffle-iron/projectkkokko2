@@ -5,7 +5,7 @@ using UnityEngine;
 using Entitas;
 using UniRx;
 
-public class GridSquareView : View, IValidGridListener, IValidGridRemovedListener
+public class GridSquareView : View, IGameOnCollisionListener
 {
     //insert serialized fields here
     [SerializeField]
@@ -25,14 +25,16 @@ public class GridSquareView : View, IValidGridListener, IValidGridRemovedListene
         collision.CreateCollisionEntity(contexts, this.ID, CollisionType.EXIT);
     }
 
-    public void OnValidGrid (GameEntity entity)
+    public void OnOnCollision (GameEntity entity, uint otherID, CollisionType type)
     {
-        _spriteRenderer.color = Color.white;
-    }
-
-    public void OnValidGridRemoved (GameEntity entity)
-    {
-        _spriteRenderer.color = Color.red;
+        if (type == CollisionType.ENTER)
+        {
+            _spriteRenderer.color = Color.blue;
+        }
+        else if (type == CollisionType.EXIT)
+        {
+            _spriteRenderer.color = Color.white;
+        }
     }
 
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
@@ -43,15 +45,15 @@ public class GridSquareView : View, IValidGridListener, IValidGridRemovedListene
     protected override void RegisterListeners (IEntity entity, IContext context)
     {
         var gameety = (GameEntity)entity;
-        gameety.AddValidGridListener(this);
-        gameety.AddValidGridRemovedListener(this);
+        gameety.AddGameOnCollisionListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
     {
         var gameety = (GameEntity)entity;
-        gameety.RemoveValidGridListener(this);
-        gameety.RemoveValidGridRemovedListener(this);
+        gameety.RemoveGameOnCollisionListener(this);
     }
+
+
 }
 

@@ -39,7 +39,7 @@ public class ApartmentItemView : View, IValidGridListener, IValidGridRemovedList
         }
     }
 
-    public void OnValidGrid (GameEntity entity)
+    public void OnValidGrid (GameEntity entity, List<string> gridIDs)
     {
         _spriteRenderer.color = Color.white;
     }
@@ -67,5 +67,7 @@ public class ApartmentItemView : View, IValidGridListener, IValidGridRemovedList
         gameety.RemoveValidGridListener(this);
         gameety.RemoveValidGridRemovedListener(this);
     }
+
+    
 }
 

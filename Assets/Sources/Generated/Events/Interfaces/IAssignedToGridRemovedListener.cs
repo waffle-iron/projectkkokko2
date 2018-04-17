@@ -6,6 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public interface IValidGridListener {
-    void OnValidGrid(GameEntity entity, System.Collections.Generic.List<string> gridIDs);
+public interface IAssignedToGridRemovedListener {
+    void OnAssignedToGridRemoved(GameEntity entity);
 }

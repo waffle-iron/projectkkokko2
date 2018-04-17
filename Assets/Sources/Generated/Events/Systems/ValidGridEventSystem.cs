@@ -18,14 +18,14 @@ public sealed class ValidGridEventSystem : Entitas.ReactiveSystem<GameEntity> {
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.isValidGrid && entity.hasValidGridListener;
+        return entity.hasValidGrid && entity.hasValidGridListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
-            
+            var component = e.validGrid;
             foreach (var listener in e.validGridListener.value) {
-                listener.OnValidGrid(e);
+                listener.OnValidGrid(e, component.gridIDs);
             }
         }
     }

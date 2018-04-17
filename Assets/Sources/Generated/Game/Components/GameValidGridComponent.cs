@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly ValidGridComponent validGridComponent = new ValidGridComponent();
+    public ValidGridComponent validGrid { get { return (ValidGridComponent)GetComponent(GameComponentsLookup.ValidGrid); } }
+    public bool hasValidGrid { get { return HasComponent(GameComponentsLookup.ValidGrid); } }
 
-    public bool isValidGrid {
-        get { return HasComponent(GameComponentsLookup.ValidGrid); }
-        set {
-            if (value != isValidGrid) {
-                var index = GameComponentsLookup.ValidGrid;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : validGridComponent;
+    public void AddValidGrid(System.Collections.Generic.List<string> newGridIDs) {
+        var index = GameComponentsLookup.ValidGrid;
+        var component = CreateComponent<ValidGridComponent>(index);
+        component.gridIDs = newGridIDs;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceValidGrid(System.Collections.Generic.List<string> newGridIDs) {
+        var index = GameComponentsLookup.ValidGrid;
+        var component = CreateComponent<ValidGridComponent>(index);
+        component.gridIDs = newGridIDs;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveValidGrid() {
+        RemoveComponent(GameComponentsLookup.ValidGrid);
     }
 }
 

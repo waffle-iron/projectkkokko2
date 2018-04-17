@@ -8,4 +8,5 @@ using Entitas.CodeGeneration.Attributes;
 [Game, Event(true), Event(true, Entitas.CodeGeneration.Attributes.EventType.Removed)]
 public sealed class ValidGridComponent : IComponent
 {
+    public List<string> gridIDs;
 }

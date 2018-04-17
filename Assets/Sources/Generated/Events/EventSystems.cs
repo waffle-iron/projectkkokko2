@@ -25,6 +25,8 @@ public sealed class EventSystems : Feature {
         Add(new GameAffordEventSystem(contexts)); // priority: 0
         Add(new InputAffordEventSystem(contexts)); // priority: 0
         Add(new CommandAffordEventSystem(contexts)); // priority: 0
+        Add(new AssignedToGridEventSystem(contexts)); // priority: 0
+        Add(new AssignedToGridRemovedEventSystem(contexts)); // priority: 0
         Add(new GameConsumingEventSystem(contexts)); // priority: 0
         Add(new InputConsumingEventSystem(contexts)); // priority: 0
         Add(new CommandConsumingEventSystem(contexts)); // priority: 0
