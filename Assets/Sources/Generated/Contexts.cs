@@ -63,10 +63,13 @@ public partial class Contexts : Entitas.IContexts {
 public partial class Contexts {
 
     public const string Accessory = "Accessory";
+    public const string ApartmentItemType = "ApartmentItemType";
+    public const string ApartmentItemId = "ApartmentItemId";
     public const string DialogId = "DialogId";
     public const string DialogType = "DialogType";
     public const string EntityConfigID = "EntityConfigID";
     public const string Food = "Food";
+    public const string Grid = "Grid";
     public const string ID = "ID";
     public const string Need = "Need";
     public const string SceneInitConfig = "SceneInitConfig";
@@ -87,6 +90,16 @@ public partial class Contexts {
             Accessory,
             command.GetGroup(CommandMatcher.Accessory),
             (e, c) => ((AccessoryComponent)c).id));
+
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, ApartmentItemType>(
+            ApartmentItemType,
+            game.GetGroup(GameMatcher.ApartmentItem),
+            (e, c) => ((ApartmentItemComponent)c).type));
+
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, string>(
+            ApartmentItemId,
+            game.GetGroup(GameMatcher.ApartmentItem),
+            (e, c) => ((ApartmentItemComponent)c).id));
 
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, string>(
             DialogId,
@@ -123,6 +136,11 @@ public partial class Contexts {
             Food,
             input.GetGroup(InputMatcher.Food),
             (e, c) => ((FoodComponent)c).id));
+
+        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, string>(
+            Grid,
+            game.GetGroup(GameMatcher.Grid),
+            (e, c) => ((GridComponent)c).id));
 
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, uint>(
             ID,
@@ -189,6 +207,14 @@ public static class ContextsExtensions {
         return ((Entitas.PrimaryEntityIndex<CommandEntity, string>)context.GetEntityIndex(Contexts.Accessory)).GetEntity(id);
     }
 
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithApartmentItemType(this GameContext context, ApartmentItemType type) {
+        return ((Entitas.EntityIndex<GameEntity, ApartmentItemType>)context.GetEntityIndex(Contexts.ApartmentItemType)).GetEntities(type);
+    }
+
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithApartmentItemId(this GameContext context, string id) {
+        return ((Entitas.EntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.ApartmentItemId)).GetEntities(id);
+    }
+
     public static GameEntity GetEntityWithDialogId(this GameContext context, string id) {
         return ((Entitas.PrimaryEntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.DialogId)).GetEntity(id);
     }
@@ -219,6 +245,10 @@ public static class ContextsExtensions {
 
     public static System.Collections.Generic.HashSet<InputEntity> GetEntitiesWithFood(this InputContext context, string id) {
         return ((Entitas.EntityIndex<InputEntity, string>)context.GetEntityIndex(Contexts.Food)).GetEntities(id);
+    }
+
+    public static GameEntity GetEntityWithGrid(this GameContext context, string id) {
+        return ((Entitas.PrimaryEntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.Grid)).GetEntity(id);
     }
 
     public static GameEntity GetEntityWithID(this GameContext context, uint value) {

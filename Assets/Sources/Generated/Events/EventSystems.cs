@@ -142,6 +142,8 @@ public sealed class EventSystems : Feature {
         Add(new GameTriggerEventSystem(contexts)); // priority: 0
         Add(new CommandTriggerEventSystem(contexts)); // priority: 0
         Add(new InputTriggerEventSystem(contexts)); // priority: 0
+        Add(new ValidGridEventSystem(contexts)); // priority: 0
+        Add(new ValidGridRemovedEventSystem(contexts)); // priority: 0
         Add(new VelocityEventSystem(contexts)); // priority: 0
         Add(new ViewEventSystem(contexts)); // priority: 0
         Add(new ViewRemovedEventSystem(contexts)); // priority: 0
