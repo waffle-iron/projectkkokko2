@@ -35,11 +35,11 @@ public class NeedDeductionReactiveSystem : ReactiveSystem<GameEntity>
         {
             uint count = 0;
             if (e.hasDeductions) { count += e.deductions.count; }
-            _meta.debugService.instance.Log($"{e.need.type} prev deductions of {count}");
+            //_meta.debugService.instance.Log($"{e.need.type} prev deductions of {count}");
             count += (uint)Mathf.FloorToInt((e.timer.current / e.interval.duration.GetInSeconds()));
-            _meta.debugService.instance.Log($"{e.need.type} current timer of {e.timer.current} divided by {e.interval.duration.GetInSeconds()}");
+            //_meta.debugService.instance.Log($"{e.need.type} current timer of {e.timer.current} divided by {e.interval.duration.GetInSeconds()}");
             e.ReplaceDeductions(count);
-            _meta.debugService.instance.Log($"{e.need.type} will deduct {e.deductions.count}");
+            //_meta.debugService.instance.Log($"{e.need.type} will deduct {e.deductions.count}");
         }
     }
 }

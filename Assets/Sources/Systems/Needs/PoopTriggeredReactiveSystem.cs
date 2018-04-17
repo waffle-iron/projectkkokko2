@@ -9,6 +9,7 @@ public class PoopTriggeredReactiveSystem : ReactiveSystem<GameEntity>
     private readonly MetaContext _meta;
     private const string POOP_ENTITY = "PoopEntityConfig";
     private const string POOP_ACTION = "ACTION_POOP_INPUT";
+    private const int MAX_POOP = 5;
 
     public PoopTriggeredReactiveSystem (Contexts contexts) : base(contexts.game)
     {
@@ -39,7 +40,8 @@ public class PoopTriggeredReactiveSystem : ReactiveSystem<GameEntity>
         {
             //create poop
             IEntity poop;
-            var poopCount = (uint)Mathf.FloorToInt((e.timer.current / e.trigger.duration.GetInSeconds())) + 1;
+            var poopCount = Mathf.FloorToInt((e.timer.current / e.trigger.duration.GetInSeconds())) + 1;
+            poopCount = Mathf.Clamp(poopCount, 0, MAX_POOP);
 
             for (int ctr = 0; ctr < poopCount; ctr++)
             {
