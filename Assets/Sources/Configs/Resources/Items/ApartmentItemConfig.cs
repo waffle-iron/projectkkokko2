@@ -4,21 +4,22 @@ using UnityEngine;
 using Entitas;
 using UniRx;
 
-public class GridEntityConfig : UnityEntityConfig
+public class ApartmentItemConfig : UnityEntityConfig
 {
     //enter serialized fields here
-    [Header("Grid Settings")]
+    [Header("Apartment Item Settings")]
     [SerializeField]
-    private string gridID;
+    private string apartmentItemID;
     [SerializeField]
-    private ApartmentItemType acceptedType;
+    private ApartmentItemType type;
+
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
         var gameEty = contexts.game.CreateEntity();
-        gameEty.AddGrid(gridID);
+        gameEty.AddApartmentItem(type, apartmentItemID);
+        gameEty.AddMoveable(1f);
         gameEty.isCollidable = true;
-        gameEty.AddApartmentItem(acceptedType, "");
 
         return gameEty;
     }

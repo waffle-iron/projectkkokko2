@@ -5,13 +5,15 @@ using UnityEngine;
 using Entitas;
 using UniRx;
 
-public class GridSquareView : View, IValidGridListener, IValidGridRemovedListener
+public class ApartmentItemView : View, IValidGridListener, IValidGridRemovedListener, IGameTouchDataListener
 {
     //insert serialized fields here
     [SerializeField]
     private SpriteRenderer _spriteRenderer;
     [SerializeField]
     private Collider2D _col;
+    [SerializeField]
+    private Rigidbody2D _body;
 
     protected override void OnTriggerEnter2D (Collider2D collision)
     {
@@ -23,6 +25,18 @@ public class GridSquareView : View, IValidGridListener, IValidGridRemovedListene
     {
         base.OnTriggerExit2D(collision);
         collision.CreateCollisionEntity(contexts, this.ID, CollisionType.EXIT);
+    }
+
+    public void OnTouchData (GameEntity entity, TouchData current)
+    {
+        if (_body.simulated == false && current.Phase == TouchPhase.Began || current.Phase == TouchPhase.Moved)
+        {
+            _body.simulated = true;
+        }
+        else if (_body.simulated == true && current.Phase == TouchPhase.Ended || current.Phase == TouchPhase.Canceled)
+        {
+            _body.simulated = false;
+        }
     }
 
     public void OnValidGrid (GameEntity entity)
