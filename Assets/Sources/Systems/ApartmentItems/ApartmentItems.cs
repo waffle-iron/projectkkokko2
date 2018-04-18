@@ -7,8 +7,8 @@ public class ApartmentItems : Feature
 {
     public ApartmentItems (Contexts contexts) : base("Apartment Items Systems")
     {
-        Add(new GridToApartmentItemCollisionEnterCheckerReactiveSystem(contexts));
-        Add(new GridToApartmentItemCollisionExitCheckerReactiveSystem(contexts));
-        Add(new ApartmentItemSaveGridIDReactiveSystem(contexts));
+        //Add(new GridToApartmentItemCollisionEnterCheckerReactiveSystem(contexts));
+        //Add(new GridToApartmentItemCollisionExitCheckerReactiveSystem(contexts));
+        //Add(new ApartmentItemSaveGridIDReactiveSystem(contexts));
     }
 }

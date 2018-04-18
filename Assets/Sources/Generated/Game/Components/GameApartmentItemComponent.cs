@@ -11,19 +11,17 @@ public partial class GameEntity {
     public ApartmentItemComponent apartmentItem { get { return (ApartmentItemComponent)GetComponent(GameComponentsLookup.ApartmentItem); } }
     public bool hasApartmentItem { get { return HasComponent(GameComponentsLookup.ApartmentItem); } }
 
-    public void AddApartmentItem(ApartmentItemType newType, string newId) {
+    public void AddApartmentItem(ApartmentItemData newData) {
         var index = GameComponentsLookup.ApartmentItem;
         var component = CreateComponent<ApartmentItemComponent>(index);
-        component.type = newType;
-        component.id = newId;
+        component.data = newData;
         AddComponent(index, component);
     }
 
-    public void ReplaceApartmentItem(ApartmentItemType newType, string newId) {
+    public void ReplaceApartmentItem(ApartmentItemData newData) {
         var index = GameComponentsLookup.ApartmentItem;
         var component = CreateComponent<ApartmentItemComponent>(index);
-        component.type = newType;
-        component.id = newId;
+        component.data = newData;
         ReplaceComponent(index, component);
     }
 

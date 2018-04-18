@@ -9,7 +9,5 @@ using Entitas.CodeGeneration.Attributes;
 public sealed class ApartmentItemComponent : IComponent
 {
     [EntityIndex]
-    public ApartmentItemType type;
-    [EntityIndex]
-    public string id;
+    public ApartmentItemData data;
 }

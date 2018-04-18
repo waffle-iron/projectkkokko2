@@ -63,13 +63,13 @@ public partial class Contexts : Entitas.IContexts {
 public partial class Contexts {
 
     public const string Accessory = "Accessory";
-    public const string ApartmentItemType = "ApartmentItemType";
-    public const string ApartmentItemId = "ApartmentItemId";
+    public const string ApartmentItem = "ApartmentItem";
     public const string DialogId = "DialogId";
     public const string DialogType = "DialogType";
     public const string EntityConfigID = "EntityConfigID";
     public const string Food = "Food";
-    public const string Grid = "Grid";
+    public const string GridId = "GridId";
+    public const string GridSize = "GridSize";
     public const string ID = "ID";
     public const string Need = "Need";
     public const string SceneInitConfig = "SceneInitConfig";
@@ -91,15 +91,10 @@ public partial class Contexts {
             command.GetGroup(CommandMatcher.Accessory),
             (e, c) => ((AccessoryComponent)c).id));
 
-        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, ApartmentItemType>(
-            ApartmentItemType,
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, ApartmentItemData>(
+            ApartmentItem,
             game.GetGroup(GameMatcher.ApartmentItem),
-            (e, c) => ((ApartmentItemComponent)c).type));
-
-        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, string>(
-            ApartmentItemId,
-            game.GetGroup(GameMatcher.ApartmentItem),
-            (e, c) => ((ApartmentItemComponent)c).id));
+            (e, c) => ((ApartmentItemComponent)c).data));
 
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, string>(
             DialogId,
@@ -138,9 +133,14 @@ public partial class Contexts {
             (e, c) => ((FoodComponent)c).id));
 
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, string>(
-            Grid,
+            GridId,
             game.GetGroup(GameMatcher.Grid),
             (e, c) => ((GridComponent)c).id));
+
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, UnityEngine.Vector2>(
+            GridSize,
+            game.GetGroup(GameMatcher.Grid),
+            (e, c) => ((GridComponent)c).size));
 
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, uint>(
             ID,
@@ -207,12 +207,8 @@ public static class ContextsExtensions {
         return ((Entitas.PrimaryEntityIndex<CommandEntity, string>)context.GetEntityIndex(Contexts.Accessory)).GetEntity(id);
     }
 
-    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithApartmentItemType(this GameContext context, ApartmentItemType type) {
-        return ((Entitas.EntityIndex<GameEntity, ApartmentItemType>)context.GetEntityIndex(Contexts.ApartmentItemType)).GetEntities(type);
-    }
-
-    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithApartmentItemId(this GameContext context, string id) {
-        return ((Entitas.EntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.ApartmentItemId)).GetEntities(id);
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithApartmentItem(this GameContext context, ApartmentItemData data) {
+        return ((Entitas.EntityIndex<GameEntity, ApartmentItemData>)context.GetEntityIndex(Contexts.ApartmentItem)).GetEntities(data);
     }
 
     public static GameEntity GetEntityWithDialogId(this GameContext context, string id) {
@@ -247,8 +243,12 @@ public static class ContextsExtensions {
         return ((Entitas.EntityIndex<InputEntity, string>)context.GetEntityIndex(Contexts.Food)).GetEntities(id);
     }
 
-    public static GameEntity GetEntityWithGrid(this GameContext context, string id) {
-        return ((Entitas.PrimaryEntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.Grid)).GetEntity(id);
+    public static GameEntity GetEntityWithGridId(this GameContext context, string id) {
+        return ((Entitas.PrimaryEntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.GridId)).GetEntity(id);
+    }
+
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithGridSize(this GameContext context, UnityEngine.Vector2 size) {
+        return ((Entitas.EntityIndex<GameEntity, UnityEngine.Vector2>)context.GetEntityIndex(Contexts.GridSize)).GetEntities(size);
     }
 
     public static GameEntity GetEntityWithID(this GameContext context, uint value) {

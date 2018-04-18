@@ -6,10 +6,7 @@ using Entitas.CodeGeneration.Attributes;
 
 //[Entitas.CodeGenerator.SingleEntity]
 [Game]
-public sealed class GridComponent : IComponent
+public sealed class GridApartmentDataComponent : IComponent
 {
-    [PrimaryEntityIndex]
-    public string id;
-    [EntityIndex]
-    public Vector2 size;
+    public Dictionary<Vector2, ApartmentItemData> values;
 }

@@ -11,17 +11,19 @@ public partial class GameEntity {
     public GridComponent grid { get { return (GridComponent)GetComponent(GameComponentsLookup.Grid); } }
     public bool hasGrid { get { return HasComponent(GameComponentsLookup.Grid); } }
 
-    public void AddGrid(string newId) {
+    public void AddGrid(string newId, UnityEngine.Vector2 newSize) {
         var index = GameComponentsLookup.Grid;
         var component = CreateComponent<GridComponent>(index);
         component.id = newId;
+        component.size = newSize;
         AddComponent(index, component);
     }
 
-    public void ReplaceGrid(string newId) {
+    public void ReplaceGrid(string newId, UnityEngine.Vector2 newSize) {
         var index = GameComponentsLookup.Grid;
         var component = CreateComponent<GridComponent>(index);
         component.id = newId;
+        component.size = newSize;
         ReplaceComponent(index, component);
     }
 
