@@ -14,7 +14,7 @@ public class GridView : View
     [SerializeField]
     private bool isVertical;
     [SerializeField]
-    private GridSquare _gridSquarePrefab;
+    private GridSquare _rootPrefab;
 
     private HashSet<GridSquare> squares = new HashSet<GridSquare>();
     private Vector2[] indexes;
@@ -61,6 +61,7 @@ public class GridView : View
             Destroy(square);
         }
 
+        lastSquare = null;
         inputObservable.Dispose();
     }
 
@@ -81,8 +82,8 @@ public class GridView : View
 
     private GridSquare InstantiateSquare ()
     {
-        var square = GameObject.Instantiate(_gridSquarePrefab.gameObject);
-        square.transform.SetParent(this.transform);
+        var square = GameObject.Instantiate(_rootPrefab.gameObject);
+        square.transform.SetParent(this.transform, true);
         square.SetActive(true);
 
         Vector3 newPos = square.transform.position;
@@ -90,20 +91,23 @@ public class GridView : View
         if (lastSquare != null)
         {
             newPos = lastSquare.transform.position;
+
+            if (isHorizontal)
+            {
+                newPos.x += lastSquare.GetComponent<BoxCollider2D>().size.x;
+            }
+            if (isVertical)
+            {
+                newPos.y += lastSquare.GetComponent<BoxCollider2D>().size.y;
+            }
         }
         else
         {
             lastSquare = square;
+            newPos = _rootPrefab.transform.position;
         }
 
-        if (isHorizontal)
-        {
-            newPos.x += lastSquare.GetComponent<BoxCollider2D>().size.x;
-        }
-        if (isVertical)
-        {
-            newPos.y += lastSquare.GetComponent<BoxCollider2D>().size.y;
-        }
+
         square.transform.position = newPos;
         lastSquare = square;
 
