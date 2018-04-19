@@ -30,7 +30,7 @@ public class ApartmentPlacementCollisionCheckerReactiveSystem : ReactiveSystem<G
         foreach (var e in entities)
         {
             var validCollisions = e.onCollision.data
-                .Where(data => data.Type == CollisionType.STAY);
+                .Where(data => data.Type == CollisionType.ENTER || data.Type == CollisionType.STAY);
 
             if (validCollisions.Count() > 0)
             {

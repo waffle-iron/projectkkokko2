@@ -93,20 +93,21 @@ public static class CommandComponentsLookup {
     public const int RemoveFromStorage = 82;
     public const int Reset = 83;
     public const int Save = 84;
-    public const int Soap = 85;
-    public const int Targetable = 86;
-    public const int TargetEntityID = 87;
-    public const int TargetMove = 88;
-    public const int TargetNeed = 89;
-    public const int TargetPosition = 90;
-    public const int TimerReset = 91;
-    public const int TimerState = 92;
-    public const int ToDestroy = 93;
-    public const int TouchData = 94;
-    public const int Trigger = 95;
-    public const int Wallet = 96;
+    public const int SaveVariant = 85;
+    public const int Soap = 86;
+    public const int Targetable = 87;
+    public const int TargetEntityID = 88;
+    public const int TargetMove = 89;
+    public const int TargetNeed = 90;
+    public const int TargetPosition = 91;
+    public const int TimerReset = 92;
+    public const int TimerState = 93;
+    public const int ToDestroy = 94;
+    public const int TouchData = 95;
+    public const int Trigger = 96;
+    public const int Wallet = 97;
 
-    public const int TotalComponents = 97;
+    public const int TotalComponents = 98;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -194,6 +195,7 @@ public static class CommandComponentsLookup {
         "RemoveFromStorage",
         "Reset",
         "Save",
+        "SaveVariant",
         "Soap",
         "Targetable",
         "TargetEntityID",
@@ -294,6 +296,7 @@ public static class CommandComponentsLookup {
         typeof(RemoveFromStorageComponent),
         typeof(ResetComponent),
         typeof(SaveComponent),
+        typeof(SaveVariantComponent),
         typeof(SoapComponent),
         typeof(TargetableComponent),
         typeof(TargetEntityIDComponent),

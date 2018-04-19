@@ -4,7 +4,7 @@ using UnityEngine;
 using Entitas;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game]
+[Game, IgnoreSave]
 public sealed class PlaceableComponent : IComponent
 {
 }

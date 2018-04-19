@@ -5,7 +5,7 @@ using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game]
+[Game, IgnoreSave]
 public sealed class ApartmentItemComponent : IComponent
 {
     [EntityIndex]

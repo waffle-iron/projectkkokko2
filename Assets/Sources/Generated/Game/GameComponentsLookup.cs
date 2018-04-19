@@ -127,69 +127,72 @@ public static class GameComponentsLookup {
     public const int OsuHitPoint = 116;
     public const int Pause = 117;
     public const int Placeable = 118;
-    public const int Player = 119;
-    public const int Poop = 120;
-    public const int Position = 121;
-    public const int PrePurchase = 122;
-    public const int Preview = 123;
-    public const int PreviousPosition = 124;
-    public const int PreviousPositionListener = 125;
-    public const int Price = 126;
-    public const int Purchased = 127;
-    public const int ReloadEquipment = 128;
-    public const int RemoveFromStorage = 129;
-    public const int Returnable = 130;
-    public const int ReturnableListener = 131;
-    public const int ReturnableRemovedListener = 132;
-    public const int Return = 133;
-    public const int SaveID = 134;
-    public const int Saving = 135;
-    public const int SavingListener = 136;
-    public const int SavingRemovedListener = 137;
-    public const int SceneInitConfig = 138;
-    public const int Score = 139;
-    public const int ScoreListener = 140;
-    public const int Sleep = 141;
-    public const int SleepListener = 142;
-    public const int SleepRemovedListener = 143;
-    public const int Soap = 144;
-    public const int Space = 145;
-    public const int Spawn = 146;
-    public const int SpawnCounter = 147;
-    public const int SpawnLimit = 148;
-    public const int StateMachine = 149;
-    public const int SuspendedTime = 150;
-    public const int Tag = 151;
-    public const int Targetable = 152;
-    public const int TargetDirectionChecker = 153;
-    public const int TargetDirectionCheckResult = 154;
-    public const int TargetDirectionCheckResultListener = 155;
-    public const int TargetEntityID = 156;
-    public const int TargetMove = 157;
-    public const int TargetNeed = 158;
-    public const int TargetPosition = 159;
-    public const int TargetTag = 160;
-    public const int Timer = 161;
-    public const int TimerReset = 162;
-    public const int TimerState = 163;
-    public const int ToDestroy = 164;
-    public const int TopScore = 165;
-    public const int TopScoreListener = 166;
-    public const int TouchData = 167;
-    public const int TouchTimeGap = 168;
-    public const int Trigger = 169;
-    public const int ValidPlacement = 170;
-    public const int Velocity = 171;
-    public const int VelocityListener = 172;
-    public const int View = 173;
-    public const int ViewListener = 174;
-    public const int ViewRemovedListener = 175;
-    public const int Wallet = 176;
-    public const int Wipe = 177;
-    public const int WipeListener = 178;
-    public const int WipeProgress = 179;
+    public const int PlaceablePosition = 119;
+    public const int PlaceablePositionListener = 120;
+    public const int Player = 121;
+    public const int Poop = 122;
+    public const int Position = 123;
+    public const int PrePurchase = 124;
+    public const int Preview = 125;
+    public const int PreviousPosition = 126;
+    public const int PreviousPositionListener = 127;
+    public const int Price = 128;
+    public const int Purchased = 129;
+    public const int ReloadEquipment = 130;
+    public const int RemoveFromStorage = 131;
+    public const int Returnable = 132;
+    public const int ReturnableListener = 133;
+    public const int ReturnableRemovedListener = 134;
+    public const int Return = 135;
+    public const int SaveID = 136;
+    public const int Saving = 137;
+    public const int SavingListener = 138;
+    public const int SavingRemovedListener = 139;
+    public const int SceneInitConfig = 140;
+    public const int Score = 141;
+    public const int ScoreListener = 142;
+    public const int Sleep = 143;
+    public const int SleepListener = 144;
+    public const int SleepRemovedListener = 145;
+    public const int Soap = 146;
+    public const int Space = 147;
+    public const int Spawn = 148;
+    public const int SpawnCounter = 149;
+    public const int SpawnLimit = 150;
+    public const int StateMachine = 151;
+    public const int SuspendedTime = 152;
+    public const int Tag = 153;
+    public const int Targetable = 154;
+    public const int TargetDirectionChecker = 155;
+    public const int TargetDirectionCheckResult = 156;
+    public const int TargetDirectionCheckResultListener = 157;
+    public const int TargetEntityID = 158;
+    public const int TargetMove = 159;
+    public const int TargetNeed = 160;
+    public const int TargetPosition = 161;
+    public const int TargetTag = 162;
+    public const int Timer = 163;
+    public const int TimerReset = 164;
+    public const int TimerState = 165;
+    public const int ToDestroy = 166;
+    public const int TopScore = 167;
+    public const int TopScoreListener = 168;
+    public const int TouchData = 169;
+    public const int TouchTimeGap = 170;
+    public const int Trigger = 171;
+    public const int ValidPlacement = 172;
+    public const int ValidPlacementListener = 173;
+    public const int Velocity = 174;
+    public const int VelocityListener = 175;
+    public const int View = 176;
+    public const int ViewListener = 177;
+    public const int ViewRemovedListener = 178;
+    public const int Wallet = 179;
+    public const int Wipe = 180;
+    public const int WipeListener = 181;
+    public const int WipeProgress = 182;
 
-    public const int TotalComponents = 180;
+    public const int TotalComponents = 183;
 
     public static readonly string[] componentNames = {
         "AcceptableRange",
@@ -311,6 +314,8 @@ public static class GameComponentsLookup {
         "OsuHitPoint",
         "Pause",
         "Placeable",
+        "PlaceablePosition",
+        "PlaceablePositionListener",
         "Player",
         "Poop",
         "Position",
@@ -363,6 +368,7 @@ public static class GameComponentsLookup {
         "TouchTimeGap",
         "Trigger",
         "ValidPlacement",
+        "ValidPlacementListener",
         "Velocity",
         "VelocityListener",
         "View",
@@ -494,6 +500,8 @@ public static class GameComponentsLookup {
         typeof(OsuHitPointComponent),
         typeof(PauseComponent),
         typeof(PlaceableComponent),
+        typeof(PlaceablePositionComponent),
+        typeof(PlaceablePositionListenerComponent),
         typeof(PlayerComponent),
         typeof(PoopComponent),
         typeof(PositionComponent),
@@ -546,6 +554,7 @@ public static class GameComponentsLookup {
         typeof(TouchTimeGapComponent),
         typeof(TriggerComponent),
         typeof(ValidPlacementComponent),
+        typeof(ValidPlacementListenerComponent),
         typeof(VelocityComponent),
         typeof(VelocityListenerComponent),
         typeof(ViewComponent),

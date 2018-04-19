@@ -5,8 +5,8 @@ using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game, Command, Input, Event(true), IgnoreSave]
-public sealed class TouchDataComponent : IComponent
+[Game, Event(true)]
+public sealed class PlaceablePositionComponent : IComponent
 {
-    public TouchData current;
+    public Vector3 current;
 }

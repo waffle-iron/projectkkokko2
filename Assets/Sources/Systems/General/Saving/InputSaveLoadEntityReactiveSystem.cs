@@ -7,11 +7,13 @@ public class InputSaveLoadEntityReactiveSystem : ReactiveSystem<InputEntity>
 {
     private readonly GameContext _game;
     private readonly CommandContext _command;
+    private readonly MetaContext _meta;
 
     public InputSaveLoadEntityReactiveSystem (Contexts contexts) : base(contexts.input)
     {
         _game = contexts.game;
         _command = contexts.command;
+        _meta = contexts.meta;
     }
 
     protected override ICollector<InputEntity> GetTrigger (IContext<InputEntity> context)
@@ -39,11 +41,17 @@ public class InputSaveLoadEntityReactiveSystem : ReactiveSystem<InputEntity>
                 if (e.isSave && target.hasSaveID)
                 {
                     cmdEntity.isSave = true;
+                    if (e.hasSaveVariant) { cmdEntity.AddSaveVariant(e.saveVariant.suffix); }
                 }
-                else
+                else if (e.hasLoad)
                 {
                     cmdEntity.AddLoad(e.load.id, e.load.createNew);
                 }
+                else
+                {
+                    _meta.debugService.instance.LogError("no save or load id");
+                }
+
             }
         }
     }

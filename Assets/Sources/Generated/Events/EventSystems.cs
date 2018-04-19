@@ -95,6 +95,7 @@ public sealed class EventSystems : Feature {
         Add(new GamePauseRemovedEventSystem(contexts)); // priority: 0
         Add(new InputPauseRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandPauseRemovedEventSystem(contexts)); // priority: 0
+        Add(new PlaceablePositionEventSystem(contexts)); // priority: 0
         Add(new GamePrePurchaseEventSystem(contexts)); // priority: 0
         Add(new CommandPrePurchaseEventSystem(contexts)); // priority: 0
         Add(new InputPrePurchaseEventSystem(contexts)); // priority: 0
@@ -146,6 +147,7 @@ public sealed class EventSystems : Feature {
         Add(new GameTriggerEventSystem(contexts)); // priority: 0
         Add(new CommandTriggerEventSystem(contexts)); // priority: 0
         Add(new InputTriggerEventSystem(contexts)); // priority: 0
+        Add(new ValidPlacementEventSystem(contexts)); // priority: 0
         Add(new VelocityEventSystem(contexts)); // priority: 0
         Add(new ViewEventSystem(contexts)); // priority: 0
         Add(new ViewRemovedEventSystem(contexts)); // priority: 0
