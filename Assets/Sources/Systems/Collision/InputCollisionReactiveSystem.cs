@@ -39,7 +39,7 @@ public class InputCollisionReactiveSystem : ReactiveSystem<InputEntity>
             {
                 var cmdEntity = _cmd.CreateEntity();
                 cmdEntity.AddTargetEntityID(e.targetEntityID.value);
-                cmdEntity.AddOnCollision(e.onCollision.otherID, e.onCollision.type);
+                cmdEntity.AddOnCollision(e.onCollision.data);
             }
         }
     }

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Name: Apartment_Customize_Entities
   m_EditorClassIdentifier: 
   entities:
-  - {fileID: 11400000, guid: 077474b82365d3b43b2374b1493a601c, type: 2}
-  - {fileID: 11400000, guid: 35bad60d4092b494ba49de725fd05c2f, type: 2}
+  - {fileID: 11400000, guid: 57e8453110ca87e428cef8e8d5733d5d, type: 2}
+  - {fileID: 11400000, guid: 57e8453110ca87e428cef8e8d5733d5d, type: 2}
+  - {fileID: 11400000, guid: 0cd806c5c6805ab4da12017b610f41a3, type: 2}

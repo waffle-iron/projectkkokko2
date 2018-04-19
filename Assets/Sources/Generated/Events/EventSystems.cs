@@ -104,6 +104,7 @@ public sealed class EventSystems : Feature {
         Add(new GamePreviewRemovedEventSystem(contexts)); // priority: 0
         Add(new InputPreviewRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandPreviewRemovedEventSystem(contexts)); // priority: 0
+        Add(new PreviousPositionEventSystem(contexts)); // priority: 0
         Add(new GamePriceEventSystem(contexts)); // priority: 0
         Add(new InputPriceEventSystem(contexts)); // priority: 0
         Add(new CommandPriceEventSystem(contexts)); // priority: 0

@@ -22,7 +22,7 @@ public class CollisionReturnReactiveSystem : ReactiveSystem<GameEntity>
     {
         // check for required components
         return entity.hasOnCollision &&
-            (entity.onCollision.type == CollisionType.ENTER || entity.onCollision.type == CollisionType.STAY) &&
+            (entity.onCollision.data[0].Type == CollisionType.ENTER || entity.onCollision.data[0].Type == CollisionType.STAY) &&
             entity.hasTouchData &&
             entity.touchData.current.Phase == TouchPhase.Ended &&
             entity.isReturnable;
@@ -32,7 +32,7 @@ public class CollisionReturnReactiveSystem : ReactiveSystem<GameEntity>
     {
         foreach (var e in entities)
         {
-            var collisionEntity = _game.GetEntityWithID(e.onCollision.otherID);
+            var collisionEntity = _game.GetEntityWithID(e.onCollision.data[0].ID);
             if (collisionEntity != null && collisionEntity.isReturn)
             {
                 //food conditions

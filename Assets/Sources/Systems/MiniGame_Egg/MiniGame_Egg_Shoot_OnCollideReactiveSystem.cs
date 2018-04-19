@@ -27,7 +27,7 @@ public class MiniGame_Egg_Shoot_OnCollideReactiveSystem : ReactiveSystem<GameEnt
             _game.hasGameState &&
             _game.gameState.current.IsEqualTo(MiniGameEggState.SHOOT) &&
             entity.hasOnCollision && 
-            entity.onCollision.type == CollisionType.ENTER &&
+            entity.onCollision.data[0].Type == CollisionType.ENTER &&
             entity.isObstacle;
     }
 
@@ -36,7 +36,7 @@ public class MiniGame_Egg_Shoot_OnCollideReactiveSystem : ReactiveSystem<GameEnt
         foreach (var e in entities)
         {
             // do stuff to the matched entities
-            var target = _game.GetEntityWithID(e.onCollision.otherID);
+            var target = _game.GetEntityWithID(e.onCollision.data[0].ID);
 
             if (target != null && target.isBall)
             {

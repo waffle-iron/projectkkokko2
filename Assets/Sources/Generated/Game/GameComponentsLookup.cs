@@ -89,104 +89,107 @@ public static class GameComponentsLookup {
     public const int GameTouchDataListener = 78;
     public const int GameTriggerListener = 79;
     public const int GameWalletListener = 80;
-    public const int GridApartmentData = 81;
-    public const int Grid = 82;
-    public const int Hit = 83;
-    public const int HitListener = 84;
-    public const int HitRangeStatus = 85;
-    public const int HitRangeStatusListener = 86;
-    public const int Hud = 87;
-    public const int HudListener = 88;
-    public const int ID = 89;
-    public const int InCart = 90;
-    public const int Interval = 91;
-    public const int LoadedViewsComplete = 92;
-    public const int LoadEntitiesComplete = 93;
-    public const int LoadEntitiesCompleteListener = 94;
-    public const int LoadEntitiesCompleteRemovedListener = 95;
-    public const int Loading = 96;
-    public const int LoadingListener = 97;
-    public const int LoadingRemovedListener = 98;
-    public const int LoadSceneComplete = 99;
-    public const int LoadScene = 100;
-    public const int LoadViews = 101;
-    public const int Max = 102;
-    public const int MinRequirement = 103;
-    public const int Miss = 104;
-    public const int MissListener = 105;
-    public const int Moveable = 106;
-    public const int Moving = 107;
-    public const int Need = 108;
-    public const int NeedForceSave = 109;
-    public const int NeedRecoveryModifier = 110;
-    public const int NotificationMessage = 111;
-    public const int NotificationScheduled = 112;
-    public const int Obstacle = 113;
-    public const int OkAction = 114;
-    public const int OnCollision = 115;
-    public const int Origin = 116;
-    public const int Osu = 117;
-    public const int OsuHitPoint = 118;
-    public const int Pause = 119;
-    public const int Player = 120;
-    public const int Poop = 121;
-    public const int Position = 122;
-    public const int PrePurchase = 123;
-    public const int Preview = 124;
-    public const int Price = 125;
-    public const int Purchased = 126;
-    public const int ReloadEquipment = 127;
-    public const int RemoveFromStorage = 128;
-    public const int Returnable = 129;
-    public const int ReturnableListener = 130;
-    public const int ReturnableRemovedListener = 131;
-    public const int Return = 132;
-    public const int SaveID = 133;
-    public const int Saving = 134;
-    public const int SavingListener = 135;
-    public const int SavingRemovedListener = 136;
-    public const int SceneInitConfig = 137;
-    public const int Score = 138;
-    public const int ScoreListener = 139;
-    public const int Sleep = 140;
-    public const int SleepListener = 141;
-    public const int SleepRemovedListener = 142;
-    public const int Soap = 143;
-    public const int Spawn = 144;
-    public const int SpawnCounter = 145;
-    public const int SpawnLimit = 146;
-    public const int StateMachine = 147;
-    public const int SuspendedTime = 148;
-    public const int Tag = 149;
-    public const int Targetable = 150;
-    public const int TargetDirectionChecker = 151;
-    public const int TargetDirectionCheckResult = 152;
-    public const int TargetDirectionCheckResultListener = 153;
-    public const int TargetEntityID = 154;
-    public const int TargetMove = 155;
-    public const int TargetNeed = 156;
-    public const int TargetPosition = 157;
-    public const int TargetTag = 158;
-    public const int Timer = 159;
-    public const int TimerReset = 160;
-    public const int TimerState = 161;
-    public const int ToDestroy = 162;
-    public const int TopScore = 163;
-    public const int TopScoreListener = 164;
-    public const int TouchData = 165;
-    public const int TouchTimeGap = 166;
-    public const int Trigger = 167;
-    public const int Velocity = 168;
-    public const int VelocityListener = 169;
-    public const int View = 170;
-    public const int ViewListener = 171;
-    public const int ViewRemovedListener = 172;
-    public const int Wallet = 173;
-    public const int Wipe = 174;
-    public const int WipeListener = 175;
-    public const int WipeProgress = 176;
+    public const int Hit = 81;
+    public const int HitListener = 82;
+    public const int HitRangeStatus = 83;
+    public const int HitRangeStatusListener = 84;
+    public const int Hud = 85;
+    public const int HudListener = 86;
+    public const int ID = 87;
+    public const int InCart = 88;
+    public const int Interval = 89;
+    public const int LoadedViewsComplete = 90;
+    public const int LoadEntitiesComplete = 91;
+    public const int LoadEntitiesCompleteListener = 92;
+    public const int LoadEntitiesCompleteRemovedListener = 93;
+    public const int Loading = 94;
+    public const int LoadingListener = 95;
+    public const int LoadingRemovedListener = 96;
+    public const int LoadSceneComplete = 97;
+    public const int LoadScene = 98;
+    public const int LoadViews = 99;
+    public const int Max = 100;
+    public const int MinRequirement = 101;
+    public const int Miss = 102;
+    public const int MissListener = 103;
+    public const int Moveable = 104;
+    public const int Moving = 105;
+    public const int Need = 106;
+    public const int NeedForceSave = 107;
+    public const int NeedRecoveryModifier = 108;
+    public const int NotificationMessage = 109;
+    public const int NotificationScheduled = 110;
+    public const int Obstacle = 111;
+    public const int OkAction = 112;
+    public const int OnCollision = 113;
+    public const int Origin = 114;
+    public const int Osu = 115;
+    public const int OsuHitPoint = 116;
+    public const int Pause = 117;
+    public const int Placeable = 118;
+    public const int Player = 119;
+    public const int Poop = 120;
+    public const int Position = 121;
+    public const int PrePurchase = 122;
+    public const int Preview = 123;
+    public const int PreviousPosition = 124;
+    public const int PreviousPositionListener = 125;
+    public const int Price = 126;
+    public const int Purchased = 127;
+    public const int ReloadEquipment = 128;
+    public const int RemoveFromStorage = 129;
+    public const int Returnable = 130;
+    public const int ReturnableListener = 131;
+    public const int ReturnableRemovedListener = 132;
+    public const int Return = 133;
+    public const int SaveID = 134;
+    public const int Saving = 135;
+    public const int SavingListener = 136;
+    public const int SavingRemovedListener = 137;
+    public const int SceneInitConfig = 138;
+    public const int Score = 139;
+    public const int ScoreListener = 140;
+    public const int Sleep = 141;
+    public const int SleepListener = 142;
+    public const int SleepRemovedListener = 143;
+    public const int Soap = 144;
+    public const int Space = 145;
+    public const int Spawn = 146;
+    public const int SpawnCounter = 147;
+    public const int SpawnLimit = 148;
+    public const int StateMachine = 149;
+    public const int SuspendedTime = 150;
+    public const int Tag = 151;
+    public const int Targetable = 152;
+    public const int TargetDirectionChecker = 153;
+    public const int TargetDirectionCheckResult = 154;
+    public const int TargetDirectionCheckResultListener = 155;
+    public const int TargetEntityID = 156;
+    public const int TargetMove = 157;
+    public const int TargetNeed = 158;
+    public const int TargetPosition = 159;
+    public const int TargetTag = 160;
+    public const int Timer = 161;
+    public const int TimerReset = 162;
+    public const int TimerState = 163;
+    public const int ToDestroy = 164;
+    public const int TopScore = 165;
+    public const int TopScoreListener = 166;
+    public const int TouchData = 167;
+    public const int TouchTimeGap = 168;
+    public const int Trigger = 169;
+    public const int ValidPlacement = 170;
+    public const int Velocity = 171;
+    public const int VelocityListener = 172;
+    public const int View = 173;
+    public const int ViewListener = 174;
+    public const int ViewRemovedListener = 175;
+    public const int Wallet = 176;
+    public const int Wipe = 177;
+    public const int WipeListener = 178;
+    public const int WipeProgress = 179;
 
-    public const int TotalComponents = 177;
+    public const int TotalComponents = 180;
 
     public static readonly string[] componentNames = {
         "AcceptableRange",
@@ -270,8 +273,6 @@ public static class GameComponentsLookup {
         "GameTouchDataListener",
         "GameTriggerListener",
         "GameWalletListener",
-        "GridApartmentData",
-        "Grid",
         "Hit",
         "HitListener",
         "HitRangeStatus",
@@ -309,11 +310,14 @@ public static class GameComponentsLookup {
         "Osu",
         "OsuHitPoint",
         "Pause",
+        "Placeable",
         "Player",
         "Poop",
         "Position",
         "PrePurchase",
         "Preview",
+        "PreviousPosition",
+        "PreviousPositionListener",
         "Price",
         "Purchased",
         "ReloadEquipment",
@@ -333,6 +337,7 @@ public static class GameComponentsLookup {
         "SleepListener",
         "SleepRemovedListener",
         "Soap",
+        "Space",
         "Spawn",
         "SpawnCounter",
         "SpawnLimit",
@@ -357,6 +362,7 @@ public static class GameComponentsLookup {
         "TouchData",
         "TouchTimeGap",
         "Trigger",
+        "ValidPlacement",
         "Velocity",
         "VelocityListener",
         "View",
@@ -450,8 +456,6 @@ public static class GameComponentsLookup {
         typeof(GameTouchDataListenerComponent),
         typeof(GameTriggerListenerComponent),
         typeof(GameWalletListenerComponent),
-        typeof(GridApartmentDataComponent),
-        typeof(GridComponent),
         typeof(HitComponent),
         typeof(HitListenerComponent),
         typeof(HitRangeStatusComponent),
@@ -489,11 +493,14 @@ public static class GameComponentsLookup {
         typeof(OsuComponent),
         typeof(OsuHitPointComponent),
         typeof(PauseComponent),
+        typeof(PlaceableComponent),
         typeof(PlayerComponent),
         typeof(PoopComponent),
         typeof(PositionComponent),
         typeof(PrePurchaseComponent),
         typeof(PreviewComponent),
+        typeof(PreviousPositionComponent),
+        typeof(PreviousPositionListenerComponent),
         typeof(PriceComponent),
         typeof(PurchasedComponent),
         typeof(ReloadEquipmentComponent),
@@ -513,6 +520,7 @@ public static class GameComponentsLookup {
         typeof(SleepListenerComponent),
         typeof(SleepRemovedListenerComponent),
         typeof(SoapComponent),
+        typeof(SpaceComponent),
         typeof(SpawnComponent),
         typeof(SpawnCounterComponent),
         typeof(SpawnLimitComponent),
@@ -537,6 +545,7 @@ public static class GameComponentsLookup {
         typeof(TouchDataComponent),
         typeof(TouchTimeGapComponent),
         typeof(TriggerComponent),
+        typeof(ValidPlacementComponent),
         typeof(VelocityComponent),
         typeof(VelocityListenerComponent),
         typeof(ViewComponent),

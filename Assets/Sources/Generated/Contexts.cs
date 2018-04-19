@@ -68,8 +68,6 @@ public partial class Contexts {
     public const string DialogType = "DialogType";
     public const string EntityConfigID = "EntityConfigID";
     public const string Food = "Food";
-    public const string GridId = "GridId";
-    public const string GridSize = "GridSize";
     public const string ID = "ID";
     public const string Need = "Need";
     public const string SceneInitConfig = "SceneInitConfig";
@@ -131,16 +129,6 @@ public partial class Contexts {
             Food,
             input.GetGroup(InputMatcher.Food),
             (e, c) => ((FoodComponent)c).id));
-
-        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, string>(
-            GridId,
-            game.GetGroup(GameMatcher.Grid),
-            (e, c) => ((GridComponent)c).id));
-
-        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, UnityEngine.Vector2>(
-            GridSize,
-            game.GetGroup(GameMatcher.Grid),
-            (e, c) => ((GridComponent)c).size));
 
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, uint>(
             ID,
@@ -241,14 +229,6 @@ public static class ContextsExtensions {
 
     public static System.Collections.Generic.HashSet<InputEntity> GetEntitiesWithFood(this InputContext context, string id) {
         return ((Entitas.EntityIndex<InputEntity, string>)context.GetEntityIndex(Contexts.Food)).GetEntities(id);
-    }
-
-    public static GameEntity GetEntityWithGridId(this GameContext context, string id) {
-        return ((Entitas.PrimaryEntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.GridId)).GetEntity(id);
-    }
-
-    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithGridSize(this GameContext context, UnityEngine.Vector2 size) {
-        return ((Entitas.EntityIndex<GameEntity, UnityEngine.Vector2>)context.GetEntityIndex(Contexts.GridSize)).GetEntities(size);
     }
 
     public static GameEntity GetEntityWithID(this GameContext context, uint value) {
