@@ -15,10 +15,10 @@ MonoBehaviour:
   _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 
+    hiddenValue: 05004c0005006e005200410046005f005d004000410043005100
     inited: 1
-    fakeValue: 
-    fakeValueActive: 0
+    fakeValue: 1x1_furniture
+    fakeValueActive: 1
   _loadOnStart: 0
   _id: furniture
   _type: 2
