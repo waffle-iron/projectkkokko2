@@ -28,16 +28,16 @@ public class FoodConsumingOnPlayerCollisionReactiveSystem : ReactiveSystem<GameE
     {
         foreach (var e in entities)
         {
-            var player = _game.GetEntityWithID(e.onCollision.otherID);
+            var player = _game.GetEntityWithID(e.onCollision.data[0].ID);
 
             if (player != null && player.isPlayer)
             {
-                if (player.hasConsuming == false && player.onCollision.type == CollisionType.ENTER)
+                if (player.hasConsuming == false && player.onCollision.data[0].Type == CollisionType.ENTER)
                 {
                     player.ReplaceConsuming(player.iD.value, e.iD.value);
                     e.ReplaceConsuming(player.iD.value, e.iD.value);
                 }
-                else if (player.hasConsuming && player.onCollision.type == CollisionType.EXIT)
+                else if (player.hasConsuming && player.onCollision.data[0].Type == CollisionType.EXIT)
                 {
                     player.RemoveConsuming();
                     if (e.hasConsuming) { e.RemoveConsuming(); }

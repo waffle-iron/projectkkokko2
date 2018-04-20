@@ -40,7 +40,14 @@ public class CommandSaveLoadReactiveSystem : ReactiveSystem<CommandEntity>
             if (e.isSave)
             {
                 entity.isSaving = true;
-                saveService.Save(entity.saveID.value, entity);
+                if (e.hasSaveVariant)
+                {
+                    saveService.Save(entity.saveID.value + e.saveVariant.suffix, entity);
+                }
+                else
+                {
+                    saveService.Save(entity.saveID.value, entity);
+                }
             }
             if (e.hasLoad)
             {

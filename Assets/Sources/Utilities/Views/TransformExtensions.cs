@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public static class TransformExtensions
 {
@@ -41,6 +42,21 @@ public static class TransformExtensions
         newPos.y = Random.Range(yRange.y, yRange.y);
 
         return newPos;
+    }
+
+    public static Vector2[] ToArray (this Vector2 size)
+    {
+        var indexes = new Vector2[(int)size.x * (int)size.y];
+
+        for (int x = 0; x < size.x; x++)
+        {
+            for (int y = 0; y < size.y; y++)
+            {
+                indexes[x + y] = new Vector2(x, y);
+            }
+        }
+
+        return indexes;
     }
 
     public static void ReplaceXPos (this Transform trans, float newX)

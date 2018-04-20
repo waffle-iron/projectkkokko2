@@ -4,7 +4,7 @@ using UnityEngine;
 using Entitas;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game, Input, Command]
+[Game, Input, Command, IgnoreSave]
 public sealed class CollidableComponent : IComponent
 {
 }

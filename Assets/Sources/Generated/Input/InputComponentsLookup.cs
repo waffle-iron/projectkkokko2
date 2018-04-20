@@ -69,43 +69,45 @@ public static class InputComponentsLookup {
     public const int InputTargetMoveListener = 58;
     public const int InputToDestroyListener = 59;
     public const int InputToDestroyRemovedListener = 60;
-    public const int InputTriggerListener = 61;
-    public const int InputWalletListener = 62;
-    public const int Interval = 63;
-    public const int Load = 64;
-    public const int LoadedViewsComplete = 65;
-    public const int LoadSceneComplete = 66;
-    public const int LoadScene = 67;
-    public const int LoadViews = 68;
-    public const int Max = 69;
-    public const int Moveable = 70;
-    public const int Moving = 71;
-    public const int Need = 72;
-    public const int NeedRecoveryModifier = 73;
-    public const int OnCollision = 74;
-    public const int Pause = 75;
-    public const int Position = 76;
-    public const int PrePurchase = 77;
-    public const int Preview = 78;
-    public const int Price = 79;
-    public const int Purchased = 80;
-    public const int RemoveFromStorage = 81;
-    public const int Reset = 82;
-    public const int Save = 83;
-    public const int Soap = 84;
-    public const int Targetable = 85;
-    public const int TargetEntityID = 86;
-    public const int TargetMove = 87;
-    public const int TargetNeed = 88;
-    public const int TargetPosition = 89;
-    public const int TimerReset = 90;
-    public const int TimerState = 91;
-    public const int ToDestroy = 92;
-    public const int TouchData = 93;
-    public const int Trigger = 94;
-    public const int Wallet = 95;
+    public const int InputTouchDataListener = 61;
+    public const int InputTriggerListener = 62;
+    public const int InputWalletListener = 63;
+    public const int Interval = 64;
+    public const int Load = 65;
+    public const int LoadedViewsComplete = 66;
+    public const int LoadSceneComplete = 67;
+    public const int LoadScene = 68;
+    public const int LoadViews = 69;
+    public const int Max = 70;
+    public const int Moveable = 71;
+    public const int Moving = 72;
+    public const int Need = 73;
+    public const int NeedRecoveryModifier = 74;
+    public const int OnCollision = 75;
+    public const int Pause = 76;
+    public const int Position = 77;
+    public const int PrePurchase = 78;
+    public const int Preview = 79;
+    public const int Price = 80;
+    public const int Purchased = 81;
+    public const int RemoveFromStorage = 82;
+    public const int Reset = 83;
+    public const int Save = 84;
+    public const int SaveVariant = 85;
+    public const int Soap = 86;
+    public const int Targetable = 87;
+    public const int TargetEntityID = 88;
+    public const int TargetMove = 89;
+    public const int TargetNeed = 90;
+    public const int TargetPosition = 91;
+    public const int TimerReset = 92;
+    public const int TimerState = 93;
+    public const int ToDestroy = 94;
+    public const int TouchData = 95;
+    public const int Trigger = 96;
+    public const int Wallet = 97;
 
-    public const int TotalComponents = 96;
+    public const int TotalComponents = 98;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -169,6 +171,7 @@ public static class InputComponentsLookup {
         "InputTargetMoveListener",
         "InputToDestroyListener",
         "InputToDestroyRemovedListener",
+        "InputTouchDataListener",
         "InputTriggerListener",
         "InputWalletListener",
         "Interval",
@@ -192,6 +195,7 @@ public static class InputComponentsLookup {
         "RemoveFromStorage",
         "Reset",
         "Save",
+        "SaveVariant",
         "Soap",
         "Targetable",
         "TargetEntityID",
@@ -268,6 +272,7 @@ public static class InputComponentsLookup {
         typeof(InputTargetMoveListenerComponent),
         typeof(InputToDestroyListenerComponent),
         typeof(InputToDestroyRemovedListenerComponent),
+        typeof(InputTouchDataListenerComponent),
         typeof(InputTriggerListenerComponent),
         typeof(InputWalletListenerComponent),
         typeof(IntervalComponent),
@@ -291,6 +296,7 @@ public static class InputComponentsLookup {
         typeof(RemoveFromStorageComponent),
         typeof(ResetComponent),
         typeof(SaveComponent),
+        typeof(SaveVariantComponent),
         typeof(SoapComponent),
         typeof(TargetableComponent),
         typeof(TargetEntityIDComponent),

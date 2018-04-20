@@ -95,6 +95,7 @@ public sealed class EventSystems : Feature {
         Add(new GamePauseRemovedEventSystem(contexts)); // priority: 0
         Add(new InputPauseRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandPauseRemovedEventSystem(contexts)); // priority: 0
+        Add(new PlaceablePositionEventSystem(contexts)); // priority: 0
         Add(new GamePrePurchaseEventSystem(contexts)); // priority: 0
         Add(new CommandPrePurchaseEventSystem(contexts)); // priority: 0
         Add(new InputPrePurchaseEventSystem(contexts)); // priority: 0
@@ -104,6 +105,7 @@ public sealed class EventSystems : Feature {
         Add(new GamePreviewRemovedEventSystem(contexts)); // priority: 0
         Add(new InputPreviewRemovedEventSystem(contexts)); // priority: 0
         Add(new CommandPreviewRemovedEventSystem(contexts)); // priority: 0
+        Add(new PreviousPositionEventSystem(contexts)); // priority: 0
         Add(new GamePriceEventSystem(contexts)); // priority: 0
         Add(new InputPriceEventSystem(contexts)); // priority: 0
         Add(new CommandPriceEventSystem(contexts)); // priority: 0
@@ -139,9 +141,13 @@ public sealed class EventSystems : Feature {
         Add(new CommandToDestroyRemovedEventSystem(contexts)); // priority: 0
         Add(new MetaToDestroyRemovedEventSystem(contexts)); // priority: 0
         Add(new TopScoreEventSystem(contexts)); // priority: 0
+        Add(new GameTouchDataEventSystem(contexts)); // priority: 0
+        Add(new CommandTouchDataEventSystem(contexts)); // priority: 0
+        Add(new InputTouchDataEventSystem(contexts)); // priority: 0
         Add(new GameTriggerEventSystem(contexts)); // priority: 0
         Add(new CommandTriggerEventSystem(contexts)); // priority: 0
         Add(new InputTriggerEventSystem(contexts)); // priority: 0
+        Add(new ValidPlacementEventSystem(contexts)); // priority: 0
         Add(new VelocityEventSystem(contexts)); // priority: 0
         Add(new ViewEventSystem(contexts)); // priority: 0
         Add(new ViewRemovedEventSystem(contexts)); // priority: 0

@@ -26,7 +26,7 @@ public class WipeReactiveSystem : ReactiveSystem<GameEntity>
             entity.touchData.current.Phase == TouchPhase.Moved &&
             entity.hasWipe &&
             entity.hasOnCollision &&
-            entity.onCollision.type == CollisionType.STAY &&
+            entity.onCollision.data[0].Type == CollisionType.STAY &&
             entity.hasTargetTag;
     }
 
@@ -34,7 +34,7 @@ public class WipeReactiveSystem : ReactiveSystem<GameEntity>
     {
         foreach (var e in entities)
         {
-            var target = _game.GetEntityWithID(e.onCollision.otherID);
+            var target = _game.GetEntityWithID(e.onCollision.data[0].ID);
             if (target == null || target.hasTag == false || e.targetTag.current.Any(tag => target.tag.current == tag) == false) { continue; }
 
             var wipeProg = e.hasWipeProgress ? e.wipeProgress.value : 0f;

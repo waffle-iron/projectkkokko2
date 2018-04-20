@@ -63,6 +63,7 @@ public partial class Contexts : Entitas.IContexts {
 public partial class Contexts {
 
     public const string Accessory = "Accessory";
+    public const string ApartmentItem = "ApartmentItem";
     public const string DialogId = "DialogId";
     public const string DialogType = "DialogType";
     public const string EntityConfigID = "EntityConfigID";
@@ -87,6 +88,11 @@ public partial class Contexts {
             Accessory,
             command.GetGroup(CommandMatcher.Accessory),
             (e, c) => ((AccessoryComponent)c).id));
+
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, ApartmentItemData>(
+            ApartmentItem,
+            game.GetGroup(GameMatcher.ApartmentItem),
+            (e, c) => ((ApartmentItemComponent)c).data));
 
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, string>(
             DialogId,
@@ -187,6 +193,10 @@ public static class ContextsExtensions {
 
     public static CommandEntity GetEntityWithAccessory(this CommandContext context, string id) {
         return ((Entitas.PrimaryEntityIndex<CommandEntity, string>)context.GetEntityIndex(Contexts.Accessory)).GetEntity(id);
+    }
+
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithApartmentItem(this GameContext context, ApartmentItemData data) {
+        return ((Entitas.EntityIndex<GameEntity, ApartmentItemData>)context.GetEntityIndex(Contexts.ApartmentItem)).GetEntities(data);
     }
 
     public static GameEntity GetEntityWithDialogId(this GameContext context, string id) {

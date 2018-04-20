@@ -5,9 +5,8 @@ using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
 //[Entitas.CodeGenerator.SingleEntity]
-[Game, Input, Command, Event(true)]
+[Game, Input, Command, Event(true), IgnoreSave]
 public sealed class OnCollisionComponent : IComponent
 {
-    public uint otherID;
-    public CollisionType type;
+    public CollisionData[] data;
 }

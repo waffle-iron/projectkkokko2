@@ -22,10 +22,10 @@ public class MiniGame_Egg_ShootExecuteSystem : IExecuteSystem
         if (_game.hasGameState && _game.gameState.current.IsEqualTo(MiniGameEggState.SHOOT))
         {
             var scored = _scoredHoops?.GetEntities()
-                .Where(hoop => hoop.onCollision.type == CollisionType.ENTER)
+                .Where(hoop => hoop.onCollision.data[0].Type == CollisionType.ENTER)
                 .Select(hoop =>
                 {
-                    var target = _game.GetEntityWithID(hoop.onCollision.otherID);
+                    var target = _game.GetEntityWithID(hoop.onCollision.data[0].ID);
                     if (target.hasTag) { if (hoop.targetTag.current.Any(tag => target.tag.current == tag)) { return true; } }
 
                     return false;

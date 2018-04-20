@@ -28,10 +28,14 @@ public class ObstacleCollisionDestroyReactiveSystem : ReactiveSystem<GameEntity>
     {
         foreach (var e in entities)
         {
-            var target = _game.GetEntityWithID(e.onCollision.otherID);
-            if (target.isCanDestroyOther)
+            foreach (var data in e.onCollision.data)
             {
-                e.isToDestroy = true;
+                var target = _game.GetEntityWithID(data.ID);
+                if (target.isCanDestroyOther)
+                {
+                    e.isToDestroy = true;
+                }
+
             }
         }
     }

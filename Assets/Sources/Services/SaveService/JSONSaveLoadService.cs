@@ -4,6 +4,7 @@ using System.Linq;
 using CodeStage.AntiCheat.ObscuredTypes;
 using Entitas;
 using Newtonsoft.Json;
+using UnityEngine;
 
 public class JSONSaveLoadService : ISavingService
 {
@@ -47,8 +48,16 @@ public class JSONSaveLoadService : ISavingService
 
     public bool Save (ObscuredString id, IEntity entity)
     {
-        var json = JsonConvert.SerializeObject(_loader.MakeEntityInfo(entity, null), Formatting.Indented);
-        ObscuredPrefs.SetString(id, json);
+        try
+        {
+            var json = JsonConvert.SerializeObject(_loader.MakeEntityInfo(entity, null), Formatting.Indented);
+            ObscuredPrefs.SetString(id, json);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e.Message);
+            return false;
+        }
 
         return true;
     }

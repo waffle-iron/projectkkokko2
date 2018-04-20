@@ -25,7 +25,7 @@ public sealed class GameOnCollisionEventSystem : Entitas.ReactiveSystem<GameEnti
         foreach (var e in entities) {
             var component = e.onCollision;
             foreach (var listener in e.gameOnCollisionListener.value) {
-                listener.OnOnCollision(e, component.otherID, component.type);
+                listener.OnOnCollision(e, component.data);
             }
         }
     }

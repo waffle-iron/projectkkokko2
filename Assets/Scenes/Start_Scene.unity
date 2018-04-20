@@ -247,11 +247,11 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a219f5e308b805145a17fde4f7e276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: Apartment_Scene
+  target: ApartmentCustomize_Scene
   delay: 1
 --- !u!1 &1004094931
 GameObject:

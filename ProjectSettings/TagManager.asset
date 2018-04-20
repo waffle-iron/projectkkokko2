@@ -50,3 +50,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 626361639
+    locked: 0
+  - name: Floor
+    uniqueID: 2395939143
+    locked: 0
+  - name: Wall
+    uniqueID: 1731807895
+    locked: 0
+  - name: Furniture
+    uniqueID: 2982278377
+    locked: 0
+  - name: Player
+    uniqueID: 1323415427
+    locked: 0
+  - name: Items
+    uniqueID: 2136447279
+    locked: 0
+  - name: UI
+    uniqueID: 3406039151
+    locked: 0

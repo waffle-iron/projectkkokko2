@@ -25,7 +25,7 @@ public class ScoreCollideReactiveSystem : ReactiveSystem<GameEntity>
     {
         // check for required components
         return entity.hasOnCollision &&
-            entity.onCollision.type == CollisionType.ENTER &&
+            entity.onCollision.data[0].Type == CollisionType.ENTER &&
             entity.hasChangeScore &&
             entity.hasTargetTag;
     }
@@ -34,7 +34,7 @@ public class ScoreCollideReactiveSystem : ReactiveSystem<GameEntity>
     {
         foreach (var e in entities)
         {
-            var target = _game.GetEntityWithID(e.onCollision.otherID);
+            var target = _game.GetEntityWithID(e.onCollision.data[0].ID);
 
             if (target != null && target.hasTag && e.targetTag.current.Any(tag => tag == target.tag.current))
             {

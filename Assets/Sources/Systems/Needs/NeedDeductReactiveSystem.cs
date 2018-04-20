@@ -42,7 +42,8 @@ public class NeedDeductReactiveSystem : ReactiveSystem<GameEntity>
             if (target != null && (target.hasCurrent && target.hasMax))
             {
                 //deduct and clamp
-                var newValue = target.current.amount - (e.deplete.amount * (int)e.deductions.count);
+                var deductions = Mathf.Clamp((e.deplete.amount * (int)e.deductions.count), 0, target.max.amount);
+                var newValue = target.current.amount - deductions;
                 newValue = Mathf.Clamp(newValue, 0, target.max.amount);
                 target.ReplaceCurrent(newValue);
 

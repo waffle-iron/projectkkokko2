@@ -11,6 +11,8 @@ public class DraggableView : View
     private SpriteRenderer _sprite;
 
     private bool _drag = false;
+    [SerializeField]
+    private bool _isOnTopOnly = false;
 
     private IInputTouchService _service;
 
@@ -39,10 +41,20 @@ public class DraggableView : View
     {
         if (_service != null && _service.touch != null)
         {
+            bool result = false;
+
+            if (_service.touch[0].Hits.Length > 0)
+            {
+                result = _isOnTopOnly ?
+                _service.touch[0].Hits[0].transform == this.transform :
+                _service.touch[0].Hits.Select(raycast => raycast.transform).Contains(this.transform);
+            }
+
+
             if ((_service.touch[0].Phase == TouchPhase.Began ||
                 _service.touch[0].Phase == TouchPhase.Moved ||
                 _service.touch[0].Phase == TouchPhase.Stationary) &&
-                _service.touch[0].Hits.Select(raycast => raycast.transform).Contains(this.transform))
+                result)
             {
                 _drag = true;
                 //create input entity 
