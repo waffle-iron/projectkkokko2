@@ -24,6 +24,7 @@ public class SpawnItemOnDrag : MonoBehaviour
     Mask _mask;
 
     private bool? _drag = null;
+    private bool _isSpawned = false;
 
     void OnEnable ()
     {
@@ -44,13 +45,25 @@ public class SpawnItemOnDrag : MonoBehaviour
 
     public void OnDrag (PointerEventData eventData)
     {
-
         if (_drag == true)
         {
             ToggleMask(false);
             var newPos = (Vector3)eventData.position;
             newPos.z = _originalzPos;
-            _item.position = _camera.ScreenToWorldPoint(newPos);
+            newPos = _camera.ScreenToWorldPoint(newPos);
+            _item.position = newPos;
+
+            if (_isSpawned == false && RectTransformUtility.RectangleContainsScreenPoint(_container, eventData.position, _camera) == false)
+            {
+                IEntity entity;
+                Contexts.sharedInstance.meta.entityService.instance.Get(_entityID, out entity);
+                var inputety = Contexts.sharedInstance.input.CreateEntity();
+                inputety.AddTargetEntityID(((IIDEntity)entity).iD.value);
+                inputety.AddPosition(newPos);
+                inputety.isTeleport = true;
+                _isSpawned = true;
+                OnEndDrag(eventData);
+            }
         }
 
     }
@@ -59,20 +72,13 @@ public class SpawnItemOnDrag : MonoBehaviour
     {
         if (_drag == true)
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(_container, eventData.position, _camera) == false)
-            {
-                IEntity entity;
-                Contexts.sharedInstance.meta.entityService.instance.Get(_entityID, out entity);
-                var inputety = Contexts.sharedInstance.input.CreateEntity();
-                inputety.AddTargetEntityID(((IIDEntity)entity).iD.value);
-            }
-
             _item.anchoredPosition = _originalPos;
 
             ToggleMask(true);
         }
 
         _drag = null;
+        _isSpawned = false;
     }
 
     void ToggleMask (bool state)

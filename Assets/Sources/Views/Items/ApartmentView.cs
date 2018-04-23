@@ -7,7 +7,7 @@ using Entitas;
 using UniRx;
 using UniRx.Triggers;
 
-public class ApartmentView : View, IValidPlacementListener, IPlaceablePositionListener
+public class ApartmentView : View, IValidPlacementListener, IPlaceablePositionListener, IGamePositionListener
 {
     //insert serialized fields here
     [SerializeField]
@@ -27,6 +27,14 @@ public class ApartmentView : View, IValidPlacementListener, IPlaceablePositionLi
     public void OnPlaceablePosition (GameEntity entity, Vector3 current)
     {
         this.transform.position = current;
+    }
+
+    public void OnPosition (GameEntity entity, Vector3 current)
+    {
+        if (entity.isTeleport)
+        {
+            this.transform.position = current;
+        }
     }
 
     protected override void Update ()
@@ -95,6 +103,7 @@ public class ApartmentView : View, IValidPlacementListener, IPlaceablePositionLi
         var gameety = (GameEntity)entity;
         gameety.AddValidPlacementListener(this);
         gameety.AddPlaceablePositionListener(this);
+        gameety.AddGamePositionListener(this);
     }
 
     protected override void UnregisterListeners (IEntity entity, IContext context)
@@ -102,7 +111,7 @@ public class ApartmentView : View, IValidPlacementListener, IPlaceablePositionLi
         var gameety = (GameEntity)entity;
         gameety.RemoveValidPlacementListener(this);
         gameety.RemovePlaceablePositionListener(this);
+        gameety.RemoveGamePositionListener(this);
     }
-
 }
 
