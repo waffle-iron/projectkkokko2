@@ -1,11 +1,16 @@
 ﻿using System;
-
+using UnityEngine;
 
 [System.Serializable]
 public struct ApartmentItemData
 {
-    public ApartmentItemType type { get; private set; }
-    public String id { get; private set; }
+    [SerializeField]
+    private ApartmentItemType _type;
+    [SerializeField]
+    private string _id;
+
+    public ApartmentItemType type { get { return _type; } private set { _type = value; } }
+    public string id { get { return _id; } private set { _id = value; } }
 
     public static ApartmentItemData Empty
     {
@@ -14,10 +19,10 @@ public struct ApartmentItemData
         }
     }
 
-    public ApartmentItemData (ApartmentItemType type, String id)
+    public ApartmentItemData (ApartmentItemType type, string id)
     {
-        this.type = type;
-        this.id = id;
+        this._type = type;
+        this._id = id;
     }
 }
 

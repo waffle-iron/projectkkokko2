@@ -8,17 +8,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e77af5c0df1e754fa3a6fb0a5c85981, type: 3}
-  m_Name: ApartmentItemConfig
+  m_Script: {fileID: 11500000, guid: 61e1b41c8116bd445afea0fd6edfdc4b, type: 3}
+  m_Name: ApartmentItemUIConfig
   m_EditorClassIdentifier: 
-  _viewName: 1x1_furniture
-  _isReloadOnSceneChange: 0
+  _viewName: AptItemUIView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 05004c0005006e005200410046005f005d004000410043005100
+    hiddenValue: 
     inited: 1
-    fakeValue: 1x1_furniture
-    fakeValueActive: 1
+    fakeValue: 
+    fakeValueActive: 0
   _loadOnStart: 0
-  _id: furniture
-  _type: 2
+  _data:
+    _type: 2
+    _id: furniture
+  _toSpawnEntity: ApartmentItemConfig

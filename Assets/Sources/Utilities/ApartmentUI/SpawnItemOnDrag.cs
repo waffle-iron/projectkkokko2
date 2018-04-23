@@ -9,8 +9,7 @@ using Entitas;
 
 public class SpawnItemOnDrag : MonoBehaviour
 {
-    [SerializeField]
-    private string _entityID;
+    public string entityID;
 
     [SerializeField]
     private RectTransform _container;
@@ -56,7 +55,7 @@ public class SpawnItemOnDrag : MonoBehaviour
             if (_isSpawned == false && RectTransformUtility.RectangleContainsScreenPoint(_container, eventData.position, _camera) == false)
             {
                 IEntity entity;
-                Contexts.sharedInstance.meta.entityService.instance.Get(_entityID, out entity);
+                Contexts.sharedInstance.meta.entityService.instance.Get(entityID, out entity);
                 var inputety = Contexts.sharedInstance.input.CreateEntity();
                 inputety.AddTargetEntityID(((IIDEntity)entity).iD.value);
                 inputety.AddPosition(newPos);
