@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: ApartmentItemConfig
   m_EditorClassIdentifier: 
   _viewName: 1x1_furniture
-  _isReloadOnSceneChange: 1
+  _isReloadOnSceneChange: 0
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 05004c0005006e005200410046005f005d004000410043005100

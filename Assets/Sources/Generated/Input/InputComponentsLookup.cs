@@ -58,56 +58,58 @@ public static class InputComponentsLookup {
     public const int InputOnCollisionListener = 47;
     public const int InputPauseListener = 48;
     public const int InputPauseRemovedListener = 49;
-    public const int InputPrePurchaseListener = 50;
-    public const int InputPreviewListener = 51;
-    public const int InputPreviewRemovedListener = 52;
-    public const int InputPriceListener = 53;
-    public const int InputPurchasedListener = 54;
-    public const int InputRemoveFromStorageListener = 55;
-    public const int InputRemoveFromStorageRemovedListener = 56;
-    public const int InputSoapListener = 57;
-    public const int InputTargetMoveListener = 58;
-    public const int InputToDestroyListener = 59;
-    public const int InputToDestroyRemovedListener = 60;
-    public const int InputTouchDataListener = 61;
-    public const int InputTriggerListener = 62;
-    public const int InputWalletListener = 63;
-    public const int Interval = 64;
-    public const int Load = 65;
-    public const int LoadedViewsComplete = 66;
-    public const int LoadSceneComplete = 67;
-    public const int LoadScene = 68;
-    public const int LoadViews = 69;
-    public const int Max = 70;
-    public const int Moveable = 71;
-    public const int Moving = 72;
-    public const int Need = 73;
-    public const int NeedRecoveryModifier = 74;
-    public const int OnCollision = 75;
-    public const int Pause = 76;
-    public const int Position = 77;
-    public const int PrePurchase = 78;
-    public const int Preview = 79;
-    public const int Price = 80;
-    public const int Purchased = 81;
-    public const int RemoveFromStorage = 82;
-    public const int Reset = 83;
-    public const int Save = 84;
-    public const int SaveVariant = 85;
-    public const int Soap = 86;
-    public const int Targetable = 87;
-    public const int TargetEntityID = 88;
-    public const int TargetMove = 89;
-    public const int TargetNeed = 90;
-    public const int TargetPosition = 91;
-    public const int TimerReset = 92;
-    public const int TimerState = 93;
-    public const int ToDestroy = 94;
-    public const int TouchData = 95;
-    public const int Trigger = 96;
-    public const int Wallet = 97;
+    public const int InputPositionListener = 50;
+    public const int InputPrePurchaseListener = 51;
+    public const int InputPreviewListener = 52;
+    public const int InputPreviewRemovedListener = 53;
+    public const int InputPriceListener = 54;
+    public const int InputPurchasedListener = 55;
+    public const int InputRemoveFromStorageListener = 56;
+    public const int InputRemoveFromStorageRemovedListener = 57;
+    public const int InputSoapListener = 58;
+    public const int InputTargetMoveListener = 59;
+    public const int InputToDestroyListener = 60;
+    public const int InputToDestroyRemovedListener = 61;
+    public const int InputTouchDataListener = 62;
+    public const int InputTriggerListener = 63;
+    public const int InputWalletListener = 64;
+    public const int Interval = 65;
+    public const int Load = 66;
+    public const int LoadedViewsComplete = 67;
+    public const int LoadSceneComplete = 68;
+    public const int LoadScene = 69;
+    public const int LoadViews = 70;
+    public const int Max = 71;
+    public const int Moveable = 72;
+    public const int Moving = 73;
+    public const int Need = 74;
+    public const int NeedRecoveryModifier = 75;
+    public const int OnCollision = 76;
+    public const int Pause = 77;
+    public const int Position = 78;
+    public const int PrePurchase = 79;
+    public const int Preview = 80;
+    public const int Price = 81;
+    public const int Purchased = 82;
+    public const int RemoveFromStorage = 83;
+    public const int Reset = 84;
+    public const int Save = 85;
+    public const int SaveVariant = 86;
+    public const int Soap = 87;
+    public const int Targetable = 88;
+    public const int TargetEntityID = 89;
+    public const int TargetMove = 90;
+    public const int TargetNeed = 91;
+    public const int TargetPosition = 92;
+    public const int Teleport = 93;
+    public const int TimerReset = 94;
+    public const int TimerState = 95;
+    public const int ToDestroy = 96;
+    public const int TouchData = 97;
+    public const int Trigger = 98;
+    public const int Wallet = 99;
 
-    public const int TotalComponents = 98;
+    public const int TotalComponents = 100;
 
     public static readonly string[] componentNames = {
         "Accessory",
@@ -160,6 +162,7 @@ public static class InputComponentsLookup {
         "InputOnCollisionListener",
         "InputPauseListener",
         "InputPauseRemovedListener",
+        "InputPositionListener",
         "InputPrePurchaseListener",
         "InputPreviewListener",
         "InputPreviewRemovedListener",
@@ -202,6 +205,7 @@ public static class InputComponentsLookup {
         "TargetMove",
         "TargetNeed",
         "TargetPosition",
+        "Teleport",
         "TimerReset",
         "TimerState",
         "ToDestroy",
@@ -261,6 +265,7 @@ public static class InputComponentsLookup {
         typeof(InputOnCollisionListenerComponent),
         typeof(InputPauseListenerComponent),
         typeof(InputPauseRemovedListenerComponent),
+        typeof(InputPositionListenerComponent),
         typeof(InputPrePurchaseListenerComponent),
         typeof(InputPreviewListenerComponent),
         typeof(InputPreviewRemovedListenerComponent),
@@ -303,6 +308,7 @@ public static class InputComponentsLookup {
         typeof(TargetMoveComponent),
         typeof(TargetNeedComponent),
         typeof(TargetPositionComponent),
+        typeof(TeleportComponent),
         typeof(TimerResetComponent),
         typeof(TimerStateComponent),
         typeof(ToDestroyComponent),

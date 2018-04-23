@@ -41,6 +41,7 @@ public class InputMoveReactiveSystem : ReactiveSystem<InputEntity>
                 var commandEntity = _cmd.CreateEntity();
                 commandEntity.AddTargetEntityID(e.targetEntityID.value);
                 commandEntity.AddPosition(e.position.current);
+                commandEntity.isTeleport = e.isTeleport;
             }
         }
     }

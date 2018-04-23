@@ -32,6 +32,7 @@ public class CommandMoveReactiveSystem : ReactiveSystem<CommandEntity>
 
             target.isMoving = true;
             target.ReplacePosition(e.position.current);
+            target.isTeleport = e.isTeleport;
         }
     }
 }
