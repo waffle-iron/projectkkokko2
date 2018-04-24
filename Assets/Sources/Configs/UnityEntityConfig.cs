@@ -40,6 +40,12 @@ public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
     public IEntity Create (Contexts contexts)
     {
         var entity = CustomCreate(contexts);
+
+        if (entity is GameEntity)
+        {
+            ((GameEntity)entity).AddEntityConfig(this.name);
+        }
+
         if (_viewName.Equals("") == false)
         {
             ((GameEntity)entity).AddView(_viewName, _isReloadOnSceneChange);

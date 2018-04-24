@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 public partial class GameContext {
 
-    public GameEntity apartmentItemsSavedPurchaseDataEntity { get { return GetGroup(GameMatcher.ApartmentItemsSavedPurchaseData).GetSingleEntity(); } }
+    public GameEntity apartmentItemsSavedDataEntity { get { return GetGroup(GameMatcher.ApartmentItemsSavedData).GetSingleEntity(); } }
 
-    public bool isApartmentItemsSavedPurchaseData {
-        get { return apartmentItemsSavedPurchaseDataEntity != null; }
+    public bool isApartmentItemsSavedData {
+        get { return apartmentItemsSavedDataEntity != null; }
         set {
-            var entity = apartmentItemsSavedPurchaseDataEntity;
+            var entity = apartmentItemsSavedDataEntity;
             if (value != (entity != null)) {
                 if (value) {
-                    CreateEntity().isApartmentItemsSavedPurchaseData = true;
+                    CreateEntity().isApartmentItemsSavedData = true;
                 } else {
                     entity.Destroy();
                 }
@@ -35,18 +35,18 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly ApartmentItemsSavedPurchaseData apartmentItemsSavedPurchaseDataComponent = new ApartmentItemsSavedPurchaseData();
+    static readonly ApartmentItemsSavedDataComponent apartmentItemsSavedDataComponent = new ApartmentItemsSavedDataComponent();
 
-    public bool isApartmentItemsSavedPurchaseData {
-        get { return HasComponent(GameComponentsLookup.ApartmentItemsSavedPurchaseData); }
+    public bool isApartmentItemsSavedData {
+        get { return HasComponent(GameComponentsLookup.ApartmentItemsSavedData); }
         set {
-            if (value != isApartmentItemsSavedPurchaseData) {
-                var index = GameComponentsLookup.ApartmentItemsSavedPurchaseData;
+            if (value != isApartmentItemsSavedData) {
+                var index = GameComponentsLookup.ApartmentItemsSavedData;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : apartmentItemsSavedPurchaseDataComponent;
+                            : apartmentItemsSavedDataComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -67,17 +67,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherApartmentItemsSavedPurchaseData;
+    static Entitas.IMatcher<GameEntity> _matcherApartmentItemsSavedData;
 
-    public static Entitas.IMatcher<GameEntity> ApartmentItemsSavedPurchaseData {
+    public static Entitas.IMatcher<GameEntity> ApartmentItemsSavedData {
         get {
-            if (_matcherApartmentItemsSavedPurchaseData == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.ApartmentItemsSavedPurchaseData);
+            if (_matcherApartmentItemsSavedData == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.ApartmentItemsSavedData);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherApartmentItemsSavedPurchaseData = matcher;
+                _matcherApartmentItemsSavedData = matcher;
             }
 
-            return _matcherApartmentItemsSavedPurchaseData;
+            return _matcherApartmentItemsSavedData;
         }
     }
 }

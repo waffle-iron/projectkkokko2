@@ -9,15 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ffeba543b21be84babda2faf385fa76, type: 3}
-  m_Name: ApartmentItemsSavedPurchaseDataConfig
+  m_Name: AptItemsUISavedData
   m_EditorClassIdentifier: 
   _viewName: 
   _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 
+    hiddenValue: 7500440040007800400051005900420061007d00670050004200510050007500550040005500
     inited: 1
-    fakeValue: 
-    fakeValueActive: 0
-  _loadOnStart: 0
-  _init: []
+    fakeValue: AptItemsUISavedData
+    fakeValueActive: 1
+  _loadOnStart: 1
+  _initPurchased:
+  - currentCryptoKey: 4441
+    hiddenValue: 51005a0050004500550056005800540041005d00
+    inited: 1
+    fakeValue: endtableui
+    fakeValueActive: 1
+  _sceneToLoad:
+  - ApartmentCustomize_Scene
