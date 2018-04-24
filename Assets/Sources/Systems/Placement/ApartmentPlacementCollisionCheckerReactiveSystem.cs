@@ -22,7 +22,10 @@ public class ApartmentPlacementCollisionCheckerReactiveSystem : ReactiveSystem<G
     protected override bool Filter (GameEntity entity)
     {
         // check for required components
-        return entity.hasApartmentItem && entity.isPlaceable;
+        return entity.hasApartmentItem &&
+                entity.isPlaceable &&
+                entity.hasTouchData &&
+                entity.touchData.current.Phase == TouchPhase.Moved;
     }
 
     protected override void Execute (List<GameEntity> entities)
