@@ -25,7 +25,7 @@ public sealed class ViewEventSystem : Entitas.ReactiveSystem<GameEntity> {
         foreach (var e in entities) {
             var component = e.view;
             foreach (var listener in e.viewListener.value) {
-                listener.OnView(e, component.name, component.reloadOnSceneChange);
+                listener.OnView(e, component.names, component.reloadOnSceneChange);
             }
         }
     }

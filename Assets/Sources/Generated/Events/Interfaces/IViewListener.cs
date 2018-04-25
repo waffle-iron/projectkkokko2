@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IViewListener {
-    void OnView(GameEntity entity, string name, bool reloadOnSceneChange);
+    void OnView(GameEntity entity, string[] names, bool reloadOnSceneChange);
 }
