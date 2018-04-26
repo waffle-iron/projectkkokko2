@@ -20,3 +20,6 @@ MonoBehaviour:
     fakeValue: apartment_instance_data
     fakeValueActive: 1
   _loadOnStart: 1
+  _scenesToLoad:
+  - Apartment_Scene
+  - ApartmentCustomize_Scene
