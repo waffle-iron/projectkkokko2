@@ -89,6 +89,9 @@ public class ApartmentView : View, IValidPlacementListener, IPlaceablePositionLi
                 _collisions.Clear();
             }
         });
+
+        var gameety = (GameEntity)entity;
+        _col.enabled = gameety.isPlaceable;
         return Observable.Return(true);
     }
 

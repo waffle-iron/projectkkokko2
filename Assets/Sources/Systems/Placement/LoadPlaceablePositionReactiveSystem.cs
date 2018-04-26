@@ -52,6 +52,10 @@ public class LoadPlaceablePositionReactiveSystem : ReactiveSystem<GameEntity>
                         gameety.AddApartmentInstanceSaveID(pos.Key);
                         gameety.ReplacePreviousPosition(pos.Value);
                         gameety.ReplaceValidPlacement(true);
+
+                        //hacky shit
+                        if (_meta.loadSceneService.instance.ActiveScene == "ApartmentCustomize_Scene") { gameety.isPlaceable = true; }
+                        else { gameety.isPlaceable = false; }
                     }
                 }
             }
