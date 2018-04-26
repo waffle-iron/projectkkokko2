@@ -6,7 +6,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener, IGameEquippedRemovedListener, IGamePriceListener, IGamePurchasedListener, IGameAccessoryListener
+public class ShopUIView : View, IGameAffordListener, IGamePriceListener, IGamePurchasedListener, IGamePreviewListener, IGamePreviewRemovedListener
 {
     [Header("Item Specific")]
     [SerializeField]
@@ -24,6 +24,8 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
     [SerializeField]
     private Text _price;
 
+    private bool _isPreview = false;
+
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         //init look
@@ -34,6 +36,17 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
 
         var gameety = (GameEntity)entity;
         _price.text = gameety.hasPrice ? gameety.price.amount.ToString() : "0";
+        _isPreview = gameety.isPreview;
+
+        if (gameety.hasFood)
+        {
+            return contexts.meta.viewService.instance.GetAsset<Sprite>(gameety.food.id, sprite => { _display.sprite = sprite; });
+        }
+        else if (gameety.hasApartmentItem)
+        {
+            return contexts.meta.viewService.instance.GetAsset<Sprite>(gameety.apartmentItem.data.id, sprite => { _display.sprite = sprite; });
+        }
+
         return Observable.Return(true);
     }
 
@@ -41,11 +54,10 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
     {
         var gameEntity = (GameEntity)entity;
         gameEntity.AddGameAffordListener(this);
-        gameEntity.AddGameEquippedListener(this);
-        gameEntity.AddGameEquippedRemovedListener(this);
         gameEntity.AddGamePriceListener(this);
         gameEntity.AddGamePurchasedListener(this);
-        gameEntity.AddGameAccessoryListener(this);
+        gameEntity.AddGamePreviewListener(this);
+        gameEntity.AddGamePreviewRemovedListener(this);
 
     }
 
@@ -53,26 +65,15 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
     {
         var gameEntity = (GameEntity)entity;
         gameEntity.RemoveGameAffordListener(this);
-        gameEntity.RemoveGameEquippedListener(this);
-        gameEntity.RemoveGameEquippedRemovedListener(this);
         gameEntity.RemoveGamePriceListener(this);
         gameEntity.RemoveGamePurchasedListener(this);
-        gameEntity.RemoveGameAccessoryListener(this);
+        gameEntity.RemoveGamePreviewListener(this);
+        gameEntity.RemoveGamePreviewRemovedListener(this);
     }
 
     public void OnAfford (GameEntity entity, bool state)
     {
         _display.color = state ? _afford : _cantAfford;
-    }
-
-    public void OnEquipped (GameEntity entity)
-    {
-        _equipped.enabled = true;
-    }
-
-    public void OnEquippedRemoved (GameEntity entity)
-    {
-        _equipped.enabled = false;
     }
 
     public void OnPrice (GameEntity entity, ObscuredInt amount)
@@ -85,15 +86,19 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
         _purchased.enabled = true;
     }
 
-    public void OnAccessory (GameEntity entity, string id, AccessoryType type)
+    public void OnPreview (GameEntity entity)
     {
-        this.contexts.meta.viewService.instance.GetAsset<Sprite>(id).Subscribe(sprite => _display.sprite = sprite);
+        _isPreview = true;
+    }
+
+    public void OnPreviewRemoved (GameEntity entity)
+    {
+        _isPreview = false;
     }
 
     public void OnClick ()
     {
-        var gameEntity = (GameEntity)this.EntityLink.entity;
-        if (gameEntity.isPreview == false)
+        if (_isPreview == false)
         {
             var inputEntity = contexts.input.CreateEntity();
             inputEntity.AddTargetEntityID(((IIDEntity)EntityLink.entity).iD.value);

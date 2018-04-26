@@ -141,64 +141,66 @@ public static class GameComponentsLookup {
     public const int PreviousPositionListener = 130;
     public const int Price = 131;
     public const int Purchased = 132;
-    public const int ReloadEquipment = 133;
-    public const int RemoveFromStorage = 134;
-    public const int Returnable = 135;
-    public const int ReturnableListener = 136;
-    public const int ReturnableRemovedListener = 137;
-    public const int Return = 138;
-    public const int SavedModifiedEntitiesConfigIDs = 139;
-    public const int SaveID = 140;
-    public const int Saving = 141;
-    public const int SavingListener = 142;
-    public const int SavingRemovedListener = 143;
-    public const int SceneInitConfig = 144;
-    public const int Scenes = 145;
-    public const int Score = 146;
-    public const int ScoreListener = 147;
-    public const int Sleep = 148;
-    public const int SleepListener = 149;
-    public const int SleepRemovedListener = 150;
-    public const int Soap = 151;
-    public const int Space = 152;
-    public const int Spawn = 153;
-    public const int SpawnCounter = 154;
-    public const int SpawnLimit = 155;
-    public const int StateMachine = 156;
-    public const int SuspendedTime = 157;
-    public const int Tag = 158;
-    public const int Targetable = 159;
-    public const int TargetDirectionChecker = 160;
-    public const int TargetDirectionCheckResult = 161;
-    public const int TargetDirectionCheckResultListener = 162;
-    public const int TargetEntityID = 163;
-    public const int TargetMove = 164;
-    public const int TargetNeed = 165;
-    public const int TargetPosition = 166;
-    public const int TargetTag = 167;
-    public const int Teleport = 168;
-    public const int Timer = 169;
-    public const int TimerReset = 170;
-    public const int TimerState = 171;
-    public const int ToDestroy = 172;
-    public const int TopScore = 173;
-    public const int TopScoreListener = 174;
-    public const int TouchData = 175;
-    public const int TouchTimeGap = 176;
-    public const int Trigger = 177;
-    public const int ValidPlacement = 178;
-    public const int ValidPlacementListener = 179;
-    public const int Velocity = 180;
-    public const int VelocityListener = 181;
-    public const int View = 182;
-    public const int ViewListener = 183;
-    public const int ViewRemovedListener = 184;
-    public const int Wallet = 185;
-    public const int Wipe = 186;
-    public const int WipeListener = 187;
-    public const int WipeProgress = 188;
+    public const int Quantity = 133;
+    public const int QuantityListener = 134;
+    public const int ReloadEquipment = 135;
+    public const int RemoveFromStorage = 136;
+    public const int Returnable = 137;
+    public const int ReturnableListener = 138;
+    public const int ReturnableRemovedListener = 139;
+    public const int Return = 140;
+    public const int SavedModifiedEntitiesConfigIDs = 141;
+    public const int SaveID = 142;
+    public const int Saving = 143;
+    public const int SavingListener = 144;
+    public const int SavingRemovedListener = 145;
+    public const int SceneInitConfig = 146;
+    public const int Scenes = 147;
+    public const int Score = 148;
+    public const int ScoreListener = 149;
+    public const int Sleep = 150;
+    public const int SleepListener = 151;
+    public const int SleepRemovedListener = 152;
+    public const int Soap = 153;
+    public const int Space = 154;
+    public const int Spawn = 155;
+    public const int SpawnCounter = 156;
+    public const int SpawnLimit = 157;
+    public const int StateMachine = 158;
+    public const int SuspendedTime = 159;
+    public const int Tag = 160;
+    public const int Targetable = 161;
+    public const int TargetDirectionChecker = 162;
+    public const int TargetDirectionCheckResult = 163;
+    public const int TargetDirectionCheckResultListener = 164;
+    public const int TargetEntityID = 165;
+    public const int TargetMove = 166;
+    public const int TargetNeed = 167;
+    public const int TargetPosition = 168;
+    public const int TargetTag = 169;
+    public const int Teleport = 170;
+    public const int Timer = 171;
+    public const int TimerReset = 172;
+    public const int TimerState = 173;
+    public const int ToDestroy = 174;
+    public const int TopScore = 175;
+    public const int TopScoreListener = 176;
+    public const int TouchData = 177;
+    public const int TouchTimeGap = 178;
+    public const int Trigger = 179;
+    public const int ValidPlacement = 180;
+    public const int ValidPlacementListener = 181;
+    public const int Velocity = 182;
+    public const int VelocityListener = 183;
+    public const int View = 184;
+    public const int ViewListener = 185;
+    public const int ViewRemovedListener = 186;
+    public const int Wallet = 187;
+    public const int Wipe = 188;
+    public const int WipeListener = 189;
+    public const int WipeProgress = 190;
 
-    public const int TotalComponents = 189;
+    public const int TotalComponents = 191;
 
     public static readonly string[] componentNames = {
         "AcceptableRange",
@@ -334,6 +336,8 @@ public static class GameComponentsLookup {
         "PreviousPositionListener",
         "Price",
         "Purchased",
+        "Quantity",
+        "QuantityListener",
         "ReloadEquipment",
         "RemoveFromStorage",
         "Returnable",
@@ -526,6 +530,8 @@ public static class GameComponentsLookup {
         typeof(PreviousPositionListenerComponent),
         typeof(PriceComponent),
         typeof(PurchasedComponent),
+        typeof(QuantityComponent),
+        typeof(QuantityListenerComponent),
         typeof(ReloadEquipmentComponent),
         typeof(RemoveFromStorageComponent),
         typeof(ReturnableComponent),

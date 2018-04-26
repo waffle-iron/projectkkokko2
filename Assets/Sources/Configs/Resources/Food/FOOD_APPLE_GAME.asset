@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _viewNames:
   - FoodView
+  - FoodUIView
   _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441

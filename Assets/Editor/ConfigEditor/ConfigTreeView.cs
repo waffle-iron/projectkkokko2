@@ -93,7 +93,7 @@ public class ConfigTreeView : TreeView
         _itemguidList = new Dictionary<UnityEngine.Object, string>();
         _itemIDList = new Dictionary<int, UnityEngine.Object>();
 
-        var guids = AssetDatabase.FindAssets("t:UnityEntityConfig t:AssetBundleConfig t:InitSceneConfig " + filterText);
+        var guids = AssetDatabase.FindAssets("t:UnityEntityConfig t:AssetBundleConfig t:InitSceneConfig t:InitEntityConfig " + filterText);
 
         var groupOfItems = guids.Select(guid =>
         {
@@ -102,6 +102,7 @@ public class ConfigTreeView : TreeView
 
             if (asset == null) { asset = AssetDatabase.LoadAssetAtPath<AssetBundleConfig>(path); }
             if (asset == null) { asset = AssetDatabase.LoadAssetAtPath<InitSceneConfig>(path); }
+            if (asset == null) { asset = AssetDatabase.LoadAssetAtPath<InitEntityConfig>(path); }
 
             _itemguidList.Add(asset, guid);
             return asset;

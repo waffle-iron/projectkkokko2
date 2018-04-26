@@ -34,7 +34,7 @@ public class PreviewInputReactiveSystem : ReactiveSystem<InputEntity>
         {
             // do stuff to the matched entities
             var target = _game.GetEntityWithID(e.targetEntityID.value);
-            if (target != null && target.hasAccessory && target.isPreview == false)
+            if (target != null && (target.hasAccessory || target.hasFood || target.hasApartmentItem) && target.isPreview == false)
             {
                 var cmdEntity = _cmd.CreateEntity();
                 cmdEntity.AddTargetEntityID(e.targetEntityID.value);
