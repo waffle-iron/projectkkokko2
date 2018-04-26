@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a219f5e308b805145a17fde4f7e276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: Shop_Scene
+  target: ApartmentCustomize_Scene
   delay: 1
 --- !u!1 &1004094931
 GameObject:

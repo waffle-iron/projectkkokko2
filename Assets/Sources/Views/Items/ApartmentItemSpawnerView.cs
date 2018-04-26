@@ -6,24 +6,32 @@ using UnityEngine.UI;
 using Entitas;
 using UniRx;
 
-public class ApartmentUIView : View
+public class ApartmentItemSpawnerView : View
 {
-    //insert serialized fields here
-    [SerializeField]
-    private Image _sprite;
     [SerializeField]
     private SpawnItemOnDrag _spawner;
 
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         var gameety = (GameEntity)entity;
-        Debug.Assert(gameety.hasApartmentItem);
-        //Debug.Assert(gameety.hasEntity && gameety.entity.entities.Length > 0);
+        Debug.Assert(gameety.hasApartmentItemsPurchasedList);
 
-        //_spawner.entityID = gameety.entity.entities[0];
+        var aptItems = gameety.apartmentItemsPurchasedList._cfgIds;
 
         var service = this.contexts.meta.viewService.instance;
-        return service.GetAsset<Sprite>(gameety.apartmentItem.data.id, newSprite => { _sprite.sprite = newSprite; });
+
+        if (aptItems.Count > 0)
+        {
+            foreach (var item in aptItems)
+            {
+                var instance = GameObject.Instantiate(_spawner, _spawner.transform.parent, true);
+                instance.entityID = item.Key;
+                instance.SetImage(item.Value.id, service);
+                instance.gameObject.SetActive(true);
+            }
+        }
+
+        return Observable.Return(true);
     }
 
     protected override void RegisterListeners (IEntity entity, IContext context)

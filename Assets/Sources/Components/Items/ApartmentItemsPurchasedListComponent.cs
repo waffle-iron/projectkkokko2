@@ -8,5 +8,5 @@ using Entitas.CodeGeneration.Attributes;
 [Game, Unique]
 public sealed class ApartmentItemsPurchasedListComponent : IComponent
 {
-    public List<string> _cfgIds;
+    public Dictionary<string, ApartmentItemData> _cfgIds;
 }

@@ -12,7 +12,7 @@ public partial class GameContext {
     public ApartmentItemsPurchasedListComponent apartmentItemsPurchasedList { get { return apartmentItemsPurchasedListEntity.apartmentItemsPurchasedList; } }
     public bool hasApartmentItemsPurchasedList { get { return apartmentItemsPurchasedListEntity != null; } }
 
-    public GameEntity SetApartmentItemsPurchasedList(System.Collections.Generic.List<string> new_cfgIds) {
+    public GameEntity SetApartmentItemsPurchasedList(System.Collections.Generic.Dictionary<string, ApartmentItemData> new_cfgIds) {
         if (hasApartmentItemsPurchasedList) {
             throw new Entitas.EntitasException("Could not set ApartmentItemsPurchasedList!\n" + this + " already has an entity with ApartmentItemsPurchasedListComponent!",
                 "You should check if the context already has a apartmentItemsPurchasedListEntity before setting it or use context.ReplaceApartmentItemsPurchasedList().");
@@ -22,7 +22,7 @@ public partial class GameContext {
         return entity;
     }
 
-    public void ReplaceApartmentItemsPurchasedList(System.Collections.Generic.List<string> new_cfgIds) {
+    public void ReplaceApartmentItemsPurchasedList(System.Collections.Generic.Dictionary<string, ApartmentItemData> new_cfgIds) {
         var entity = apartmentItemsPurchasedListEntity;
         if (entity == null) {
             entity = SetApartmentItemsPurchasedList(new_cfgIds);
@@ -49,14 +49,14 @@ public partial class GameEntity {
     public ApartmentItemsPurchasedListComponent apartmentItemsPurchasedList { get { return (ApartmentItemsPurchasedListComponent)GetComponent(GameComponentsLookup.ApartmentItemsPurchasedList); } }
     public bool hasApartmentItemsPurchasedList { get { return HasComponent(GameComponentsLookup.ApartmentItemsPurchasedList); } }
 
-    public void AddApartmentItemsPurchasedList(System.Collections.Generic.List<string> new_cfgIds) {
+    public void AddApartmentItemsPurchasedList(System.Collections.Generic.Dictionary<string, ApartmentItemData> new_cfgIds) {
         var index = GameComponentsLookup.ApartmentItemsPurchasedList;
         var component = CreateComponent<ApartmentItemsPurchasedListComponent>(index);
         component._cfgIds = new_cfgIds;
         AddComponent(index, component);
     }
 
-    public void ReplaceApartmentItemsPurchasedList(System.Collections.Generic.List<string> new_cfgIds) {
+    public void ReplaceApartmentItemsPurchasedList(System.Collections.Generic.Dictionary<string, ApartmentItemData> new_cfgIds) {
         var index = GameComponentsLookup.ApartmentItemsPurchasedList;
         var component = CreateComponent<ApartmentItemsPurchasedListComponent>(index);
         component._cfgIds = new_cfgIds;

@@ -62,7 +62,7 @@ public class PurchaseCommandReactiveSystem : ReactiveSystem<CommandEntity>
 
             if (target.hasApartmentItem && _game.hasApartmentItemsPurchasedList)
             {
-                _game.apartmentItemsPurchasedList._cfgIds.Add(target.entityConfig.name);
+                _game.apartmentItemsPurchasedList._cfgIds.Add(target.entityConfig.name, target.apartmentItem.data);
                 var saveListEntity = _input.CreateEntity();
                 saveListEntity.AddTargetEntityID(_game.apartmentItemsPurchasedListEntity.iD.value);
                 saveListEntity.isSave = true;

@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d83cdff28dddf04a85ebeaec5e560f3, type: 3}
   m_Name: APARTMENT_PURCHASE_DATA
   m_EditorClassIdentifier: 
-  _viewNames: []
+  _viewNames:
+  - ApartmenItemSpawnerView
   _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
@@ -20,5 +21,3 @@ MonoBehaviour:
     fakeValue: apartment_purchase_data
     fakeValueActive: 1
   _loadOnStart: 1
-  _initPurchases:
-  - endtable
