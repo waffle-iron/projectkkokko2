@@ -45,7 +45,14 @@ public class ConsumedCompleteCommandReactiveSystem : ReactiveSystem<CommandEntit
                 consumer?.RemoveConsuming();
 
                 var uiFood = _game.GetEntityWithID(target.targetEntityID.value);
-                uiFood.isToDestroy = true;
+                if (uiFood.hasQuantity)
+                {
+                    var newQtty = uiFood.quantity.value - 1;
+                    if (newQtty <= 0) { uiFood.isToDestroy = true; }
+                    else { uiFood.ReplaceQuantity(newQtty); uiFood.isRemoveFromStorage = false; }
+                }
+                else { uiFood.isToDestroy = true; }
+
                 target.isToDestroy = true;
             }
 
