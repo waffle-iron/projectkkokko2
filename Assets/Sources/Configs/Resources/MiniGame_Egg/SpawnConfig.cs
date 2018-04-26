@@ -24,6 +24,7 @@ public class SpawnConfig : UnityEntityConfig
         gameEty.AddTimer(0f);
         gameEty.AddTimerState(false);
         gameEty.AddTag(_tag);
+        gameEty.AddScore(0);
 
         return gameEty;
     }

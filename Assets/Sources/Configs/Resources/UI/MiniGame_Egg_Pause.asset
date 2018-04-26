@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251924eb9aba9154b9220e0cd08b674c, type: 3}
   m_Name: MiniGame_Egg_Pause
   m_EditorClassIdentifier: 
-  _viewName: PauseView
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - PauseView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 

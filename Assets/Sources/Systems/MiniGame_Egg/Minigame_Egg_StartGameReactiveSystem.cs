@@ -11,7 +11,8 @@ public class Minigame_Egg_StartGameReactiveSystem : ReactiveSystem<GameEntity>
 
     private readonly InputContext _input;
 
-    private readonly int SPAWN_COIN = 1;
+    private readonly int SPAWN_COIN = 5;
+    private readonly int SPAWN_OBSTACLE = 8;
 
     public Minigame_Egg_StartGameReactiveSystem (Contexts contexts) : base(contexts.game)
     {
@@ -46,10 +47,11 @@ public class Minigame_Egg_StartGameReactiveSystem : ReactiveSystem<GameEntity>
 
             foreach (var spawn in _spawners.GetEntities())
             {
-                var inputEty = _input.CreateEntity();
+                
                 //if scoin spawner, check to activate/deactivate
                 if (spawn.hasCoin && spawn.hasScore)
                 {
+                    var inputEty = _input.CreateEntity();
                     inputEty.AddTargetEntityID(spawn.iD.value);
                     if (spawn.score.value > 0 && spawn.score.value % SPAWN_COIN == 0)
                     {
@@ -60,9 +62,19 @@ public class Minigame_Egg_StartGameReactiveSystem : ReactiveSystem<GameEntity>
                         inputEty.AddTimerState(false);
                     }
                 }
-                else
+
+                else if (spawn.hasScore && spawn.hasCoin == false)
                 {
-                    inputEty.ReplaceTimerState(true);
+                    var inputEty = _input.CreateEntity();
+                    inputEty.AddTargetEntityID(spawn.iD.value);
+                    if (spawn.score.value > 0 && spawn.score.value % SPAWN_OBSTACLE == 0)
+                    {
+                        inputEty.AddTimerState(true);
+                    }
+                    else
+                    {
+                        inputEty.AddTimerState(false);
+                    }
                 }
 
 
