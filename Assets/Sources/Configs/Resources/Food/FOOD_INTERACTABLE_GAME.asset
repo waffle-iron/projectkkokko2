@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440e33d456682e24f9a33e4bc5fe78d6, type: 3}
   m_Name: FOOD_INTERACTABLE_GAME
   m_EditorClassIdentifier: 
-  _viewName: FoodActualView
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - FoodActualView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 

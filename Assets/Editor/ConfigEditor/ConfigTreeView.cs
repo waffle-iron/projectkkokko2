@@ -4,11 +4,12 @@ using UnityEngine;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
+using System;
 
 public class ConfigTreeView : TreeView
 {
-    private Dictionary<UnityEntityConfig, string> _itemguidList;
-    private Dictionary<int, UnityEntityConfig> _itemIDList;
+    private Dictionary<UnityEngine.Object, string> _itemguidList;
+    private Dictionary<int, UnityEngine.Object> _itemIDList;
 
     private TreeViewItem root;
     private string filterText = "";
@@ -23,14 +24,21 @@ public class ConfigTreeView : TreeView
         if (filterText != filter)
         {
             this.filterText = filter;
-            Reload();
+            try
+            {
+                Reload();
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("no config results");
+            }
         }
     }
 
-    public UnityEntityConfig GetSelectedItem ()
+    public UnityEngine.Object GetSelectedItem ()
     {
         var selID = this.GetSelection().FirstOrDefault();
-        UnityEntityConfig config = null;
+        UnityEngine.Object config = null;
         _itemIDList.TryGetValue(selID, out config);
 
         return config;
@@ -61,6 +69,11 @@ public class ConfigTreeView : TreeView
         this.BeginRename(item);
     }
 
+    protected override bool CanRename (TreeViewItem item)
+    {
+        return base.CanRename(item);
+    }
+
     protected override void RenameEnded (RenameEndedArgs args)
     {
         var item = this.FindItem(args.itemID, root);
@@ -77,20 +90,26 @@ public class ConfigTreeView : TreeView
 
     protected override TreeViewItem BuildRoot ()
     {
-        _itemguidList = new Dictionary<UnityEntityConfig, string>();
-        _itemIDList = new Dictionary<int, UnityEntityConfig>();
+        _itemguidList = new Dictionary<UnityEngine.Object, string>();
+        _itemIDList = new Dictionary<int, UnityEngine.Object>();
 
-        var guids = AssetDatabase.FindAssets("t:UnityEntityConfig " + filterText);
-        Debug.Log(guids.Length);
+        var guids = AssetDatabase.FindAssets("t:UnityEntityConfig t:AssetBundleConfig t:InitSceneConfig " + filterText);
+
         var groupOfItems = guids.Select(guid =>
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);
-            var asset = AssetDatabase.LoadAssetAtPath<UnityEntityConfig>(path);
+            UnityEngine.Object asset = AssetDatabase.LoadAssetAtPath<UnityEntityConfig>(path);
+
+            if (asset == null) { asset = AssetDatabase.LoadAssetAtPath<AssetBundleConfig>(path); }
+            if (asset == null) { asset = AssetDatabase.LoadAssetAtPath<InitSceneConfig>(path); }
+
             _itemguidList.Add(asset, guid);
             return asset;
         }).GroupBy(config => config.GetType());
 
         root = new TreeViewItem(0, -1, "Root");
+
+        if (guids.Length == 0) { return root; }
 
         var currID = 1;
         foreach (var group in groupOfItems)

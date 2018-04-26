@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a38066b655df6042bdd770be684418c, type: 3}
   m_Name: SoapEntityConfig
   m_EditorClassIdentifier: 
-  _viewName: SoapActualView
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - SoapActualView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 

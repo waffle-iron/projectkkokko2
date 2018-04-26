@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 744b54252fa85f74b93631fb878b6ea0, type: 3}
   m_Name: FOOD_ORANGE_GAME
   m_EditorClassIdentifier: 
-  _name: 18
-  _viewName: FoodView
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - FoodView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 52005b005b0055006b005b00460050005a0053005100

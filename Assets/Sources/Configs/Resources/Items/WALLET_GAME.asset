@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bb9d02a0b02ea438028163bc319ccd, type: 3}
   m_Name: WALLET_GAME
   m_EditorClassIdentifier: 
-  _viewNames: []
+  _viewNames:
+  - WalletView
   _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
