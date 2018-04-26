@@ -59,6 +59,14 @@ public class PurchaseCommandReactiveSystem : ReactiveSystem<CommandEntity>
                 equipInputEntity.AddTargetEntityID(target.iD.value);
                 equipInputEntity.isEquipped = true;
             }
+
+            if (target.hasApartmentItem && _game.hasApartmentItemsPurchasedList)
+            {
+                _game.apartmentItemsPurchasedList._cfgIds.Add(target.entityConfig.name);
+                var saveListEntity = _input.CreateEntity();
+                saveListEntity.AddTargetEntityID(_game.apartmentItemsPurchasedListEntity.iD.value);
+                saveListEntity.isSave = true;
+            }
         }
     }
 }

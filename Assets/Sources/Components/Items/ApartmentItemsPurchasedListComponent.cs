@@ -6,6 +6,7 @@ using Entitas.CodeGeneration.Attributes;
 
 //[Entitas.CodeGenerator.SingleEntity]
 [Game, Unique]
-public sealed class ApartmentItemsSavedDataComponent : IComponent
+public sealed class ApartmentItemsPurchasedListComponent : IComponent
 {
+    public List<string> _cfgIds;
 }

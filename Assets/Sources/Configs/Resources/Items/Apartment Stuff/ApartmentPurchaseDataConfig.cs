@@ -4,21 +4,18 @@ using UnityEngine;
 using Entitas;
 using UniRx;
 
-public class ApartmentItemUIConfig : UnityEntityConfig
+public class ApartmentPurchaseDataConfig : UnityEntityConfig
 {
     //enter serialized fields here
-    [Header("Apartment UI Entity Settings")]
+    [Header("Apartment Purchase Data")]
     [SerializeField]
-    private ApartmentItemData _data;
-    [SerializeField]
-    private string _toSpawnEntity;
+    private List<string> _initPurchases = new List<string>();
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
         var gameEty = contexts.game.CreateEntity();
-        gameEty.AddApartmentItem(_data);
-        gameEty.AddEntity(new string[] { _toSpawnEntity });
-
+        gameEty.AddApartmentItemsPurchasedList(_initPurchases);
+        gameEty.isDoNotDestroyOnSceneChange = true;
         return gameEty;
     }
 }

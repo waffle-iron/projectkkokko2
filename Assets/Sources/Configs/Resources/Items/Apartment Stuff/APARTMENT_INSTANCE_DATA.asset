@@ -8,19 +8,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61e1b41c8116bd445afea0fd6edfdc4b, type: 3}
-  m_Name: endtableui
+  m_Script: {fileID: 11500000, guid: 439ebafe1f5cbb14cac4c06c30732754, type: 3}
+  m_Name: APARTMENT_INSTANCE_DATA
   m_EditorClassIdentifier: 
-  _viewName: AptItemUIView
+  _viewNames: []
   _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 
+    hiddenValue: 55004400550043004000590051005f0040006b005d005f004700400055005f00570051006b005500550040005500
     inited: 1
-    fakeValue: 
-    fakeValueActive: 0
-  _loadOnStart: 0
-  _data:
-    _type: 2
-    _id: endtable
-  _toSpawnEntity: endtable
+    fakeValue: apartment_instance_data
+    fakeValueActive: 1
+  _loadOnStart: 1

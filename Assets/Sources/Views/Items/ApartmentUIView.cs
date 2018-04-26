@@ -18,9 +18,9 @@ public class ApartmentUIView : View
     {
         var gameety = (GameEntity)entity;
         Debug.Assert(gameety.hasApartmentItem);
-        Debug.Assert(gameety.hasEntity && gameety.entity.entities.Length > 0);
+        //Debug.Assert(gameety.hasEntity && gameety.entity.entities.Length > 0);
 
-        _spawner.entityID = gameety.entity.entities[0];
+        //_spawner.entityID = gameety.entity.entities[0];
 
         var service = this.contexts.meta.viewService.instance;
         return service.GetAsset<Sprite>(gameety.apartmentItem.data.id, newSprite => { _sprite.sprite = newSprite; });

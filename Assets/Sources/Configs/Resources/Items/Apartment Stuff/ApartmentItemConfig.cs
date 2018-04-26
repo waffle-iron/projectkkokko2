@@ -12,6 +12,8 @@ public class ApartmentItemConfig : UnityEntityConfig
     private string _id;
     [SerializeField]
     private ApartmentItemType _type;
+    [SerializeField]
+    private int _price = 0;
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
@@ -21,6 +23,8 @@ public class ApartmentItemConfig : UnityEntityConfig
         gameEty.isCollidable = true;
         gameEty.isPlaceable = true;
         gameEty.AddValidPlacement(false);
+        gameEty.AddPrice(_price);
+        gameEty.isPurchased = false;
 
         return gameEty;
     }
