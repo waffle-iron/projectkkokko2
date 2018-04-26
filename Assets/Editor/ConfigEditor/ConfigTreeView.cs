@@ -11,10 +11,20 @@ public class ConfigTreeView : TreeView
     private Dictionary<int, UnityEntityConfig> _itemIDList;
 
     private TreeViewItem root;
+    private string filterText = "";
 
     public ConfigTreeView (TreeViewState state) : base(state)
     {
         Reload();
+    }
+
+    public void FilterList (string filter)
+    {
+        if (filterText != filter)
+        {
+            this.filterText = filter;
+            Reload();
+        }
     }
 
     public UnityEntityConfig GetSelectedItem ()
@@ -70,7 +80,8 @@ public class ConfigTreeView : TreeView
         _itemguidList = new Dictionary<UnityEntityConfig, string>();
         _itemIDList = new Dictionary<int, UnityEntityConfig>();
 
-        var guids = AssetDatabase.FindAssets("t:UnityEntityConfig");
+        var guids = AssetDatabase.FindAssets("t:UnityEntityConfig " + filterText);
+        Debug.Log(guids.Length);
         var groupOfItems = guids.Select(guid =>
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);

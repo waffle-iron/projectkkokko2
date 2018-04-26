@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.IMGUI.Controls;
 
 public class ConfigEditorWindow : EditorWindow
 {
     ConfigTreeView _configView;
+    SearchField _search;
 
     private Rect resizer;
 
     private float sizeRatio = 0.2f;
     private bool isResizing;
+    private string prevSearch = "";
 
     GUIStyle resizerStyle;
 
@@ -25,6 +28,7 @@ public class ConfigEditorWindow : EditorWindow
     private void OnEnable ()
     {
         _configView = new ConfigTreeView(new UnityEditor.IMGUI.Controls.TreeViewState());
+        _search = new SearchField();
         resizerStyle = new GUIStyle();
         resizerStyle.normal.background = EditorGUIUtility.whiteTexture;
         sizeRatio = .2f;
@@ -37,20 +41,23 @@ public class ConfigEditorWindow : EditorWindow
 
     private void OnGUI ()
     {
+        var upperPanel = new Rect(0, 10f, position.width, 15f);
+        prevSearch = _search.OnToolbarGUI(upperPanel, prevSearch);
+
         var leftRatio = position.width * sizeRatio;
         var rightRatio = position.width * (1 - sizeRatio);
 
-        var leftPanel = new Rect(0, 0, leftRatio, position.height);
-        HeirarchyPanel(leftPanel);
+        var leftPanel = new Rect(0, upperPanel.height, leftRatio, position.height);
+        HeirarchyPanel(leftPanel, prevSearch);
 
-        var resizer = DrawResizer();
+        var resizer = DrawResizer(upperPanel.height + upperPanel.y);
         ProcessEvents(Event.current);
 
 
         var selection = _configView.GetSelectedItem();
         if (selection != null)
         {
-            var rightPanel = new Rect(leftPanel.width + resizer.width, 20f, rightRatio - 20f, position.height);
+            var rightPanel = new Rect(leftPanel.width + resizer.width, 20f + upperPanel.height, rightRatio - 20f, position.height);
             var obj = new SerializedObject(selection);
             InspectorPanel(new Rect(rightPanel), obj);
 
@@ -83,9 +90,10 @@ public class ConfigEditorWindow : EditorWindow
     }
 
 
-    void HeirarchyPanel (Rect rect)
+    void HeirarchyPanel (Rect rect, string filter)
     {
         GUILayout.BeginArea(rect);
+        _configView.FilterList(filter);
         _configView.OnGUI(rect);
         GUILayout.EndArea();
     }
@@ -140,9 +148,9 @@ public class ConfigEditorWindow : EditorWindow
         }
     }
 
-    Rect DrawResizer ()
+    Rect DrawResizer (float yPos)
     {
-        resizer = new Rect((position.width * sizeRatio) - 5f, 0, 10f, position.height);
+        resizer = new Rect((position.width * sizeRatio) - 5f, yPos, 10f, position.height);
 
         GUILayout.BeginArea(new Rect(resizer.position + (Vector2.right * 5f), new Vector2(2, position.height)), resizerStyle);
         GUILayout.EndArea();
