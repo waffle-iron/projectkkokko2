@@ -8,21 +8,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 744b54252fa85f74b93631fb878b6ea0, type: 3}
-  m_Name: FOOD_ORANGE_GAME
+  m_Script: {fileID: 11500000, guid: 7dbd28487869a354aa43e0a4edb214b2, type: 3}
+  m_Name: ACTION_CUSTOMIZESCENE_INPUT
   m_EditorClassIdentifier: 
-  _viewNames:
-  - FoodView
-  - FoodUIView
+  _viewNames: []
   _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
-    hiddenValue: 52005b005b0055006b005b00460050005a0053005100
+    hiddenValue: 
     inited: 1
-    fakeValue: food_orange
-    fakeValueActive: 1
-  _loadOnStart: 1
-  name: orange
-  price: 2
-  recovery: 0.2
-  _initQuantity: 1
+    fakeValue: 
+    fakeValueActive: 0
+  _loadOnStart: 0
+  _targetScene: ApartmentCustomize_Scene

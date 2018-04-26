@@ -596,7 +596,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1088016448623858, guid: 9cb7daacedced92438c086d0882c28e8, type: 2}
       propertyPath: m_Name
-      value: PoopView
+      value: CustomizeView
       objectReference: {fileID: 0}
     - target: {fileID: 114157704070438408, guid: 9cb7daacedced92438c086d0882c28e8,
         type: 2}
@@ -609,7 +609,23 @@ Prefab:
       propertyPath: label
       value: Poop
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114890195859709954, guid: 9cb7daacedced92438c086d0882c28e8,
+        type: 2}
+      propertyPath: m_Text
+      value: Customize
+      objectReference: {fileID: 0}
+    - target: {fileID: 114484649166991022, guid: 9cb7daacedced92438c086d0882c28e8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 277116115}
+    - target: {fileID: 114484649166991022, guid: 9cb7daacedced92438c086d0882c28e8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Execute
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114157704070438408, guid: 9cb7daacedced92438c086d0882c28e8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9cb7daacedced92438c086d0882c28e8, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &277116113 stripped
@@ -617,6 +633,24 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224290147071398398, guid: 9cb7daacedced92438c086d0882c28e8,
     type: 2}
   m_PrefabInternal: {fileID: 277116112}
+--- !u!1 &277116114 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1088016448623858, guid: 9cb7daacedced92438c086d0882c28e8,
+    type: 2}
+  m_PrefabInternal: {fileID: 277116112}
+--- !u!114 &277116115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 277116114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23798d9074781345bb5b4af4fc541be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entity: ACTION_CUSTOMIZESCENE_INPUT
+  _isToggle: 0
 --- !u!1001 &278154620
 Prefab:
   m_ObjectHideFlags: 0

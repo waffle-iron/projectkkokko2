@@ -41,6 +41,8 @@ public class FoodUIView : View, IGameRemoveFromStorageListener, IGameRemoveFromS
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
         var gameEtty = (GameEntity)entity;
+        _quantity.text = gameEtty.hasQuantity ? gameEtty.quantity.value.ToString() : "?";
+
         if (gameEtty.hasFood)
         {
             return this.contexts.meta.viewService.instance.GetAsset<Sprite>(gameEtty.food.id, (sprite) =>
@@ -48,7 +50,6 @@ public class FoodUIView : View, IGameRemoveFromStorageListener, IGameRemoveFromS
                 _image.sprite = sprite;
             });
         }
-        _quantity.text = gameEtty.hasQuantity ? gameEtty.quantity.value.ToString() : "?";
 
         return Observable.Return(true);
     }

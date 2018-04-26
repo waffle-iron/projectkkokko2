@@ -95,7 +95,7 @@ public class ApartmentView : View, IValidPlacementListener, IPlaceablePositionLi
     protected override void Cleanup ()
     {
         base.Cleanup();
-        collisionDisposable.Dispose();
+        if (collisionDisposable != null) collisionDisposable.Dispose();
     }
 
     protected override void RegisterListeners (IEntity entity, IContext context)

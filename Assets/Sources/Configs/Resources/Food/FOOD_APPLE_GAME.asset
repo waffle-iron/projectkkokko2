@@ -25,3 +25,4 @@ MonoBehaviour:
   name: apple
   price: 1
   recovery: 0.1
+  _initQuantity: 1
