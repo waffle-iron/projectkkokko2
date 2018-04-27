@@ -9,11 +9,11 @@ using UnityEngine.UI;
 public class NeedView : View, IGameCurrentListener
 {
     [SerializeField]
-    private Text text;
+    private Slider _slider;
 
     public void OnCurrent (GameEntity entity, int amount)
     {
-        text.text = amount.ToString();
+        _slider.value = amount;
     }
 
     protected override void OnEnable ()
@@ -23,6 +23,11 @@ public class NeedView : View, IGameCurrentListener
 
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
+        var gameety = (GameEntity)entity;
+
+        if (gameety.hasMax) { _slider.maxValue = gameety.max.amount; }
+        if (gameety.hasCurrent) { _slider.value = gameety.current.amount; }
+
         return Observable.Return(true);
     }
 

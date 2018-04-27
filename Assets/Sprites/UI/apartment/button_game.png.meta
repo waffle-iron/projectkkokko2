@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 375b71b46500dfb4b8035090522c506b
-timeCreated: 1523954360
+guid: 4e1b68a0bbc43084588dc9ec5e27f705
+timeCreated: 1524812430
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
@@ -22,7 +22,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 1
+  isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -94,5 +94,5 @@ TextureImporter:
     physicsShape: []
   spritePackingTag: 
   userData: 
-  assetBundleName: items
+  assetBundleName: ui
   assetBundleVariant: 
