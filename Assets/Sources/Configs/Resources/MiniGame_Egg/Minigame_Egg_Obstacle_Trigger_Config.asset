@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd899a003ff202b4c8e6ffe0dee3fb8c, type: 3}
   m_Name: Minigame_Egg_Obstacle_Trigger_Config
   m_EditorClassIdentifier: 
-  _viewName: MissView
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - MissView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 

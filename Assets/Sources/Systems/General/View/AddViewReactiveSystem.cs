@@ -31,7 +31,7 @@ public class AddViewReactiveSystem : ReactiveSystem<GameEntity>
         foreach (var e in entities)
         {
             // do stuff to the matched entities
-            _meta.viewService.instance.Instantiate(_game, e, e.view.name);
+            _meta.viewService.instance.Instantiate(_game, e, e.view.names);
             e.isAddedView = true;
         }
     }

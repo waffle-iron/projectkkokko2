@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a501d687951dc468c63654e6c23158, type: 3}
   m_Name: FOOD_RETURN_GAME
   m_EditorClassIdentifier: 
-  _viewName: ReturnView
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - ReturnView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 

@@ -25,6 +25,7 @@ public partial class UnityEntityService : IEntityService
     public bool Add (IEntityConfig config)
     {
         IEntityConfig value = null;
+        if (config == null) { return false; }
         try
         {
             if (_configs.TryGetValue(config.Name, out value))
@@ -42,6 +43,11 @@ public partial class UnityEntityService : IEntityService
         catch (ArgumentException e)
         {
             Debug.LogWarning($"duplicate ID: {config.Name}\n{e.Message}");
+            return false;
+        }
+        catch (NullReferenceException e)
+        {
+            Debug.LogError(e.Message);
             return false;
         }
 

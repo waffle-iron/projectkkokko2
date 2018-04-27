@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9204b035db152744b8929522c1d61b6f, type: 3}
   m_Name: MiniGame_Egg_CoinSpawningConfig
   m_EditorClassIdentifier: 
-  _viewName: 
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - 
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 
@@ -29,5 +30,5 @@ MonoBehaviour:
     length: 1
     unit: 1
   maxInterval:
-    length: 5
+    length: 3
     unit: 1

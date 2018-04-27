@@ -2,15 +2,10 @@
 using UnityEngine;
 
 [System.Serializable]
-public struct ApartmentItemData
+public class ApartmentItemData
 {
-    [SerializeField]
-    private ApartmentItemType _type;
-    [SerializeField]
-    private string _id;
-
-    public ApartmentItemType type { get { return _type; } private set { _type = value; } }
-    public string id { get { return _id; } private set { _id = value; } }
+    public ApartmentItemType type;
+    public string id;
 
     public static ApartmentItemData Empty
     {
@@ -21,8 +16,8 @@ public struct ApartmentItemData
 
     public ApartmentItemData (ApartmentItemType type, string id)
     {
-        this._type = type;
-        this._id = id;
+        this.type = type;
+        this.id = id;
     }
 }
 

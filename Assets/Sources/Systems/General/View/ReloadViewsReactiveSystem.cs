@@ -37,7 +37,7 @@ public class ReloadViewsReactiveSystem : ReactiveSystem<GameEntity>
                 if (viewEntity.isAddedView || viewEntity.view.reloadOnSceneChange == false) { continue; }
                 else
                 {
-                    _meta.viewService.instance.Instantiate(_game, viewEntity, viewEntity.view.name);
+                    _meta.viewService.instance.Instantiate(_game, viewEntity, viewEntity.view.names);
                     viewEntity.isAddedView = true;
                 }
             }

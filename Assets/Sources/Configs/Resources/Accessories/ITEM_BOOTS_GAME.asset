@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d477fd476b3784899c07ce4f3072d5, type: 3}
   m_Name: ITEM_BOOTS_GAME
   m_EditorClassIdentifier: 
-  _viewName: ItemUIView
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - CostumeUIView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 5d00400051005c006b0056005b005e0040004700

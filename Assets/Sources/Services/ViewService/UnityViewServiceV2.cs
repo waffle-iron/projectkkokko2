@@ -101,24 +101,28 @@ public class UnityViewServiceV2 : IViewService
     }
 
 
-    public void Instantiate (IContext context, IEntity entity, string name)
+    public void Instantiate (IContext context, IEntity entity, string[] names)
     {
         ObjectPool pool = null;
-        try
+        foreach (var name in names)
         {
-            if (_pools.TryGetValue(name, out pool))
+            try
             {
-                var views = pool.Get()?.GetComponentsInChildren<IView>(true);
 
-                foreach (var view in views)
+                if (_pools.TryGetValue(name, out pool))
                 {
-                    view.Link(entity, context);
+                    var views = pool.Get()?.GetComponentsInChildren<IView>(true);
+
+                    foreach (var view in views)
+                    {
+                        view.Link(entity, context);
+                    }
                 }
             }
-        }
-        catch (NullReferenceException ex)
-        {
-            Debug.LogWarning($"view: {name} does not exist in the pool or in scene {SceneManager.GetActiveScene().name} \n{ex.Message}");
+            catch (NullReferenceException ex)
+            {
+                Debug.LogWarning($"view: {name} does not exist in the pool or in scene {SceneManager.GetActiveScene().name} \n{ex.Message}");
+            }
         }
     }
 

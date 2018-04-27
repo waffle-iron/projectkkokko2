@@ -115,6 +115,7 @@ public sealed class EventSystems : Feature {
         Add(new GamePurchasedEventSystem(contexts)); // priority: 0
         Add(new InputPurchasedEventSystem(contexts)); // priority: 0
         Add(new CommandPurchasedEventSystem(contexts)); // priority: 0
+        Add(new QuantityEventSystem(contexts)); // priority: 0
         Add(new GameRemoveFromStorageEventSystem(contexts)); // priority: 0
         Add(new InputRemoveFromStorageEventSystem(contexts)); // priority: 0
         Add(new CommandRemoveFromStorageEventSystem(contexts)); // priority: 0

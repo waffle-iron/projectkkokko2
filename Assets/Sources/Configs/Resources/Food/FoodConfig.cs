@@ -13,7 +13,9 @@ public class FoodConfig : UnityEntityConfig
     [SerializeField]
     [Range(0.00f, 1.00f)]
     private float recovery;
-    
+    [SerializeField]
+    private int _initQuantity = 0;
+
 
     protected override IEntity CustomCreate (Contexts contexts)
     {
@@ -21,6 +23,8 @@ public class FoodConfig : UnityEntityConfig
 
         gameEntity.AddFood(name, recovery);
         gameEntity.AddPrice(price);
+        gameEntity.isPurchased = false;
+        gameEntity.AddQuantity((uint)_initQuantity);
 
         return gameEntity;
     }

@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 744b54252fa85f74b93631fb878b6ea0, type: 3}
   m_Name: FOOD_APPLE_GAME
   m_EditorClassIdentifier: 
-  _name: 17
-  _viewName: FoodView
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - FoodView
+  - FoodUIView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 52005b005b0055006b0055004400410058005100
@@ -24,3 +25,4 @@ MonoBehaviour:
   name: apple
   price: 1
   recovery: 0.1
+  _initQuantity: 1

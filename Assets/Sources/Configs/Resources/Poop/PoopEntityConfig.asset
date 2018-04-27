@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9afbc86b78e04047b283a7522900e69, type: 3}
   m_Name: PoopEntityConfig
   m_EditorClassIdentifier: 
-  _viewName: PoopActualView
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - PoopActualView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 

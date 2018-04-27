@@ -7,12 +7,13 @@ public class SavePlacementReactiveSystem : ReactiveSystem<GameEntity>
 {
     private readonly InputContext _input;
     private readonly GameContext _game;
-    private const string savePlacementSuffix = "_placement";
+    private readonly IGroup<GameEntity> _apartmentItems;
 
     public SavePlacementReactiveSystem (Contexts contexts) : base(contexts.game)
     {
         _input = contexts.input;
         _game = contexts.game;
+        _apartmentItems = contexts.game.GetGroup(GameMatcher.ApartmentInstanceSaveID);
     }
 
     protected override ICollector<GameEntity> GetTrigger (IContext<GameEntity> context)
@@ -31,18 +32,39 @@ public class SavePlacementReactiveSystem : ReactiveSystem<GameEntity>
 
     protected override void Execute (List<GameEntity> entities)
     {
+        var saveData = _game.apartmentItemsInstanceData.data;
+
         foreach (var e in entities)
         {
-            // do stuff to the matched entities
-            var saveety = _game.CreateEntity();
-            saveety.AddPlaceablePosition(e.placeablePosition.current);
-            saveety.AddDelayDestroy(1);
-            saveety.AddSaveID(e.saveID.value);
+            if (e.hasApartmentInstanceSaveID)
+            {
+                var savedPoss = saveData[e.entityConfig.name];
+                savedPoss[e.apartmentInstanceSaveID.id] = e.placeablePosition.current;
+            }
+            else
+            {
+                //Dictionary<entityCfgId, Dictionary<AptItemID+Index, Position>>
+                if (saveData.ContainsKey(e.entityConfig.name) == false)
+                {
+                    saveData.Add(e.entityConfig.name, new Dictionary<string, Vector3>());
+                }
 
-            var inputety = _input.CreateEntity();
-            inputety.AddTargetEntityID(saveety.iD.value);
-            inputety.isSave = true;
-            inputety.AddSaveVariant(savePlacementSuffix);
+                var savedPoss = saveData[e.entityConfig.name];
+                var id = e.entityConfig.name + savedPoss.Keys.Count;
+                if (savedPoss.ContainsKey(id))
+                {
+                    savedPoss[id] = e.placeablePosition.current;
+                }
+                else
+                {
+                    savedPoss.Add(id, e.placeablePosition.current);
+                }
+                e.AddApartmentInstanceSaveID(id);
+            }
         }
+
+        var inputety = _input.CreateEntity();
+        inputety.AddTargetEntityID(_game.apartmentItemsInstanceDataEntity.iD.value);
+        inputety.isSave = true;
     }
 }

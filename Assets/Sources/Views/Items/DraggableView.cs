@@ -10,11 +10,12 @@ public class DraggableView : View
     [SerializeField]
     private SpriteRenderer _sprite;
 
-    private bool _drag = false;
     [SerializeField]
     private bool _isOnTopOnly = false;
 
     private IInputTouchService _service;
+
+    private static DraggableView _active = null;
 
     protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
@@ -43,7 +44,7 @@ public class DraggableView : View
         {
             bool result = false;
 
-            if (_service.touch[0].Hits.Length > 0)
+            if (_service.touch[0].Hits.Length > 0 && _active == null)
             {
                 result = _isOnTopOnly ?
                 _service.touch[0].Hits[0].transform == this.transform :
@@ -54,28 +55,28 @@ public class DraggableView : View
             if ((_service.touch[0].Phase == TouchPhase.Began ||
                 _service.touch[0].Phase == TouchPhase.Moved ||
                 _service.touch[0].Phase == TouchPhase.Stationary) &&
-                result)
+                result && _active == null)
             {
-                _drag = true;
-                //create input entity 
-                var inputEty = contexts.input.CreateEntity();
-                inputEty.AddTargetEntityID(this.ID);
-                inputEty.AddTouchData(_service.touch[0]);
+                _active = this;
             }
             else if (_service.touch[0].Phase == TouchPhase.Ended)
             {
-                _drag = false;
-                //create input entity
+                _active = null;
                 var inputEty = contexts.input.CreateEntity();
                 inputEty.AddTargetEntityID(this.ID);
                 inputEty.AddTouchData(_service.touch[0]);
             }
 
-            if (_drag)
+            if (_active == this)
             {
                 var newPos = _service.touch[0].WorldPosition;
                 newPos.z = this.transform.position.z;
                 this.transform.position = newPos;
+
+                //create input entity
+                var inputEty = contexts.input.CreateEntity();
+                inputEty.AddTargetEntityID(this.ID);
+                inputEty.AddTouchData(_service.touch[0]);
             }
         }
     }

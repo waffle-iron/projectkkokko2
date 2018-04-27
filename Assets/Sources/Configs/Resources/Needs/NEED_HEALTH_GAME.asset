@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43626b46a868d5a47a7c16271c084a57, type: 3}
   m_Name: NEED_HEALTH_GAME
   m_EditorClassIdentifier: 
-  _viewName: HealthView
+  _viewNames:
+  - HealthView
   _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441

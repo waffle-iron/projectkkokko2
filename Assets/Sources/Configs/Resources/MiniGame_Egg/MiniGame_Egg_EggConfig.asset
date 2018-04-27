@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e704eb8ffd06ca6409d4c5d13f87e2ef, type: 3}
   m_Name: MiniGame_Egg_EggConfig
   m_EditorClassIdentifier: 
-  _viewName: EggView
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - EggView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 

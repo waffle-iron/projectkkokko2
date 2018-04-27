@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f177f868082d24f968b3631afb2bb1, type: 3}
   m_Name: MiniGame_Egg_ScoreConfig
   m_EditorClassIdentifier: 
-  _viewName: ScoreView
+  _viewNames:
+  - ScoreView
   _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441

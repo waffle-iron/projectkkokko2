@@ -18,5 +18,12 @@ public class UnityDebugService : IDebugService
         Debug.LogError(message);
 #endif
     }
+
+    public void LogWarning (object message)
+    {
+#if !NO_DEBUG_SERVICE
+        Debug.LogWarning(message);
+#endif
+    }
 }
 

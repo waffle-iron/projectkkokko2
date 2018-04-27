@@ -12,6 +12,8 @@ public class SpawnItemOnDrag : MonoBehaviour
     public string entityID;
 
     [SerializeField]
+    private Image _image;
+    [SerializeField]
     private RectTransform _container;
     [SerializeField]
     private Camera _camera;
@@ -30,6 +32,11 @@ public class SpawnItemOnDrag : MonoBehaviour
         _originalPos = _item.anchoredPosition;
         _originalzPos = _item.position.z;
         _mask = _container.GetComponentInChildren<Mask>();
+    }
+
+    public void SetImage (string id, IViewService service)
+    {
+        service.GetAsset<Sprite>(id).Subscribe(sprite => _image.sprite = sprite);
     }
 
     public void OnBeginDrag (PointerEventData eventData)

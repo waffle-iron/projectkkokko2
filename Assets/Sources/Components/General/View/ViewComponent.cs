@@ -8,6 +8,6 @@ using Entitas.CodeGeneration.Attributes;
 [Game, Event(true, Entitas.CodeGeneration.Attributes.EventType.Added), Event(true, Entitas.CodeGeneration.Attributes.EventType.Removed), IgnoreSave]
 public sealed class ViewComponent : IComponent
 {
-    public string name;
+    public string[] names;
     public bool reloadOnSceneChange;
 }

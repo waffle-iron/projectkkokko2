@@ -53,6 +53,16 @@ public class SpineCharacterAccessories : MonoBehaviour, IApplySprite
         }
     }
 
+    public void Hide ()
+    {
+        skeletonAnimation.gameObject.SetActive(false);
+    }
+
+    public void Show ()
+    {
+        skeletonAnimation.gameObject.SetActive(true);
+    }
+
     void ApplyToSpine (Sprite accessory, string slot, string key)
     {
         var skeleton = skeletonAnimation.Skeleton;

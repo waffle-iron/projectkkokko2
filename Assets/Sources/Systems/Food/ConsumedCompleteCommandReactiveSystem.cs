@@ -7,6 +7,7 @@ public class ConsumedCompleteCommandReactiveSystem : ReactiveSystem<CommandEntit
 {
     private readonly GameContext _game;
     private readonly MetaContext _meta;
+    private readonly InputContext _input;
 
     private const string HUNGER_ACTION_ENTITY = "ACTION_EAT_INPUT";
 
@@ -14,6 +15,7 @@ public class ConsumedCompleteCommandReactiveSystem : ReactiveSystem<CommandEntit
     {
         _game = contexts.game;
         _meta = contexts.meta;
+        _input = contexts.input;
     }
 
     protected override ICollector<CommandEntity> GetTrigger (IContext<CommandEntity> context)
@@ -45,7 +47,27 @@ public class ConsumedCompleteCommandReactiveSystem : ReactiveSystem<CommandEntit
                 consumer?.RemoveConsuming();
 
                 var uiFood = _game.GetEntityWithID(target.targetEntityID.value);
-                uiFood.isToDestroy = true;
+                if (uiFood.hasQuantity)
+                {
+                    var newQtty = uiFood.quantity.value - 1;
+                    if (newQtty <= 0)
+                    {
+                        uiFood.isToDestroy = true;
+                        var inputety = _input.CreateEntity();
+                        inputety.AddTargetEntityID(uiFood.iD.value);
+                        inputety.isSave = true;
+                    }
+                    else
+                    {
+                        uiFood.ReplaceQuantity(newQtty);
+                        uiFood.isRemoveFromStorage = false;
+                        var inputety = _input.CreateEntity();
+                        inputety.AddTargetEntityID(uiFood.iD.value);
+                        inputety.isSave = true;
+                    }
+                }
+                else { uiFood.isToDestroy = true; }
+
                 target.isToDestroy = true;
             }
 

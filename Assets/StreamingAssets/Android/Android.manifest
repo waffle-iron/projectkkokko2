@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2606675310
+CRC: 1962941133
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -14,4 +14,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_3:
       Name: food
+      Dependencies: {}
+    Info_4:
+      Name: apartmentitems
       Dependencies: {}

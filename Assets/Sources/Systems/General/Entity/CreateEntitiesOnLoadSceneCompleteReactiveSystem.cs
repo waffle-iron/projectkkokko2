@@ -29,7 +29,10 @@ public class CreateEntitiesOnLoadSceneCompleteReactiveSystem : IExecuteSystem
 
             foreach (var entityCfg in config.sceneInitConfig.initEntities.SelectMany(init => init.Entities).ToArray())
             {
-                _meta.entityService.instance.Add(entityCfg);
+                if (_meta.entityService.instance.Add(entityCfg) == false)
+                {
+                    _meta.debugService.instance.LogWarning($"{config.sceneInitConfig.sceneName} has a null config in its list");
+                }
                 entityCfg.Create(_contexts);
 
             }

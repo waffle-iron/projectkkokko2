@@ -89,13 +89,16 @@ public class ApartmentView : View, IValidPlacementListener, IPlaceablePositionLi
                 _collisions.Clear();
             }
         });
+
+        var gameety = (GameEntity)entity;
+        _col.enabled = gameety.isPlaceable;
         return Observable.Return(true);
     }
 
     protected override void Cleanup ()
     {
         base.Cleanup();
-        collisionDisposable.Dispose();
+        if (collisionDisposable != null) collisionDisposable.Dispose();
     }
 
     protected override void RegisterListeners (IEntity entity, IContext context)

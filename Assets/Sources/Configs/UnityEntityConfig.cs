@@ -7,7 +7,7 @@ public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
 {
     [Header("View Settings")]
     [SerializeField]
-    private string _viewName;
+    private string[] _viewNames;
     [SerializeField]
     private bool _isReloadOnSceneChange = true;
 
@@ -40,9 +40,15 @@ public abstract class UnityEntityConfig : ScriptableObject, IEntityConfig
     public IEntity Create (Contexts contexts)
     {
         var entity = CustomCreate(contexts);
-        if (_viewName.Equals("") == false)
+
+        if (entity is GameEntity)
         {
-            ((GameEntity)entity).AddView(_viewName, _isReloadOnSceneChange);
+            ((GameEntity)entity).AddEntityConfig(this.name);
+        }
+
+        if (_viewNames != null && _viewNames.Length > 0)
+        {
+            ((GameEntity)entity).AddView(_viewNames, _isReloadOnSceneChange);
         }
 
         if (saveID.Equals("") == false)

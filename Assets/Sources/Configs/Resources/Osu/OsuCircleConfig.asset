@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e8c71457eafac4a9e13274d75693b2, type: 3}
   m_Name: OsuCircleConfig
   m_EditorClassIdentifier: 
-  _viewName: HitCircleView
+  _viewNames:
+  - HitCircleView
   _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441

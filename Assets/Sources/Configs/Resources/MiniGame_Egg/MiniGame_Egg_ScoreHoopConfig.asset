@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db611002d6764b049ac7687c622c181e, type: 3}
   m_Name: MiniGame_Egg_ScoreHoopConfig
   m_EditorClassIdentifier: 
-  _viewName: ScoreHoopView
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - ScoreHoopView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 

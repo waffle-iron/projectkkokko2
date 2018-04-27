@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ecdd00561f80414dbd7c5bb5eb7f258, type: 3}
   m_Name: LOADENTITY_GAME
   m_EditorClassIdentifier: 
-  _name: 18
-  _viewName: LoadView
-  _isDestroyOnSceneChange: 0
+  _viewNames:
+  - LoadView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 

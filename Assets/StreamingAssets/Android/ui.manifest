@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 32094520
+CRC: 3579451793
 Hashes:
   AssetFileHash:
     serializedVersion: 2
@@ -14,7 +14,7 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Sprites/Items/UI/cancel.png
+- Assets/Sprites/Items/Items/cancel.png
 - Assets/Sprites/UI/Needs/energy.png
 - Assets/Sprites/UI/Needs/hygiene.png
 - Assets/Sprites/UI/Needs/heart-plus.png

@@ -30,9 +30,15 @@ public class PromptItemView : View, IGamePrePurchaseListener
 
     public void OnPrePurchase (GameEntity entity)
     {
-        if (entity.hasAccessory && entity.hasPrice)
+        if (entity.hasPrice)
         {
-            var text = $"are you sure you want to buy {entity.accessory.id} for {entity.price.amount}?";
+            var itemName = "";
+
+            if (entity.hasAccessory) { itemName = entity.accessory.id; }
+            else if (entity.hasFood) { itemName = entity.food.id; }
+            else if (entity.hasApartmentItem) { itemName = entity.apartmentItem.data.id; }
+
+            var text = $"are you sure you want to buy {itemName} for {entity.price.amount}?";
 
             Action yesAction = () =>
             {

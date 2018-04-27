@@ -24,18 +24,16 @@ public class AccessoryUIView : View, IGameAffordListener, IGameEquippedListener,
     [SerializeField]
     private Text _price;
 
-    protected override void OnEnable ()
+    protected override IObservable<bool> Initialize (IEntity entity, IContext context)
     {
-        base.OnEnable();
         //init look
         _equipped.enabled = false;
         _purchased.enabled = false;
         _price.text = "";
         _display.color = Color.white;
-    }
 
-    protected override IObservable<bool> Initialize (IEntity entity, IContext context)
-    {
+        var gameety = (GameEntity)entity;
+        _price.text = gameety.hasPrice ? gameety.price.amount.ToString() : "0";
         return Observable.Return(true);
     }
 

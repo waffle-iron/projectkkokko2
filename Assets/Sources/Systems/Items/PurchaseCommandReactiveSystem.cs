@@ -33,7 +33,15 @@ public class PurchaseCommandReactiveSystem : ReactiveSystem<CommandEntity>
 
             var target = _game.GetEntityWithID(e.targetEntityID.value);
             target.isPrePurchase = false;
-            target.isPurchased = true;
+
+            if (target.hasQuantity)
+            {
+                target.ReplaceQuantity(target.quantity.value + 1);
+            }
+            else
+            {
+                target.isPurchased = true;
+            }
 
             _game.ReplaceWallet(_game.wallet.amount - target.price.amount);
 
@@ -45,9 +53,20 @@ public class PurchaseCommandReactiveSystem : ReactiveSystem<CommandEntity>
             saveItemEntity.AddTargetEntityID(target.iD.value);
             saveItemEntity.isSave = true;
 
-            var equipInputEntity = _input.CreateEntity();
-            equipInputEntity.AddTargetEntityID(target.iD.value);
-            equipInputEntity.isEquipped = true;
+            if (target.hasAccessory)
+            {
+                var equipInputEntity = _input.CreateEntity();
+                equipInputEntity.AddTargetEntityID(target.iD.value);
+                equipInputEntity.isEquipped = true;
+            }
+
+            if (target.hasApartmentItem && _game.hasApartmentItemsPurchasedList)
+            {
+                _game.apartmentItemsPurchasedList._cfgIds.Add(target.entityConfig.name, target.apartmentItem.data);
+                var saveListEntity = _input.CreateEntity();
+                saveListEntity.AddTargetEntityID(_game.apartmentItemsPurchasedListEntity.iD.value);
+                saveListEntity.isSave = true;
+            }
         }
     }
 }

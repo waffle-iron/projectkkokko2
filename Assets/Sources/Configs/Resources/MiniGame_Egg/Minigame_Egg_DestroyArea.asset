@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b97124b425c27d4a829d391e217d13f, type: 3}
   m_Name: Minigame_Egg_DestroyArea
   m_EditorClassIdentifier: 
-  _viewName: DestroyAreaView
-  _isDestroyOnSceneChange: 1
+  _viewNames:
+  - DestroyAreaView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 

@@ -21,7 +21,6 @@ public class ApartmentPlacementReleaseReactiveSystem : ReactiveSystem<GameEntity
         return entity.hasTouchData &&
             (entity.touchData.current.Phase == TouchPhase.Ended || entity.touchData.current.Phase == TouchPhase.Canceled) &&
             entity.isPlaceable &&
-            entity.hasPreviousPosition &&
             entity.hasPosition &&
             entity.hasValidPlacement;
     }
@@ -31,7 +30,14 @@ public class ApartmentPlacementReleaseReactiveSystem : ReactiveSystem<GameEntity
         foreach (var e in entities)
         {
             // do stuff to the matched entities
-            e.ReplacePlaceablePosition(e.validPlacement.state ? e.position.current : e.previousPosition.current);
+            if (e.hasPreviousPosition || (e.hasPreviousPosition == false && e.validPlacement.state == true))
+            {
+                e.ReplacePlaceablePosition(e.validPlacement.state ? e.position.current : e.previousPosition.current);
+            }
+            else
+            {
+                e.isToDestroy = true;
+            }
         }
     }
 }

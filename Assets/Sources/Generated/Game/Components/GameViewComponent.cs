@@ -11,18 +11,18 @@ public partial class GameEntity {
     public ViewComponent view { get { return (ViewComponent)GetComponent(GameComponentsLookup.View); } }
     public bool hasView { get { return HasComponent(GameComponentsLookup.View); } }
 
-    public void AddView(string newName, bool newReloadOnSceneChange) {
+    public void AddView(string[] newNames, bool newReloadOnSceneChange) {
         var index = GameComponentsLookup.View;
         var component = CreateComponent<ViewComponent>(index);
-        component.name = newName;
+        component.names = newNames;
         component.reloadOnSceneChange = newReloadOnSceneChange;
         AddComponent(index, component);
     }
 
-    public void ReplaceView(string newName, bool newReloadOnSceneChange) {
+    public void ReplaceView(string[] newNames, bool newReloadOnSceneChange) {
         var index = GameComponentsLookup.View;
         var component = CreateComponent<ViewComponent>(index);
-        component.name = newName;
+        component.names = newNames;
         component.reloadOnSceneChange = newReloadOnSceneChange;
         ReplaceComponent(index, component);
     }

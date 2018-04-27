@@ -9,6 +9,7 @@ public class CreateEntitySystems : Feature
     {
         //Add(system here);
         Add(new CreateEntitiesOnLoadSceneCompleteReactiveSystem(contexts));
+        Add(new LoadModEntitiesOnSceneLoadCompleteSystem(contexts));
 
         Add(new CreateEntityInputReactiveSystem(contexts));
         Add(new CreateEntityCommandReactiveSystem(contexts));

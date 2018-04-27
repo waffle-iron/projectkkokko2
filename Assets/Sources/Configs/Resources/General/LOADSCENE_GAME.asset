@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35cb6057bd1f5514cb6cb19034628cd8, type: 3}
   m_Name: LOADSCENE_GAME
   m_EditorClassIdentifier: 
-  _name: 19
-  _viewName: LoadSceneView
-  _isDestroyOnSceneChange: 0
+  _viewNames:
+  - LoadSceneView
+  _isReloadOnSceneChange: 1
   saveID:
     currentCryptoKey: 4441
     hiddenValue: 

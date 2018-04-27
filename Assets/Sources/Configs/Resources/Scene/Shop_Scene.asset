@@ -16,3 +16,5 @@ MonoBehaviour:
   unloadBundles: []
   entities:
   - {fileID: 11400000, guid: b65621a57af9dfe40b23d75bd69b692f, type: 2}
+  - {fileID: 11400000, guid: 2371a860999c5ee4483c3c8cf411fd09, type: 2}
+  - {fileID: 11400000, guid: b6b14559041106647a654055ba2e5f4e, type: 2}
