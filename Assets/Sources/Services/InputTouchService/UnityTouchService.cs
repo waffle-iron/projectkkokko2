@@ -65,6 +65,10 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
             _touchData = PollMouseTouch(currPos, delta, TouchPhase.Ended, _camera);
             if (OnTouch != null) { OnTouch(_touchData); }
         }
+        else
+        {
+            _touchData = null;
+        }
 
 #elif UNITY_ANDROID || UNITY_IOS
         if (Input.touchCount > 0)
@@ -73,12 +77,12 @@ public class UnityTouchService : MonoBehaviour, IInputTouchService
 
             if (OnTouch != null) { OnTouch(_touchData); }
         }
-#endif
+
         else
         {
             _touchData = null;
         }
-
+#endif
     }
 
 #if UNITY_EDITOR

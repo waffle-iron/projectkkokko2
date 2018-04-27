@@ -23,7 +23,7 @@ MonoBehaviour:
   _loadOnStart: 1
   initValue:
     currentCryptoKey: 444444
-    hiddenValue: 444536
+    hiddenValue: 454419
     inited: 1
-    fakeValue: 100
+    fakeValue: 9999
     fakeValueActive: 1
